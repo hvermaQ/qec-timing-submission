@@ -32,6 +32,10 @@ class EffectiveNoise:
 
     name = "effective"
 
+    def __post_init__(self) -> None:
+        if isinstance(self.wait, dict):                      # rebuilt from JSON
+            object.__setattr__(self, "wait", IdleNoise(**self.wait))
+
     def params(self) -> dict[str, Any]:
         return {"p_data": self.p_data, "p_read": self.p_read,
                 "wait": None if self.wait is None else asdict(self.wait)}

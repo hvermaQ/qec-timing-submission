@@ -48,7 +48,9 @@ class RotatedSurfaceCode:
     def _check(self, pauli: Pauli, cells: list[tuple[int, int]]) -> Check:
         support = tuple(sorted(self.index(r, c) for r, c in cells))
         centre = (sum(r for r, _ in cells) / len(cells), sum(c for _, c in cells) / len(cells))
-        return Check(pauli, support, coords=centre)
+        key = (lambda q: (q[1], q[0])) if pauli == "Z" else (lambda q: q)   # hook-safe
+        order = tuple(self.index(r, c) for r, c in sorted(cells, key=key))
+        return Check(pauli, support, order=order, coords=centre)
 
     @cached_property
     def checks(self) -> tuple[Check, ...]:

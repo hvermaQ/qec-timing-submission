@@ -1,0 +1,57 @@
+{
+  "spec": {
+    "spec_version": 1,
+    "code": {
+      "name": "rotated_surface",
+      "params": {
+        "d": 3
+      }
+    },
+    "basis": "X",
+    "schedule": {
+      "tick": 1.0,
+      "interval": 1,
+      "n_rounds": 2
+    },
+    "noise": {
+      "name": "paper",
+      "params": {
+        "p": 0.05,
+        "lam": 0.0,
+        "b_read": 0.0
+      },
+      "data_pauli": "Z"
+    },
+    "shots": 100,
+    "seed": 7000000,
+    "allow_invisible_noise": false,
+    "extra": {}
+  },
+  "n_qubits": 10,
+  "p_inject": 0.050000000000000044,
+  "p_inject_effective": 0.05000019073486328,
+  "hugr_bytes": 13624,
+  "qir_bitcode_bytes": 8984,
+  "seconds_hugr": 0.911126619001152,
+  "seconds_qir": 0.08419352299824823,
+  "qir_calls": {
+    "__quantum__rt__initialize": 1,
+    "___get_current_shot": 1,
+    "___random_seed": 1,
+    "__quantum__qis__phasedx__body": 90,
+    "__quantum__qis__rz__body": 100,
+    "___random_int_bounded": 18,
+    "__quantum__qis__rzz__body": 24,
+    "__quantum__qis__mz__body": 17,
+    "__quantum__qis__reset__body": 16,
+    "__quantum__rt__read_result": 17,
+    "__quantum__rt__bool_record_output": 17
+  },
+  "versions": {
+    "guppylang": "0.21.11",
+    "hugr": "0.15.5",
+    "hugr-qir": "0.1.2",
+    "pyqir": "0.12.6",
+    "quantinuum-qircheck": "0.7.0"
+  }
+}

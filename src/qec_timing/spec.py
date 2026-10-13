@@ -106,3 +106,27 @@ def overlapping_seed_ranges(specs: list[MemorySpec]) -> list[tuple[int, int]]:
                 break
             out.append(tuple(sorted((ranges[a][2], ranges[b][2]))))
     return out
+
+
+def spec_from_json(d: dict[str, Any]) -> MemorySpec:
+    """Rebuild a MemorySpec from `MemorySpec.to_json()`, via the registry.
+
+    Used when results come back from a device: the program's saved spec says what
+    was run. The modules that register codes and noise models must be imported."""
+    import inspect
+
+    from qec_timing import registry
+
+    if d.get("spec_version") != SPEC_VERSION:
+        raise ValueError(f"spec version {d.get('spec_version')}, expected {SPEC_VERSION}")
+    code = registry.create("code", d["code"]["name"], **d["code"]["params"])
+    factory = registry._REGISTRY["noise"][d["noise"]["name"]]
+    kw = dict(d["noise"]["params"])
+    if "pauli" in inspect.signature(factory).parameters and d["noise"].get("data_pauli"):
+        kw["pauli"] = d["noise"]["data_pauli"]
+    noise = factory(**kw)
+    spec = MemorySpec(code, d["basis"], Schedule.from_json(d["schedule"]), noise, d["shots"],
+                      d["seed"], d["allow_invisible_noise"], d["extra"])
+    if spec.to_json() != d:
+        raise ValueError("rebuilt spec differs from the saved one")
+    return spec

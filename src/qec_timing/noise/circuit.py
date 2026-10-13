@@ -72,6 +72,8 @@ class CircuitNoise:
     name = "circuit"
 
     def __post_init__(self) -> None:
+        if isinstance(self.idle, dict):                      # rebuilt from JSON
+            object.__setattr__(self, "idle", IdleNoise(**self.idle))
         for k in ("p1", "p2", "p_meas", "p_init"):
             if not 0.0 <= getattr(self, k) <= 1.0:
                 raise ValueError(f"{k} is not a probability")

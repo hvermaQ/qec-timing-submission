@@ -129,3 +129,11 @@ def test_pooled_agreement_finds_a_consistent_bias():
               for _ in range(20)]
     assert abs(pooled_agreement(same)["mean_z_sigma"]) < 3
     assert pooled_agreement(biased)["mean_z_sigma"] < -3
+
+
+def test_hook_safe_order_matches_original_geometry():
+    # Original repo, src/qec_timing/h2/geometry.py at d = 3 (verified there against
+    # the circuit-level hook_safe ordering for d = 3-11).
+    code = RotatedSurfaceCode(3)
+    assert [list(c.extraction_order) for c in checks_of(code, "Z")] == [[0, 3, 1, 4], [4, 7, 5, 8], [3, 6], [2, 5]]
+    assert [list(c.extraction_order) for c in checks_of(code, "X")] == [[1, 2, 4, 5], [3, 4, 6, 7], [0, 1], [7, 8]]

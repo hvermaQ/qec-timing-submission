@@ -140,3 +140,16 @@ def test_overlapping_seed_ranges():
     a, b, c = _spec(seed=0, shots=100), _spec(seed=50, shots=10), _spec(seed=100, shots=5)
     assert overlapping_seed_ranges([a, b, c]) == [(0, 1)]      # [0,100) meets [50,60)
     assert overlapping_seed_ranges([a, c]) == []                 # [0,100) and [100,105) touch only
+
+
+def test_spec_json_roundtrip_through_registry():
+    from qec_timing.codes.surface import RotatedSurfaceCode
+    from qec_timing.noise.circuit import CircuitNoise, IdleNoise
+    from qec_timing.noise.paper import PaperNoise
+    from qec_timing.spec import spec_from_json
+
+    for noise, basis in ((PaperNoise(0.01, 1.0, pauli="Z"), "X"),
+                         (CircuitNoise(1e-4, 1e-3, 1e-3, idle=IdleNoise(gamma=1e-3)), "X")):
+        spec = MemorySpec(RotatedSurfaceCode(3), basis, Schedule.rounds(2.0, 4), noise, 10, 3)
+        back = spec_from_json(spec.to_json())
+        assert back.to_json() == spec.to_json() and back.run_id("b") == spec.run_id("b")
