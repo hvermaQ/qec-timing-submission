@@ -1,0 +1,92 @@
+{
+ "versions": {
+  "guppylang": "0.21.11",
+  "hugr": "0.15.5",
+  "hugr-qir": "0.1.2",
+  "pyqir": "0.12.6",
+  "quantinuum-qircheck": "0.7.0"
+ },
+ "rows": [
+  {
+   "d": 3,
+   "rounds": 2,
+   "qubits": 10,
+   "bitcode_bytes": 8984,
+   "qir_calls": 302,
+   "rzz": 24,
+   "seconds": 2.0274793519929517
+  },
+  {
+   "d": 3,
+   "rounds": 8,
+   "qubits": 10,
+   "bitcode_bytes": 22648,
+   "qir_calls": 1010,
+   "rzz": 96,
+   "seconds": 0.38352874999691267
+  },
+  {
+   "d": 3,
+   "rounds": 32,
+   "qubits": 10,
+   "bitcode_bytes": 79780,
+   "qir_calls": 3842,
+   "rzz": 384,
+   "seconds": 1.5284624890045961
+  },
+  {
+   "d": 5,
+   "rounds": 2,
+   "qubits": 26,
+   "bitcode_bytes": 20968,
+   "qir_calls": 918,
+   "rzz": 80,
+   "seconds": 0.3772841369936941
+  },
+  {
+   "d": 5,
+   "rounds": 8,
+   "qubits": 26,
+   "bitcode_bytes": 63720,
+   "qir_calls": 3138,
+   "rzz": 320,
+   "seconds": 1.201760640993598
+  },
+  {
+   "d": 5,
+   "rounds": 32,
+   "qubits": 26,
+   "bitcode_bytes": 264004,
+   "qir_calls": 12018,
+   "rzz": 1280,
+   "seconds": 6.530422194991843
+  },
+  {
+   "d": 7,
+   "rounds": 2,
+   "qubits": 50,
+   "bitcode_bytes": 39432,
+   "qir_calls": 1862,
+   "rzz": 168,
+   "seconds": 0.8070978999894578
+  },
+  {
+   "d": 7,
+   "rounds": 8,
+   "qubits": 50,
+   "bitcode_bytes": 136540,
+   "qir_calls": 6410,
+   "rzz": 672,
+   "seconds": 2.8163200779963518
+  },
+  {
+   "d": 7,
+   "rounds": 16,
+   "qubits": 50,
+   "bitcode_bytes": 272788,
+   "qir_calls": 12474,
+   "rzz": 1344,
+   "seconds": 6.78341924099368
+  }
+ ]
+}
