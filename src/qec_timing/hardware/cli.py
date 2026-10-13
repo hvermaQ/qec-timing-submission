@@ -9,6 +9,8 @@
     nexus-submit  run on a Nexus device/emulator: needs --confirm (spends credits)
     nexus-fetch   wait for a submitted job and save the result
     store         turn a job's saved result into a stored run
+    calib-build   readout and spectator-idle calibration programs (QIR), one per layer count
+    calib-fit     fit returned calibration jobs and write a Calibration file
 
 Examples (repo root):
     .venv-h2/bin/python -m qec_timing.hardware.cli build --d 3 --basis X --rounds 2 --p-inject 0.05
@@ -118,6 +120,69 @@ def cmd_store(a) -> None:
     print(f"stored run {store_results(Store(a.store), a.job_dir, a.backend)}")
 
 
+def cmd_calib_build(a) -> None:
+    import importlib.metadata as md
+
+    from hugr_qir.output import OutputFormat
+
+    from qec_timing.hardware.calibration_experiments import idle_program, readout_program
+    from qec_timing.hardware.qir import _convert
+
+    a.out.mkdir(parents=True, exist_ok=True)
+    jobs = [("readout", readout_program(a.readout_qubits),
+             {"experiment": "readout", "n": a.readout_qubits})]
+    for basis in a.bases:
+        for L in a.layers:
+            jobs.append((f"idle_{basis}_L{L}", idle_program(a.targets, a.spectators, L, basis),
+                         {"experiment": "idle", "basis": basis, "layers": L,
+                          "n_targets": a.targets, "n_spectators": a.spectators}))
+    versions = {k: md.version(k) for k in ("guppylang", "hugr-qir")}
+    for name, prog, meta in jobs:
+        bc = _convert(prog.compile(), OutputFormat.BITCODE)
+        (a.out / f"{name}.bc").write_bytes(bc)
+        # p_inject 0: no injected noise, the device's own idling is the experiment.
+        (a.out / f"{name}.json").write_text(json.dumps({**meta, "p_inject": 0.0,
+                                                         "versions": versions}, indent=2))
+        print(f"{a.out / name}.bc  {len(bc)} B")
+
+
+def cmd_calib_fit(a) -> None:
+    import dataclasses
+
+    from qec_timing.hardware import Calibration
+    from qec_timing.hardware.calibration_experiments import (fit_idle, fit_readout, flips,
+                                                             to_calibration_fields)
+    from qec_timing.hardware.providers import load_shots
+
+    out = {"readout": None, "idle": {}}
+    if a.readout:
+        out["readout"] = fit_readout(load_shots(a.readout))
+    by_basis: dict[str, list] = {}
+    for jd in a.idle:
+        meta = json.loads((jd / "program.json").read_text())
+        by_basis.setdefault(meta["basis"], []).append(
+            (meta["layers"], flips(load_shots(jd), meta["basis"])))
+    for basis, pts in by_basis.items():
+        pts.sort()
+        out["idle"][basis] = fit_idle([L for L, _ in pts], [r for _, r in pts])
+    a.out.parent.mkdir(parents=True, exist_ok=True)
+    a.out.with_suffix(".fit.json").write_text(json.dumps(out, indent=2))
+    print(json.dumps(out, indent=2))
+    if "X" not in out["idle"] or a.layer_seconds is None:
+        print("no Calibration written: needs an X-basis idle fit and --layer-seconds")
+        return
+    base = Calibration.load(a.base)
+    fields = to_calibration_fields(out["idle"]["X"], a.layer_seconds)
+    if out["readout"]:
+        fields.update(p_meas0=out["readout"]["p_meas0"], p_meas1=out["readout"]["p_meas1"])
+    sources = ", ".join(p.name for p in ([a.readout] if a.readout else []) + list(a.idle))
+    cal = dataclasses.replace(base, **fields, source=(
+        f"measured: readout and idle ({sources}; layer {a.layer_seconds} s); "
+        f"gates and p_init from: {base.source}"))
+    cal.save(a.out)
+    print(f"wrote {a.out}")
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -173,6 +238,25 @@ def main(argv=None) -> int:
     st.add_argument("job_dir", type=Path)
     st.add_argument("--backend", required=True, help="name for the run, e.g. nexus:H2-1E")
     st.set_defaults(fn=cmd_store)
+
+    cb = sub.add_parser("calib-build")
+    cb.add_argument("--layers", type=int, nargs="+", default=[0, 2, 4, 8, 16, 32, 64])
+    cb.add_argument("--bases", nargs="+", default=["X", "Z"], choices=["X", "Z"])
+    cb.add_argument("--targets", type=int, default=8)
+    cb.add_argument("--spectators", type=int, default=2)
+    cb.add_argument("--readout-qubits", type=int, default=8)
+    cb.add_argument("--out", type=Path, default=Path("results/hardware/calibration_programs"))
+    cb.set_defaults(fn=cmd_calib_build)
+
+    cf = sub.add_parser("calib-fit")
+    cf.add_argument("--readout", type=Path, default=None, help="job dir of the readout program")
+    cf.add_argument("--idle", type=Path, nargs="*", default=[], help="job dirs of idle programs")
+    cf.add_argument("--layer-seconds", type=float, default=None,
+                    help="duration of one spectator layer; without it only per-layer fits are written")
+    cf.add_argument("--base", type=Path, default=Path("config/h2_1e_emulator.json"),
+                    help="gate and init errors are taken from here (not measured by these programs)")
+    cf.add_argument("--out", type=Path, default=Path("config/h2_measured.json"))
+    cf.set_defaults(fn=cmd_calib_fit)
 
     a = ap.parse_args(argv)
     a.fn(a)

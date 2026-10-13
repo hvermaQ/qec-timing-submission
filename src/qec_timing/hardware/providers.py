@@ -175,6 +175,18 @@ def nexus_fetch(job_dir: Path, timeout: float | None = None) -> Path:
 
 # --- results -> store ----------------------------------------------------------
 
+def load_shots(job_dir: Path) -> list[dict]:
+    """Per-shot tag maps of a finished job: result_qsys.json (Nexus) or the first
+    result_*.txt in QSYS format (aqora)."""
+    if (job_dir / "result_qsys.json").exists():
+        return json.loads((job_dir / "result_qsys.json").read_text())
+    from aqora._provider import wire
+    from aqora._provider.results import ProviderResult
+    raw = sorted(job_dir.glob("result_*.txt"))[0].read_text()
+    return [s.collate_tags() for s in ProviderResult(
+        0, wire.RESULT_QSYS_RESULT_JSON_V1, raw).to_qsys_result().results]
+
+
 def store_results(store: Store, job_dir: Path, backend_name: str) -> str:
     """Turn a job's saved shots into a stored run (run id from its spec and backend).
 
@@ -183,14 +195,7 @@ def store_results(store: Store, job_dir: Path, backend_name: str) -> str:
     _register_builtins()
     meta = json.loads((job_dir / "program.json").read_text())
     spec: MemorySpec = spec_from_json(meta["meta"]["spec"] if "meta" in meta else meta["spec"])
-    if (job_dir / "result_qsys.json").exists():
-        shots = json.loads((job_dir / "result_qsys.json").read_text())
-    else:
-        from aqora._provider.results import ProviderResult
-        from aqora._provider import wire
-        raw = sorted(job_dir.glob("result_*.txt"))[0].read_text()
-        shots = [s.collate_tags() for s in ProviderResult(
-            0, wire.RESULT_QSYS_RESULT_JSON_V1, raw).to_qsys_result().results]
+    shots = load_shots(job_dir)
     from qec_timing.codes.base import checks_of
     syn, dat = bits_from_shots(shots, spec.schedule.n_rounds,
                                len(checks_of(spec.code, spec.basis)), spec.code.n_data)

@@ -1,0 +1,9 @@
+{
+  "experiment": "readout",
+  "n": 8,
+  "p_inject": 0.0,
+  "versions": {
+    "guppylang": "0.21.11",
+    "hugr-qir": "0.1.2"
+  }
+}

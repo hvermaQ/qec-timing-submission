@@ -20,8 +20,6 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra"
-# selene-sim leaves its per-run stdout/stderr log files open (in its process.py); not ours.
-filterwarnings = ["ignore:unclosed file:ResourceWarning:selene_sim.process"]
 markers = [
     "slow: builds emulator programs or runs many shots",
     "hardware: needs device credentials; skipped otherwise",

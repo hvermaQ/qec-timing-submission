@@ -7,16 +7,21 @@ are swappable, and every implementation is checked against the same contracts.
 **Status:** step 3 of the migration. Interfaces, store and contracts (step 1); the paper's
 model on Stim and Guppy/Selene with the cross-check (step 2); circuit-level noise on
 textbook and native gates, the effective-model fit, the premise study and the device
-regime study (step 3). Hardware adapters and application idle analysis follow.
+regime study (step 3); application idle analysis and the hardware path: QIR builder,
+local Selene check, aqora and Nexus adapters, calibration experiments and fits (step 4).
 
 ## Setup
 
-Two environments, both Python 3.12, pinned in `envs/`:
+Three environments, pinned in `envs/`. Tests that need another env skip.
 
-| env | file | contains | runs |
-| --- | --- | --- | --- |
-| `.venv` | `envs/core.txt` | numpy, pytest | interfaces, store, contracts (tests needing Stim skip) |
-| `.venv-main` | `envs/main.txt` | + Guppy/Selene, Stim, PyMatching, scipy | everything in step 2 |
+| env | file | Python | contains | runs |
+| --- | --- | --- | --- | --- |
+| `.venv` | `envs/core.txt` | 3.12 | numpy, pytest | interfaces, store, contracts, fits |
+| `.venv-main` | `envs/main.txt` | 3.12 | + Guppy 1.x/Selene, Stim, PyMatching, scipy, pytket | simulations and studies |
+| `.venv-h2` | `envs/h2.txt` | 3.11 | Guppy 0.21, hugr-qir, qnexus, aqora | hardware programs and submission |
+
+The H2 env is separate because hugr-qir 0.1.2 (QIR for H2) needs guppylang 0.21, while the
+simulations use guppylang 1.x. The package core (numpy only) imports in all three.
 
 ```bash
 uv venv --python 3.12 .venv-main
@@ -78,6 +83,8 @@ Each is a module with a CLI; every run goes to the store, the summary to `result
 | `python -m qec_timing.validation.crosscheck` | Do Guppy (noise injected in-program) and Stim agree on the paper's model? | `results/crosscheck/` |
 | `python -m qec_timing.studies.premise --gates textbook\|native` | Does a circuit with realistic noise reduce to the paper's model, and is dt* predictable from one calibration? | `results/premise/` |
 | `python -m qec_timing.studies.regime --calibration FILE --t-round ...` | On a device with these parameters, does waiting between rounds pay, and how much? | `results/regime/` |
+| `python -m qec_timing.studies.idle` | How much time do logical qubits idle in compiled applications, in what stretches? | `results/idle/` |
+| `python -m qec_timing.hardware.cli ...` (H2 env) | Build, check locally, price, submit and fetch hardware programs; fit calibrations | `results/hardware/`, `config/` |
 
 **Regression against the original repo.** The circuit-level backends reproduce the
 original notebooks' cached failure counts exactly (same circuits, same seeds): 12/12
