@@ -1,0 +1,4 @@
+d=3 lin 0.3: p_L(paper decoder)/p_L(full) = 1.01-1.65; dt* full 9.73, paper-decoded 23.65
+d=5 lin 0.3: p_L(paper decoder)/p_L(full) = 1.04-2.11; dt* full 5.15, paper-decoded 15.88
+d=7 lin 0.3: p_L(paper decoder)/p_L(full) = 1.19-3.09; dt* full 3.39, paper-decoded 9.91
+wrote results/decoders/decoders.json

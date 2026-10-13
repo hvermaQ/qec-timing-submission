@@ -89,6 +89,11 @@ Each is a module with a CLI; every run goes to the store, the summary to `result
 | `python -m qec_timing.studies.premise --gates textbook\|native` | Does a circuit with realistic noise reduce to the paper's model, and is dt* predictable from one calibration? | `results/premise/` |
 | `python -m qec_timing.studies.regime --calibration FILE --t-round ...` | On a device with these parameters, does waiting between rounds pay, and how much? | `results/regime/` |
 | `python -m qec_timing.studies.idle` | How much time do logical qubits idle in compiled applications, in what stretches? | `results/idle/` |
+| `python -m qec_timing.studies.scaling` | Does 1/Δt* grow linearly with d with the paper's slope? | `results/scaling/` |
+| `python -m qec_timing.studies.effective` | What λ and b_read does a real extraction circuit have, against the paper's assumed values? | `results/effective/` |
+| `python -m qec_timing.studies.per_qubit` | How unequal are data qubits' errors per round, and where do they come from? | `results/per_qubit/` |
+| `python -m qec_timing.studies.decoders` | Does decoding with the paper's graph instead of the circuit's full error model change the answer? | `results/decoders/` |
+| `python -m qec_timing.studies.idle_scaling` | How does Δt* move with idle strength (power laws, calibrated ansatz, Δt* map with a held-out test)? | `results/idle_scaling/` |
 | `python -m qec_timing.hardware.cli ...` (H2 env) | Build, check locally, price, submit and fetch hardware programs; fit calibrations | `results/hardware/`, `config/` |
 
 **Regression against the original repo.** The circuit-level backends reproduce the

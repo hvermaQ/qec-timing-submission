@@ -1,41 +1,20 @@
-Test run record, 2026-10-13T09:57:14Z, commit 326769c (+ uncommitted notebook/docs changes)
+Test run record, 2026-10-13T10:42:14Z, commit 663ba91 + the step-6 changes committed with this file
 host: Linux 7.0.0-38-generic x86_64, 20 cores
 
 == .venv (Python 3.12.11)
-..ss.......................................ssss..s......                 [100%]
-=========================== short test summary info ============================
-SKIPPED [1] tests/test_circuit.py:8: could not import 'stim': No module named 'stim'
-SKIPPED [1] tests/test_phenom.py:7: could not import 'stim': No module named 'stim'
-SKIPPED [1] tests/test_studies.py:7: could not import 'stim': No module named 'stim'
-SKIPPED [1] tests/test_apps.py:32: could not import 'pytket': No module named 'pytket'
-SKIPPED [1] tests/test_apps.py:55: could not import 'pytket': No module named 'pytket'
-SKIPPED [2] tests/test_hardware.py:43: could not import 'hugr_qir': No module named 'hugr_qir'
 SKIPPED [1] tests/test_hardware.py:52: could not import 'hugr_qir': No module named 'hugr_qir'
 SKIPPED [1] tests/test_hardware.py:68: could not import 'hugr_qir': No module named 'hugr_qir'
 SKIPPED [1] tests/test_hardware.py:130: could not import 'hugr_qir': No module named 'hugr_qir'
-49 passed, 10 skipped in 2.14s
+50 passed, 11 skipped in 2.03s
 
 == .venv-main (Python 3.12.11)
-tests/test_studies.py::test_parallel_runs_match_serial
-tests/test_studies.py::test_parallel_runs_match_serial
-tests/test_studies.py::test_parallel_runs_match_serial
-tests/test_studies.py::test_parallel_runs_match_serial
-tests/test_studies.py::test_parallel_runs_match_serial
-  /home/harshit-verma/.local/share/uv/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=181081) is multi-threaded, use of fork() may lead to deadlocks in the child.
-    self.pid = os.fork()
-
--- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-=========================== short test summary info ============================
-SKIPPED [2] tests/test_hardware.py:43: could not import 'hugr_qir': No module named 'hugr_qir'
 SKIPPED [1] tests/test_hardware.py:52: could not import 'hugr_qir': No module named 'hugr_qir'
 SKIPPED [1] tests/test_hardware.py:68: could not import 'hugr_qir': No module named 'hugr_qir'
 SKIPPED [1] tests/test_hardware.py:130: could not import 'hugr_qir': No module named 'hugr_qir'
-94 passed, 5 skipped, 6 warnings in 18.85s
+100 passed, 5 skipped, 6 warnings in 16.98s
 
 == .venv-h2 (Python 3.11.13)
-........................................................                 [100%]
-=========================== short test summary info ============================
-SKIPPED [1] tests/test_circuit.py:8: could not import 'stim': No module named 'stim'
+SKIPPED [1] tests/test_new_studies.py:6: could not import 'stim': No module named 'stim'
 SKIPPED [1] tests/test_phenom.py:7: could not import 'stim': No module named 'stim'
 SKIPPED [1] tests/test_studies.py:7: could not import 'stim': No module named 'stim'
-56 passed, 3 skipped in 9.97s
+57 passed, 4 skipped in 8.74s

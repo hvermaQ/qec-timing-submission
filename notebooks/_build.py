@@ -112,7 +112,7 @@ for d in (5, 7, 9):
     c = P.SERIES[(5, 7, 9).index(d)]                       # slots 1-3 for this study's distances
     ax.plot(dt, st, "-", color=c, lw=1.5)
     ax.errorbar(dt, g, yerr=[glo, ghi], fmt="o", color=c, ms=5, capsize=0, lw=1)
-    P.label_end(ax, dt[-1], st[-1], f"d = {d}")
+    P.label_end(ax, dt[-1], st[-1], P.dl(d))
 ax.set_xscale("log"); ax.set_yscale("log")
 ax.set_xlabel(r"interval $\\Delta t$"); ax.set_ylabel(r"logical error $p_L$ at $T = 10$")
 ax.set_title("Lines: Stim (200k shots). Points: Guppy, 99.9% intervals", loc="left")
@@ -160,10 +160,10 @@ for d in (3, 5, 7):
     rows = [r for r in sc["rows"] if r["d"] == d]
     x = [r["rounds"] * (d * d - 1) for r in rows]          # check measurements per shot
     y = [r["qir_calls"] for r in rows]
-    ax.plot(x, y, "o-", color=P.D_COLOR[d]); P.label_end(ax, x[-1], y[-1], f"d = {d}")
+    ax.plot(x, y, "o-", color=P.D_COLOR[d]); P.label_end(ax, x[-1], y[-1], P.dl(d))
 ax.set_xscale("log"); ax.set_yscale("log")
-ax.set_xlabel("syndrome measurements per shot (rounds x checks)"); ax.set_ylabel("QIR calls")
-ax.set_title("Program size grows linearly with rounds x checks", loc="left")
+ax.set_xlabel(r"syndrome measurements per shot (rounds $\\times$ checks)"); ax.set_ylabel("QIR calls")
+ax.set_title(r"Program size grows linearly with rounds $\\times$ checks", loc="left")
 fig.tight_layout()
 '''),
 md('''
@@ -257,17 +257,22 @@ for ax, idle in zip(axes, ("lin 0.3", "quad 0.01", "mixed")):
         full = r["full"]["points"]; pred = r["predicted"]["points"]
         ax.plot([q["dt"] for q in full], [q["r"] for q in full], "o", color=c, ms=4)
         ax.plot([q["dt"] for q in pred], [q["r"] for q in pred], "-", color=c, lw=1.5)
-        o = r["full"]["optimum"]["dt_star"]; ax.axvline(o, color=c, lw=0.8, ls=":")
-    ax.set_xscale("log"); ax.set_yscale("log"); ax.set_title(f"idle: {idle}", loc="left")
-    ax.set_xlabel(r"round period $\\Delta t$ (units of $t_R$)")
-axes[0].set_ylabel("logical error rate per unit time")
+        o = r["full"]["optimum"]["dt_star"]; ax.axvline(o, color=c, lw=0.8, ls=":", ymax=0.80)
+    ax.set_xscale("log"); ax.set_yscale("log"); ax.set_title(P.idle_label(idle), loc="left")
+    ax.set_xlabel(P.DT_TR)
+    lo_, hi_ = ax.get_ylim(); ax.set_ylim(lo_, hi_ * 5)            # headroom for the values
+    txt = "    ".join(rf"$d={r['d']}$: {r['full']['optimum']['dt_star']:.2f} / {r['predicted']['optimum']['dt_star']:.2f}"
+                      for r in pr["native"]["rows"] if r["idle"] == idle)
+    ax.text(0.03, 0.97, r"$\\Delta t^*$ circuit / model" + "\\n" + txt, transform=ax.transAxes, ha="left",
+            va="top", fontsize=8, color=P.INK_2)
+axes[0].set_ylabel(P.RATE)
 from matplotlib.lines import Line2D
-handles = [Line2D([], [], color=P.D_COLOR[d], marker="o", ls="-", label=f"d = {d}") for d in (3, 5, 7)]
+handles = [Line2D([], [], color=P.D_COLOR[d], marker="o", ls="-", label=P.dl(d)) for d in (3, 5, 7)]
 handles += [Line2D([], [], color=P.MUTED, marker="o", ls="", label="full circuit"),
             Line2D([], [], color=P.MUTED, ls="-", label="model, one calibration"),
-            Line2D([], [], color=P.MUTED, ls=":", lw=0.8, label="circuit dt*")]
+            Line2D([], [], color=P.MUTED, ls=":", lw=0.8, label=r"circuit $\\Delta t^*$")]
 fig.legend(handles=handles, loc="lower center", ncol=6, bbox_to_anchor=(0.5, -0.04), fontsize=9)
-fig.suptitle("Native gates: the full circuit against the paper's model calibrated once at dt = 1", x=0.01, ha="left")
+fig.suptitle(r"Native gates: the full circuit against the paper's model calibrated once at $\\Delta t = 1$", x=0.01, ha="left")
 fig.tight_layout(rect=(0, 0.06, 1, 1))
 '''),
 md('''
@@ -343,9 +348,9 @@ for ax, basis in zip(axes, ("X", "Z")):
         dt, pl = zip(*out[(basis, label)])
         ax.plot(dt, pl, ls, marker="o", color=P.SERIES[0], label=label)
     ax.legend(loc="upper right", fontsize=9)
-    ax.set_xscale("log", base=2); ax.set_xlabel(r"round period $\\Delta t$ ($t_R$), fixed T = 48")
+    ax.set_xscale("log", base=2); ax.set_xlabel(r"$\\Delta t / t_R$, fixed $T = 48\\,t_R$")
     ax.set_title(f"{basis}-basis memory", loc="left")
-axes[0].set_ylabel(r"$p_L$")
+axes[0].set_ylabel(P.PL)
 fig.suptitle("Dephasing changes the X-basis memory; the Z-basis memory cannot see it", x=0.01, ha="left")
 fig.tight_layout()
 '''),
@@ -418,8 +423,8 @@ for ax, (name, (layers, rates, fit)) in zip(axes, fits.items()):
     Lf = np.linspace(0, L[-1], 200)
     ax.plot(Lf, 0.5 * (1 - (1 - 2 * fit["spam_floor"]) * (1 - 2 * idle_pz(Lf, fit["gamma_per_layer"], fit["c_per_layer"]))),
             "-", color=P.SERIES[0], lw=1.5)
-    ax.set_xlabel("spectator layers L"); ax.set_title(name, loc="left")
-axes[0].set_ylabel("target flip probability (X basis)")
+    ax.set_xlabel(r"spectator layers $L$"); ax.set_title(name, loc="left")
+axes[0].set_ylabel(r"target flip probability ($X$ basis)")
 fig.suptitle("Synthetic H2-1E idling, 10 ms per layer: data and fit", x=0.01, ha="left")
 fig.tight_layout()
 '''),
@@ -500,7 +505,7 @@ ax.set_xticks(range(len(T_R)), [f"{t*1e3:g}" for t in T_R])
 ax.set_yticks(range(len(DS)), [f"d = {d}" for d in DS])
 ax.set_xlabel("syndrome round duration $t_R$ (ms)"); ax.grid(False)
 ax.set_title("Gain of the optimal interval over back-to-back extraction (rate per unit time)", loc="left")
-fig.colorbar(im, ax=ax, label="log10 gain", fraction=0.025, pad=0.01)
+fig.colorbar(im, ax=ax, label=r"$\\log_{10}$ gain", fraction=0.025, pad=0.01)
 fig.tight_layout()
 '''),
 code('''
@@ -508,11 +513,11 @@ fig, axes = plt.subplots(1, 2, figsize=(10, 3.6))
 for d in DS:
     ts = [t for t in T_R if (t, d) in cell]
     axes[0].plot([t * 1e3 for t in ts], [cell[(t, d)]["dt_star_seconds"] * 1e3 for t in ts], "o-",
-                 color=P.D_COLOR[d], label=f"d = {d}")
+                 color=P.D_COLOR[d], label=P.dl(d))
 axes[0].plot([T_R[0] * 1e3, T_R[-1] * 1e3], [T_R[0] * 1e3, T_R[-1] * 1e3], "--", color=P.MUTED, lw=1,
              label="back to back")
 axes[0].set_xscale("log"); axes[0].set_yscale("log"); axes[0].legend(fontsize=8)
-axes[0].set_xlabel("$t_R$ (ms)"); axes[0].set_ylabel("optimal period (ms)")
+axes[0].set_xlabel(r"$t_R$ (ms)"); axes[0].set_ylabel(r"optimal period $\\Delta t^*$ (ms)")
 axes[0].set_title("Optimal period in physical time", loc="left")
 d = 5
 for t, c in zip((0.002, 0.03, 0.1), (P.SEQUENTIAL[6], P.SEQUENTIAL[4], P.SEQUENTIAL[2])):
@@ -521,10 +526,10 @@ for t, c in zip((0.002, 0.03, 0.1), (P.SEQUENTIAL[6], P.SEQUENTIAL[4], P.SEQUENT
         continue
     pts = [p for p in r["points"] if p.get("used")]
     axes[1].plot([p["dt"] for p in pts], [p["r"] / pts[0]["r"] for p in pts], "o-", color=c,
-                 label=f"$t_R$ = {t*1e3:g} ms")
+                 label=rf"$t_R = {t*1e3:g}$ ms: $\\times${r['gain']:.1f} at $\\Delta t^* = {r['dt_star_rounds']:.1f}$")
 axes[1].set_xscale("log"); axes[1].set_yscale("log"); axes[1].legend(fontsize=8)
 axes[1].set_xlabel(r"period $\\Delta t$ (rounds)"); axes[1].set_ylabel(r"rate / rate at $\\Delta t$ = 1")
-axes[1].set_title(f"U-curves at d = {d}", loc="left")
+axes[1].set_title(rf"U-curves at $d = {d}$", loc="left")
 fig.tight_layout()
 '''),
 md('''
@@ -583,12 +588,12 @@ for d in DS:
     ax.plot([t * 1e3 for t in ts], [cell[(t, d)]["points"][0]["r"] / t for t in ts], "--", color=P.D_COLOR[d], lw=1.5)
     ax.plot([t * 1e3 for t in ts], [best(cell[(t, d)])[0] / t for t in ts], "o-", color=P.D_COLOR[d])
 ax.set_xscale("log"); ax.set_yscale("log")
-ax.set_xlabel("$t_R$ (ms)"); ax.set_ylabel("logical error rate per second")
-h = [Line2D([], [], color=P.D_COLOR[d], marker="o", label=f"d = {d}") for d in DS]
+ax.set_xlabel(r"$t_R$ (ms)"); ax.set_ylabel(r"logical error rate $R$ (s$^{-1}$)")
+h = [Line2D([], [], color=P.D_COLOR[d], marker="o", label=P.dl(d)) for d in DS]
 h += [Line2D([], [], color=P.MUTED, ls="--", label="back to back"),
       Line2D([], [], color=P.MUTED, marker="o", label="optimal interval")]
 ax.legend(handles=h, fontsize=8, ncol=2)
-ax.set_title("Optimal interval at d against back-to-back extraction at d + 2", loc="left")
+ax.set_title(r"Optimal interval at $d$ against back-to-back extraction at $d + 2$", loc="left")
 fig.tight_layout()
 '''),
 md('''
@@ -612,11 +617,399 @@ md('''
 '''),
 ]
 
+# ---------------------------------------------------------------------------
+# Scaling (study A) appended to notebook 03.
+NB["03_paper_model_guppy_vs_stim"] += [
+md('''
+## The paper's scaling: 1/Δt* grows linearly with d
+
+**Source:** `python -m qec_timing.studies.scaling` → `results/scaling/scaling.json`. Same
+model, Stim, 15 intervals per distance from 0.2× to 4× Eq. 6's prediction, 200k shots each;
+Δt* from the parabola-in-log fit with a bootstrap interval; 1/Δt* = η d + z by weighted
+least squares. The paper's slope 0.402 was fitted on d = 11–27 with T = 200.
+'''),
+code('''
+sc = json.loads((R / "scaling" / "scaling.json").read_text())
+f = sc["fit"]
+print(f"1/dt* = ({f['eta']:.3f} +/- {f['eta_se']:.3f}) d + ({f['z']:.3f} +/- {f['z_se']:.3f});  "
+      f"paper slope {f['paper_eta']}: {f['sigma_from_paper']:+.1f} sigma")
+for r in sc["rows"]:
+    o = r["optimum"]
+    print(f"d={r['d']:>2}: dt* = {o['dt_star']:.4f} [{o['lo']:.4f}, {o['hi']:.4f}]   Eq. 6 (g = 0.8): {r['eq6']:.4f}")
+'''),
+code('''
+fig, axes = plt.subplots(1, 2, figsize=(11, 3.8))
+cols = dict(zip([r["d"] for r in sc["rows"]], P.SERIES + ["#e87ba4"]))
+for r in sc["rows"]:
+    pts = r["points"]; c = cols[r["d"]]
+    rr = np.array([p["r"] for p in pts]); dt = np.array([p["dt"] for p in pts])
+    axes[0].plot(dt, rr / rr.min(), "o-", color=c, ms=3, lw=1.5,
+                 label=rf"$d = {r['d']}$: $\\Delta t^* = {r['optimum']['dt_star']:.3f}$")
+    axes[0].axvline(r["optimum"]["dt_star"], color=c, lw=0.8, ls=":")
+axes[0].set_xscale("log"); axes[0].set_yscale("log"); axes[0].legend(fontsize=8)
+axes[0].set_xlabel(P.DT); axes[0].set_ylabel(r"$R / R_{\\min}$")
+axes[0].set_title(r"U-curves (dotted: fitted $\\Delta t^*$)", loc="left")
+d = np.array([r["d"] for r in sc["rows"]], float)
+y = np.array([1 / r["optimum"]["dt_star"] for r in sc["rows"]])
+s = np.array([(1 / r["optimum"]["lo"] - 1 / r["optimum"]["hi"]) / 2 for r in sc["rows"]])
+xs = np.linspace(d.min() - 1, d.max() + 1, 50)
+axes[1].errorbar(d, y, yerr=s, fmt="o", color=P.SERIES[0], ms=6, label="this work (Stim)")
+axes[1].plot(xs, f["eta"] * xs + f["z"], "-", color=P.SERIES[0], lw=1.5, label=rf"fit: $1/\\Delta t^* = {f['eta']:.3f}\\,d {f['z']:+.2f}$")
+axes[1].plot(xs, 0.8 * (xs + 1) / 2 - 1, "--", color=P.MUTED, lw=1.2,      # Eq. 6: 1/dt* = lam (alpha - 1)
+             label=r"Eq. 6, $g = 0.8$ (slope 0.4)")
+gx = [5, 7, 9]; gy = [1 / 0.9343, 1 / 0.5546, 1 / 0.3888]
+axes[1].plot(gx, gy, "s", color=P.SERIES[1], ms=5, label="original Stage 4a (Guppy + reference)")
+axes[1].set_xlabel(r"distance $d$"); axes[1].set_ylabel(r"$1/\\Delta t^*$"); axes[1].legend(fontsize=8)
+axes[1].set_title(rf"Slope ${f['eta']:.3f} \\pm {f['eta_se']:.3f}$ against the paper's $0.402$", loc="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* 1/Δt* is linear in d with slope 0.385 ± 0.013, within 1.3σ of the paper's 0.402,
+  and twice as precise as the original Stage 4a fit (0.376 ± 0.026).
+- *Measured:* the fitted Δt* sits above Eq. 6 by +38% at d = 5, falling to +11% at d = 11. Eq. 6
+  uses the paper's g = 0.8, fitted at d = 11–27; at small d the effective g is lower (original
+  Stage 4a: g ≈ 0.70), and the gap closes as d grows, as it should.
+'''),
+]
+
+NB["06a_artificial_idle_effective_parameters"] = [
+md('''
+# 06a — First step: an artificial idle model, and the circuit's effective λ and b_read
+
+**Narrative point 7, first step.** Before realistic idle noise, the arc used Selene's own
+error model: a depolarizing Pauli before every native gate, with idling written as explicit
+identity operations charged the same rate. It is artificial (ions do not depolarize when
+idle, and an Rx(0) has no duration), but it answers a precise question: what λ and b_read
+does a real extraction circuit have, compared with the paper's assumed λ = 0.31 and b_read = 1?
+
+**Source:** `python -m qec_timing.studies.effective` → `results/effective/effective.json`.
+Selene's native gates mirrored exactly in Stim (`stim_native`), p1 = 5×10⁻⁴ on every
+single-qubit gate including Rz, Rzz charged p2 = ρ·p1, readout 2×10⁻³, one idle op per unit
+of interval on each data qubit; Z basis. p_data(Δt) and p_read are measured from detection
+events at Δt = 1, 2, 4, 8; Eqs. 1–2 make ln(1 − p_data) linear in Δt, giving p_stab and λ.
+'''),
+SETUP,
+code('''
+ef = json.loads((R / "effective" / "effective.json").read_text())
+print(f"{'d':>2}{'rho':>6}{'p_stab':>10}{'lambda':>9}{'b_read':>8}{'floor':>8}")
+for e in ef["params"]:
+    print(f"{e['d']:>2}{e['rho']:>6g}{e['p_stab']:>10.2e}{e['lam']:>9.3f}{e['b_read']:>8.3f}{e['b_read_floor']:>8.3f}")
+'''),
+code('''
+fig, axes = plt.subplots(1, 2, figsize=(10.5, 3.6))
+for d in sorted({e["d"] for e in ef["params"]}):
+    rows = [e for e in ef["params"] if e["d"] == d]
+    rho = [max(e["rho"], 0.3) for e in rows]
+    axes[0].plot(rho, [e["lam"] for e in rows], "o-", color=P.D_COLOR[d], label=P.dl(d))
+    axes[1].plot(rho, [e["b_read"] for e in rows], "o-", color=P.D_COLOR[d], label=P.dl(d))
+    axes[1].plot(rho, [e["b_read_floor"] for e in rows], "o--", color=P.D_COLOR[d], ms=3, lw=1.2)
+for ax, ref, name in ((axes[0], ef["setup"]["paper_lam"], r"paper $\\lambda = 0.31$ (Willow fit)"),
+                      (axes[1], ef["setup"]["paper_b_read"], r"paper $b_{\\rm read} = 1$")):
+    ax.axhline(ref, color=P.MUTED, ls="--", lw=1)
+    ax.annotate(name, (0.35, ref), xytext=(0, -4), textcoords="offset points", va="top", color=P.INK_2, fontsize=8)
+    ax.set_xscale("log"); ax.set_xlabel(r"$\\rho = p_2 / p_1$ ($\\rho = 0$ drawn at 0.3)"); ax.legend(fontsize=8)
+axes[0].set_yscale("log"); axes[0].set_ylabel(r"effective $\\lambda$"); axes[1].set_ylabel(r"effective $b_{\\rm read}$")
+axes[0].set_title(r"$\\lambda$ falls as two-qubit gates get noisier", loc="left")
+axes[1].set_title(r"$b_{\\rm read}$: solid with readout error, dashed its floor ($p_{\\rm meas} = 0$)", loc="left")
+fig.tight_layout()
+'''),
+code('''
+fig, axes = plt.subplots(1, len(ef["curves"]), figsize=(4 * len(ef["curves"]), 3.4), sharey=False)
+for ax, c in zip(np.atleast_1d(axes), ef["curves"]):
+    col = P.D_COLOR[c["d"]]
+    for key, ls, lab in (("paper", ":", r"paper $\\lambda$, $b_{\\rm read}$"),
+                         ("effective", "-", r"circuit's own $\\lambda$, $b_{\\rm read}$")):
+        pts = c[key]["points"]
+        ax.plot([p["dt"] for p in pts], [p["pL"] for p in pts], ls, marker="o", ms=3, color=col, label=lab)
+        ax.axvline(c[key]["optimum"]["dt_star"], color=col, ls=ls, lw=0.8)
+    ax.set_xscale("log"); ax.set_yscale("log"); ax.set_title(P.dl(c["d"]), loc="left")
+    ax.set_xlabel(r"$\\Delta t$ ($T = 96$)"); ax.legend(fontsize=8)
+np.atleast_1d(axes)[0].set_ylabel(P.PL)
+fig.suptitle(r"Same $p_{\\rm stab}$: the paper's $\\lambda$, $b_{\\rm read}$ (dotted) against the circuit's own (solid)", x=0.01, ha="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* with only single-qubit noise (ρ = 0), the circuit's effective λ is well below the
+  paper's 0.31: an extraction round already charges each data qubit several gate-errors' worth,
+  so one idle op is small in comparison. λ falls further as ρ grows.
+- *Measured:* b_read (solid) includes the 2×10⁻³ readout error and so sits well above 1 at these
+  small gate rates; its floor (dashed, readout error off: what the ancilla's gate noise alone
+  adds, the original repo's definition) is the circuit-structure part. Both fall as two-qubit
+  noise grows, because the data error grows faster than the record error.
+- *Measured:* those parameters move Δt*: with the circuit's own λ and b_read the optimum is
+  2.2× (d = 5) and 2.5× (d = 7) longer than with the paper's, exactly the λ ratio Eq. 6 predicts
+  (Δt* ∝ 1/λ: 0.31/0.131, 0.31/0.125); 4.1× at d = 3, where the readout term adds to it. Shots
+  are sized per point to ~300 failures; with a fixed 100k shots the d = 7 curves (20–90
+  failures per point) could not locate the minimum. The paper's two numbers are circuit
+  properties to be measured, not constants; that is what notebook 06 does with realistic noise.
+- *Why the next step:* this idle model (depolarizing, an op count with no duration) is not
+  trapped-ion physics; notebook 07 replaces it with time-based Z dephasing on every qubit.
+'''),
+]
+
+NB["06b_per_qubit_error"] = [
+md('''
+# 06b — Data qubits are not equal: per-qubit error and where it comes from
+
+**Narrative point 8.** The paper gives every data qubit the same flip probability per round.
+In the circuit each qubit's error depends on how many CNOTs it sits in, at which end, and on
+faults that spread to it from ancillas through later CNOTs (hook errors).
+
+**Source:** `python -m qec_timing.studies.per_qubit` → `results/per_qubit/per_qubit.json`.
+One round of the actual noisy circuit (premise settings: H2 ratios scaled to p2 = 5×10⁻³,
+linear idle γ = 0.3 p2 on every qubit, X basis) in Stim's Pauli-frame simulator, 200k frames;
+the Z component on each data qubit after the round. Split by keeping one noise class at a time.
+'''),
+SETUP,
+code('''
+pq = json.loads((R / "per_qubit" / "per_qubit.json").read_text())
+for r in pq["rows"]:
+    z = {k: np.array(v) for k, v in r["z"].items()}
+    print(f"d={r['d']} {r['gates']:<8} mean {z['total'].mean():.2e}  range {z['total'].min():.2e}-{z['total'].max():.2e}  "
+          f"(x{z['total'].max() / z['total'].min():.1f})   shares: data {z['data'].sum() / z['total'].sum():.0%}, "
+          f"propagated {z['ancilla'].sum() / z['total'].sum():.0%}, idle {z['idle'].sum() / z['total'].sum():.0%}")
+'''),
+code('''
+rows = [r for r in pq["rows"] if r["d"] == max(x["d"] for x in pq["rows"])]
+fig, axes = plt.subplots(1, len(rows), figsize=(4.6 * len(rows), 4))
+vmax = max(max(r["z"]["total"]) for r in rows)
+for ax, r in zip(np.atleast_1d(axes), rows):
+    d = r["d"]; M = np.full((d, d), np.nan)
+    for (row, col), v in zip(r["grid"], r["z"]["total"]):
+        M[int(row), int(col)] = v
+    im = ax.imshow(M, cmap=P.sequential_cmap(), vmin=0, vmax=vmax)
+    for i in range(d):
+        for j in range(d):
+            ax.text(j, i, f"{M[i, j] * 100:.2f}", ha="center", va="center", fontsize=7,
+                    color="white" if M[i, j] > 0.6 * vmax else P.INK)
+    ax.set_xticks([]); ax.set_yticks([]); ax.grid(False)
+    ax.set_title(rf"$d = {d}$, {r['gates']} gates (% per round)", loc="left")
+fig.colorbar(im, ax=axes, label="Z-error probability per round", fraction=0.03)
+'''),
+code('''
+r = next(x for x in pq["rows"] if x["d"] == min(y["d"] for y in pq["rows"]) and x["gates"] == "native")
+z = {k: np.array(v) for k, v in r["z"].items()}
+order = np.argsort(-z["total"]); x = np.arange(len(order))
+fig, ax = plt.subplots(figsize=(8, 3.4))
+bottom = np.zeros(len(order))
+for key, col, lab in (("data", P.SEQUENTIAL[5], "own (gates on the data qubit)"),
+                      ("ancilla", P.SERIES[1], "propagated from ancillas"),
+                      ("idle", P.SEQUENTIAL[2], "idling")):
+    ax.bar(x, z[key][order], bottom=bottom, color=col, width=0.7, label=lab, edgecolor=P.SURFACE, linewidth=1)
+    bottom += z[key][order]
+ax.plot(x, z["total"][order], "_", color=P.INK, ms=14, mew=1.5, label="total (all noise at once)")
+ax.set_xticks(x, [f"q{i}" for i in order]); ax.set_ylabel("Z-error probability per round")
+ax.legend(fontsize=8); ax.set_title(rf"$d = {r['d']}$, native gates: sources per data qubit", loc="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* per-round error varies about 3× across data qubits: corner and edge qubits sit in
+  fewer CNOTs than bulk qubits. The paper's model replaces this with one number.
+- *Measured:* with native gates 16–17% of the data error arrives by propagation from ancillas
+  (7–9% with textbook gates): the native CNOT decomposition puts noisy single-qubit gates on the
+  ancillas, and their faults spread through later CNOTs.
+- *Consequence:* a decoder or a model that assumes uniform, independent data errors misses
+  structure that the circuit's own detector error model contains (notebook 06c).
+- *Note:* these are physical error frames; the effective p_data measured from detection events
+  (notebook 06) is lower, because correlated pairs from one fault (hooks) count once there.
+'''),
+]
+
+NB["06c_decoder_matters"] = [
+md('''
+# 06c — The decoder decides the answer, not only the error rate
+
+**Narrative point 8.** Decoding with the paper's phenomenological graph (the natural choice when
+only p_data and p_read are known) against decoding with the circuit's full detector error model,
+on the same detection events.
+
+**Source:** `python -m qec_timing.studies.decoders` → `results/decoders/decoders.json`. The
+premise study's native-gate runs (linear idle γ = 0.3 p2), each decoded twice: PyMatching on the
+circuit's exact DEM, and PyMatching on the paper's model with the same circuit's measured
+p_data(Δt) and p_read.
+'''),
+SETUP,
+code('''
+dec = json.loads((R / "decoders" / "decoders.json").read_text())
+for r in dec["rows"]:
+    ratio = np.array([p["pL_paper"] / p["pL_full"] for p in r["points"]])
+    print(f"d={r['d']} {r['idle']}: p_L ratio (paper graph / full DEM) {ratio.min():.2f}-{ratio.max():.2f};  "
+          f"dt* full {r['optimum_full']['dt_star']:.2f}, with the paper graph {r['optimum_paper']['dt_star']:.2f}")
+'''),
+code('''
+fig, axes = plt.subplots(1, 2, figsize=(11, 3.8))
+for r in dec["rows"]:
+    c = P.D_COLOR[r["d"]]; pts = r["points"]
+    dt = [p["dt"] for p in pts]
+    axes[0].plot(dt, [p["r_full"] for p in pts], "-o", color=c, ms=3,
+                 label=rf"$d = {r['d']}$, full DEM: $\\Delta t^* = {r['optimum_full']['dt_star']:.1f}$")
+    axes[0].plot(dt, [p["r_paper"] for p in pts], ":", marker="o", ms=3, color=c,
+                 label=rf"$d = {r['d']}$, paper graph: $\\Delta t^* = {r['optimum_paper']['dt_star']:.1f}$")
+    axes[1].plot(dt, [p["pL_paper"] / p["pL_full"] for p in pts], "o-", color=c, ms=3, label=P.dl(r["d"]))
+axes[0].set_xscale("log"); axes[0].set_yscale("log"); axes[0].legend(fontsize=7, ncol=2)
+axes[0].set_xlabel(P.DT_TR); axes[0].set_ylabel(P.RATE)
+axes[0].set_title("Same shots, two decoders", loc="left")
+axes[1].axhline(1, color=P.MUTED, lw=1, ls="--"); axes[1].set_xscale("log"); axes[1].legend(fontsize=8)
+axes[1].set_xlabel(P.DT_TR); axes[1].set_ylabel(r"$p_L^{\\rm paper\\ graph} / p_L^{\\rm full\\ DEM}$")
+axes[1].set_title("What the simple decoder loses", loc="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* the phenomenological graph loses most at short intervals, where mid-round and
+  hook faults (which it cannot represent) are a larger share of all faults, and the loss grows
+  with distance.
+- *Measured, the important part:* because the loss depends on Δt, the simple decoder also moves
+  the optimum, here to a much longer interval. A study that used it would recommend the wrong
+  interval. Every circuit-level result in this repo decodes with the full DEM.
+'''),
+]
+
+NB["08b_dt_star_vs_idle_strength"] = [
+md('''
+# 08b — How the optimum moves with idle-noise strength, and why
+
+**Narrative point 10.** Across idle strengths, with gates held fixed: does Δt* follow the
+scaling the paper's ansatz implies, and where does waiting stop paying?
+
+**Source:** `python -m qec_timing.studies.idle_scaling` → `results/idle_scaling/idle_scaling.json`.
+Original notebook 07's setup (reproduced exactly): textbook gates, idle once per interval on
+the data, X basis, H2 ratios scaled to p2 = 5×10⁻³, T = 192. Linear γ/p2 ∈ {0.15, 0.3, 0.6},
+quadratic c/p2 ∈ {0.0025, 0.01, 0.04}. The ansatz R = (A/Δt)(1 + q(Δt)/p_e)^α is fitted per
+distance to all six curves and then predicts Δt* for any idle error per round.
+'''),
+SETUP,
+code('''
+isc = json.loads((R / "idle_scaling" / "idle_scaling.json").read_text())
+for r in isc["rows"]:
+    s, f = r["slopes"], r["ansatz"]
+    print(f"d={r['d']}: slope linear {s['lin']['slope']:.3f} ± {s['lin']['se']:.3f} (predicted -1), "
+          f"quadratic {s['quad']['slope']:.3f} ± {s['quad']['se']:.3f} (predicted -0.5);  "
+          f"alpha {f['alpha']:.2f} ± {f['alpha_se']:.2f} -> g = {f['implied_g']:.2f} (paper 0.8)")
+'''),
+code('''
+fig, axes = plt.subplots(1, 2, figsize=(11, 3.8))
+for ax, fam, xlab, pred in ((axes[0], "lin", r"$\\gamma / p_2$", -1.0), (axes[1], "quad", r"$c / p_2$", -0.5)):
+    for r in isc["rows"]:
+        cs = [c for c in r["curves"] if c["family"] == fam]
+        x = np.array([c["value"] for c in cs]); y = np.array([c["optimum"]["dt_star"] for c in cs])
+        lo = y - np.array([c["optimum"]["lo"] for c in cs]); hi = np.array([c["optimum"]["hi"] for c in cs]) - y
+        ax.errorbar(x, y, yerr=[lo, hi], fmt="o", color=P.D_COLOR[r["d"]], ms=5,
+                    label=rf"$d = {r['d']}$: slope ${r['slopes'][fam]['slope']:.2f} \\pm {r['slopes'][fam]['se']:.2f}$")
+        m = r["slopes"][fam]["slope"]; xs = np.geomspace(x.min() * 0.8, x.max() * 1.25, 20)
+        ax.plot(xs, y[1] * (xs / x[1]) ** m, "-", color=P.D_COLOR[r["d"]], lw=1.2)
+    ax.set_xscale("log"); ax.set_yscale("log"); ax.legend(fontsize=8)
+    ax.set_xlabel(xlab); ax.set_ylabel(r"$\\Delta t^* / t_R$")
+    ax.set_title(f"{'linear' if fam == 'lin' else 'quadratic'} idle: predicted slope {pred}", loc="left")
+fig.tight_layout()
+'''),
+code('''
+fig, axes = plt.subplots(1, len(isc["rows"]), figsize=(4 * len(isc["rows"]), 3.6), sharey=True)
+for ax, r in zip(np.atleast_1d(axes), isc["rows"]):
+    for fam, col in (("lin", P.SERIES[0]), ("quad", P.SERIES[1])):
+        F = r["formula"][fam]
+        ax.plot([q["q_over_p2"] for q in F], [q["dt_star"] for q in F], "-", color=col, lw=1.5,
+                label=f"ansatz, all {'linear' if fam == 'lin' else 'quadratic'}")
+        cs = [c for c in r["curves"] if c["family"] == fam]
+        q1 = [(c["value"] if fam == "lin" else np.sin(np.sqrt(c["value"] * 5e-3)) ** 2 / 5e-3) for c in cs]
+        ax.plot(q1, [c["optimum"]["dt_star"] for c in cs], "o", color=col, ms=5)
+    ax.axhline(1, color=P.MUTED, lw=1); ax.text(1.2e-3, 0.75, "below: back to back is best", color=P.INK_2, fontsize=8)
+    ax.set_xscale("log"); ax.set_yscale("log"); ax.set_title(P.dl(r["d"]), loc="left")
+    ax.set_xlabel(r"idle error per round $q(1) / p_2$")
+np.atleast_1d(axes)[0].set_ylabel(r"$\\Delta t^* / t_R$"); np.atleast_1d(axes)[0].legend(fontsize=8)
+fig.suptitle("Points: simulated. Lines: the ansatz fitted per distance", x=0.01, ha="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* Δt* follows the power laws the ansatz implies, γ⁻¹ for linear idle and c^(−1/2) for
+  quadratic, at every distance (original notebook 07: −1.06…−1.07 and −0.51…−0.52).
+- *Measured:* the fitted α corresponds to g below the paper's 0.8 at these small distances
+  (as in the scaling study, notebook 03).
+- *Interp.:* the crossing of the lines with Δt* = 1 is the boundary of the useful regime, in
+  units of idle error per round over p2: waiting pays only when idling per round is well below
+  the two-qubit gate error. Notebook 08 places H2 on this axis through the round duration t_R.
+'''),
+]
+
+MAP_CELLS = [
+md('''
+## Where waiting pays, over the whole idle plane (figure 07c, revised)
+
+The calibrated ansatz's Δt* over the plane of linear and quadratic idle strength, per distance.
+Inside the dashed box simulations exist (the six fitted curves sit on its edges); outside it
+the formula is extrapolated (pale). The white line is Δt* = 1: beyond it, back to back is best.
+The star is a simulation with **both** idle terms that was held out of the fit, the test of
+the formula. The dark line is H2-1E's emulator idle rates for round durations t_R from 1 to
+300 ms: the device's position in this plane is set by t_R (γ/p2 ∝ t_R, c/p2 ∝ t_R²).
+
+*Assumption:* the axes are idle strength relative to p2, so the map built at scaled gates
+(p2 = 5×10⁻³) is read at H2's own p2; notebook 07 of the original repo checked that halving
+all rates leaves Δt* unchanged.
+'''),
+code('''
+import math
+from matplotlib.colors import BoundaryNorm
+cal = json.loads((Path("..") / "config" / "h2_1e_emulator.json").read_text())
+omega = 2 * math.pi * cal["quad_rate"] * cal["quad_factor"]          # "cycles" reading
+tR = np.geomspace(1e-3, 0.3, 60)
+h2_g = cal["gamma"] * tR / cal["p2"]; h2_c = (omega * tR / 2) ** 2 / cal["p2"]
+fig, axes = plt.subplots(1, len(isc["rows"]), figsize=(4.6 * len(isc["rows"]), 4.3), sharey=True)
+levels = np.arange(-0.5, 2.51, 0.25)
+cmap = P.sequential_cmap(); norm = BoundaryNorm(levels, cmap.N)
+lin, quad = isc["setup"]["lin"], isc["setup"]["quad"]
+for ax, r in zip(np.atleast_1d(axes), isc["rows"]):
+    ax_ = np.array(r["map"]["axis"]); Z = np.log10(np.array(r["map"]["dt_star"]))
+    cs = ax.contourf(ax_, ax_, Z, levels=levels, cmap=cmap, norm=norm, extend="both")
+    ax.contour(ax_, ax_, Z, levels=[0.0], colors="white", linewidths=2)
+    # extrapolated region: everything outside the simulated box
+    box = (min(lin), max(lin), min(quad), max(quad))
+    from matplotlib.patches import Rectangle
+    for x0, y0, x1, y1 in ((box[1], ax_[0], ax_[-1], ax_[-1]), (ax_[0], box[3], box[1], ax_[-1])):
+        ax.add_patch(Rectangle((x0, y0), x1 - x0, y1 - y0, color=P.SURFACE, alpha=0.55, lw=0, zorder=2))
+    ax.plot([ax_[0], box[1], box[1]], [box[3], box[3], ax_[0]], "--", color=P.INK, lw=1)
+    ax.plot(lin, [ax_[1]] * 3, ">", color="white", mec=P.INK, ms=7)
+    ax.plot([ax_[1]] * 3, quad, "^", color="white", mec=P.INK, ms=7)
+    h = r["held_out"]
+    ax.plot(h["gamma_over_p2"], h["c_over_p2"], "*", color=P.SERIES[1], mec=P.INK, ms=15)
+
+    ax.plot(h2_g, h2_c, "-", color=P.INK, lw=1.8)
+    for t in (2e-3, 1e-2, 3e-2, 0.1, 0.3):
+        g_, c_ = cal["gamma"] * t / cal["p2"], (omega * t / 2) ** 2 / cal["p2"]
+        if g_ > ax_[0] and c_ > ax_[0]:
+            ax.plot(g_, c_, "o", color=P.INK, ms=4)
+            ax.annotate(f"{t*1e3:g} ms", (g_, c_), xytext=(4, -3), textcoords="offset points", fontsize=8, color=P.INK)
+    ax.set_xscale("log"); ax.set_yscale("log"); ax.grid(False)
+    ax.set_xlim(ax_[0], ax_[-1]); ax.set_ylim(ax_[0], ax_[-1])
+    ax.set_xlabel(r"linear idle $\\gamma / p_2$")
+    ax.set_title(rf"$d = {r['d']}$.  Held out (star): {h['optimum']['dt_star']:.2f} simulated, {h['formula_dt_star']:.2f} formula",
+                 loc="left", fontsize=9)
+np.atleast_1d(axes)[0].set_ylabel(r"quadratic idle $c / p_2$")
+fig.colorbar(cs, ax=axes, label=r"$\\log_{10}(\\Delta t^* / t_R)$", fraction=0.025, pad=0.02)
+fig.suptitle(r"Optimal interval over the idle plane. White line: $\\Delta t^* = 1$. Dark line: H2-1E idle rates by round duration $t_R$", x=0.01, ha="left")
+'''),
+md('''
+**Reading.**
+- *Measured:* the held-out simulation (both idle terms at once) is predicted to within 4–6%
+  (Δt* 5.10, 3.55, 2.63 simulated against 5.39, 3.73, 2.73 at d = 3, 5, 7), with the formula
+  slightly long; inside the box the map is a calibrated prediction, not just a fit.
+- *Interp.:* the white line is the regime boundary in idle-noise space. H2-1E's trajectory
+  crosses it at a round duration of tens of ms, consistent with the full-circuit simulations
+  at H2's own rates (notebook 08), from a different route: a fitted formula at scaled gates.
+- *Limits:* outside the box (pale) the formula is extrapolated; the quadratic search stops at
+  the term's first maximum, where the twirled model stops describing decoherence.
+'''),
+]
+NB["08b_dt_star_vs_idle_strength"] += MAP_CELLS
+
 for name, cells in NB.items():
     # Every figure cell also writes its PNG to notebooks/figures/<notebook>_<n>.png.
     k = 0
     for c in cells:
-        if c.cell_type == "code" and "fig.tight_layout" in c.source:
+        if c.cell_type == "code" and "plt.subplots" in c.source:
             k += 1
             c.source += f'\nP.save(fig, "{name}_{k}")'
     nb = nbf.v4.new_notebook()

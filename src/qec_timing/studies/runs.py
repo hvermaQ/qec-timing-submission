@@ -130,3 +130,36 @@ def failures_many(store: Store, backend: Backend, specs: list[MemorySpec],
                                           [(store.root, backend, specs[i]) for i in order])):
             out[i] = res
     return out
+
+
+def _decode_job(args):
+    store_root, backend, spec, dems = args
+    out = {}
+    for part in chunks(spec, getattr(backend, "per_shot_seeded", False)):
+        _, rec = record(Store(store_root), backend, part)
+        for name, dem in dems.items():
+            f = logical_failures(PyMatchingDecoder(dem), rec.detectors, rec.observables)
+            out[name] = out.get(name, 0) + int(f.sum())
+        out["_shots"] = out.get("_shots", 0) + rec.shots
+        del rec
+    return out
+
+
+def decode_many(store: Store, backend: Backend, specs: list[MemorySpec],
+                dems: list[dict[str, str]], workers: int = 1) -> list[dict[str, int]]:
+    """Decode each spec's stored (or new) runs with several detector error models.
+
+    dems[i] maps a decoder label to DEM text for specs[i]; every DEM must use the
+    standard detector layout. Returns per spec {label: failures, "_shots": shots}."""
+    if hasattr(backend, "prepare"):
+        for spec in specs:
+            backend.prepare(spec)
+    jobs = [(store.root, backend, s, d) for s, d in zip(specs, dems)]
+    workers = memory_workers(workers, specs) if specs else 1
+    if workers <= 1:
+        return [_decode_job(j) for j in jobs]
+    import multiprocessing as mp
+    from concurrent.futures import ProcessPoolExecutor
+
+    with ProcessPoolExecutor(workers, mp_context=mp.get_context("fork")) as pool:
+        return list(pool.map(_decode_job, jobs))

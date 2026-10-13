@@ -170,3 +170,14 @@ def test_pack_bits_matches_the_original_definition():
     for n in (1, 63, 64, 65, 200, 1464):
         b = rng.random((40, n)) < 0.3
         assert np.array_equal(pack_bits(b), original(b))
+
+
+def test_ansatz_optimum_is_the_minimum_of_eq5():
+    from qec_timing.analysis import ansatz as A
+
+    dt = np.geomspace(0.01, 10, 20001)
+    for d in (5, 7, 11):
+        r = A.logical_rate(dt, d=d, p=0.015, lam=1.0, A=0.1)
+        assert dt[np.argmin(r)] == pytest.approx(A.optimal_interval(d=d, lam=1.0), rel=1e-3)
+        assert A.gamma_opt(A.optimal_interval(d=d, lam=1.0), d=d, lam=1.0) == pytest.approx(1.0)
+    assert A.optimal_interval(d=7, lam=1.0) == pytest.approx(1 / (0.8 * 4 - 1))

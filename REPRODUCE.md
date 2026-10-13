@@ -26,9 +26,9 @@ uv venv --python 3.11.13 .venv-h2 && uv pip sync --python .venv-h2/bin/python en
 
 | env | command | result | time |
 | --- | --- | --- | --- |
-| core | `.venv/bin/python -m pytest` | 49 passed, 10 skipped (need other envs) | 2 s |
-| main | `.venv-main/bin/python -m pytest` | 94 passed, 5 skipped (H2 env) | 19 s |
-| H2 | `.venv-h2/bin/python -m pytest` | 56 passed, 3 skipped (main env) | 10 s |
+| core | `.venv/bin/python -m pytest` | 50 passed, 11 skipped (need other envs) | 2 s |
+| main | `.venv-main/bin/python -m pytest` | 100 passed, 5 skipped (H2 env) | 17 s |
+| H2 | `.venv-h2/bin/python -m pytest` | 57 passed, 4 skipped (main env) | 9 s |
 
 Dated record of these runs: `results/test_runs/2026-10-13.txt`. The 6 warnings in the main
 env are selene-sim leaving its own log files open (ResourceWarning), not ours. `-m "not slow"` skips the tests that
@@ -52,6 +52,11 @@ What the tests pin, beyond unit behaviour:
 | H2 regime, 5 round durations | `python -m qec_timing.studies.regime --calibration config/h2_1e_emulator.json --t-round 0.002 0.01 0.03 0.1 0.3 --distances 3 5 --workers 8` | 1 min | `results/regime/` |
 | H2 regime grid (heatmap) | same, `--t-round 0.001 0.002 0.004 0.007 0.01 0.02 0.03 0.05 0.07 0.1 0.15 0.2 0.3 --distances 3 5 7 --workers 8 --out results/regime/grid` | ~1 h from scratch | `results/regime/grid/` |
 | application idle time | `python -m qec_timing.studies.idle` | 5 s | `results/idle/` |
+| paper scaling, 1/Δt* vs d | `python -m qec_timing.studies.scaling --workers 8` | 2 min | `results/scaling/` |
+| effective λ, b_read (first step) | `python -m qec_timing.studies.effective --workers 8` | ~20 min | `results/effective/` |
+| per-qubit error and sources | `python -m qec_timing.studies.per_qubit` | 1 min | `results/per_qubit/` |
+| decoder comparison | `python -m qec_timing.studies.decoders --workers 8` (after premise native) | ~10 min | `results/decoders/` |
+| Δt* vs idle strength, Δt* map | `python -m qec_timing.studies.idle_scaling --workers 8` | ~20 min | `results/idle_scaling/` |
 | QIR programs and scaling (H2 env) | `.venv-h2/bin/python -m qec_timing.hardware.cli build ...`, `scaling`, `calib-build` | 1 min | `results/hardware/` |
 | notebooks | `python notebooks/_build.py notebooks`, then execute | 2 min | `notebooks/*.ipynb` |
 

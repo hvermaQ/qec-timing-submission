@@ -40,9 +40,14 @@ Labels in the notebooks: *measured* (computed in this repo), *paper* (Haug, Bhar
 
 | # | Claim | Evidence | Level |
 | --- | --- | --- | --- |
-| S1 | Reproduces the paper's thresholds (within 0.5–2%, finite size explained) and 1/Δt* slope (1.0σ). | original research repo: `docs/stub_arc/stage1_report.md`, `stage4a_report.md`; **not re-run in this repo** (the threshold study was not ported) | 4 there; 1 here until ported |
+| S1 | Reproduces the paper's central scaling: 1/Δt* = (0.385 ± 0.013) d − 0.92 for d = 5–11, against the paper's slope 0.402 (1.3σ); Δt* approaches Eq. 6 as d grows (+38% at d = 5 to +11% at d = 11). | notebook 03; `results/scaling/`; `tests/test_new_studies.py` | 5 (paper as benchmark) |
+| S1b | Reproduces the paper's thresholds (within 0.5–2%, finite size explained). | original research repo, `docs/stub_arc/stage1_report.md`; not ported here | 4 there; 1 here |
 | S2 | Novel beyond the paper: the premise tested under circuit-level noise. The paper's two-parameter model, calibrated **once** at back-to-back rounds, predicts Δt* to +15–20% (d=3), +1–10% (d=5), −5…+3% (d=7); p_read and p_data hold to < 0.8%. | notebook 06; `results/premise/` | 4 |
-| S3 | Limits found and stated: the model underestimates p_L more with d (use it for Δt*, not p_L); effective g ≈ 0.70 at small d (paper 0.8); Z-basis memories are blind to trapped-ion idling. | notebooks 06, 07; original Stage 4a | 4 |
+| S3 | Limits found and stated: the model underestimates p_L more with d (use it for Δt*, not p_L); effective g ≈ 0.54–0.74 at d = 3–7 (paper 0.8, fitted at d = 11–27); Z-basis memories are blind to trapped-ion idling. | notebooks 06, 07, 08b | 4 |
+| S3a | The paper's parameters are circuit properties: a real extraction circuit has λ = 0.13–0.15 (paper 0.31) and a b_read floor of 1.15–1.18 (paper 1), both falling as two-qubit noise grows; with them Δt* is 2.2–2.5× longer at d = 5, 7, the λ ratio Eq. 6 predicts (4.1× at d = 3). | notebook 06a; `results/effective/` | 4 |
+| S3b | Data qubits are not equal: per-round error varies ~3× across the lattice; 16–17% spreads from ancillas with native gates (7–9% textbook). | notebook 06b; `results/per_qubit/` | 4 |
+| S3c | The decoder decides the answer: the paper's phenomenological graph raises p_L up to 3.1× (d = 7) and moves Δt* about threefold; all circuit-level results decode with the full DEM. | notebook 06c; `results/decoders/` | 4 |
+| S3d | Δt* follows the power laws the ansatz implies (slopes −1.06, −0.51…−0.52 against −1, −0.5); the calibrated ansatz predicts a held-out mixed-noise simulation to within 4–6%, giving the Δt* map over the idle plane. | notebook 08b; `results/idle_scaling/` (equal to original notebook 07) | 5 (held-out test) |
 | S4 | Exact regressions against prior results: circuit-level failure counts identical at the same seeds (18/18), full-circuit Δt* identical at all 18 settings. | `tests/test_circuit.py`; `results/premise/README.md` | 5 |
 | S5 | A statistical pitfall found and fixed: overlapping per-shot seeds faked a −3.5σ bias; the package now refuses them. | `results/crosscheck/README.md`; `tests/test_core.py` | 4 |
 | S6 | Related work: optimal number of rounds for an idling patch (arXiv 2408.07529). | to be compared in the write-up | 1 |

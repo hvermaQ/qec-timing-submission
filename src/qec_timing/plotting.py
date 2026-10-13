@@ -50,3 +50,24 @@ def save(fig, name: str, directory: str = "figures") -> None:
     out = Path(directory)
     out.mkdir(exist_ok=True)
     fig.savefig(out / f"{name}.png", dpi=150, bbox_inches="tight")
+
+
+# --- labels: mathtext throughout, as in the original repo's figures ---------------
+
+DT = r"$\Delta t$"
+DT_TR = r"$\Delta t / t_R$"
+DT_STAR = r"$\Delta t^*$"
+PL = r"$p_L$"
+RATE = r"logical error rate per unit time $R$"
+
+
+def dl(d: int) -> str:
+    """Distance label, e.g. '$d = 5$'."""
+    return rf"$d = {d}$"
+
+
+def idle_label(key: str) -> str:
+    """Premise-study idle keys -> readable mathtext."""
+    return {"lin 0.3": r"linear, $\gamma = 0.3\,p_2$",
+            "quad 0.01": r"quadratic, $c = 0.01\,p_2$",
+            "mixed": r"mixed, $\gamma = 0.3\,p_2,\ c = 0.01\,p_2$"}.get(key, key)
