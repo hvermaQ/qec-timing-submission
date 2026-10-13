@@ -83,21 +83,37 @@ def study(store, cal, t_round, d, gates, grid, n_rounds, target, max_shots, work
         rows.append({"dt": dt, "failures": f, "shots": n, "pL": pL,
                      "r": r if math.isfinite(r) else math.nan, "sr": sr, "run_ids": ids})
     a = {k: np.array([x[k] for x in rows]) for k in ("dt", "pL", "r", "sr")}
-    ok = np.isfinite(a["r"]) & (a["pL"] < 0.45)
+    # Usable points:
+    #  - valid: the quadratic idle term sin^2(omega t / 2) is a twirled coherent
+    #    rotation and is periodic; past omega * t = pi it "rephases", which no real
+    #    decohering qubit does. Points with omega * dt * t_R >= pi are outside the
+    #    model and are reported but never used.
+    #  - unsaturated: p_L < 0.45, and nothing after the first saturated point (a
+    #    later dip below 0.45 is the rephasing artefact or noise, not recovery).
+    omega = cal.omega
+    valid = omega * a["dt"] * t_round < math.pi
+    saturated = ~(np.isfinite(a["r"]) & (a["pL"] < 0.45))
+    first_sat = int(np.argmax(saturated)) if saturated.any() else len(rows)
+    ok = valid & ~saturated & (np.arange(len(rows)) < first_sat)
+    for x, v, u in zip(rows, valid, ok):
+        x["model_valid"], x["used"] = bool(v), bool(u)
     i = int(np.nanargmin(np.where(ok, a["r"], np.nan)))
     gain = a["r"][0] / a["r"][i]
     z = (a["r"][0] - a["r"][i]) / math.hypot(a["sr"][0], a["sr"][i]) if i else 0.0
-    opt = optimum(a["dt"], a["pL"], a["r"], a["sr"]).as_dict() if i and ok.sum() >= 5 else None
+    opt = (optimum(a["dt"][ok], a["pL"][ok], a["r"][ok], a["sr"][ok]).as_dict()
+           if i and ok.sum() >= 5 else None)
     regime = "wait" if (i and z > 3) else "back to back"
+    n_used = int(ok.sum())
     dt_star = opt["dt_star"] if opt else 1.0
     log(f"t_R={t_round * 1e3:7.1f} ms  d={d}  idle/round {noise.idle.pz(1.0):.2e} "
         f"(p2 {cal.p2:.2e})  lowest dt {a['dt'][i]:6.1f}  dt* {dt_star:6.1f} rounds "
-        f"= {dt_star * t_round * 1e3:7.1f} ms  gain x{gain:.2f} ({z:.1f} sigma)  -> {regime}")
+        f"= {dt_star * t_round * 1e3:7.1f} ms  gain x{gain:.2f} ({z:.1f} sigma)  -> {regime}"
+        f"  [{n_used}/{len(rows)} points used]")
     return {"t_round": t_round, "d": d, "idle_per_round": noise.idle.pz(1.0),
             "idle_over_p2": noise.idle.pz(1.0) / cal.p2, "points": rows,
             "lowest_dt": float(a["dt"][i]), "optimum": opt, "dt_star_rounds": dt_star,
             "dt_star_seconds": dt_star * t_round, "gain": float(gain), "gain_sigma": float(z),
-            "regime": regime}
+            "regime": regime, "points_used": n_used}
 
 
 def main(argv=None) -> int:
