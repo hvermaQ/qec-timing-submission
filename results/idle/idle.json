@@ -1,0 +1,140 @@
+{
+ "d": 5,
+ "rounds_threshold": 40.0,
+ "rows": [
+  {
+   "app": "QFT-16",
+   "source": "qft",
+   "params": {
+    "n": 16
+   },
+   "time_model": "uniform",
+   "qubits": 16,
+   "steps": 117.0,
+   "idle_fraction": 0.41046831955922863,
+   "stretches": 148,
+   "longest_stretch_steps": 56.0,
+   "share_in_stretches_ge_steps": {
+    "1": 1.0,
+    "2": 0.7986577181208053,
+    "5": 0.697986577181208,
+    "10": 0.6845637583892618,
+    "20": 0.6375838926174496,
+    "50": 0.18120805369127516
+   },
+   "share_in_stretches_ge_rounds": 0.697986577181208
+  },
+  {
+   "app": "QFT-16",
+   "source": "qft",
+   "params": {
+    "n": 16
+   },
+   "time_model": "magic",
+   "qubits": 16,
+   "steps": 59.0,
+   "idle_fraction": 0.5088676671214188,
+   "stretches": 121,
+   "longest_stretch_steps": 29.0,
+   "share_in_stretches_ge_steps": {
+    "1": 1.0,
+    "2": 0.7506702412868632,
+    "5": 0.5924932975871313,
+    "10": 0.5361930294906166,
+    "20": 0.3351206434316354,
+    "50": 0.0
+   },
+   "share_in_stretches_ge_rounds": 0.5603217158176944
+  },
+  {
+   "app": "Ising-16x8",
+   "source": "ising",
+   "params": {
+    "n": 16,
+    "steps": 8
+   },
+   "time_model": "uniform",
+   "qubits": 16,
+   "steps": 72.0,
+   "idle_fraction": 0.14136125654450263,
+   "stretches": 134,
+   "longest_stretch_steps": 3.0,
+   "share_in_stretches_ge_steps": {
+    "1": 1.0,
+    "2": 0.25925925925925924,
+    "5": 0.0,
+    "10": 0.0,
+    "20": 0.0,
+    "50": 0.0
+   },
+   "share_in_stretches_ge_rounds": 0.0
+  },
+  {
+   "app": "Ising-16x8",
+   "source": "ising",
+   "params": {
+    "n": 16,
+    "steps": 8
+   },
+   "time_model": "magic",
+   "qubits": 16,
+   "steps": 24.0,
+   "idle_fraction": 0.3507853403141361,
+   "stretches": 127,
+   "longest_stretch_steps": 2.0,
+   "share_in_stretches_ge_steps": {
+    "1": 1.0,
+    "2": 0.1044776119402985,
+    "5": 0.0,
+    "10": 0.0,
+    "20": 0.0,
+    "50": 0.0
+   },
+   "share_in_stretches_ge_rounds": 0.0
+  },
+  {
+   "app": "Adder-8",
+   "source": "adder",
+   "params": {
+    "nbits": 8
+   },
+   "time_model": "uniform",
+   "qubits": 18,
+   "steps": 194.0,
+   "idle_fraction": 0.8430913348946136,
+   "stretches": 103,
+   "longest_stretch_steps": 171.0,
+   "share_in_stretches_ge_steps": {
+    "1": 1.0,
+    "2": 0.9847222222222223,
+    "5": 0.9268518518518518,
+    "10": 0.9268518518518518,
+    "20": 0.9157407407407407,
+    "50": 0.774537037037037
+   },
+   "share_in_stretches_ge_rounds": 0.9268518518518518
+  },
+  {
+   "app": "Adder-8",
+   "source": "adder",
+   "params": {
+    "nbits": 8
+   },
+   "time_model": "magic",
+   "qubits": 18,
+   "steps": 64.0,
+   "idle_fraction": 0.8703703703703703,
+   "stretches": 39,
+   "longest_stretch_steps": 59.0,
+   "share_in_stretches_ge_steps": {
+    "1": 1.0,
+    "2": 1.0,
+    "5": 0.9534574468085106,
+    "10": 0.9348404255319149,
+    "20": 0.7646276595744681,
+    "50": 0.2898936170212766
+   },
+   "share_in_stretches_ge_rounds": 0.9454787234042553
+  }
+ ]
+}
