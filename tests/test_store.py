@@ -1,5 +1,7 @@
 """The run store: round trip, immutability, integrity and lineage."""
 
+import json
+
 import numpy as np
 import pytest
 
@@ -60,8 +62,15 @@ def test_model_and_derived_with_lineage(stored):
 
     did = store.save_derived(Derived("dt_star", {"dt_star": 1.7}, (run_id,)))
     assert store.load_derived(did).data == {"dt_star": 1.7}
-    # Same commit for run and result here; only dirtiness can be reported.
+    # Same commit for run and result here; only a dirty tree can be reported.
     assert all("dirty" in i for i in store.check_lineage(did))
+
+    # A run made by other code is flagged.
+    path = store.run_dir(run_id) / "manifest.json"
+    m = json.loads(path.read_text())
+    m["code"] = {"commit": "0" * 40, "dirty": False}
+    path.write_text(json.dumps(m))
+    assert any("made by commit 0000" in i for i in store.check_lineage(did))
 
     with pytest.raises(KeyError, match="parents not in store"):
         store.save_derived(Derived("orphan", {}, ("0" * 16,)))
