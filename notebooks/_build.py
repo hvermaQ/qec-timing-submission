@@ -445,7 +445,176 @@ md('''
 '''),
 ]
 
+# ---------------------------------------------------------------------------
+GRID_LOAD = code('''
+grid = json.loads(next((R / "regime" / "grid").glob("regime_*.json")).read_text())
+rows = grid["rows"]
+T_R = sorted({r["t_round"] for r in rows}); DS = sorted({r["d"] for r in rows})
+cell = {(r["t_round"], r["d"]): r for r in rows}
+def best(r):                            # lowest used rate and its interval
+    return min((p["r"], p["dt"]) for p in r["points"] if p.get("used"))
+print("calibration:", grid["calibration"]["source"][:90], "...")
+print(f"{len(rows)} (t_R, d) cells; rounds per run {grid['setup']['rounds']}, "
+      f"target {grid['setup']['target']} failures per point, max {grid['setup']['max_shots']:,} shots")
+''')
+
+NB["08_regime_on_h2"] = [
+md('''
+# 08 — On H2-1E's rates, when does waiting between rounds pay, and how much?
+
+**Narrative points 10–11.** The full circuit (textbook gates, the same idle noise on every
+qubit), at H2-1E's own gate, readout and dephasing rates, unscaled. The one number the data
+sheet does not give is the duration of a syndrome round, t_R, so it is the axis: each cell is
+a full interval sweep at that t_R and distance.
+
+**Source:** `python -m qec_timing.studies.regime --calibration config/h2_1e_emulator.json
+--t-round 0.001 ... 0.3 --distances 3 5 7` → `results/regime/grid/`. Points past the
+quadratic model's validity (ω·Δt·t_R ≥ π, where the twirled rotation would "rephase") and
+after saturation are excluded; `points_used` counts the rest.
+'''),
+SETUP, GRID_LOAD,
+code('''
+print(f"{'t_R ms':>7}" + "".join(f"{'d='+str(d)+' gain':>12}{'dt* ms':>8}" for d in DS) + f"{'idle/round':>12}")
+for t in T_R:
+    line = f"{t*1e3:>7.1f}"
+    for d in DS:
+        r = cell.get((t, d))
+        line += (f"{r['gain']:>11.2f}{'*' if r['regime'] == 'wait' else ' '}{r['dt_star_seconds']*1e3:>8.0f}"
+                 if r else " " * 20)
+    print(line + f"{cell[(t, DS[0])]['idle_per_round']:>12.1e}")
+print("* = waiting beats back to back by more than 3 sigma")
+'''),
+code('''
+fig, ax = plt.subplots(figsize=(8.5, 3.0))
+G = np.array([[cell[(t, d)]["gain"] if (t, d) in cell else np.nan for t in T_R] for d in DS])
+top = np.nanmax(np.log10(G))
+im = ax.imshow(np.log10(G), aspect="auto", cmap=P.sequential_cmap(), vmin=0, vmax=top)
+for i, d in enumerate(DS):
+    for j, t in enumerate(T_R):
+        r = cell.get((t, d))
+        if r:
+            txt = f"{r['gain']:.1f}x" if r["regime"] == "wait" else "1x"
+            ax.text(j, i, txt, ha="center", va="center", fontsize=8,
+                    color="white" if np.log10(r["gain"]) > 0.6 * top else P.INK)
+ax.set_xticks(range(len(T_R)), [f"{t*1e3:g}" for t in T_R])
+ax.set_yticks(range(len(DS)), [f"d = {d}" for d in DS])
+ax.set_xlabel("syndrome round duration $t_R$ (ms)"); ax.grid(False)
+ax.set_title("Gain of the optimal interval over back-to-back extraction (rate per unit time)", loc="left")
+fig.colorbar(im, ax=ax, label="log10 gain", fraction=0.025, pad=0.01)
+fig.tight_layout()
+'''),
+code('''
+fig, axes = plt.subplots(1, 2, figsize=(10, 3.6))
+for d in DS:
+    ts = [t for t in T_R if (t, d) in cell]
+    axes[0].plot([t * 1e3 for t in ts], [cell[(t, d)]["dt_star_seconds"] * 1e3 for t in ts], "o-",
+                 color=P.D_COLOR[d], label=f"d = {d}")
+axes[0].plot([T_R[0] * 1e3, T_R[-1] * 1e3], [T_R[0] * 1e3, T_R[-1] * 1e3], "--", color=P.MUTED, lw=1,
+             label="back to back")
+axes[0].set_xscale("log"); axes[0].set_yscale("log"); axes[0].legend(fontsize=8)
+axes[0].set_xlabel("$t_R$ (ms)"); axes[0].set_ylabel("optimal period (ms)")
+axes[0].set_title("Optimal period in physical time", loc="left")
+d = 5
+for t, c in zip((0.002, 0.03, 0.1), (P.SEQUENTIAL[6], P.SEQUENTIAL[4], P.SEQUENTIAL[2])):
+    r = cell.get((t, d))
+    if not r:
+        continue
+    pts = [p for p in r["points"] if p.get("used")]
+    axes[1].plot([p["dt"] for p in pts], [p["r"] / pts[0]["r"] for p in pts], "o-", color=c,
+                 label=f"$t_R$ = {t*1e3:g} ms")
+axes[1].set_xscale("log"); axes[1].set_yscale("log"); axes[1].legend(fontsize=8)
+axes[1].set_xlabel(r"period $\\Delta t$ (rounds)"); axes[1].set_ylabel(r"rate / rate at $\\Delta t$ = 1")
+axes[1].set_title(f"U-curves at d = {d}", loc="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* the answer is set by the idle error accumulated per round relative to the
+  two-qubit gate error. With rounds of a few ms, idling per round is ~10⁻⁵, far below
+  p2 = 10⁻³, and waiting tens of rounds lowers the logical error rate per unit time by an
+  order of magnitude or more. As t_R grows the gain shrinks, and once idle error per round
+  approaches p2 (t_R ≈ 0.1 s) back to back is best at d ≥ 5.
+- *Measured:* while waiting pays, the optimal period in **seconds** stays in a narrow band
+  and shortens with distance (the paper's 1/Δt* ∝ d, here in physical time).
+- *Interp.:* the decisive unknown for H2 is t_R. Quantinuum's early 7-qubit colour-code
+  experiment reported ~200 ms per QEC round (via arXiv 2208.08064; not an H2 figure), which
+  would sit in the back-to-back region; faster rounds move a device left on this map. The
+  calibration path (notebook 09) measures it.
+- *Modelling limits:* the 2π reading of the quadratic rate ("cycles", the conservative
+  choice) and equal layer durations are assumptions; the "radians" reading moves dt* by ~4×.
+  At d = 7 and short t_R, failures are rare and some points hit the shot cap.
+'''),
+]
+
+NB["02_time_for_space"] = [
+md('''
+# 02 — Saving resources with time instead of space
+
+**Narrative point 2.** Idle qubits are usually protected by more space: a larger distance,
+or a denser storage code. The optimal interval protects them with time: the same code,
+extracted less often. Two ways to price that, from the H2-1E regime grid (notebook 08):
+
+- **qubits:** does the optimal interval at distance d beat back-to-back extraction at d + 2?
+  If so, waiting replaces a distance step: (d+2)² − d² data qubits per logical qubit
+  (rotated surface code; about twice that with ancillas);
+- **operations:** per unit time the memory extracts Δt* times less often, so it runs Δt*
+  times fewer two-qubit gates and measurements, which dominate a trapped-ion machine's cost
+  (Quantinuum's HQC formula weights them; *interp.*).
+'''),
+SETUP, GRID_LOAD,
+code('''
+print(f"{'t_R ms':>7}{'d':>3}{'R b2b(d)':>11}{'R opt(d)':>11}{'R b2b(d+2)':>12}   {'optimal(d) beats b2b(d+2)?':<30}{'extractions':>12}")
+for t in T_R:
+    for d in DS[:-1]:
+        a, b = cell.get((t, d)), cell.get((t, d + 2))
+        if not (a and b):
+            continue
+        r_b2b, r_opt, r_next = a["points"][0]["r"], best(a)[0], b["points"][0]["r"]
+        verdict = f"yes: saves {(d + 2)**2 - d**2} data qubits" if r_opt < r_next else "no"
+        print(f"{t*1e3:>7.1f}{d:>3}{r_b2b:>11.2e}{r_opt:>11.2e}{r_next:>12.2e}   {verdict:<30}"
+              f"{a['dt_star_rounds']:>9.1f}x fewer")
+'''),
+code('''
+from matplotlib.lines import Line2D
+fig, ax = plt.subplots(figsize=(7.5, 3.8))
+for d in DS:
+    ts = [t for t in T_R if (t, d) in cell]
+    ax.plot([t * 1e3 for t in ts], [cell[(t, d)]["points"][0]["r"] for t in ts], "--", color=P.D_COLOR[d], lw=1.5)
+    ax.plot([t * 1e3 for t in ts], [best(cell[(t, d)])[0] for t in ts], "o-", color=P.D_COLOR[d])
+ax.set_xscale("log"); ax.set_yscale("log")
+ax.set_xlabel("$t_R$ (ms)"); ax.set_ylabel("logical error rate per unit time")
+h = [Line2D([], [], color=P.D_COLOR[d], marker="o", label=f"d = {d}") for d in DS]
+h += [Line2D([], [], color=P.MUTED, ls="--", label="back to back"),
+      Line2D([], [], color=P.MUTED, marker="o", label="optimal interval")]
+ax.legend(handles=h, fontsize=8, ncol=2)
+ax.set_title("Optimal interval at d against back-to-back extraction at d + 2", loc="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* where the table says "yes", the optimal interval at distance d gives a lower
+  logical error rate per unit time than back-to-back extraction at d + 2. Time replaces a
+  distance step, saving (d+2)² − d² data qubits per idle logical qubit (16 from d = 3 to 5,
+  24 from 5 to 7), with no change to the code.
+- *Measured:* in the same regime the memory extracts Δt* times less often, tens of times at
+  t_R of a few ms, so its gate and measurement count per unit time falls by that factor.
+- *Interp., the pitch:* combined with notebook 01 (most logical qubit time in sequential
+  workloads is idle, in long stretches), the interval is a free knob acting on most of an
+  application's space-time volume. Mis-setting it costs more as d grows (the paper's Γ_opt
+  grows exponentially in α ∝ d), so it should be calibrated per device, which takes one
+  calibration (notebook 06).
+- *Boundary:* the saving exists only where idle error per round is well below p2. On H2 that
+  depends on t_R, unknown until measured (notebooks 08, 09).
+'''),
+]
+
 for name, cells in NB.items():
+    # Every figure cell also writes its PNG to notebooks/figures/<notebook>_<n>.png.
+    k = 0
+    for c in cells:
+        if c.cell_type == "code" and "fig.tight_layout" in c.source:
+            k += 1
+            c.source += f'\nP.save(fig, "{name}_{k}")'
     nb = nbf.v4.new_notebook()
     nb["cells"] = cells
     nb["metadata"] = {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},

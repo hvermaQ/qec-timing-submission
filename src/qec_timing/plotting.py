@@ -41,3 +41,12 @@ def label_end(ax, x, y, text: str, color: str = INK_2, dx: float = 4) -> None:
     """Direct label at the end of a line, in ink colour (identity is the marker)."""
     ax.annotate(text, (x, y), xytext=(dx, 0), textcoords="offset points", va="center",
                 color=color, fontsize=9)
+
+
+def save(fig, name: str, directory: str = "figures") -> None:
+    """Write a figure as PNG next to the notebook (notebooks/figures/<name>.png)."""
+    from pathlib import Path
+
+    out = Path(directory)
+    out.mkdir(exist_ok=True)
+    fig.savefig(out / f"{name}.png", dpi=150, bbox_inches="tight")
