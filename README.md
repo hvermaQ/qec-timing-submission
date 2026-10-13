@@ -4,16 +4,25 @@ Optimal syndrome-measurement timing for QEC memories, after Haug, Bharti & Aolit
 A package built from interfaces: codes, noise models, backends, decoders and applications
 are swappable, and every implementation is checked against the same contracts.
 
-**Status:** step 1 of the migration. Interfaces, run store and contract checks are in
-place; concrete implementations are ported from the research repo in later steps.
+**Status:** step 2 of the migration. Interfaces, store and contracts (step 1); the rotated
+surface code, the paper's noise model, Stim and Guppy/Selene backends, PyMatching decoder
+and the Guppy-vs-Stim cross-check (step 2). Circuit-level, hardware and application parts
+follow.
 
 ## Setup
 
+Two environments, both Python 3.12, pinned in `envs/`:
+
+| env | file | contains | runs |
+| --- | --- | --- | --- |
+| `.venv` | `envs/core.txt` | numpy, pytest | interfaces, store, contracts (tests needing Stim skip) |
+| `.venv-main` | `envs/main.txt` | + Guppy/Selene, Stim, PyMatching, scipy | everything in step 2 |
+
 ```bash
-uv venv --python 3.12 .venv
-uv pip sync --python .venv/bin/python envs/core.txt
-uv pip install --python .venv/bin/python --no-deps -e .
-.venv/bin/python -m pytest
+uv venv --python 3.12 .venv-main
+uv pip sync --python .venv-main/bin/python envs/main.txt
+uv pip install --python .venv-main/bin/python --no-deps -e .
+.venv-main/bin/python -m pytest              # add -m "not slow" to skip Guppy builds
 ```
 
 ## Architecture
@@ -44,6 +53,20 @@ MemorySpec ──Backend──▶ RawRecord ──Extractor──▶ EffectiveMo
 
 Notebooks and scripts are clients of the package: they call it, read the store and plot.
 They hold no logic of their own.
+
+## Implementations
+
+| Kind | Name | Module | Notes |
+| --- | --- | --- | --- |
+| code | `rotated_surface` | `codes/surface.py` | both sectors; Z checks and logical Z identical to the original repo |
+| noise | `paper` | `noise/paper.py` | Eqs. 1-3, static λ; X (bit-flip) or Z (dual sector) |
+| backend | `stim_phenom` | `backends/stim_phenom.py` | production path; any CSS code, either basis |
+| backend | `guppy_phenom` | `backends/guppy_phenom.py` | validation path; noise injected in-program; either basis; constant dt |
+| decoder | `pymatching` | `decoders/pymatching_decoder.py` | MWPM from the run's own DEM |
+
+The cross-check (`python -m qec_timing.validation.crosscheck`) reruns the original
+Stage 4a comparison of Guppy and Stim through the new interfaces. It writes every run to
+the store and its summary to `results/crosscheck/crosscheck.json`.
 
 ## Adding a component
 

@@ -133,3 +133,10 @@ def test_calibration_roundtrip_and_validation(tmp_path):
         _h2(source="")
     with pytest.raises(ValueError, match="not a probability"):
         _h2(p2=1.5)
+
+
+def test_overlapping_seed_ranges():
+    from qec_timing.spec import overlapping_seed_ranges
+    a, b, c = _spec(seed=0, shots=100), _spec(seed=50, shots=10), _spec(seed=100, shots=5)
+    assert overlapping_seed_ranges([a, b, c]) == [(0, 1)]      # [0,100) meets [50,60)
+    assert overlapping_seed_ranges([a, c]) == []                 # [0,100) and [100,105) touch only

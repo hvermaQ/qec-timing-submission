@@ -1,0 +1,24 @@
+d=5 dt=0.14286  rounds=70   guppy 0.2486 (303/1219) stim 0.2461 (49229/200000) OK  [9s guppy]
+d=5 dt=0.26008  rounds=38   guppy 0.1768 (292/1652) stim 0.1816 (36323/200000) OK  [6s guppy]
+d=5 dt=0.47349  rounds=21   guppy 0.1517 (311/2050) stim 0.1464 (29281/200000) OK  [4s guppy]
+d=5 dt=0.86203  rounds=12   guppy 0.1419 (313/2206) stim 0.1360 (27200/200000) OK  [3s guppy]
+d=5 dt=1.56937  rounds=6    guppy 0.1363 (309/2267) stim 0.1324 (26472/200000) OK  [2s guppy]
+d=5 dt=2.85714  rounds=4    guppy 0.1917 (316/1648) stim 0.1821 (36423/200000) OK  [1s guppy]
+d=7 dt=0.09091  rounds=110  guppy 0.1538 (276/1794) stim 0.1672 (33449/200000) OK  [39s guppy]
+d=7 dt=0.16551  rounds=60   guppy 0.1174 (299/2546) stim 0.1179 (23573/200000) OK  [30s guppy]
+d=7 dt=0.30131  rounds=33   guppy 0.0836 (274/3277) stim 0.0916 (18312/200000) OK  [22s guppy]
+d=7 dt=0.54856  rounds=18   guppy 0.0701 (259/3696) stim 0.0812 (16237/200000) OK  [14s guppy]
+d=7 dt=0.99869  rounds=10   guppy 0.0886 (302/3409) stim 0.0880 (17601/200000) OK  [7s guppy]
+d=7 dt=1.81818  rounds=6    guppy 0.1325 (315/2378) stim 0.1262 (25237/200000) OK  [3s guppy]
+d=9 dt=0.06667  rounds=150  guppy 0.1033 (186/1801) stim 0.1003 (20051/200000) OK  [92s guppy]
+d=9 dt=0.12137  rounds=82   guppy 0.0641 (280/4366) stim 0.0687 (13744/200000) OK  [123s guppy]
+d=9 dt=0.22096  rounds=45   guppy 0.0512 (300/5854) stim 0.0512 (10250/200000) OK  [90s guppy]
+d=9 dt=0.40228  rounds=25   guppy 0.0483 (308/6383) stim 0.0470 (9401/200000) OK  [55s guppy]
+d=9 dt=0.73237  rounds=14   guppy 0.0539 (301/5582) stim 0.0537 (10750/200000) OK  [27s guppy]
+d=9 dt=1.33333  rounds=8    guppy 0.0822 (314/3822) stim 0.0785 (15699/200000) OK  [11s guppy]
+
+18/18 points overlap at 99.9%
+guppy_vs_stim: chi2 = 16.8 on 18 dof (p = 0.534), mean z = -0.07 (-0.3 sigma)
+stim_vs_original_reference: chi2 = 10.3 on 18 dof (p = 0.923), mean z = -0.19 (-0.8 sigma)
+original_guppy_vs_original_reference: chi2 = 22.7 on 18 dof (p = 0.202), mean z = -0.08 (-0.4 sigma)
+wrote results/crosscheck/crosscheck.json (derived d54104a9ee95c96e) in 11.0 min

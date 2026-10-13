@@ -30,8 +30,10 @@ class MemorySpec:
     schedule: round intervals.
     noise:    the noise model; which kinds a backend accepts is up to the backend.
     shots:    number of shots.
-    seed:     base seed. Shot k must draw from a stream that depends on (seed, k),
-              so two runs share noise only if their seed ranges overlap.
+    seed:     base seed. Per-shot-seeded backends (Guppy/Selene) give shot k the
+              seed seed + k, so runs whose ranges [seed, seed + shots) overlap
+              share noise (see `overlapping_seed_ranges`); per-run-seeded
+              backends (Stim) need only distinct seeds.
     allow_invisible_noise: permit a basis that cannot see the noise. Only for
               deliberate control runs (showing the blindness itself).
     extra:    backend-specific options that change the result (they enter the id).
@@ -87,3 +89,19 @@ class MemorySpec:
         blob = json.dumps({"spec": self.to_json(), "backend": backend},
                           sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(blob.encode()).hexdigest()[:16]
+
+
+def overlapping_seed_ranges(specs: list[MemorySpec]) -> list[tuple[int, int]]:
+    """Pairs (i, j) of specs whose per-shot seed ranges [seed, seed + shots) overlap.
+
+    Backends that seed shot k with seed + k (Guppy/Selene) reuse the same random
+    numbers wherever two ranges overlap, which correlates the runs. Any analysis
+    that treats runs as independent must check this is empty."""
+    ranges = sorted((s.seed, s.seed + s.shots, i) for i, s in enumerate(specs))
+    out = []
+    for a in range(len(ranges)):
+        for b in range(a + 1, len(ranges)):
+            if ranges[b][0] >= ranges[a][1]:
+                break
+            out.append(tuple(sorted((ranges[a][2], ranges[b][2]))))
+    return out
