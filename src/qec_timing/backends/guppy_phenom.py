@@ -205,6 +205,11 @@ class GuppyPhenomBackend:
             self._cache[key] = _build(spec.code, spec.basis, spec.noise.data_pauli)
         return self._cache[key]
 
+    def dem(self, spec: MemorySpec) -> str:
+        # Same model and detector layout as the Stim phenomenological circuit.
+        from qec_timing.backends.stim_phenom import dem_for
+        return dem_for(spec)
+
     def run(self, spec: MemorySpec) -> RawRecord:
         emulator, n_checks, n_words = self._program(spec)
         s = spec.schedule

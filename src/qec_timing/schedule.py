@@ -41,6 +41,13 @@ class Schedule:
             raise ValueError(f"T = {T} is shorter than one interval dt = {dt}")
         return cls(intervals=(int(round(n_ticks)),) * n_rounds, tick=tick)
 
+    @classmethod
+    def rounds(cls, dt: float, n_rounds: int) -> "Schedule":
+        """n_rounds rounds of exactly dt each (one tick = dt). For grids defined by
+        a round count, e.g. dt = T / R with T fixed, where dt is not a multiple
+        of a fixed tick."""
+        return cls(intervals=(1,) * n_rounds, tick=dt)
+
     @property
     def n_rounds(self) -> int:
         return len(self.intervals)

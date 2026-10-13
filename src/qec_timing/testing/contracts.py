@@ -114,7 +114,7 @@ def check_code(code: StabilizerCode) -> None:
 def check_phenomenological_noise(noise: PhenomenologicalNoise) -> None:
     _require(isinstance(noise, PhenomenologicalNoise), "does not implement PhenomenologicalNoise")
     _json_ok(noise.params(), "params()")
-    _require(noise.data_pauli in PAULIS, f"data_pauli {noise.data_pauli!r}")
+    _require(noise.data_pauli in PAULIS + (None,), f"data_pauli {noise.data_pauli!r}")
     for t in (0.0, 0.5, 3.0):
         for dt in (0.01, 0.5, 2.0):
             r = noise.round_noise(t, dt)

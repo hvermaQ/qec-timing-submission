@@ -92,6 +92,9 @@ class StimPhenomBackend:
             return "needs a phenomenological noise model"
         return None
 
+    def dem(self, spec: MemorySpec) -> str:
+        return dem_for(spec)
+
     def run(self, spec: MemorySpec) -> RawRecord:
         noise = round_noise(spec)
         circuit = build_circuit(spec, noise)

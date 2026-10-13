@@ -1,0 +1,15 @@
+{
+  "calibration_version": 1,
+  "p1": 1.89e-05,
+  "p2": 0.00105,
+  "p_meas0": 0.0006,
+  "p_meas1": 0.00139,
+  "p_init": 4e-05,
+  "gamma": 0.0028,
+  "quad_rate": 0.043,
+  "quad_factor": 2.0,
+  "quad_convention": "cycles",
+  "t_round": null,
+  "source": "Quantinuum H2-1E emulator noise-model defaults, table dated 2025-07-16 (as used in the original repo's Stage 7a and notebooks 07-09). t_round is not published; it is a study parameter.",
+  "extra": {}
+}

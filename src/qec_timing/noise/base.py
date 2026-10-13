@@ -53,9 +53,10 @@ class NoiseModel(Protocol):
         ...
 
     @property
-    def data_pauli(self) -> Pauli:
-        """Pauli type of the dominant data error ("X" for bit flips, "Z" for
-        dephasing). A memory in the same basis is blind to it."""
+    def data_pauli(self) -> Pauli | None:
+        """Pauli type of the data error ("X" for bit flips, "Z" for dephasing),
+        or None if errors of both types occur. A memory in the same basis as a
+        single-type error is blind to it."""
         ...
 
 

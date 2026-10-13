@@ -59,7 +59,8 @@ class MemorySpec:
             raise ValueError(f"{self.code.name} has no {self.basis} checks to measure")
         # Checks of type B detect errors of the other type. Same-type errors
         # commute with them and are invisible.
-        if self.noise.data_pauli == self.basis and not self.allow_invisible_noise:
+        if self.noise.data_pauli is not None and self.noise.data_pauli == self.basis \
+                and not self.allow_invisible_noise:
             raise ValueError(
                 f"{self.noise.data_pauli} noise is invisible to a {self.basis}-basis memory; "
                 f"use basis {'X' if self.basis == 'Z' else 'Z'}, or set allow_invisible_noise "

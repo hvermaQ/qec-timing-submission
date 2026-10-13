@@ -37,6 +37,15 @@ class Backend(Protocol):
         ...
 
 
+@runtime_checkable
+class ProvidesDem(Protocol):
+    """Optional: a backend that can give the detector error model of a spec, in the
+    standard detector layout, for decoding its records."""
+
+    def dem(self, spec: MemorySpec) -> str:
+        ...
+
+
 def run_checked(backend: Backend, spec: MemorySpec) -> RawRecord:
     """Run after checking support, and verify the record matches the spec."""
     reason = backend.supports(spec)
