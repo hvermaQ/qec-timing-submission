@@ -153,3 +153,20 @@ def test_spec_json_roundtrip_through_registry():
         spec = MemorySpec(RotatedSurfaceCode(3), basis, Schedule.rounds(2.0, 4), noise, 10, 3)
         back = spec_from_json(spec.to_json())
         assert back.to_json() == spec.to_json() and back.run_id("b") == spec.run_id("b")
+
+
+def test_pack_bits_matches_the_original_definition():
+    # The first implementation (padded uint64, 64x memory) defined the stored format;
+    # the packbits version must give identical words.
+    def original(bits):
+        n = bits.shape[-1]
+        nw = -(-n // 64)
+        pad = np.zeros(bits.shape[:-1] + (nw * 64,), np.uint64)
+        pad[..., :n] = bits
+        w = np.uint64(1) << np.arange(64, dtype=np.uint64)
+        return (pad.reshape(bits.shape[:-1] + (nw, 64)) * w).sum(-1, dtype=np.uint64)
+
+    rng = np.random.default_rng(0)
+    for n in (1, 63, 64, 65, 200, 1464):
+        b = rng.random((40, n)) < 0.3
+        assert np.array_equal(pack_bits(b), original(b))

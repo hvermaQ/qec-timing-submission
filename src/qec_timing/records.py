@@ -128,22 +128,27 @@ class Derived:
 # word order, last word zero-padded. Same format as the Guppy program's output.
 
 def pack_bits(bits: NDArray[np.bool_]) -> NDArray[np.uint64]:
-    """(..., n) bool -> (..., ceil(n / 64)) uint64."""
+    """(..., n) bool -> (..., ceil(n / 64)) uint64.
+
+    np.packbits with little bit order puts bit b of byte k at position 8k + b, and a
+    little-endian 8-byte view makes byte k the k-th least significant: LSB first,
+    as specified. Memory: about n / 8 bytes per row. (The first version built a
+    padded uint64 array, 64x the input, and exhausted memory on large runs.)"""
     bits = np.asarray(bits, dtype=bool)
     n = bits.shape[-1]
     n_words = -(-n // 64)
-    padded = np.zeros(bits.shape[:-1] + (n_words * 64,), dtype=np.uint64)
-    padded[..., :n] = bits
-    weights = np.uint64(1) << np.arange(64, dtype=np.uint64)
-    return (padded.reshape(bits.shape[:-1] + (n_words, 64)) * weights).sum(
-        axis=-1, dtype=np.uint64)
+    packed = np.packbits(bits, axis=-1, bitorder="little")
+    pad = n_words * 8 - packed.shape[-1]
+    if pad:
+        packed = np.concatenate(
+            [packed, np.zeros(packed.shape[:-1] + (pad,), dtype=np.uint8)], axis=-1)
+    return np.ascontiguousarray(packed).view("<u8").astype(np.uint64, copy=False)
 
 
 def unpack_bits(words: NDArray[np.uint64], n: int) -> NDArray[np.bool_]:
     """(..., n_words) uint64 -> (..., n) bool. Padding bits must be zero."""
-    words = np.asarray(words, dtype=np.uint64)
-    bits = ((words[..., None] >> np.arange(64, dtype=np.uint64)) & np.uint64(1)).astype(bool)
-    bits = bits.reshape(words.shape[:-1] + (-1,))
+    words = np.ascontiguousarray(np.asarray(words, dtype="<u8"))
+    bits = np.unpackbits(words.view(np.uint8), axis=-1, bitorder="little").astype(bool)
     if bits[..., n:].any():
         raise ValueError("non-zero padding bits: wrong n or corrupted data")
     return bits[..., :n]
