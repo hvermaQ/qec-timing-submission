@@ -1,0 +1,10 @@
+d=3 lin 0.3    dt* circuit  10.12 [10.03, 10.20]   predicted  11.80 (+17%)   b_read 0.967
+d=3 quad 0.01  dt* circuit   8.25 [8.21, 8.28]   predicted   9.50 (+15%)   b_read 1.020
+d=3 mixed      dt* circuit   5.50 [5.47, 5.54]   predicted   6.58 (+20%)   b_read 0.969
+d=5 lin 0.3    dt* circuit   5.35 [5.31, 5.39]   predicted   5.43 (+1%)   b_read 0.937
+d=5 quad 0.01  dt* circuit   7.19 [7.13, 7.24]   predicted   7.90 (+10%)   b_read 0.989
+d=5 mixed      dt* circuit   3.80 [3.78, 3.82]   predicted   4.05 (+7%)   b_read 0.938
+d=7 lin 0.3    dt* circuit   3.48 [3.44, 3.51]   predicted   3.28 (-5%)   b_read 0.935
+d=7 quad 0.01  dt* circuit   6.59 [6.48, 6.71]   predicted   6.68 (+1%)   b_read 0.984
+d=7 mixed      dt* circuit   2.82 [2.80, 2.84]   predicted   2.80 (-1%)   b_read 0.933
+wrote results/premise/premise.json (derived e57ff294680e86e1) in 19.3 min

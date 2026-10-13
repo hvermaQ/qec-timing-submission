@@ -19,7 +19,9 @@ from __future__ import annotations
 import datetime as _dt
 import hashlib
 import json
+import os
 import platform
+import shutil
 import subprocess
 from dataclasses import asdict
 from pathlib import Path
@@ -61,11 +63,19 @@ class Store:
 
     def save_run(self, spec: MemorySpec, backend: str, versions: dict[str, str],
                  record: RawRecord) -> str:
+        """Write a run once. It is assembled in a temporary directory and renamed into
+        place in one step, so an interrupted write (a killed process) never looks
+        like a run; its leftovers are removed on the next attempt."""
         run_id = spec.run_id(backend)
         d = self.run_dir(run_id)
-        if d.exists():
+        if self.has_run(run_id):
             raise FileExistsError(f"run {run_id} already stored; raw data is never rewritten")
-        raw = d / "raw"
+        if d.exists():                                  # no manifest: an interrupted write
+            shutil.rmtree(d)
+        tmp = d.parent / f".tmp-{run_id}-{os.getpid()}"
+        if tmp.exists():
+            shutil.rmtree(tmp)
+        raw = tmp / "raw"
         (raw / "attachments").mkdir(parents=True)
         np.save(raw / "detectors.npy", pack_bits(record.detectors))
         np.save(raw / "observables.npy", record.observables)
@@ -86,8 +96,13 @@ class Store:
             "code": code_commit(),
             "checksums": {p.name: _sha256(p) for p in sorted(raw.glob("*")) if p.is_file()},
         }
-        # Manifest last: a run directory without one is an interrupted write.
-        _write_json(d / "manifest.json", manifest)
+        _write_json(tmp / "manifest.json", manifest)
+        try:
+            os.rename(tmp, d)                           # atomic on one filesystem
+        except OSError:
+            shutil.rmtree(tmp)                          # another process stored it first
+            if not self.has_run(run_id):
+                raise
         return run_id
 
     def manifest(self, run_id: str) -> dict[str, Any]:
@@ -114,7 +129,8 @@ class Store:
 
     def runs(self) -> list[str]:
         base = self.root / "runs"
-        return sorted(p.name for p in base.iterdir() if (p / "manifest.json").exists()) \
+        return sorted(p.name for p in base.iterdir()
+                      if not p.name.startswith(".") and (p / "manifest.json").exists()) \
             if base.exists() else []
 
     # --- fitted models -------------------------------------------------------

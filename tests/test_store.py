@@ -74,3 +74,16 @@ def test_model_and_derived_with_lineage(stored):
 
     with pytest.raises(KeyError, match="parents not in store"):
         store.save_derived(Derived("orphan", {}, ("0" * 16,)))
+
+
+def test_interrupted_write_is_not_a_run_and_is_replaced(tmp_path):
+    spec = MemorySpec(RepetitionCode(3), "Z", Schedule.fixed(1.0, 3.0),
+                      FixedNoise(0.05, 0.02), shots=20, seed=1)
+    store, backend = Store(tmp_path), NumpySampler()
+    leftover = store.run_dir(spec.run_id(backend.name)) / "raw"
+    leftover.mkdir(parents=True)                       # a killed write: no manifest
+    (leftover / "detectors.npy").write_bytes(b"partial")
+    assert not store.has_run(spec.run_id(backend.name))
+    run_id = store.save_run(spec, backend.name, {}, backend.run(spec))
+    store.load_run(run_id)                             # complete, checksums valid
+    assert not list((tmp_path / "runs").glob(".tmp-*"))
