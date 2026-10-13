@@ -1,0 +1,8 @@
+# Core env: interfaces, store, contracts, tests. Python 3.12.  Rebuild:
+#   uv venv --python 3.12 .venv && uv pip sync --python .venv/bin/python envs/core.txt && uv pip install --python .venv/bin/python --no-deps -e .
+iniconfig==2.3.1
+numpy==2.5.4
+packaging==26.3
+pluggy==1.6.0
+pygments==2.21.0
+pytest==9.1.1

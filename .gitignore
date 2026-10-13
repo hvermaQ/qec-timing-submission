@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv*/
+# Run store: large raw data stays out of git; canonical runs are added explicitly.
+store/

@@ -1,0 +1,26 @@
+[project]
+name = "qec-timing"
+version = "0.1.0"
+description = "Optimal syndrome-measurement timing for QEC memories (after Haug, Bharti & Aolita 2026)"
+# The core (interfaces, store, contracts) is pure numpy and imports in every env,
+# including the Python 3.11 H2 env. Backends add their own heavy dependencies.
+requires-python = ">=3.11"
+dependencies = ["numpy>=2.0"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "slow: builds emulator programs or runs many shots",
+    "hardware: needs device credentials; skipped otherwise",
+]
