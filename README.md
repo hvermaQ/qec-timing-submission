@@ -8,7 +8,12 @@ are swappable, and every implementation is checked against the same contracts.
 model on Stim and Guppy/Selene with the cross-check (step 2); circuit-level noise on
 textbook and native gates, the effective-model fit, the premise study and the device
 regime study (step 3); application idle analysis and the hardware path: QIR builder,
-local Selene check, aqora and Nexus adapters, calibration experiments and fits (step 4).
+local Selene check, aqora and Nexus adapters, calibration experiments and fits (step 4);
+narrative notebooks, `CLAIMS.md` and `REPRODUCE.md` (step 5).
+
+**Start here:** `CLAIMS.md` (every claim, its evidence and its level), the notebooks in
+`notebooks/` (one per narrative point, 01–09, figures in `notebooks/figures/`), and
+`REPRODUCE.md` (one command per result).
 
 ## Setup
 

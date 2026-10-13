@@ -21,9 +21,9 @@ Labels in the notebooks: *measured* (computed in this repo), *paper* (Haug, Bhar
 | --- | --- | --- | --- |
 | V1 | In sequential FT workloads most logical-qubit time is idle, mostly in long stretches (adder 84–87%, 93% in stretches ≥ 10 steps; QFT 41–51%); local workloads (Ising) are not. | notebook 01; `results/idle/idle.json`; `tests/test_apps.py` (equal to original notebook 10) | 4 |
 | V2 | Large resource estimates already treat idle storage as a cost to engineer (yoked codes, Gidney 2025). | external: arXiv 2505.15917, 2312.04522 (notebook 01) | 5 (external) |
-| V3 | Where idle error per round ≪ p2, the optimal interval at distance d beats back-to-back extraction at d + 2: time replaces a distance step (16–24 data qubits per logical qubit). | notebook 02; `results/regime/grid/` | 3 (simulation at device rates; device t_R unknown) |
+| V3 | For short rounds (t_R ≤ 4 ms for d = 3→5, ≤ 2 ms for 5→7 on H2-1E rates), the optimal interval at d beats back-to-back extraction at d + 2: time replaces a distance step (16–24 data qubits per logical qubit). For longer rounds the gain (×2–12 up to 30 ms) is smaller than a step. | notebook 02; `results/regime/grid/` | 3 (simulation at emulator rates; device t_R unknown) |
 | V4 | The memory extracts Δt* times less often per unit time: proportionally fewer two-qubit gates and measurements (the cost drivers). | notebook 02 (rates); notebook 04 (program size ∝ rounds × checks) | 3; HQC price pending syntax checker |
-| V5 | The benefit has a boundary: none at d ≥ 5 once idle error per round ≈ p2 (H2: t_R ≈ 0.1 s). | notebook 08 | 4 |
+| V5 | The benefit has a boundary: none once idle error per round approaches p2 (H2-1E: from t_R ≈ 50–150 ms, earlier at larger d). | notebook 08 | 4 |
 
 ## Technical Performance & Hardware Use (30%)
 
@@ -31,7 +31,7 @@ Labels in the notebooks: *measured* (computed in this repo), *paper* (Haug, Bhar
 | --- | --- | --- | --- |
 | T1 | The noise model injected in a Guppy program (as a device program) agrees with Stim on the paper's model: 18/18 points, χ² p = 0.51, no bias (−1.9σ). | notebook 03; `results/crosscheck/`; `python -m qec_timing.validation.crosscheck` | 5 (two independent implementations + original Stage 4a reference, p = 0.92) |
 | T2 | Under realistic circuit noise (gates, uniform idle on data and ancillas, native gates), every curve keeps an interior optimum (18/18). | notebook 06; `results/premise/` | 4 |
-| T3 | On H2-1E's own rates, waiting pays ×15–45 at t_R = 1–2 ms, ×2 at 30 ms, nothing at d ≥ 5 near 0.1 s. | notebook 08; `results/regime/` | 3 (emulator parameters; t_R and the quadratic-rate convention assumed) |
+| T3 | On H2-1E's own rates, waiting pays ×15–45 at t_R = 1–2 ms, ×1.4–1.9 at 30 ms; back to back is best from 50 ms (d = 7), 70 ms (d = 5) and 150 ms (d = 3). The optimal period stays near 50–95 ms while rounds are shorter. | notebook 08; `results/regime/grid/` (39 cells) | 3 (emulator parameters; t_R and the quadratic-rate convention assumed) |
 | T4 | The hardware program is built from the code interface, validated as QIR, byte-identical to the original Stage 7a program, and passes the backend contract on local Selene end to end. | notebook 05; `tests/test_hardware.py`; `results/hardware/programs/` | 4 |
 | T5 | Submission path ready: syntax check / cost / submit / fetch / store, every request and response kept verbatim, credit spend gated by `--confirm`. | `qec_timing.hardware.cli`; `results/hardware/README.md` | 2 (not yet executed: provider-side outage) |
 | T6 | Program size and cost scale linearly in rounds × checks; d ≤ 7 fits H2's 56 qubits. | notebook 04; `results/hardware/qir_scaling.json` | 4 |

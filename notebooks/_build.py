@@ -563,13 +563,14 @@ extracted less often. Two ways to price that, from the H2-1E regime grid (notebo
 '''),
 SETUP, GRID_LOAD,
 code('''
-print(f"{'t_R ms':>7}{'d':>3}{'R b2b(d)':>11}{'R opt(d)':>11}{'R b2b(d+2)':>12}   {'optimal(d) beats b2b(d+2)?':<30}{'extractions':>12}")
+# Study rates are per unit of round time (T counted in rounds); per second = / t_R.
+print(f"{'t_R ms':>7}{'d':>3}{'b2b(d) /s':>11}{'opt(d) /s':>11}{'b2b(d+2) /s':>12}   {'optimal(d) beats b2b(d+2)?':<30}{'extractions':>12}")
 for t in T_R:
     for d in DS[:-1]:
         a, b = cell.get((t, d)), cell.get((t, d + 2))
         if not (a and b):
             continue
-        r_b2b, r_opt, r_next = a["points"][0]["r"], best(a)[0], b["points"][0]["r"]
+        r_b2b, r_opt, r_next = (x / t for x in (a["points"][0]["r"], best(a)[0], b["points"][0]["r"]))
         verdict = f"yes: saves {(d + 2)**2 - d**2} data qubits" if r_opt < r_next else "no"
         print(f"{t*1e3:>7.1f}{d:>3}{r_b2b:>11.2e}{r_opt:>11.2e}{r_next:>12.2e}   {verdict:<30}"
               f"{a['dt_star_rounds']:>9.1f}x fewer")
@@ -579,10 +580,10 @@ from matplotlib.lines import Line2D
 fig, ax = plt.subplots(figsize=(7.5, 3.8))
 for d in DS:
     ts = [t for t in T_R if (t, d) in cell]
-    ax.plot([t * 1e3 for t in ts], [cell[(t, d)]["points"][0]["r"] for t in ts], "--", color=P.D_COLOR[d], lw=1.5)
-    ax.plot([t * 1e3 for t in ts], [best(cell[(t, d)])[0] for t in ts], "o-", color=P.D_COLOR[d])
+    ax.plot([t * 1e3 for t in ts], [cell[(t, d)]["points"][0]["r"] / t for t in ts], "--", color=P.D_COLOR[d], lw=1.5)
+    ax.plot([t * 1e3 for t in ts], [best(cell[(t, d)])[0] / t for t in ts], "o-", color=P.D_COLOR[d])
 ax.set_xscale("log"); ax.set_yscale("log")
-ax.set_xlabel("$t_R$ (ms)"); ax.set_ylabel("logical error rate per unit time")
+ax.set_xlabel("$t_R$ (ms)"); ax.set_ylabel("logical error rate per second")
 h = [Line2D([], [], color=P.D_COLOR[d], marker="o", label=f"d = {d}") for d in DS]
 h += [Line2D([], [], color=P.MUTED, ls="--", label="back to back"),
       Line2D([], [], color=P.MUTED, marker="o", label="optimal interval")]
@@ -592,10 +593,12 @@ fig.tight_layout()
 '''),
 md('''
 **Reading.**
-- *Measured:* where the table says "yes", the optimal interval at distance d gives a lower
-  logical error rate per unit time than back-to-back extraction at d + 2. Time replaces a
-  distance step, saving (d+2)² − d² data qubits per idle logical qubit (16 from d = 3 to 5,
-  24 from 5 to 7), with no change to the code.
+- *Measured:* for short rounds the optimal interval at distance d gives a lower logical
+  error rate per second than back-to-back extraction at d + 2: up to t_R = 4 ms for
+  d = 3 → 5, and up to 2 ms for d = 5 → 7. There, time replaces a distance step, saving
+  (d+2)² − d² data qubits per idle logical qubit (16 and 24), with no change to the code.
+  For longer rounds the gain is real but smaller than a distance step (notebook 08: ×2–12
+  between 4 and 30 ms).
 - *Measured:* in the same regime the memory extracts Δt* times less often, tens of times at
   t_R of a few ms, so its gate and measurement count per unit time falls by that factor.
 - *Interp., the pitch:* combined with notebook 01 (most logical qubit time in sequential
@@ -603,8 +606,9 @@ md('''
   application's space-time volume. Mis-setting it costs more as d grows (the paper's Γ_opt
   grows exponentially in α ∝ d), so it should be calibrated per device, which takes one
   calibration (notebook 06).
-- *Boundary:* the saving exists only where idle error per round is well below p2. On H2 that
-  depends on t_R, unknown until measured (notebooks 08, 09).
+- *Boundary:* a full distance step is saved only for rounds of a few ms; any gain needs idle
+  error per round well below p2. On H2 both depend on t_R, unknown until measured
+  (notebooks 08, 09).
 '''),
 ]
 
