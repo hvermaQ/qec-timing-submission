@@ -28,6 +28,7 @@ from qec_timing.spec import MemorySpec
 @register("backend", "selene_qir_program")
 class SeleneQirProgramBackend:
     name = "selene_qir_program"
+    per_shot_seeded = True               # shot k is seeded seed + k
 
     def __init__(self) -> None:
         self._built: dict[str, object] = {}

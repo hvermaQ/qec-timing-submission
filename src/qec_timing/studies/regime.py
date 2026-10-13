@@ -71,11 +71,11 @@ def study(store, cal, t_round, d, gates, grid, n_rounds, target, max_shots, work
     more = {(sp.schedule.dts[0], sp.seed - 1): r
             for sp, r in zip(sized, runs.failures_many(store, backend, sized, workers))}
     rows = []
-    for (dt, s), (rid, f, n) in zip(zip(grid, seeds), pilots):
-        ids = [rid]
+    for (dt, s), (rids, f, n) in zip(zip(grid, seeds), pilots):
+        ids = list(rids)
         if (dt, s) in more:
-            rid2, f2, n2 = more[(dt, s)]
-            f, n, ids = f + f2, n + n2, ids + [rid2]
+            rids2, f2, n2 = more[(dt, s)]
+            f, n, ids = f + f2, n + n2, ids + list(rids2)
         T = n_rounds * dt
         pL = f / n
         r = rate_per_time(pL, T)

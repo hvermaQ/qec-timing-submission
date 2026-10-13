@@ -2,9 +2,17 @@
 
 Each function looks the run up in the store first, so a study can be rerun for
 free and extended point by point. Nothing here knows which experiment it serves.
+
+Memory is bounded twice, because an unbounded run once exhausted the machine's
+memory and the kernel killed the session along with it:
+  - a spec whose detection events would exceed MAX_RUN_BYTES (as booleans) is run
+    as several shot chunks, each stored as its own run, and their failures summed;
+  - parallel workers are capped by the memory the kernel reports as available.
 """
 
 from __future__ import annotations
+
+import dataclasses
 
 from qec_timing.backends.base import Backend, run_checked
 from qec_timing.decoders.base import logical_failures
@@ -24,11 +32,57 @@ def record(store: Store, backend: Backend, spec: MemorySpec) -> tuple[str, RawRe
     return run_id, rec
 
 
-def failures(store: Store, backend: Backend, spec: MemorySpec) -> tuple[str, int, int]:
-    """(run_id, logical failures, shots), decoded by PyMatching on the backend's DEM."""
-    run_id, rec = record(store, backend, spec)
-    fails = logical_failures(PyMatchingDecoder(backend.dem(spec)), rec.detectors, rec.observables)
-    return run_id, int(fails.sum()), rec.shots
+MAX_RUN_BYTES = 256 * 2**20          # detection events per stored run, one byte per bit
+JOB_FACTOR = 4                         # peak memory of a run + decode, in units of its detectors
+JOB_OVERHEAD = 400 * 2**20             # interpreter, circuit, DEM, matching graph
+
+
+def detector_bytes(spec: MemorySpec) -> int:
+    return spec.shots * (spec.schedule.n_rounds + 1) * spec.n_checks
+
+
+def chunks(spec: MemorySpec, per_shot_seeded: bool = False) -> list[MemorySpec]:
+    """`spec` itself if small enough, else shot chunks under MAX_RUN_BYTES.
+
+    Seeds: a per-shot-seeded backend (shot k uses seed + k) gets contiguous ranges,
+    so the chunks draw exactly what one run would. A per-run-seeded backend (Stim)
+    gets seeds (seed << 20) + i, far from any seed a study assigns directly."""
+    per_shot = (spec.schedule.n_rounds + 1) * spec.n_checks
+    size = max(1, MAX_RUN_BYTES // per_shot)
+    if spec.shots <= size:
+        return [spec]
+    out, done, i = [], 0, 0
+    while done < spec.shots:
+        n = min(size, spec.shots - done)
+        seed = spec.seed + done if per_shot_seeded else (spec.seed << 20) + i
+        out.append(dataclasses.replace(spec, shots=n, seed=seed))
+        done, i = done + n, i + 1
+    return out
+
+
+def failures(store: Store, backend: Backend, spec: MemorySpec) -> tuple[list[str], int, int]:
+    """(run ids, logical failures, shots), decoded by PyMatching on the backend's DEM.
+    One run id unless the spec was split into chunks."""
+    ids, fails, shots = [], 0, 0
+    dem = None
+    for part in chunks(spec, getattr(backend, "per_shot_seeded", False)):
+        run_id, rec = record(store, backend, part)
+        dem = dem or backend.dem(part)          # the DEM does not depend on shots or seed
+        f = logical_failures(PyMatchingDecoder(dem), rec.detectors, rec.observables)
+        ids, fails, shots = ids + [run_id], fails + int(f.sum()), shots + rec.shots
+        del rec
+    return ids, fails, shots
+
+
+def memory_workers(requested: int, specs: list[MemorySpec]) -> int:
+    """Workers that fit in the memory the kernel reports available (with headroom)."""
+    try:
+        avail = next(int(line.split()[1]) * 1024 for line in open("/proc/meminfo")
+                     if line.startswith("MemAvailable"))
+    except (OSError, StopIteration):
+        return 1
+    job = max(min(detector_bytes(s), MAX_RUN_BYTES) for s in specs) * JOB_FACTOR + JOB_OVERHEAD
+    return max(1, min(requested, int(0.6 * avail) // job))
 
 
 def edges(store: Store, backend: Backend, spec: MemorySpec) -> EffectiveModel:
@@ -48,7 +102,7 @@ def _failures_job(args):
 
 
 def failures_many(store: Store, backend: Backend, specs: list[MemorySpec],
-                  workers: int = 1) -> list[tuple[str, int, int]]:
+                  workers: int = 1) -> list[tuple[list[str], int, int]]:
     """`failures` for many specs, in parallel processes. Results in input order.
 
     Runs that are already stored are loaded and decoded in the workers too, since
@@ -59,6 +113,9 @@ def failures_many(store: Store, backend: Backend, specs: list[MemorySpec],
     if hasattr(backend, "prepare"):
         for spec in specs:
             backend.prepare(spec)
+    if not specs:
+        return []
+    workers = memory_workers(workers, specs)
     if workers <= 1 or len(specs) <= 1:
         return [failures(store, backend, s) for s in specs]
     import multiprocessing as mp

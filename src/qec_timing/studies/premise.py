@@ -68,8 +68,8 @@ def curve(store: Store, backend, make_spec, d: int, workers: int = 1) -> dict:
     for dt, R in grid:
         F = N = 0
         for _ in SEEDS:
-            rid, f, n = next(results)
-            F, N, ids = F + f, N + n, ids + [rid]
+            rids, f, n = next(results)
+            F, N, ids = F + f, N + n, ids + rids
         r, sr = rate(F, N, T)
         rows.append({"dt": dt, "R": R, "failures": F, "shots": N, "pL": F / N, "r": r, "sr": sr})
     a = {k: np.array([row[k] for row in rows]) for k in ("dt", "pL", "r", "sr")}

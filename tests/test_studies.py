@@ -41,3 +41,24 @@ def test_regime_study_end_to_end(tmp_path):
     row = data["rows"][0]
     assert row["d"] == 3 and len(row["points"]) == 6
     assert row["regime"] in ("wait", "back to back")
+
+
+def test_large_runs_are_split_into_bounded_chunks(tmp_path, monkeypatch):
+    monkeypatch.setattr(runs, "MAX_RUN_BYTES", 4000)             # (6 + 1) rounds x 4 checks = 28 B/shot
+    spec = _specs()[0]                                           # 2000 shots
+    parts = runs.chunks(spec)
+    assert sum(p.shots for p in parts) == 2000 and all(runs.detector_bytes(p) <= 4000 for p in parts)
+    assert len({p.seed for p in parts}) == len(parts) and min(p.seed for p in parts) > 2**20
+    guppy_like = runs.chunks(spec, per_shot_seeded=True)          # contiguous seed ranges
+    assert [p.seed for p in guppy_like] == [spec.seed + sum(q.shots for q in guppy_like[:i])
+                                            for i in range(len(guppy_like))]
+    ids, f, n = runs.failures(Store(tmp_path), StimPhenomBackend(), spec)
+    assert n == 2000 and len(ids) == len(parts) and len(set(ids)) == len(ids)
+
+
+def test_workers_are_capped_by_available_memory():
+    small = _specs()
+    assert 1 <= runs.memory_workers(64, small) <= 64
+    huge = [MemorySpec(RotatedSurfaceCode(3), "Z", Schedule.rounds(1.0, 6), PaperNoise(0.02, 1.0),
+                       10**9, 1)]
+    assert runs.memory_workers(64, huge) < 64

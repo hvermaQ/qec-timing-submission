@@ -9,6 +9,7 @@
     nexus-submit  run on a Nexus device/emulator: needs --confirm (spends credits)
     nexus-fetch   wait for a submitted job and save the result
     store         turn a job's saved result into a stored run
+    scaling       QIR size, call count and build time against distance and rounds
     calib-build   readout and spectator-idle calibration programs (QIR), one per layer count
     calib-fit     fit returned calibration jobs and write a Calibration file
 
@@ -118,6 +119,28 @@ def cmd_store(a) -> None:
     from qec_timing.hardware.providers import store_results
 
     print(f"stored run {store_results(Store(a.store), a.job_dir, a.backend)}")
+
+
+def cmd_scaling(a) -> None:
+    from qec_timing.codes.surface import RotatedSurfaceCode
+    from qec_timing.hardware.qir import build_qir
+    from qec_timing.noise.paper import PaperNoise
+    from qec_timing.schedule import Schedule
+    from qec_timing.spec import MemorySpec
+
+    rows = []
+    for d, rounds in [(3, 2), (3, 8), (3, 32), (5, 2), (5, 8), (5, 32), (7, 2), (7, 8), (7, 16)]:
+        spec = MemorySpec(RotatedSurfaceCode(d), "X", Schedule.rounds(1.0, rounds),
+                          PaperNoise(0.05, 0.0, b_read=0.0, pauli="Z"), 100, 7_000_000)
+        m = build_qir(spec)["meta"]
+        row = {"d": d, "rounds": rounds, "qubits": m["n_qubits"], "bitcode_bytes": m["qir_bitcode_bytes"],
+               "qir_calls": sum(m["qir_calls"].values()), "rzz": m["qir_calls"].get("__quantum__qis__rzz__body", 0),
+               "seconds": m["seconds_hugr"] + m["seconds_qir"]}
+        rows.append(row)
+        print(row, flush=True)
+    a.out.parent.mkdir(parents=True, exist_ok=True)
+    a.out.write_text(json.dumps({"versions": m["versions"], "rows": rows}, indent=1))
+    print(f"wrote {a.out}")
 
 
 def cmd_calib_build(a) -> None:
@@ -238,6 +261,10 @@ def main(argv=None) -> int:
     st.add_argument("job_dir", type=Path)
     st.add_argument("--backend", required=True, help="name for the run, e.g. nexus:H2-1E")
     st.set_defaults(fn=cmd_store)
+
+    sc = sub.add_parser("scaling")
+    sc.add_argument("--out", type=Path, default=Path("results/hardware/qir_scaling.json"))
+    sc.set_defaults(fn=cmd_scaling)
 
     cb = sub.add_parser("calib-build")
     cb.add_argument("--layers", type=int, nargs="+", default=[0, 2, 4, 8, 16, 32, 64])

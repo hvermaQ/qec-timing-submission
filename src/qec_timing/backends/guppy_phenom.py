@@ -181,6 +181,7 @@ def _build(code: StabilizerCode, basis: str, noise_pauli: str):
 @register("backend", "guppy_phenom")
 class GuppyPhenomBackend:
     name = "guppy_phenom"
+    per_shot_seeded = True               # shot k is seeded seed + k
 
     def __init__(self) -> None:
         self._cache: dict[str, Any] = {}
