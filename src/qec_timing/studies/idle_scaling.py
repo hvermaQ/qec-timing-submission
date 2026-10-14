@@ -46,7 +46,7 @@ T, SHOTS, SEEDS = 192, 100_000, (1, 2)
 LIN = (0.15, 0.3, 0.6)          # gamma / p2
 QUAD = (0.0025, 0.01, 0.04)     # c / p2
 MIXED = (0.3, 0.01)             # (gamma, c) / p2: simulated but held OUT of the fit, to test it
-MAP_AXIS = np.geomspace(1e-4, 3.0, 56)          # gamma/p2 and c/p2 axes of the dt* map
+MAP_AXIS = np.geomspace(1e-4, 30.0, 64)          # gamma/p2 and c/p2 axes of the dt* map
 
 
 def families():
