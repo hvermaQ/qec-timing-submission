@@ -71,7 +71,7 @@ md('''
   gaps: nothing for an interval choice to act on. That is the honest boundary of the claim.
 - *Interp.:* at d = 5 and d rounds per logical step, 56–95% of the QFT's and adder's idle
   time sits in stretches of 40 rounds or more, longer than any dt* found for H2 (notebook
-  08). In those stretches the qubit is a memory, and logical error per unit time — the
+  09). In those stretches the qubit is a memory, and logical error per unit time — the
   quantity the interval optimises — is what counts.
 - *Limits:* 16–18 logical qubits; no routing, factories or rotation synthesis, all of which
   lengthen waiting, so these fractions are lower bounds.
