@@ -157,17 +157,26 @@ def cmd_calib_build(a) -> None:
 
     from hugr_qir.output import OutputFormat
 
-    from qec_timing.hardware.calibration_experiments import idle_program, readout_program
+    from qec_timing.hardware.calibration_experiments import (idle_program, readout_program,
+                                                             transport_idle_program)
     from qec_timing.hardware.qir import _convert
 
     a.out.mkdir(parents=True, exist_ok=True)
-    jobs = [("readout", readout_program(a.readout_qubits),
-             {"experiment": "readout", "n": a.readout_qubits})]
+    jobs = [] if a.transport else [("readout", readout_program(a.readout_qubits),
+                                    {"experiment": "readout", "n": a.readout_qubits})]
     for basis in a.bases:
         for L in a.layers:
-            jobs.append((f"idle_{basis}_L{L}", idle_program(a.targets, a.spectators, L, basis),
-                         {"experiment": "idle", "basis": basis, "layers": L,
-                          "n_targets": a.targets, "n_spectators": a.spectators}))
+            if a.transport:
+                jobs.append((f"idleT_{basis}_L{L}",
+                             transport_idle_program(a.targets, a.spectators, L, basis),
+                             {"experiment": "idle", "spectator_layer": "random-pairing zz_max",
+                              "basis": basis, "layers": L, "n_targets": a.targets,
+                              "n_spectators": a.spectators}))
+            else:
+                jobs.append((f"idle_{basis}_L{L}", idle_program(a.targets, a.spectators, L, basis),
+                             {"experiment": "idle", "spectator_layer": "measure-reset",
+                              "basis": basis, "layers": L, "n_targets": a.targets,
+                              "n_spectators": a.spectators}))
     versions = {k: md.version(k) for k in ("guppylang", "hugr-qir")}
     for name, prog, meta in jobs:
         bc = _convert(prog.compile(), OutputFormat.BITCODE)
@@ -291,6 +300,8 @@ def main(argv=None) -> int:
     cb.add_argument("--spectators", type=int, default=2)
     cb.add_argument("--readout-qubits", type=int, default=8)
     cb.add_argument("--out", type=Path, default=Path("results/hardware/calibration_programs"))
+    cb.add_argument("--transport", action="store_true",
+                    help="spectators do random-pairing zz_max layers (forces transport)")
     cb.set_defaults(fn=cmd_calib_build)
 
     cf = sub.add_parser("calib-fit")

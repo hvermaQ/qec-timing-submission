@@ -107,6 +107,70 @@ def idle_program(n_targets: int, n_spectators: int, layers: int, basis: str = "X
     return main
 
 
+def transport_idle_program(n_targets: int, n_spectators: int, layers: int, basis: str = "X",
+                           seed: int = 0):
+    """Targets wait while spectators run `layers` layers of native ZZ gates on freshly
+    random pairings: Quantinuum's own memory benchmark (random-pairing transport, as in
+    transport 1QRB) with the targets as the idle qubits. Each layer forces ion transport
+    and cooling, so it lasts a depth-one circuit time (~55-68 ms on H2/Helios, published),
+    where the measure-and-reset layers of `idle_program` forced none.
+
+    Layer k: H on every spectator (so ZZ gates of different layers do not commute and
+    cannot be merged by the compiler), then zz_max on the pairs of a random permutation
+    (seed + k, compile time). Afterwards every spectator is measured; a Z on each target
+    conditioned on their parity (feed-forward) keeps the targets' measurement after all
+    layers. Tags as `idle_program`: t{i} (target outcome), par (spectator parity)."""
+    import numpy as np
+    from guppylang import guppy
+    from guppylang.std.builtins import result
+    from guppylang.std.qsystem import zz_max
+    from guppylang.std.quantum import discard, h, measure, project_z, qubit, z
+
+    if basis not in ("X", "Z"):
+        raise ValueError("basis must be X or Z")
+    if n_spectators < 2 or n_spectators % 2:
+        raise ValueError("need an even number of spectators (>= 2) to pair")
+    x_basis = basis == "X"
+    pairings = [np.random.default_rng(seed + k).permutation(n_spectators).reshape(-1, 2).tolist()
+                for k in range(layers)]
+
+    @guppy
+    def xor_(a: bool, b: bool) -> bool:
+        return a != b
+
+    @guppy
+    def cond_z(q: qubit, flip: bool) -> None:
+        if flip:
+            z(q)
+
+    @guppy.comptime
+    def main() -> None:
+        targets = [qubit() for _ in range(n_targets)]
+        spect = [qubit() for _ in range(n_spectators)]
+        if x_basis:
+            for q in targets:
+                h(q)
+        for pairs in pairings:
+            for s in spect:
+                h(s)
+            for a, b in pairs:
+                zz_max(spect[a], spect[b])
+        par = False
+        for s in spect:
+            par = xor_(par, project_z(s))
+        for q in targets:
+            cond_z(q, par)
+        result("par", par)
+        for i, q in enumerate(targets):
+            if x_basis:
+                h(q)
+            result(f"t{i}", measure(q))
+        for s in spect:
+            discard(s)
+
+    return main
+
+
 # --- fits (numpy) --------------------------------------------------------------
 
 @dataclass(frozen=True)

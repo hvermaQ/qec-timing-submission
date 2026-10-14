@@ -1,0 +1,13 @@
+{
+  "experiment": "idle",
+  "spectator_layer": "random-pairing zz_max",
+  "basis": "Z",
+  "layers": 4,
+  "n_targets": 8,
+  "n_spectators": 8,
+  "p_inject": 0.0,
+  "versions": {
+    "guppylang": "0.21.11",
+    "hugr-qir": "0.1.2"
+  }
+}

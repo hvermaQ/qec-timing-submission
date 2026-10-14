@@ -1,351 +1,425 @@
 {
- "date": "2026-10-14",
  "rows": [
   {
    "dir": "20261014T083632Z_aqora_d3_X_r2_p0.05_H2-1SC",
-   "program": "20261014T083632Z_aqora_d3_X_r2_p0.05_H2-1SC",
-   "platform": null,
+   "program": "d3_X_r2_p0.05 (first attempt)",
    "as_entity": null,
-   "shots": null,
    "job_id": null,
    "status": "NOT SUBMITTED (refused: not authorized as personal account)",
    "error": null,
-   "result_errors": [],
    "output": []
   },
   {
    "dir": "20261014T083711Z_aqora_d3_X_r2_p0.05_H2-1SC",
    "program": "d3_X_r2_p0.05",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5j2epfqOSWTk9CkY6Yg",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 17,
      "bits": 1088,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T083941Z_aqora_readout_H2-1SC",
    "program": "readout",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5kUXvfFC3IecROuKY0Q",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 16,
      "bits": 1024,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T083959Z_aqora_idle_X_L0_H2-1SC",
    "program": "idle_X_L0",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5kYuzfqCRZC7c9Ir-_A",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084016Z_aqora_idle_X_L16_H2-1SC",
    "program": "idle_X_L16",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5kc86eQCEfIHFNpd6Uw",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084034Z_aqora_idle_X_L2_H2-1SC",
    "program": "idle_X_L2",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5khNrcaOLGIT2SkfnDA",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084053Z_aqora_idle_X_L32_H2-1SC",
    "program": "idle_X_L32",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5kl9reICrINTQr5a5LA",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084110Z_aqora_idle_X_L4_H2-1SC",
    "program": "idle_X_L4",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5kqI5f_KF91WxvQMtFA",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084128Z_aqora_idle_X_L64_H2-1SC",
    "program": "idle_X_L64",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5kuc3fBOUxOBkXghNuw",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084239Z_aqora_idle_X_L8_H2-1SC",
    "program": "idle_X_L8",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5lDkXcFCOqFjrFM9jiw",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084312Z_aqora_idle_Z_L0_H2-1SC",
    "program": "idle_Z_L0",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5lH7ad0Oui6Ga7AxVHQ",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084331Z_aqora_idle_Z_L16_H2-1SC",
    "program": "idle_Z_L16",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5lMbnf2GDqbu5v_z9cQ",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084349Z_aqora_idle_Z_L2_H2-1SC",
    "program": "idle_Z_L2",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5lQ12eKCn3ClKuO2I5w",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084406Z_aqora_idle_Z_L32_H2-1SC",
    "program": "idle_Z_L32",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5lVB3fxG5GUoXUpsZCg",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084424Z_aqora_idle_Z_L4_H2-1SC",
    "program": "idle_Z_L4",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5lZTmcjCB7vuzJPkf4Q",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084441Z_aqora_idle_Z_L64_H2-1SC",
    "program": "idle_Z_L64",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5ldm3cwGN-uXRB3Rz2Q",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
     }
    ]
   },
   {
    "dir": "20261014T084459Z_aqora_idle_Z_L8_H2-1SC",
    "program": "idle_Z_L8",
-   "platform": "nexus:H2-1SC",
    "as_entity": "q_sq",
-   "shots": 100,
    "job_id": "AFByb3ZpZGVySm9iAaE5liDwdYCN1zkmlslnfg",
    "status": "COMPLETED",
    "error": null,
-   "result_errors": [
-    null
-   ],
    "output": [
     {
      "registers": 9,
      "bits": 576,
-     "shots": 100,
-     "any_nonzero": false
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261014T093855Z_aqora_d3_X_r2_p0_H2-1SC",
+   "program": "d3_X_r2_p0.05 (first attempt)",
+   "as_entity": null,
+   "job_id": null,
+   "status": "NOT SUBMITTED (refused: not authorized as personal account)",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261014T094040Z_aqora_d3_X_r2_p0_H2-1SC",
+   "program": "d3_X_r2_p0",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE5yRtgfHOPea8Ntwvc1Q",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 17,
+     "bits": 1088,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261014T111349Z_aqora_idleT_X_L0_H2-1SC",
+   "program": "idleT_X_L0",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6HrR0erCJB7UhtJIMRw",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261014T111428Z_aqora_idleT_X_L2_H2-1SC",
+   "program": "idleT_X_L2",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6Hvm-ckOhQm91qUU9WQ",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261014T111445Z_aqora_idleT_X_L4_H2-1SC",
+   "program": "idleT_X_L4",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6Hz3ldGOQjaeqh3ES8g",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261014T111504Z_aqora_idleT_X_L8_H2-1SC",
+   "program": "idleT_X_L8",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6H4WxeEO8NnvKjy7llQ",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261014T111521Z_aqora_idleT_X_L16_H2-1SC",
+   "program": "idleT_X_L16",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6H8nMeoG1MOYvC43pEw",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261014T111538Z_aqora_idleT_Z_L0_H2-1SC",
+   "program": "idleT_Z_L0",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6IA2QfcCBqZz1muCdpQ",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261014T111556Z_aqora_idleT_Z_L2_H2-1SC",
+   "program": "idleT_Z_L2",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6IFEkf0CirkPqdbKs4A",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261014T111614Z_aqora_idleT_Z_L4_H2-1SC",
+   "program": "idleT_Z_L4",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6IJjScdKNM5MIAgIZGQ",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261014T111631Z_aqora_idleT_Z_L8_H2-1SC",
+   "program": "idleT_Z_L8",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6INwwf4KdNWP4fInl2Q",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261014T111650Z_aqora_idleT_Z_L16_H2-1SC",
+   "program": "idleT_Z_L16",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6ISV7f2OtKl0Jdv0ZHg",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
     }
    ]
   }
