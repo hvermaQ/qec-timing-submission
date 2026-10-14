@@ -33,3 +33,8 @@ Reading: up to 64 spectator layers produce no detectable dephasing. With the emu
 (f = 86 mHz, gamma = 2.8e-3 /s) a 1% flip needs about 0.4 s of idling, so 64 layers of
 measure-and-reset are far shorter than that, or the layers are not executed as idle time. Neither
 can be told apart at this depth; the grid has to reach ~10^3-10^4 layers (or a known layer duration).
+
+![H2-1E calibration runs](h2_1e_calibration_runs.png)
+
+Grey lines: the emulator idle model for an assumed layer duration (1, 3.4, 10 ms). 0/800 at L = 64 rules out
+layers of about 3.4 ms or longer (if the layers are executed as idle time).
