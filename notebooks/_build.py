@@ -998,6 +998,99 @@ md('''
 '''),
 ]
 NB["07_dt_star_vs_idle_strength"] += MAP_CELLS
+PHYS_CELLS = [
+md('''
+## The same map on physical axes: round duration and dephasing strength
+
+The map above is in per-round units, which mixes the device with its round duration: a device
+with fixed idle rates moves along a slope-2 line as t_R changes. Here the same calibrated formula
+is evaluated on physical axes instead. Top row: x = round duration t_R, y = the qubit frequency
+offset f = ω/2π that sets the quadratic term sin²(ωt/2), with the linear rate fixed at H2-1E's
+γ = 2.8×10⁻³ s⁻¹. Bottom row: y = the linear rate γ, with f fixed at H2-1E's (86 mHz, the
+"cycles" reading of the emulator's quadratic rate). Per round, γ_R = γ·t_R and c = (ω·t_R/2)²,
+both read relative to H2's p2 = 1.05×10⁻³ (the same scale assumption as above).
+
+Overlays: H2-1E's emulator value (dashed line); the typical frequency offset Quantinuum quotes
+for H2, ≈ 75 mHz ([DD docs](https://docs.quantinuum.com/systems/trainings/h2/getting_started/dd.html));
+the dashed outline encloses the simulated region; the grey band is an *estimate* of a surface-code
+round on current H2, ~100–250 ms: 4 CX layers plus measurement at a depth-one circuit time of
+~60–68 ms (arXiv:2409.04628, 2506.14169), and ~200 ms per round reported for H1's colour code
+(arXiv:2208.08064). It is not a measured surface-code t_R.
+'''),
+code('''
+import matplotlib.patheffects as pe
+from qec_timing.studies.idle_scaling import dt_star_gc, gain_gc
+P2_SIM, p2_dev = isc["setup"]["p2"], cal["p2"]
+f_h2 = omega / (2 * math.pi)                                       # Hz
+tR_ax = np.geomspace(1e-3, 0.3, 48)                                # s
+f_ax = np.geomspace(1e-3, 1.0, 44)                                 # Hz
+g_ax = np.geomspace(1e-4, 1e-1, 44)                                # 1/s
+box = (max(isc["setup"]["lin"]), max(isc["setup"]["quad"]))        # simulated: gamma/p2, c/p2 upper edges
+
+def per_round(gamma, f, t):
+    """(gamma_R / p2, c / p2) per round for physical rates gamma [1/s], f [Hz] at round time t [s]."""
+    return gamma * t / p2_dev, (2 * math.pi * f * t / 2) ** 2 / p2_dev
+
+def grids(fit, ys, kind):
+    D = np.empty((len(ys), len(tR_ax))); G = np.empty_like(D); S = np.empty_like(D)
+    for i, y in enumerate(ys):
+        for j, t in enumerate(tR_ax):
+            g, c = per_round(cal["gamma"], y, t) if kind == "f" else per_round(y, f_h2, t)
+            D[i, j] = dt_star_gc(g * P2_SIM, c * P2_SIM, fit, place)
+            G[i, j] = gain_gc(g * P2_SIM, c * P2_SIM, fit, place)
+            S[i, j] = max(g / box[0], c / box[1])                  # <= 1: inside the simulated region
+    return D, G, S
+
+fig, axes = plt.subplots(2, len(isc["rows"]), figsize=(4.6 * len(isc["rows"]), 7.6), sharex=True)
+for col, r in enumerate(isc["rows"]):
+    for row, (ys, kind, h2y, ylab) in enumerate(((f_ax, "f", f_h2, "frequency offset $f$ (mHz)"),
+                                                 (g_ax, "g", cal["gamma"], r"linear rate $\\gamma$ (s$^{-1}$)"))):
+        ax = axes[row, col]
+        D, G, S = grids(r["ansatz"], ys, kind)
+        yplot = ys * 1e3 if kind == "f" else ys
+        cs = ax.contourf(tR_ax * 1e3, yplot, np.log10(D), levels=levels, cmap=cmap, norm=norm, extend="both")
+        ax.contour(tR_ax * 1e3, yplot, G, levels=[1.05], colors="white", linewidths=2.2,
+                   path_effects=[pe.Stroke(linewidth=3.6, foreground=P.INK), pe.Normal()])
+        ax.contour(tR_ax * 1e3, yplot, S, levels=[1.0], colors=P.INK, linewidths=1, linestyles=":")
+        ax.axvspan(100, 250, facecolor="none", edgecolor=P.INK_2, hatch="///", lw=0, alpha=0.5)
+        ax.axhline(h2y * (1e3 if kind == "f" else 1), color=P.INK, ls="-", lw=1.4)
+        if kind == "f":
+            ax.axhline(75, color=P.SERIES[1], ls=":", lw=1.5)
+        ax.set_xscale("log"); ax.set_yscale("log"); ax.grid(False)
+        if row == 0:
+            ax.set_title(rf"$d = {r['d']}$", loc="left")
+        if row == 1:
+            ax.set_xlabel(r"round duration $t_R$ (ms)")
+        if col == 0:
+            ax.set_ylabel(ylab)
+from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
+h = [Line2D([], [], color=P.INK, ls="-", lw=1.4, label="H2-1E emulator value"),
+     Line2D([], [], color=P.SERIES[1], ls=":", lw=1.5, label="H2 typical offset, 75 mHz (docs)"),
+     Line2D([], [], color="white", lw=2.2, label="gain from waiting = 5%",
+            path_effects=[pe.Stroke(linewidth=3.6, foreground=P.INK), pe.Normal()]),
+     Line2D([], [], color=P.INK, ls=":", lw=1, label="simulated region (below/left)"),
+     Patch(facecolor="none", edgecolor=P.INK_2, hatch="///", label="estimated current-H2 round, 100-250 ms")]
+fig.legend(handles=h, loc="lower center", ncol=3, fontsize=8, bbox_to_anchor=(0.5, -0.03))
+fig.colorbar(cs, ax=axes, label=r"$\\log_{10}(\\Delta t^* / t_R)$", fraction=0.025, pad=0.02)
+fig.suptitle("Optimal interval on physical axes (linear rate fixed at H2's in the top row, frequency offset in the bottom row)",
+             x=0.01, ha="left")
+'''),
+md('''
+**Reading.**
+- *Interp.:* each point is a device and a round duration; the white line separates "wait" (left,
+  below) from "back to back" (right, above). Faster rounds or weaker dephasing move a device left
+  or down, where waiting pays.
+- *Interp.:* at H2's dephasing (solid line) the white line is crossed at t_R ≈ 200, 160 and
+  120 ms for d = 3, 5, 7, inside the estimated current-H2 round (hatched): on today's hardware
+  the optimal interval is expected to buy little. Large gains need rounds of order 1–10 ms, or
+  weaker dephasing; the x-axis tells how much faster rounds would have to be.
+- *Limits:* the same as the map above: outside the dashed outline the formula is extrapolated,
+  the scale assumption reads results at p2 = 5×10⁻³ on H2's p2, and the grey band is an estimate
+  from published layer times, not a measured surface-code round.
+'''),
+]
+NB["07_dt_star_vs_idle_strength"] += PHYS_CELLS
 
 for name, cells in NB.items():
     # Every figure cell also writes its PNG to notebooks/figures/<notebook>_<n>.png.
