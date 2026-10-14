@@ -9,6 +9,8 @@ Thin lines, recessive grid and axes, text in ink colours (never series colours).
 
 from __future__ import annotations
 
+from pathlib import Path
+
 SERIES = ["#2a78d6", "#eb6834", "#1baf7a"]            # categorical slots 1-3
 D_COLOR = {3: SERIES[0], 5: SERIES[1], 7: SERIES[2]}
 SEQUENTIAL = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"]
@@ -43,12 +45,14 @@ def label_end(ax, x, y, text: str, color: str = INK_2, dx: float = 4) -> None:
                 color=color, fontsize=9)
 
 
-def save(fig, name: str, directory: str = "figures") -> None:
-    """Write a figure as PNG next to the notebook (notebooks/figures/<name>.png)."""
-    from pathlib import Path
+FIGURES = Path(__file__).resolve().parents[2] / "figures"    # repo-root figures/
 
-    out = Path(directory)
-    out.mkdir(exist_ok=True)
+
+def save(fig, name: str, directory: str | Path | None = None) -> None:
+    """Write a figure as PNG to the repo's figures/ folder (figures/<name>.png), whatever
+    the working directory; pass `directory` to write elsewhere."""
+    out = Path(directory) if directory is not None else FIGURES
+    out.mkdir(parents=True, exist_ok=True)
     fig.savefig(out / f"{name}.png", dpi=150, bbox_inches="tight")
 
 

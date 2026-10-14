@@ -1200,7 +1200,7 @@ md('''
 ]
 
 for name, cells in NB.items():
-    # Every figure cell also writes its PNG to notebooks/figures/<notebook>_<n>.png.
+    # Every figure cell also writes its PNG to figures/<notebook>_<n>.png (repo root).
     k = 0
     for c in cells:
         if c.cell_type == "code" and "plt.subplots" in c.source:

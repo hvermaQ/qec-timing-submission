@@ -12,7 +12,7 @@ local Selene check, aqora and Nexus adapters, calibration experiments and fits (
 narrative notebooks, `CLAIMS.md` and `REPRODUCE.md` (step 5).
 
 **Start here:** `CLAIMS.md` (every claim, its evidence and its level), the notebooks in
-`notebooks/` (figures in `notebooks/figures/`), and `REPRODUCE.md` (one command per result).
+`notebooks/` (figures in `figures/`), and `REPRODUCE.md` (one command per result).
 The notebooks run in two arcs:
 - **simulation, 01–09:** idle in applications (01); the paper's model, Guppy vs Stim (02);
   dephasing needs the X basis (03); realistic circuit noise (04–06); how the optimum moves
