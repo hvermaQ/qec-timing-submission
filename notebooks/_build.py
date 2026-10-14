@@ -237,6 +237,12 @@ does the paper's two-parameter model still describe the circuit?
 `results/premise/premise_{textbook,native}.json`. X-basis memory, H2-1E gate ratios scaled
 so p2 = 5e-3, idle noise linear (γ = 0.3 p2), quadratic (c = 0.01 p2) or both, T = 192,
 2 × 100k shots per point. Full-circuit numbers equal the original notebooks 08/09 exactly.
+
+**Idle scale (chosen, not from a device).** The idle strengths are fixed per round relative to
+p2: γ = 0.3·p2 corresponds to H2-1E's linear rate at t_R ≈ 110 ms, and c = 0.01·p2 to its
+quadratic rate at t_R ≈ 12 ms; the mixed setting lies on no single H2 round duration. The
+results here (and in the next two notebooks, which use the same settings) describe this regime,
+not a specific device; where a device sits is set by its t_R, examined later in this series.
 '''),
 SETUP,
 code('''
@@ -322,6 +328,11 @@ H1's clock-state qubit has a spin-echo T2 of 2 s with Gaussian decay, limited by
 fluctuations (Pino et al., Nature 592, 209 (2021)); H2's memory error comes from imperfect phase
 tracking under magnetic-field instabilities during transport and cooling, with T1 of several
 minutes (Moses et al., PRX 13, 041052 (2023)). See also Sepiol et al., PRL 123, 110503 (2019).
+
+**Idle scale (chosen, not from a device).** Time is in units of the round duration t_R, and
+the idle strength is set per round relative to the two-qubit gate error: γ = 0.3·p2 per round
+here. On H2-1E's emulator rates that corresponds to a round of t_R ≈ 110 ms; a device's actual
+position is set by its t_R, which is examined later in this series.
 
 This notebook runs a small demonstration through the package (d = 3, Stim, seconds).
 `MemorySpec` refuses the blind combination unless it is marked as a deliberate control
