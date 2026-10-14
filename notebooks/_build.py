@@ -711,19 +711,19 @@ for r in pq["rows"]:
 code('''
 rows = [r for r in pq["rows"] if r["d"] == max(x["d"] for x in pq["rows"])]
 fig, axes = plt.subplots(1, len(rows), figsize=(4.6 * len(rows), 4))
-vmax = max(max(r["z"]["total"]) for r in rows)
+vmax = 100 * max(max(r["z"]["total"]) for r in rows)          # percent
 for ax, r in zip(np.atleast_1d(axes), rows):
     d = r["d"]; M = np.full((d, d), np.nan)
     for (row, col), v in zip(r["grid"], r["z"]["total"]):
-        M[int(row), int(col)] = v
+        M[int(row), int(col)] = 100 * v
     im = ax.imshow(M, cmap=P.sequential_cmap(), vmin=0, vmax=vmax)
     for i in range(d):
         for j in range(d):
-            ax.text(j, i, f"{M[i, j] * 100:.2f}", ha="center", va="center", fontsize=7,
+            ax.text(j, i, f"{M[i, j]:.2f}", ha="center", va="center", fontsize=7,
                     color="white" if M[i, j] > 0.6 * vmax else P.INK)
     ax.set_xticks([]); ax.set_yticks([]); ax.grid(False)
     ax.set_title(rf"$d = {d}$, {r['gates']} gates (% per round)", loc="left")
-fig.colorbar(im, ax=axes, label="Z-error probability per round", fraction=0.03)
+fig.colorbar(im, ax=axes, label="Z-error probability per round (%)", fraction=0.03)
 '''),
 code('''
 r = next(x for x in pq["rows"] if x["d"] == min(y["d"] for y in pq["rows"]) and x["gates"] == "native")
