@@ -69,10 +69,13 @@ md('''
   time is in stretches of at least 10 logical steps.
 - *Measured:* a local, uniform workload (the Ising Trotter step) idles only in 1–3 step
   gaps: nothing for an interval choice to act on. That is the honest boundary of the claim.
-- *Interp.:* at d = 5 and d rounds per logical step, 56–95% of the QFT's and adder's idle
-  time sits in stretches of 40 rounds or more, longer than any dt* found for H2 (notebook
-  09). In those stretches the qubit is a memory, and logical error per unit time — the
-  quantity the interval optimises — is what counts.
+- *Interp.:* with d rounds per logical step (d = 5), a stretch of L steps is a memory of
+  5L syndrome rounds. Share of idle time in stretches of at least 50 / 100 / 250 rounds:
+  QFT 54–68% / 34–64% / 0–18%, adder 93–95% / 76–92% / 29–77% (ranges over the two time
+  models). In those stretches the qubit is a memory, and logical error per unit time — the
+  quantity the interval optimises — is what counts. Whether a stretch is long enough
+  depends on the optimal interval, which is device-dependent: an interval can only be
+  applied in stretches several intervals long.
 - *Limits:* 16–18 logical qubits; no routing, factories or rotation synthesis, all of which
   lengthen waiting, so these fractions are lower bounds.
 '''),
@@ -129,8 +132,7 @@ md('''
   ranges, which correlated them and faked a d = 7 bias; the package now refuses overlapping
   ranges (`spec.overlapping_seed_ranges`). See `results/crosscheck/README.md`.
 - *Constraint:* this model has X-only data noise and ideal gates. It
-  validates the injection mechanism and the analysis, not device physics; notebooks 04–09 add
-  realistic noise.
+  validates the injection mechanism and the analysis, not device physics.
 '''),
 ]
 
@@ -543,8 +545,8 @@ md('''
   and shortens with distance (the paper's 1/Δt* ∝ d, here in physical time).
 - *Interp.:* the decisive unknown for H2 is t_R. Quantinuum's early 7-qubit colour-code
   experiment reported ~200 ms per QEC round (via arXiv 2208.08064; not an H2 figure), which
-  would sit in the back-to-back region; faster rounds move a device left on this map. The
-  calibration path (notebook 13) measures it.
+  would sit in the back-to-back region; faster rounds move a device left on this map. It
+  has to be measured on the device.
 - *Modelling limits:* the 2π reading of the quadratic rate ("cycles", the conservative
   choice) and equal layer durations are assumptions; the "radians" reading moves dt* by ~4×.
   At d = 7 and short t_R, failures are rare and some points hit the shot cap.
@@ -624,7 +626,7 @@ md('''
   calibration (notebook 05).
 - *Boundary:* a full distance step is saved only for rounds of a few ms; any gain needs idle
   error per round well below p2. On H2 both depend on t_R, unknown until measured
-  (notebooks 09, 13).
+  (notebook 09).
 '''),
 ]
 
@@ -686,7 +688,7 @@ md('''
 
 NB["04_artificial_idle_effective_parameters"] = [
 md('''
-# 04 — First step: an artificial idle model, and the circuit's effective λ and b_read
+# 04 — An artificial idle model, and the circuit's effective λ and b_read
 
 Before realistic idle noise, the arc used Selene's own
 error model: a depolarizing Pauli before every native gate, with idling written as explicit
@@ -754,10 +756,9 @@ md('''
   (Δt* ∝ 1/λ: 0.31/0.131, 0.31/0.125); 4.1× at d = 3, where the readout term adds to it. Shots
   are sized per point to ~300 failures; with a fixed 100k shots the d = 7 curves (20–90
   failures per point) could not locate the minimum. The paper's two numbers are circuit
-  properties to be measured, not constants; that is what notebook 05 does with realistic noise.
-- *Why the next step:* this idle model (depolarizing, an op count with no duration) is not
-  trapped-ion physics; notebook 05 replaces it with time-based Z dephasing on every qubit
-  (the X-basis memory notebook 03 showed it needs).
+  properties to be measured, not constants.
+- *Limit:* this idle model (depolarizing, an op count with no duration) is not trapped-ion
+  physics, which is time-based Z dephasing on every qubit (notebook 03).
 '''),
 ]
 
@@ -824,7 +825,7 @@ md('''
   (7–9% with textbook gates): the native CNOT decomposition puts noisy single-qubit gates on the
   ancillas, and their faults spread through later CNOTs.
 - *Consequence:* a decoder or a model that assumes uniform, independent data errors misses
-  structure that the circuit's own detector error model contains (notebook 07).
+  structure that the circuit's own detector error model contains.
 - *Note:* these are physical error frames; the effective p_data measured from detection events
   (notebook 05) is lower, because correlated pairs from one fault (hooks) count once there.
 '''),
@@ -943,7 +944,7 @@ md('''
   (as in the scaling study, notebook 02).
 - *Interp.:* the crossing of the lines with Δt* = 1 is the boundary of the useful regime, in
   units of idle error per round over p2: waiting pays only when idling per round is well below
-  the two-qubit gate error. Notebook 09 places H2 on this axis through the round duration t_R.
+  the two-qubit gate error. A device's position on this axis is set by its round duration t_R.
 '''),
 ]
 
@@ -1009,8 +1010,8 @@ md('''
   (Δt* 5.10, 3.55, 2.63 simulated against 5.39, 3.73, 2.73 at d = 3, 5, 7), with the formula
   slightly long; inside the box the map is a calibrated prediction, not just a fit.
 - *Interp.:* the white line is the regime boundary in idle-noise space. H2-1E's trajectory
-  crosses it at a round duration of tens of ms, consistent with the full-circuit simulations
-  at H2's own rates (notebook 09), from a different route: a fitted formula at scaled gates.
+  crosses it at a round duration of tens of ms (a fitted formula at scaled gates, not a
+  simulation at H2's own rates).
 - *Limits:* outside the box (pale) the formula is extrapolated; the quadratic search stops at
   the term's first maximum, where the twirled model stops describing decoherence.
 '''),
