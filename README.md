@@ -14,11 +14,13 @@ narrative notebooks, `CLAIMS.md` and `REPRODUCE.md` (step 5).
 **Start here:** `CLAIMS.md` (every claim, its evidence and its level), the notebooks in
 `notebooks/` (figures in `notebooks/figures/`), and `REPRODUCE.md` (one command per result).
 The notebooks run in two arcs:
-- **simulation, 01–10:** idle in applications (01); the paper's model, Guppy vs Stim (02);
-  dephasing needs the X basis (03); realistic circuit noise (04–07); how the optimum moves
-  with idle strength (08); the regime on H2-1E rates (09); the payoff, time for space (10);
-- **hardware, 11–13:** program size and cost (11), the device program checked end to end
-  (12), measuring the device's idle noise and feeding it back (13).
+- **simulation, 01–09:** idle in applications (01); the paper's model, Guppy vs Stim (02);
+  dephasing needs the X basis (03); realistic circuit noise (04–06); how the optimum moves
+  with idle strength (07); the regime on H2-1E rates (08); the payoff, time for space (09);
+- **hardware, 10–12:** program size and cost (10), the device program checked end to end
+  (11), measuring the device's idle noise and feeding it back (12).
+
+Retired notebooks (kept for the record, not part of the argument) are in `notebooks/retired/`.
 
 ## Setup
 

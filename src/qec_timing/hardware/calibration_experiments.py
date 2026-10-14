@@ -1,4 +1,4 @@
-"""Device calibration experiments and their fits (notebook 13; the original
+"""Device calibration experiments and their fits (notebook 12; the original
 repo's docs/notebook_arc/hardware_tests.md, tests T2-T4).
 
 There is no user-controlled delay in Guppy (0.21 or 1.x) or pytket, so idle time

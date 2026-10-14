@@ -1,4 +1,4 @@
-"""Is a non-trivial syndrome interval worth it on a given device? (Notebooks 09, 13.)
+"""Is a non-trivial syndrome interval worth it on a given device? (Notebooks 08, 12.)
 
 Input: a `Calibration` file (gate, readout and idle-dephasing parameters, with a
 source) and candidate round durations t_R, because t_R is what decides the answer

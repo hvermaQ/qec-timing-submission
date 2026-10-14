@@ -137,9 +137,9 @@ md('''
 ]
 
 # ---------------------------------------------------------------------------
-NB["11_program_cost_estimates"] = [
+NB["10_program_cost_estimates"] = [
 md('''
-# 11 — Program size and cost before running anything
+# 10 — Program size and cost before running anything
 
 How large is the hardware program, and how does it grow? The memory
 experiment is compiled to QIR for H2 (Guppy 0.21 → HUGR → QIR, validation on). The HQC
@@ -176,15 +176,15 @@ md('''
 - *Measured:* d = 7 needs 50 qubits, within H2's 56 for the stabilizer emulator; d = 9 (82) does not fit.
 - *Interp.:* the RZZ count (one per CNOT) is the dominant cost term in Quantinuum's HQC
   formula, so price scales with rounds × checks too. Extracting less often at fixed total
-  time (dt* > 1) cuts it proportionally — the cost side of notebook 10.
+  time (dt* > 1) cuts it proportionally — the cost side of notebook 09.
 - *Pending access:* the HQC estimate itself (`hardware.cli aqora-check` / `nexus-cost`).
 '''),
 ]
 
 # ---------------------------------------------------------------------------
-NB["12_hardware_validation_path"] = [
+NB["11_hardware_validation_path"] = [
 md('''
-# 12 — The hardware program, checked end to end before submission
+# 11 — The hardware program, checked end to end before submission
 
 The validated stub (noise injected in-program) becomes a device
 program without changing its physics: the same memory experiment, built as QIR from the
@@ -225,9 +225,9 @@ md('''
 ]
 
 # ---------------------------------------------------------------------------
-NB["05_premise_realistic_noise"] = [
+NB["04_premise_realistic_noise"] = [
 md('''
-# 05 — Under realistic circuit noise, the paper's model still describes the circuit
+# 04 — Under realistic circuit noise, the paper's model still describes the circuit
 
 Simulation is not the final question: does the trade-off survive
 realistic noise — gate errors, the same idle noise on data and ancillas, native gates — and
@@ -367,11 +367,11 @@ md('''
 ]
 
 # ---------------------------------------------------------------------------
-NB["13_hardware_calibration"] = [
+NB["12_hardware_calibration"] = [
 md('''
-# 13 — Measuring the device's idle noise, and feeding it back
+# 12 — Measuring the device's idle noise, and feeding it back
 
-The regime question (notebook 09) turns on numbers no data sheet
+The regime question (notebook 08) turns on numbers no data sheet
 gives: the idle dephasing rates and the round duration. This notebook shows the experiments
 that measure them, the fit that turns results into a `Calibration`, and the hand-off to the
 regime study — demonstrated on synthetic data with known rates, pending device access.
@@ -438,14 +438,14 @@ md('''
   0.0052 ± 0.0023 /s (true 0.0028: consistent, but ±45%); extending to 0–400 layers, still
   inside the model's validity (ω·t < π), halves the uncertainty. Pinning γ to ~10% needs
   roughly 20× the shots at the long-L end. On H2 the quadratic term dominates at the
-  timescales that matter (notebook 09), so this is the less important parameter, but the
+  timescales that matter (notebook 08), so this is the less important parameter, but the
   grid should still reach seconds of idling (`hardware.cli calib-build --layers ...`).
 - `tests/test_hardware.py` pins the fit's recovery and an end-to-end `calib-fit` that writes a
   `Calibration` file from job directories.
 - *The hand-off (point 13):* `hardware.cli calib-fit --readout <job> --idle <jobs> --layer-seconds τ`
   writes `config/h2_measured.json`; then
   `python -m qec_timing.studies.regime --calibration config/h2_measured.json --t-round <t_R>`
-  reruns notebook 09 at the device's own numbers. Nothing else changes.
+  reruns notebook 08 at the device's own numbers. Nothing else changes.
 - *Open on a device:* the duration of one spectator layer and of one round (from the job's
   duration report or Quantinuum), whether the compiler keeps the programs as written
   (check on the emulator first), and gate errors (taken from the base calibration).
@@ -465,9 +465,9 @@ print(f"{len(rows)} (t_R, d) cells; rounds per run {grid['setup']['rounds']}, "
       f"target {grid['setup']['target']} failures per point, max {grid['setup']['max_shots']:,} shots")
 ''')
 
-NB["09_regime_on_h2"] = [
+NB["08_regime_on_h2"] = [
 md('''
-# 09 — On H2-1E's rates, when does waiting between rounds pay, and how much?
+# 08 — On H2-1E's rates, when does waiting between rounds pay, and how much?
 
 The full circuit (textbook gates, the same idle noise on every
 qubit), at H2-1E's own gate, readout and dephasing rates, unscaled. The one number the data
@@ -553,13 +553,13 @@ md('''
 '''),
 ]
 
-NB["10_time_for_space"] = [
+NB["09_time_for_space"] = [
 md('''
-# 10 — Saving resources with time instead of space
+# 09 — Saving resources with time instead of space
 
 Idle qubits are usually protected by more space: a larger distance,
 or a denser storage code. The optimal interval protects them with time: the same code,
-extracted less often. Two ways to price that, from the H2-1E regime grid (notebook 09):
+extracted less often. Two ways to price that, from the H2-1E regime grid (notebook 08):
 
 - **qubits:** does the optimal interval at distance d beat back-to-back extraction at d + 2?
   If so, waiting replaces a distance step: (d+2)² − d² data qubits per logical qubit
@@ -568,7 +568,7 @@ extracted less often. Two ways to price that, from the H2-1E regime grid (notebo
   times fewer two-qubit gates and measurements, which dominate a trapped-ion machine's cost
   (Quantinuum's HQC formula weights them; *interp.*).
 
-**Setup (the regime grid of notebook 09; nothing new is simulated here).**
+**Setup (the regime grid of notebook 08; nothing new is simulated here).**
 - Circuit: Stim's rotated surface-code memory circuit (H, 4 CX layers, H, measure-reset;
   7 layers per round), X basis, d = 3, 5, 7, decoded by PyMatching on the circuit's DEM.
 - Noise: H2-1E emulator defaults, unscaled (p2 = 1.05×10⁻³); idle Z dephasing (linear +
@@ -615,7 +615,7 @@ md('''
   error rate per second than back-to-back extraction at d + 2: up to t_R = 4 ms for
   d = 3 → 5, and up to 2 ms for d = 5 → 7. There, time replaces a distance step, saving
   (d+2)² − d² data qubits per idle logical qubit (16 and 24), with no change to the code.
-  For longer rounds the gain is real but smaller than a distance step (notebook 09: ×2–12
+  For longer rounds the gain is real but smaller than a distance step (notebook 08: ×2–12
   between 4 and 30 ms).
 - *Measured:* in the same regime the memory extracts Δt* times less often, tens of times at
   t_R of a few ms, so its gate and measurement count per unit time falls by that factor.
@@ -623,10 +623,10 @@ md('''
   workloads is idle, in long stretches), the interval is a free knob acting on most of an
   application's space-time volume. Mis-setting it costs more as d grows (the paper's Γ_opt
   grows exponentially in α ∝ d), so it should be calibrated per device, which takes one
-  calibration (notebook 05).
+  calibration (notebook 04).
 - *Boundary:* a full distance step is saved only for rounds of a few ms; any gain needs idle
   error per round well below p2. On H2 both depend on t_R, unknown until measured
-  (notebook 09).
+  (notebook 08).
 '''),
 ]
 
@@ -686,85 +686,9 @@ md('''
 '''),
 ]
 
-NB["04_artificial_idle_effective_parameters"] = [
+NB["05_per_qubit_error"] = [
 md('''
-# 04 — An artificial idle model, and the circuit's effective λ and b_read
-
-Before realistic idle noise, the arc used Selene's own
-error model: a depolarizing Pauli before every native gate, with idling written as explicit
-identity operations charged the same rate. It is artificial (ions do not depolarize when
-idle, and an Rx(0) has no duration), but it answers a precise question: what λ and b_read
-does a real extraction circuit have, compared with the paper's assumed λ = 0.31 and b_read = 1?
-
-**Source:** `python -m qec_timing.studies.effective` → `results/effective/effective.json`.
-Selene's native gates mirrored exactly in Stim (`stim_native`), p1 = 5×10⁻⁴ on every
-single-qubit gate including Rz, Rzz charged p2 = ρ·p1, readout 2×10⁻³, one idle op per unit
-of interval on each data qubit; Z basis. p_data(Δt) and p_read are measured from detection
-events at Δt = 1, 2, 4, 8; Eqs. 1–2 make ln(1 − p_data) linear in Δt, giving p_stab and λ.
-'''),
-SETUP,
-code('''
-ef = json.loads((R / "effective" / "effective.json").read_text())
-print(f"{'d':>2}{'rho':>6}{'p_stab':>10}{'lambda':>9}{'b_read':>8}{'floor':>8}")
-for e in ef["params"]:
-    print(f"{e['d']:>2}{e['rho']:>6g}{e['p_stab']:>10.2e}{e['lam']:>9.3f}{e['b_read']:>8.3f}{e['b_read_floor']:>8.3f}")
-'''),
-code('''
-fig, axes = plt.subplots(1, 2, figsize=(10.5, 3.6))
-for d in sorted({e["d"] for e in ef["params"]}):
-    rows = [e for e in ef["params"] if e["d"] == d]
-    rho = [max(e["rho"], 0.3) for e in rows]
-    axes[0].plot(rho, [e["lam"] for e in rows], "o-", color=P.D_COLOR[d], label=P.dl(d))
-    axes[1].plot(rho, [e["b_read"] for e in rows], "o-", color=P.D_COLOR[d], label=P.dl(d))
-    axes[1].plot(rho, [e["b_read_floor"] for e in rows], "o--", color=P.D_COLOR[d], ms=3, lw=1.2)
-for ax, ref, name in ((axes[0], ef["setup"]["paper_lam"], r"paper $\\lambda = 0.31$ (Willow fit)"),
-                      (axes[1], ef["setup"]["paper_b_read"], r"paper $b_{\\rm read} = 1$")):
-    ax.axhline(ref, color=P.MUTED, ls="--", lw=1)
-    ax.annotate(name, (0.35, ref), xytext=(0, -4), textcoords="offset points", va="top", color=P.INK_2, fontsize=8)
-    ax.set_xscale("log"); ax.set_xlabel(r"$\\rho = p_2 / p_1$ ($\\rho = 0$ drawn at 0.3)"); ax.legend(fontsize=8)
-axes[0].set_yscale("log"); axes[0].set_ylabel(r"effective $\\lambda$"); axes[1].set_ylabel(r"effective $b_{\\rm read}$")
-axes[0].set_title(r"$\\lambda$ falls as two-qubit gates get noisier", loc="left")
-axes[1].set_title(r"$b_{\\rm read}$: solid with readout error, dashed its floor ($p_{\\rm meas} = 0$)", loc="left")
-fig.tight_layout()
-'''),
-code('''
-fig, axes = plt.subplots(1, len(ef["curves"]), figsize=(4 * len(ef["curves"]), 3.4), sharey=False)
-for ax, c in zip(np.atleast_1d(axes), ef["curves"]):
-    col = P.D_COLOR[c["d"]]
-    for key, ls, lab in (("paper", ":", r"paper $\\lambda$, $b_{\\rm read}$"),
-                         ("effective", "-", r"circuit's own $\\lambda$, $b_{\\rm read}$")):
-        pts = c[key]["points"]
-        ax.plot([p["dt"] for p in pts], [p["pL"] for p in pts], ls, marker="o", ms=3, color=col, label=lab)
-        ax.axvline(c[key]["optimum"]["dt_star"], color=col, ls=ls, lw=0.8)
-    ax.set_xscale("log"); ax.set_yscale("log"); ax.set_title(P.dl(c["d"]), loc="left")
-    ax.set_xlabel(r"$\\Delta t$ ($T = 96$)"); ax.legend(fontsize=8)
-np.atleast_1d(axes)[0].set_ylabel(P.PL)
-fig.suptitle(r"Same $p_{\\rm stab}$: the paper's $\\lambda$, $b_{\\rm read}$ (dotted) against the circuit's own (solid)", x=0.01, ha="left")
-fig.tight_layout()
-'''),
-md('''
-**Reading.**
-- *Measured:* with only single-qubit noise (ρ = 0), the circuit's effective λ is well below the
-  paper's 0.31: an extraction round already charges each data qubit several gate-errors' worth,
-  so one idle op is small in comparison. λ falls further as ρ grows.
-- *Measured:* b_read (solid) includes the 2×10⁻³ readout error and so sits well above 1 at these
-  small gate rates; its floor (dashed, readout error off: what the ancilla's gate noise alone
-  adds, the original repo's definition) is the circuit-structure part. Both fall as two-qubit
-  noise grows, because the data error grows faster than the record error.
-- *Measured:* those parameters move Δt*: with the circuit's own λ and b_read the optimum is
-  2.2× (d = 5) and 2.5× (d = 7) longer than with the paper's, exactly the λ ratio Eq. 6 predicts
-  (Δt* ∝ 1/λ: 0.31/0.131, 0.31/0.125); 4.1× at d = 3, where the readout term adds to it. Shots
-  are sized per point to ~300 failures; with a fixed 100k shots the d = 7 curves (20–90
-  failures per point) could not locate the minimum. The paper's two numbers are circuit
-  properties to be measured, not constants.
-- *Limit:* this idle model (depolarizing, an op count with no duration) is not trapped-ion
-  physics, which is time-based Z dephasing on every qubit (notebook 03).
-'''),
-]
-
-NB["06_per_qubit_error"] = [
-md('''
-# 06 — Data qubits are not equal: per-qubit error and where it comes from
+# 05 — Data qubits are not equal: per-qubit error and where it comes from
 
 The paper gives every data qubit the same flip probability per round.
 In the circuit each qubit's error depends on how many CNOTs it sits in, at which end, and on
@@ -827,13 +751,13 @@ md('''
 - *Consequence:* a decoder or a model that assumes uniform, independent data errors misses
   structure that the circuit's own detector error model contains.
 - *Note:* these are physical error frames; the effective p_data measured from detection events
-  (notebook 05) is lower, because correlated pairs from one fault (hooks) count once there.
+  (notebook 04) is lower, because correlated pairs from one fault (hooks) count once there.
 '''),
 ]
 
-NB["07_decoder_matters"] = [
+NB["06_decoder_matters"] = [
 md('''
-# 07 — The decoder decides the answer, not only the error rate
+# 06 — The decoder decides the answer, not only the error rate
 
 Decoding with the paper's phenomenological graph (the natural choice when
 only p_data and p_read are known) against decoding with the circuit's full detector error model,
@@ -881,9 +805,9 @@ md('''
 '''),
 ]
 
-NB["08_dt_star_vs_idle_strength"] = [
+NB["07_dt_star_vs_idle_strength"] = [
 md('''
-# 08 — How the optimum moves with idle-noise strength, and why
+# 07 — How the optimum moves with idle-noise strength, and why
 
 Across idle strengths, with gates held fixed: does Δt* follow the
 scaling the paper's ansatz implies, and where does waiting stop paying?
@@ -1016,7 +940,7 @@ md('''
   the term's first maximum, where the twirled model stops describing decoherence.
 '''),
 ]
-NB["08_dt_star_vs_idle_strength"] += MAP_CELLS
+NB["07_dt_star_vs_idle_strength"] += MAP_CELLS
 
 for name, cells in NB.items():
     # Every figure cell also writes its PNG to notebooks/figures/<notebook>_<n>.png.

@@ -12,7 +12,7 @@ Stage 7a):
   - outputs with result(): s{round}_{check} (syndrome bit), m{i} (final data
     readout in the memory basis). `hardware.records` turns them into a RawRecord.
 
-Optional noise injection (the stub-to-device path, notebook 12): before
+Optional noise injection (the stub-to-device path, notebook 11): before
 each round's extraction, each data qubit gets the noise's Pauli with
 probability p, from ONE RNG seeded base_seed + get_current_shot(). The Bernoulli
 is random_int_bounded(2^20) < round(p * 2^20): hugr-qir 0.1.2 cannot lower
