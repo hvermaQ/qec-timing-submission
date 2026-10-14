@@ -16,3 +16,5 @@ injection; p_read = 1e-3). With injection, the emulator agrees with Stim within 
 end on the emulator. Without injection, decoding turns 0 raw flips into 2 failures: the emulator's
 own errors (readout, hook, leakage) are not on the phenomenological graph, so the decoder needs the
 emulator's error model, not this graph.
+
+![H2-1E runs](emulator_runs.png)
