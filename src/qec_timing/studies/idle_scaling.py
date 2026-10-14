@@ -97,8 +97,14 @@ def q_idle(dt, gamma, c, placement="data_interval"):
     (gamma dt + sin^2(sqrt(c) dt), the two terms added) so its fit is reproduced exactly.
     uniform: the chunks the circuit actually applies, each twirled on its own:
     LAYERS x idle(1/LAYERS) inside the round and idle(dt - 1) for the wait, composed
-    as independent flips. The quadratic term restarts in every chunk, so inside the
-    round it is ~ LAYERS sin^2(sqrt(c)/LAYERS) ~ c / LAYERS, not sin^2(sqrt(c))."""
+    as independent flips:
+
+        p(tau)  = gamma tau (+) sin^2(sqrt(c) tau),     a (+) b = a + b - 2ab
+        q(dt)   = 1/2 [1 - (1 - 2 p(1/L))^L (1 - 2 p(dt - 1))],   L = LAYERS = 7
+        q(1)    = 1/2 [1 - (1 - 2 p(1/L))^L]  ~ gamma (linear),  ~ c / L (quadratic)
+
+    The quadratic term restarts in every chunk, so inside the round it is
+    ~ L sin^2(sqrt(c)/L) ~ c / L, not sin^2(sqrt(c)). Time in units of t_R."""
     dt = np.asarray(dt, dtype=float)
     if placement == "data_interval":
         return gamma * dt + np.sin(np.sqrt(c) * dt) ** 2

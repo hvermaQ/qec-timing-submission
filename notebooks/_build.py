@@ -819,10 +819,21 @@ p2 = 5×10⁻³, T = 192, 2 × 100k shots per point. Linear γ/p2 ∈ {0.15, 0.3
 quadratic c/p2 ∈ {0.0025, 0.01, 0.04}. The ansatz R = (A/Δt)(1 + q(Δt)/p_e)^α is fitted per
 distance to all six curves and then predicts Δt* for any idle error per round.
 
-q(Δt) is the idle Z error on a data qubit over one period, composed exactly as the circuit
-applies it: 7 separately twirled chunks of t_R/7 inside the round and one of (Δt − 1)·t_R for
-the wait. The quadratic term restarts in every chunk, so inside the round it contributes
-about c/7, not c. Idle on the ancillas (which acts like readout error) is not in the ansatz.
+**Definitions.** Time is in units of t_R; one logical qubit (a single surface-code patch).
+Idle noise is identical on every physical qubit, so these are per-qubit numbers computed from
+(γ, c), not measured.
+
+- One idle chunk of duration τ flips a qubit (Z) with probability
+  p(τ) = γτ ⊕ sin²(√c·τ),  where a ⊕ b = a + b − 2ab (an odd number of flips).
+- One period of the circuit is 7 layers of 1/7 each (one chunk after each) plus a wait of
+  Δt − 1 (one chunk). Each chunk is twirled on its own, so the quadratic term restarts in
+  every chunk. The idle error per period is
+  q(Δt) = ½·[1 − (1 − 2·p(1/7))⁷ · (1 − 2·p(Δt − 1))].
+- Idle error per round (the x-axis of the second figure): q(1) = ½·[1 − (1 − 2·p(1/7))⁷],
+  ≈ γ for linear idle and ≈ 7·sin²(√c/7) ≈ c/7 for quadratic idle (not sin²(√c) ≈ c).
+- Ansatz (the paper's Eq. 5 with λΔt → q(Δt)/p_e): R(Δt) = (A/Δt)·(1 + q(Δt)/p_e)^α,
+  with A, p_e, α fitted per distance to all six curves; Δt* is its first local minimum.
+- Idle on the ancillas (which acts like readout error) is not in the ansatz.
 '''),
 SETUP,
 code('''
