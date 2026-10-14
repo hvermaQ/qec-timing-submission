@@ -317,8 +317,11 @@ emulator noise model ([docs](https://docs.quantinuum.com/systems/user_guide/emul
 the H2 values used later are its H2 emulator defaults, table dated 2025-07-16, with no units
 stated ([H2 emulators](https://docs.quantinuum.com/systems/user_guide/emulator_user_guide/emulators/h2_emulators.html)).
 These are vendor model parameters, not measured device rates. The physical basis: memory error
-of hyperfine ion qubits is dominated by magnetic-field dephasing (Sepiol et al., PRL 123,
-110503 (2019), arXiv:1905.06878; review arXiv:0805.2450).
+of hyperfine ion qubits is dominated by magnetic-field dephasing. On Quantinuum's machines:
+H1's clock-state qubit has a spin-echo T2 of 2 s with Gaussian decay, limited by magnetic-field
+fluctuations (Pino et al., Nature 592, 209 (2021)); H2's memory error comes from imperfect phase
+tracking under magnetic-field instabilities during transport and cooling, with T1 of several
+minutes (Moses et al., PRX 13, 041052 (2023)). See also Sepiol et al., PRL 123, 110503 (2019).
 
 This notebook runs a small demonstration through the package (d = 3, Stim, seconds).
 `MemorySpec` refuses the blind combination unless it is marked as a deliberate control

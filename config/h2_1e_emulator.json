@@ -5,7 +5,9 @@
     "model_reference": "Quantinuum emulator noise model (Z-only idle/transport: linear p = r*d; quadratic RZ(f*d), Pauli-twirled in stabilizer mode and scaled by coherent_to_incoherent_factor): https://docs.quantinuum.com/systems/user_guide/emulator_user_guide/noise_model.html",
     "physics_references": [
       "Sepiol et al., Probing qubit memory errors at the part-per-million level, PRL 123, 110503 (2019), arXiv:1905.06878: hyperfine-qubit memory decoherence typically from magnetic-field fluctuations",
-      "Ion-trap quantum information processing: experimental status (review), arXiv:0805.2450: dominant memory error is dephasing by ambient magnetic-field noise"
+      "Ion-trap quantum information processing: experimental status (review), arXiv:0805.2450: dominant memory error is dephasing by ambient magnetic-field noise",
+      "Pino et al., Demonstration of the trapped-ion QCCD computer architecture, Nature 592, 209 (2021), arXiv:2003.01293: 171Yb+ clock-state qubit, spin-echo T2 = 2 s with Gaussian decay, limited by magnetic-field fluctuations; microwave dynamical decoupling used to suppress memory error",
+      "Moses et al., A race-track trapped-ion quantum processor (H2), PRX 13, 041052 (2023), arXiv:2305.03828: memory error during transport/cooling from imperfect spatial phase tracking under magnetic-field instabilities; T1 several minutes; transport 1Q RB 2.2(3)e-4 per layer, expected dominated by memory error; transport ~60% of circuit time"
     ],
     "values_reference": "H2 emulator parameters, table dated 2025-07-16 (linear 0.0028, quadratic 0.043, factor 2.0, p1 1.89e-5, p2 1.05e-3; no units stated): https://docs.quantinuum.com/systems/user_guide/emulator_user_guide/emulators/h2_emulators.html (checked 2026-10-14)"
   },
