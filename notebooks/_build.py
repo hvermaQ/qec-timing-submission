@@ -864,21 +864,25 @@ fig.tight_layout()
 code('''
 from qec_timing.studies.idle_scaling import q_idle
 place, p2, T_ = isc["setup"]["placement"], isc["setup"]["p2"], isc["setup"]["T"]
-fig, axes = plt.subplots(1, len(isc["rows"]), figsize=(4 * len(isc["rows"]), 3.6), sharey=True)
-for ax, r in zip(np.atleast_1d(axes), isc["rows"]):
-    for fam, col in (("lin", P.SERIES[0]), ("quad", P.SERIES[1])):
+from matplotlib.lines import Line2D
+fig, ax = plt.subplots(figsize=(7.5, 4.2))
+LS = {"lin": ("-", "o", "linear idle"), "quad": ("--", "s", "quadratic idle")}
+for r in isc["rows"]:
+    col = P.D_COLOR[r["d"]]
+    for fam, (ls, mk, _) in LS.items():
         F = [q for q in r["formula"][fam] if q["dt_star"] < T_ / 2]      # inside a run of T = 192 t_R
-        ax.plot([q["q_over_p2"] for q in F], [q["dt_star"] for q in F], "-", color=col, lw=1.5,
-                label=f"ansatz, all {'linear' if fam == 'lin' else 'quadratic'}")
+        ax.plot([q["q_over_p2"] for q in F], [q["dt_star"] for q in F], ls, color=col, lw=1.5)
         cs = [c for c in r["curves"] if c["family"] == fam]
         q1 = [float(q_idle(1.0, *((c["value"] * p2, 0.0) if fam == "lin" else (0.0, c["value"] * p2)), place)) / p2
               for c in cs]
-        ax.plot(q1, [c["optimum"]["dt_star"] for c in cs], "o", color=col, ms=5)
-    ax.axhline(1, color=P.MUTED, lw=1); ax.text(1.2e-4, 1.12, "Δt* = 1: back to back", color=P.INK_2, fontsize=8)
-    ax.set_xscale("log"); ax.set_yscale("log"); ax.set_title(P.dl(r["d"]), loc="left")
-    ax.set_xlabel(r"idle error per round $q(1) / p_2$")
-np.atleast_1d(axes)[0].set_ylabel(r"$\\Delta t^* / t_R$"); np.atleast_1d(axes)[0].legend(fontsize=8)
-fig.suptitle("Points: simulated. Lines: the ansatz fitted per distance", x=0.01, ha="left")
+        ax.plot(q1, [c["optimum"]["dt_star"] for c in cs], mk, color=col, ms=5, mec=P.INK, mew=0.5)
+ax.axhline(1, color=P.MUTED, lw=1); ax.text(1.2e-4, 1.12, "Δt* = 1: back to back", color=P.INK_2, fontsize=8)
+ax.set_xscale("log"); ax.set_yscale("log")
+ax.set_xlabel(r"idle error per round $q(1) / p_2$"); ax.set_ylabel(r"$\\Delta t^* / t_R$")
+h = [Line2D([], [], color=P.D_COLOR[r["d"]], lw=2, label=P.dl(r["d"])) for r in isc["rows"]]
+h += [Line2D([], [], color=P.MUTED, ls=ls, marker=mk, label=lab) for ls, mk, lab in LS.values()]
+ax.legend(handles=h, fontsize=8, ncol=2)
+ax.set_title("Points: simulated. Lines: the ansatz fitted per distance", loc="left")
 fig.tight_layout()
 '''),
 md('''
