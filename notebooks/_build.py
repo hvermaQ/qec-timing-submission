@@ -812,20 +812,37 @@ md('''
 Across idle strengths, with gates held fixed: does Δt* follow the
 scaling the paper's ansatz implies, and where does waiting stop paying?
 
-**Source:** `python -m qec_timing.studies.idle_scaling` → `results/idle_scaling/idle_scaling.json`.
-Original notebook 07's setup (reproduced exactly): textbook gates, idle once per interval on
-the data, X basis, H2 ratios scaled to p2 = 5×10⁻³, T = 192. Linear γ/p2 ∈ {0.15, 0.3, 0.6},
+**Source:** `python -m qec_timing.studies.idle_scaling --placement uniform` →
+`results/idle_scaling/idle_scaling_uniform.json`. Textbook gates, idle noise on every qubit
+during each layer and the wait (as in notebook 04), X basis, H2 ratios scaled to
+p2 = 5×10⁻³, T = 192, 2 × 100k shots per point. Linear γ/p2 ∈ {0.15, 0.3, 0.6},
 quadratic c/p2 ∈ {0.0025, 0.01, 0.04}. The ansatz R = (A/Δt)(1 + q(Δt)/p_e)^α is fitted per
 distance to all six curves and then predicts Δt* for any idle error per round.
+
+q(Δt) is the idle Z error on a data qubit over one period, composed exactly as the circuit
+applies it: 7 separately twirled chunks of t_R/7 inside the round and one of (Δt − 1)·t_R for
+the wait. The quadratic term restarts in every chunk, so inside the round it contributes
+about c/7, not c. Idle on the ancillas (which acts like readout error) is not in the ansatz.
 '''),
 SETUP,
 code('''
-isc = json.loads((R / "idle_scaling" / "idle_scaling.json").read_text())
+isc = json.loads((R / "idle_scaling" / "idle_scaling_uniform.json").read_text())
+ref = json.loads((R / "idle_scaling" / "idle_scaling.json").read_text())   # data-only idle
 for r in isc["rows"]:
     s, f = r["slopes"], r["ansatz"]
     print(f"d={r['d']}: slope linear {s['lin']['slope']:.3f} ± {s['lin']['se']:.3f} (predicted -1), "
           f"quadratic {s['quad']['slope']:.3f} ± {s['quad']['se']:.3f} (predicted -0.5);  "
           f"alpha {f['alpha']:.2f} ± {f['alpha_se']:.2f} -> g = {f['implied_g']:.2f} (paper 0.8)")
+'''),
+code('''
+# Idle on every qubit against idle on the data only (the original repo's setup), same seeds.
+print(f"{'d':>2} {'idle':<12}{'data only':>10}{'every qubit':>13}{'change':>8}")
+for r, r0 in zip(isc["rows"], ref["rows"]):
+    pairs = [(f"{c['family']} {c['value']:g}", c0["optimum"]["dt_star"], c["optimum"]["dt_star"])
+             for c, c0 in zip(r["curves"], r0["curves"])]
+    pairs.append(("mixed (held)", r0["held_out"]["optimum"]["dt_star"], r["held_out"]["optimum"]["dt_star"]))
+    for lab, a, b in pairs:
+        print(f"{r['d']:>2} {lab:<12}{a:>10.2f}{b:>13.2f}{b / a - 1:>+8.0%}")
 '''),
 code('''
 fig, axes = plt.subplots(1, 2, figsize=(11, 3.8))
@@ -839,21 +856,25 @@ for ax, fam, xlab, pred in ((axes[0], "lin", r"$\\gamma / p_2$", -1.0), (axes[1]
         m = r["slopes"][fam]["slope"]; xs = np.geomspace(x.min() * 0.8, x.max() * 1.25, 20)
         ax.plot(xs, y[1] * (xs / x[1]) ** m, "-", color=P.D_COLOR[r["d"]], lw=1.2)
     ax.set_xscale("log"); ax.set_yscale("log"); ax.legend(fontsize=8)
+    ax.set_xticks(x, [f"{v:g}" for v in x]); ax.xaxis.set_minor_formatter(plt.NullFormatter())
     ax.set_xlabel(xlab); ax.set_ylabel(r"$\\Delta t^* / t_R$")
     ax.set_title(f"{'linear' if fam == 'lin' else 'quadratic'} idle: predicted slope {pred}", loc="left")
 fig.tight_layout()
 '''),
 code('''
+from qec_timing.studies.idle_scaling import q_idle
+place, p2, T_ = isc["setup"]["placement"], isc["setup"]["p2"], isc["setup"]["T"]
 fig, axes = plt.subplots(1, len(isc["rows"]), figsize=(4 * len(isc["rows"]), 3.6), sharey=True)
 for ax, r in zip(np.atleast_1d(axes), isc["rows"]):
     for fam, col in (("lin", P.SERIES[0]), ("quad", P.SERIES[1])):
-        F = r["formula"][fam]
+        F = [q for q in r["formula"][fam] if q["dt_star"] < T_ / 2]      # inside a run of T = 192 t_R
         ax.plot([q["q_over_p2"] for q in F], [q["dt_star"] for q in F], "-", color=col, lw=1.5,
                 label=f"ansatz, all {'linear' if fam == 'lin' else 'quadratic'}")
         cs = [c for c in r["curves"] if c["family"] == fam]
-        q1 = [(c["value"] if fam == "lin" else np.sin(np.sqrt(c["value"] * 5e-3)) ** 2 / 5e-3) for c in cs]
+        q1 = [float(q_idle(1.0, *((c["value"] * p2, 0.0) if fam == "lin" else (0.0, c["value"] * p2)), place)) / p2
+              for c in cs]
         ax.plot(q1, [c["optimum"]["dt_star"] for c in cs], "o", color=col, ms=5)
-    ax.axhline(1, color=P.MUTED, lw=1); ax.text(1.2e-3, 0.75, "below: back to back is best", color=P.INK_2, fontsize=8)
+    ax.axhline(1, color=P.MUTED, lw=1); ax.text(1.2e-4, 1.12, "Δt* = 1: back to back", color=P.INK_2, fontsize=8)
     ax.set_xscale("log"); ax.set_yscale("log"); ax.set_title(P.dl(r["d"]), loc="left")
     ax.set_xlabel(r"idle error per round $q(1) / p_2$")
 np.atleast_1d(axes)[0].set_ylabel(r"$\\Delta t^* / t_R$"); np.atleast_1d(axes)[0].legend(fontsize=8)
@@ -862,23 +883,31 @@ fig.tight_layout()
 '''),
 md('''
 **Reading.**
-- *Measured:* Δt* follows the power laws the ansatz implies, γ⁻¹ for linear idle and c^(−1/2) for
-  quadratic, at every distance (original notebook 07: −1.06…−1.07 and −0.51…−0.52).
-- *Measured:* the fitted α corresponds to g below the paper's 0.8 at these small distances
-  (as in the scaling study, notebook 02).
-- *Interp.:* the crossing of the lines with Δt* = 1 is the boundary of the useful regime, in
-  units of idle error per round over p2: waiting pays only when idling per round is well below
-  the two-qubit gate error. A device's position on this axis is set by its round duration t_R.
+- *Measured:* Δt* follows the power laws the ansatz implies: slopes −1.00, −1.04, −1.05 (± 0.02)
+  for linear idle against −1, and −0.49, −0.49, −0.48 (± 0.01) for quadratic against −0.5, at
+  d = 3, 5, 7. At d = 5 and 7 the linear slopes are 2–2.6σ steeper than predicted; each line
+  has three points.
+- *Measured:* idle on every qubit lengthens Δt* by 1–16% against idle on the data only (the
+  original repo's setup, table above), most for strong quadratic idle at d = 7.
+- *Measured:* with q(Δt) composed as the circuit applies it, the ansatz fits with χ²/dof = 16,
+  37, 97 at d = 3, 5, 7 (statistical errors only, ~0.5% per point). The misfit grows with d;
+  idle on the ancillas, which the ansatz does not represent, is the likely remainder.
+- *Measured:* the fitted α corresponds to g = 0.73, 0.58, 0.49, below the paper's 0.8 and
+  falling with d, unlike the paper's model (notebook 02), where g rises towards 0.8.
+- *Interp.:* the lines run far outside the simulated points (q(1)/p2 ≈ 4×10⁻⁴ to 0.6): read
+  them as extrapolation. Δt* cannot fall below 1 (the wait cannot be negative), so it
+  approaches back to back rather than crossing it.
 '''),
 ]
 
 MAP_CELLS = [
 md('''
-## Where waiting pays, over the whole idle plane (figure 07c, revised)
+## Where waiting pays, over the whole idle plane
 
 The calibrated ansatz's Δt* over the plane of linear and quadratic idle strength, per distance.
 Inside the dashed box simulations exist (the six fitted curves sit on its edges); outside it
-the formula is extrapolated (pale). The white line is Δt* = 1: beyond it, back to back is best.
+the formula is extrapolated (pale). The white line is where an optimised interval buys less
+than 5% over back to back (gain R(1)/R(Δt*) = 1.05); beyond it, waiting is not worth it.
 The star is a simulation with **both** idle terms that was held out of the fit, the test of
 the formula. The dark line is H2-1E's emulator idle rates for round durations t_R from 1 to
 300 ms: the device's position in this plane is set by t_R (γ/p2 ∝ t_R, c/p2 ∝ t_R²).
@@ -901,7 +930,8 @@ lin, quad = isc["setup"]["lin"], isc["setup"]["quad"]
 for ax, r in zip(np.atleast_1d(axes), isc["rows"]):
     ax_ = np.array(r["map"]["axis"]); Z = np.log10(np.array(r["map"]["dt_star"]))
     cs = ax.contourf(ax_, ax_, Z, levels=levels, cmap=cmap, norm=norm, extend="both")
-    ax.contour(ax_, ax_, Z, levels=[0.0], colors="white", linewidths=2)
+    G = np.array(r["map"]["gain"])
+    ax.contour(ax_, ax_, G, levels=[1.05], colors="white", linewidths=2)
     # extrapolated region: everything outside the simulated box
     box = (min(lin), max(lin), min(quad), max(quad))
     from matplotlib.patches import Rectangle
@@ -926,16 +956,17 @@ for ax, r in zip(np.atleast_1d(axes), isc["rows"]):
                  loc="left", fontsize=9)
 np.atleast_1d(axes)[0].set_ylabel(r"quadratic idle $c / p_2$")
 fig.colorbar(cs, ax=axes, label=r"$\\log_{10}(\\Delta t^* / t_R)$", fraction=0.025, pad=0.02)
-fig.suptitle(r"Optimal interval over the idle plane. White line: $\\Delta t^* = 1$. Dark line: H2-1E idle rates by round duration $t_R$", x=0.01, ha="left")
+fig.suptitle(r"Optimal interval over the idle plane. White line: waiting gains < 5%. Dark line: H2-1E idle rates by round duration $t_R$", x=0.01, ha="left")
 '''),
 md('''
 **Reading.**
-- *Measured:* the held-out simulation (both idle terms at once) is predicted to within 4–6%
-  (Δt* 5.10, 3.55, 2.63 simulated against 5.39, 3.73, 2.73 at d = 3, 5, 7), with the formula
-  slightly long; inside the box the map is a calibrated prediction, not just a fit.
-- *Interp.:* the white line is the regime boundary in idle-noise space. H2-1E's trajectory
-  crosses it at a round duration of tens of ms (a fitted formula at scaled gates, not a
-  simulation at H2's own rates).
+- *Measured:* the held-out simulation (both idle terms at once) is predicted to within 1.6%,
+  2.1% and 3.2% (Δt* 5.50, 3.80, 2.83 simulated against 5.59, 3.88, 2.74 at d = 3, 5, 7);
+  inside the box the map is a calibrated prediction, not just a fit.
+- *Interp.:* along H2-1E's trajectory the formula gives a gain of ×30–45 at t_R = 1 ms and
+  ×1.6–2.1 at 30 ms; the gain falls below 5% from t_R ≈ 120 ms (d = 7), 150 ms (d = 5) and
+  200 ms (d = 3). These points lie outside the box: a fitted formula at scaled gates,
+  extrapolated, not a simulation at H2's own rates.
 - *Limits:* outside the box (pale) the formula is extrapolated; the quadratic search stops at
   the term's first maximum, where the twirled model stops describing decoherence.
 '''),

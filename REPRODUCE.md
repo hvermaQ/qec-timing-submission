@@ -56,7 +56,8 @@ What the tests pin, beyond unit behaviour:
 | effective λ, b_read (first step) | `python -m qec_timing.studies.effective --workers 8` | ~20 min | `results/effective/` |
 | per-qubit error and sources | `python -m qec_timing.studies.per_qubit` | 1 min | `results/per_qubit/` |
 | decoder comparison | `python -m qec_timing.studies.decoders --workers 8` (after premise native) | ~10 min | `results/decoders/` |
-| Δt* vs idle strength, Δt* map | `python -m qec_timing.studies.idle_scaling --workers 8` | ~20 min | `results/idle_scaling/` |
+| Δt* vs idle strength, Δt* map | `python -m qec_timing.studies.idle_scaling --placement uniform --workers 8` | ~20 min | `results/idle_scaling/idle_scaling_uniform.json` |
+| same, data-only idle (original notebook 07 reference) | `python -m qec_timing.studies.idle_scaling --workers 8` | ~20 min | `results/idle_scaling/idle_scaling.json` |
 | QIR programs and scaling (H2 env) | `.venv-h2/bin/python -m qec_timing.hardware.cli build ...`, `scaling`, `calib-build` | 1 min | `results/hardware/` |
 | notebooks | `python notebooks/_build.py notebooks`, then execute | 2 min | `notebooks/*.ipynb` |
 
