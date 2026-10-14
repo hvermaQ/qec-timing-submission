@@ -1,4 +1,4 @@
-"""How long do logical qubits idle in compiled applications? (Narrative point 1.)
+"""How long do logical qubits idle in compiled applications? (Notebook 01.)
 
 For each application and time model: the idle share of each qubit's active span,
 and how that idle time is split into stretches. A stretch of L logical steps is a

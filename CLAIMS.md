@@ -21,33 +21,33 @@ Labels in the notebooks: *measured* (computed in this repo), *paper* (Haug, Bhar
 | --- | --- | --- | --- |
 | V1 | In sequential FT workloads most logical-qubit time is idle, mostly in long stretches (adder 84–87%, 93% in stretches ≥ 10 steps; QFT 41–51%); local workloads (Ising) are not. | notebook 01; `results/idle/idle.json`; `tests/test_apps.py` (equal to original notebook 10) | 4 |
 | V2 | Large resource estimates already treat idle storage as a cost to engineer (yoked codes, Gidney 2025). | external: arXiv 2505.15917, 2312.04522 (notebook 01) | 5 (external) |
-| V3 | For short rounds (t_R ≤ 4 ms for d = 3→5, ≤ 2 ms for 5→7 on H2-1E rates), the optimal interval at d beats back-to-back extraction at d + 2: time replaces a distance step (16–24 data qubits per logical qubit). For longer rounds the gain (×2–12 up to 30 ms) is smaller than a step. | notebook 02; `results/regime/grid/` | 3 (simulation at emulator rates; device t_R unknown) |
-| V4 | The memory extracts Δt* times less often per unit time: proportionally fewer two-qubit gates and measurements (the cost drivers). | notebook 02 (rates); notebook 04 (program size ∝ rounds × checks) | 3; HQC price pending syntax checker |
-| V5 | The benefit has a boundary: none once idle error per round approaches p2 (H2-1E: from t_R ≈ 50–150 ms, earlier at larger d). | notebook 08 | 4 |
+| V3 | For short rounds (t_R ≤ 4 ms for d = 3→5, ≤ 2 ms for 5→7 on H2-1E rates), the optimal interval at d beats back-to-back extraction at d + 2: time replaces a distance step (16–24 data qubits per logical qubit). For longer rounds the gain (×2–12 up to 30 ms) is smaller than a step. | notebook 10; `results/regime/grid/` | 3 (simulation at emulator rates; device t_R unknown) |
+| V4 | The memory extracts Δt* times less often per unit time: proportionally fewer two-qubit gates and measurements (the cost drivers). | notebook 10 (rates); notebook 11 (program size ∝ rounds × checks) | 3; HQC price pending syntax checker |
+| V5 | The benefit has a boundary: none once idle error per round approaches p2 (H2-1E: from t_R ≈ 50–150 ms, earlier at larger d). | notebook 09 | 4 |
 
 ## Technical Performance & Hardware Use (30%)
 
 | # | Claim | Evidence | Level |
 | --- | --- | --- | --- |
-| T1 | The noise model injected in a Guppy program (as a device program) agrees with Stim on the paper's model: 18/18 points, χ² p = 0.51, no bias (−1.9σ). | notebook 03; `results/crosscheck/`; `python -m qec_timing.validation.crosscheck` | 5 (two independent implementations + original Stage 4a reference, p = 0.92) |
-| T2 | Under realistic circuit noise (gates, uniform idle on data and ancillas, native gates), every curve keeps an interior optimum (18/18). | notebook 06; `results/premise/` | 4 |
-| T3 | On H2-1E's own rates, waiting pays ×15–45 at t_R = 1–2 ms, ×1.4–1.9 at 30 ms; back to back is best from 50 ms (d = 7), 70 ms (d = 5) and 150 ms (d = 3). The optimal period stays near 50–95 ms while rounds are shorter. | notebook 08; `results/regime/grid/` (39 cells) | 3 (emulator parameters; t_R and the quadratic-rate convention assumed) |
-| T4 | The hardware program is built from the code interface, validated as QIR, byte-identical to the original Stage 7a program, and passes the backend contract on local Selene end to end. | notebook 05; `tests/test_hardware.py`; `results/hardware/programs/` | 4 |
+| T1 | The noise model injected in a Guppy program (as a device program) agrees with Stim on the paper's model: 18/18 points, χ² p = 0.51, no bias (−1.9σ). | notebook 02; `results/crosscheck/`; `python -m qec_timing.validation.crosscheck` | 5 (two independent implementations + original Stage 4a reference, p = 0.92) |
+| T2 | Under realistic circuit noise (gates, uniform idle on data and ancillas, native gates), every curve keeps an interior optimum (18/18). | notebook 05; `results/premise/` | 4 |
+| T3 | On H2-1E's own rates, waiting pays ×15–45 at t_R = 1–2 ms, ×1.4–1.9 at 30 ms; back to back is best from 50 ms (d = 7), 70 ms (d = 5) and 150 ms (d = 3). The optimal period stays near 50–95 ms while rounds are shorter. | notebook 09; `results/regime/grid/` (39 cells) | 3 (emulator parameters; t_R and the quadratic-rate convention assumed) |
+| T4 | The hardware program is built from the code interface, validated as QIR, byte-identical to the original Stage 7a program, and passes the backend contract on local Selene end to end. | notebook 12; `tests/test_hardware.py`; `results/hardware/programs/` | 4 |
 | T5 | Submission path ready: syntax check / cost / submit / fetch / store, every request and response kept verbatim, credit spend gated by `--confirm`. | `qec_timing.hardware.cli`; `results/hardware/README.md` | 2 (not yet executed: provider-side outage) |
-| T6 | Program size and cost scale linearly in rounds × checks; d ≤ 7 fits H2's 56 qubits. | notebook 04; `results/hardware/qir_scaling.json` | 4 |
+| T6 | Program size and cost scale linearly in rounds × checks; d ≤ 7 fits H2's 56 qubits. | notebook 11; `results/hardware/qir_scaling.json` | 4 |
 
 ## Scientific Merit (20%)
 
 | # | Claim | Evidence | Level |
 | --- | --- | --- | --- |
-| S1 | Reproduces the paper's central scaling: 1/Δt* = (0.385 ± 0.013) d − 0.92 for d = 5–11, against the paper's slope 0.402 (1.3σ); Δt* approaches Eq. 6 as d grows (+38% at d = 5 to +11% at d = 11). | notebook 03; `results/scaling/`; `tests/test_new_studies.py` | 5 (paper as benchmark) |
+| S1 | Reproduces the paper's central scaling: 1/Δt* = (0.385 ± 0.013) d − 0.92 for d = 5–11, against the paper's slope 0.402 (1.3σ); Δt* approaches Eq. 6 as d grows (+38% at d = 5 to +11% at d = 11). | notebook 02; `results/scaling/`; `tests/test_new_studies.py` | 5 (paper as benchmark) |
 | S1b | Reproduces the paper's thresholds (within 0.5–2%, finite size explained). | original research repo, `docs/stub_arc/stage1_report.md`; not ported here | 4 there; 1 here |
-| S2 | Novel beyond the paper: the premise tested under circuit-level noise. The paper's two-parameter model, calibrated **once** at back-to-back rounds, predicts Δt* to +15–20% (d=3), +1–10% (d=5), −5…+3% (d=7); p_read and p_data hold to < 0.8%. | notebook 06; `results/premise/` | 4 |
-| S3 | Limits found and stated: the model underestimates p_L more with d (use it for Δt*, not p_L); effective g ≈ 0.54–0.74 at d = 3–7 (paper 0.8, fitted at d = 11–27); Z-basis memories are blind to trapped-ion idling. | notebooks 06, 07, 08b | 4 |
-| S3a | The paper's parameters are circuit properties: a real extraction circuit has λ = 0.13–0.15 (paper 0.31) and a b_read floor of 1.15–1.18 (paper 1), both falling as two-qubit noise grows; with them Δt* is 2.2–2.5× longer at d = 5, 7, the λ ratio Eq. 6 predicts (4.1× at d = 3). | notebook 06a; `results/effective/` | 4 |
-| S3b | Data qubits are not equal: per-round error varies ~3× across the lattice; 16–17% spreads from ancillas with native gates (7–9% textbook). | notebook 06b; `results/per_qubit/` | 4 |
-| S3c | The decoder decides the answer: the paper's phenomenological graph raises p_L up to 3.1× (d = 7) and moves Δt* about threefold; all circuit-level results decode with the full DEM. | notebook 06c; `results/decoders/` | 4 |
-| S3d | Δt* follows the power laws the ansatz implies (slopes −1.06, −0.51…−0.52 against −1, −0.5); the calibrated ansatz predicts a held-out mixed-noise simulation to within 4–6%, giving the Δt* map over the idle plane. | notebook 08b; `results/idle_scaling/` (equal to original notebook 07) | 5 (held-out test) |
+| S2 | Novel beyond the paper: the premise tested under circuit-level noise. The paper's two-parameter model, calibrated **once** at back-to-back rounds, predicts Δt* to +15–20% (d=3), +1–10% (d=5), −5…+3% (d=7); p_read and p_data hold to < 0.8%. | notebook 05; `results/premise/` | 4 |
+| S3 | Limits found and stated: the model underestimates p_L more with d (use it for Δt*, not p_L); effective g ≈ 0.54–0.74 at d = 3–7 (paper 0.8, fitted at d = 11–27); Z-basis memories are blind to trapped-ion idling. | notebooks 03, 05, 08 | 4 |
+| S3a | The paper's parameters are circuit properties: a real extraction circuit has λ = 0.13–0.15 (paper 0.31) and a b_read floor of 1.15–1.18 (paper 1), both falling as two-qubit noise grows; with them Δt* is 2.2–2.5× longer at d = 5, 7, the λ ratio Eq. 6 predicts (4.1× at d = 3). | notebook 04; `results/effective/` | 4 |
+| S3b | Data qubits are not equal: per-round error varies ~3× across the lattice; 16–17% spreads from ancillas with native gates (7–9% textbook). | notebook 06; `results/per_qubit/` | 4 |
+| S3c | The decoder decides the answer: the paper's phenomenological graph raises p_L up to 3.1× (d = 7) and moves Δt* about threefold; all circuit-level results decode with the full DEM. | notebook 07; `results/decoders/` | 4 |
+| S3d | Δt* follows the power laws the ansatz implies (slopes −1.06, −0.51…−0.52 against −1, −0.5); the calibrated ansatz predicts a held-out mixed-noise simulation to within 4–6%, giving the Δt* map over the idle plane. | notebook 08; `results/idle_scaling/` (equal to original notebook 07) | 5 (held-out test) |
 | S4 | Exact regressions against prior results: circuit-level failure counts identical at the same seeds (18/18), full-circuit Δt* identical at all 18 settings. | `tests/test_circuit.py`; `results/premise/README.md` | 5 |
 | S5 | A statistical pitfall found and fixed: overlapping per-shot seeds faked a −3.5σ bias; the package now refuses them. | `results/crosscheck/README.md`; `tests/test_core.py` | 4 |
 | S6 | Related work: optimal number of rounds for an idling patch (arXiv 2408.07529). | to be compared in the write-up | 1 |

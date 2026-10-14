@@ -1,6 +1,6 @@
 """A circuit's effective paper parameters: lambda and b_read. (Original notebooks 04, 04c, 05.)
 
-The first, deliberately artificial step of the notebook arc (narrative point 7):
+The first, deliberately artificial step of the notebook arc (notebook 04):
 Selene's depolarizing model on its native gates, mirrored exactly in Stim
 (`stim_native`): a uniform Pauli before every single-qubit gate including Rz
 (`rz_noise`), Rzz charged p2 = rho * p1, readout flips p_meas, and idling as
