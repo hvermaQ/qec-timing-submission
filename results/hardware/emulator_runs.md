@@ -38,3 +38,13 @@ can be told apart at this depth; the grid has to reach ~10^3-10^4 layers (or a k
 
 Grey lines: the emulator idle model for an assumed layer duration (1, 3.4, 10 ms). 0/800 at L = 64 rules out
 layers of about 3.4 ms or longer (if the layers are executed as idle time).
+
+## Transport-spectator idle (random-pairing zz_max layers), 100 shots each
+
+All 10 jobs COMPLETED on H2-1E (`q_sq`). Fit: `h2_1e_transport_idle.fit.json`.
+X basis: 1, 1, 0, 2, 1 flips / 800 at L = 0, 2, 4, 8, 16; Z basis: 0, 0, 0, 1, 2 / 800. No growth.
+The emulator's own idle model predicts about 6-7% at L = 16 if a layer lasts ~60 ms (the published
+depth-one time); 1/800 bounds the flip rate below 0.7% (95%), i.e. under ~0.3 s of effective
+idling in 16 layers, if the emulator's dephasing acts at its listed rates on this route.
+
+![H2-1E transport idle](h2_1e_transport_idle.png)
