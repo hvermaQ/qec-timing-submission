@@ -183,8 +183,24 @@ def load_shots(job_dir: Path) -> list[dict]:
     from aqora._provider import wire
     from aqora._provider.results import ProviderResult
     raw = sorted(job_dir.glob("result_*.txt"))[0].read_text()
+    job = json.loads((job_dir / "job.json").read_text())
+    fmt = (job.get("results") or [{}])[0].get("format", wire.RESULT_QSYS_RESULT_JSON_V1)
+    if fmt == wire.RESULT_PYTKET_BACKEND_RESULT_JSON_V1:
+        return _pytket_tag_maps(ProviderResult(0, fmt, raw).to_backend_result())
     return [s.collate_tags() for s in ProviderResult(
         0, wire.RESULT_QSYS_RESULT_JSON_V1, raw).to_qsys_result().results]
+
+
+def _pytket_tag_maps(br) -> list[dict]:
+    """Per-shot {tag: integer} from a pytket BackendResult: each result() tag is a
+    classical register (64 bits for a recorded bool), bit i weighing 2**i."""
+    bits = br.get_bitlist()
+    shots = br.get_shots(cbits=bits)
+    regs: dict[str, list[tuple[int, int]]] = {}
+    for col, b in enumerate(bits):
+        regs.setdefault(b.reg_name, []).append((col, b.index[0]))
+    return [{tag: sum(int(row[c]) << i for c, i in cols) for tag, cols in regs.items()}
+            for row in shots]
 
 
 def store_results(store: Store, job_dir: Path, backend_name: str) -> str:

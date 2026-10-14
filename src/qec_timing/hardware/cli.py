@@ -5,6 +5,7 @@
     local         run that program on local Selene: contract checks, no account needed
     aqora-list    platforms visible to the logged-in aqora account (read-only)
     aqora-check   submit to a syntax checker (validates and prices; executes nothing)
+    aqora-submit  run on an aqora-hosted emulator/device: needs --confirm (spends team credits)
     nexus-cost    upload to Nexus and price on <system>SC (executes nothing)
     nexus-submit  run on a Nexus device/emulator: needs --confirm (spends credits)
     nexus-fetch   wait for a submitted job and save the result
@@ -89,6 +90,14 @@ def cmd_aqora_check(a) -> None:
     from qec_timing.hardware.providers import aqora_run
 
     d = aqora_run(Store(a.store), a.program, a.platform, a.shots, a.as_entity)
+    print(f"saved {d}")
+
+
+def cmd_aqora_submit(a) -> None:
+    from qec_timing.hardware.providers import aqora_run
+
+    d = aqora_run(Store(a.store), a.program, a.platform, a.shots, a.as_entity,
+                  allow_execution=True, confirm=a.confirm, timeout=a.timeout)
     print(f"saved {d}")
 
 
@@ -235,6 +244,15 @@ def main(argv=None) -> int:
     c.add_argument("--shots", type=int, default=100)
     c.add_argument("--as-entity", default=None)
     c.set_defaults(fn=cmd_aqora_check)
+
+    asub = sub.add_parser("aqora-submit")
+    asub.add_argument("program", type=Path)
+    asub.add_argument("--platform", required=True, help="as listed, e.g. nexus:H2-1E")
+    asub.add_argument("--shots", type=int, default=100)
+    asub.add_argument("--as-entity", default=None)
+    asub.add_argument("--timeout", type=float, default=3600.0, help="seconds to wait for the job")
+    asub.add_argument("--confirm", action="store_true", help="required: execution spends credits")
+    asub.set_defaults(fn=cmd_aqora_submit)
 
     nc = sub.add_parser("nexus-cost")
     nc.add_argument("program", type=Path)
