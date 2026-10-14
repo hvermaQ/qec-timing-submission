@@ -1,15 +1,23 @@
 {
   "calibration_version": 1,
+  "extra": {
+    "caveat": "Emulator defaults, not measured H2 rates; units unstated (quad_convention 'cycles' is an assumption).",
+    "model_reference": "Quantinuum emulator noise model (Z-only idle/transport: linear p = r*d; quadratic RZ(f*d), Pauli-twirled in stabilizer mode and scaled by coherent_to_incoherent_factor): https://docs.quantinuum.com/systems/user_guide/emulator_user_guide/noise_model.html",
+    "physics_references": [
+      "Sepiol et al., Probing qubit memory errors at the part-per-million level, PRL 123, 110503 (2019), arXiv:1905.06878: hyperfine-qubit memory decoherence typically from magnetic-field fluctuations",
+      "Ion-trap quantum information processing: experimental status (review), arXiv:0805.2450: dominant memory error is dephasing by ambient magnetic-field noise"
+    ],
+    "values_reference": "H2 emulator parameters, table dated 2025-07-16 (linear 0.0028, quadratic 0.043, factor 2.0, p1 1.89e-5, p2 1.05e-3; no units stated): https://docs.quantinuum.com/systems/user_guide/emulator_user_guide/emulators/h2_emulators.html (checked 2026-10-14)"
+  },
+  "gamma": 0.0028,
   "p1": 1.89e-05,
   "p2": 0.00105,
+  "p_init": 4e-05,
   "p_meas0": 0.0006,
   "p_meas1": 0.00139,
-  "p_init": 4e-05,
-  "gamma": 0.0028,
-  "quad_rate": 0.043,
-  "quad_factor": 2.0,
   "quad_convention": "cycles",
-  "t_round": null,
+  "quad_factor": 2.0,
+  "quad_rate": 0.043,
   "source": "Quantinuum H2-1E emulator noise-model defaults, table dated 2025-07-16 (as used in the original repo's Stage 7a and notebooks 07-09). t_round is not published; it is a study parameter.",
-  "extra": {}
+  "t_round": null
 }

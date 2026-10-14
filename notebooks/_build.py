@@ -312,6 +312,14 @@ Quantinuum's emulator models idle noise as Z only: a linear term
 Z checks, which commute with Z errors: it cannot see idling at all, so it shows no
 trade-off. The interval study therefore needs |+⟩ logical states and X checks.
 
+**Sources.** The Z-only idle model (linear γt plus a twirled quadratic term) is Quantinuum's
+emulator noise model ([docs](https://docs.quantinuum.com/systems/user_guide/emulator_user_guide/noise_model.html));
+the H2 values used later are its H2 emulator defaults, table dated 2025-07-16, with no units
+stated ([H2 emulators](https://docs.quantinuum.com/systems/user_guide/emulator_user_guide/emulators/h2_emulators.html)).
+These are vendor model parameters, not measured device rates. The physical basis: memory error
+of hyperfine ion qubits is dominated by magnetic-field dephasing (Sepiol et al., PRL 123,
+110503 (2019), arXiv:1905.06878; review arXiv:0805.2450).
+
 This notebook runs a small demonstration through the package (d = 3, Stim, seconds).
 `MemorySpec` refuses the blind combination unless it is marked as a deliberate control
 (`allow_invisible_noise=True`).
