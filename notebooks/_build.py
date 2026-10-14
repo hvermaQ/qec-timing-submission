@@ -543,17 +543,22 @@ axes[0].plot([T_R[0] * 1e3, T_R[-1] * 1e3], [T_R[0] * 1e3, T_R[-1] * 1e3], "--",
 axes[0].set_xscale("log"); axes[0].set_yscale("log"); axes[0].legend(fontsize=8)
 axes[0].set_xlabel(r"$t_R$ (ms)"); axes[0].set_ylabel(r"optimal period $\\Delta t^*$ (ms)")
 axes[0].set_title("Optimal period in physical time", loc="left")
-d = 5
-for t, c in zip((0.002, 0.03, 0.1), (P.SEQUENTIAL[6], P.SEQUENTIAL[4], P.SEQUENTIAL[2])):
-    r = cell.get((t, d))
-    if not r:
-        continue
-    pts = [p for p in r["points"] if p.get("used")]
-    axes[1].plot([p["dt"] for p in pts], [p["r"] / pts[0]["r"] for p in pts], "o-", color=c,
-                 label=rf"$t_R = {t*1e3:g}$ ms: $\\times${r['gain']:.1f} at $\\Delta t^* = {r['dt_star_rounds']:.1f}$")
-axes[1].set_xscale("log"); axes[1].set_yscale("log"); axes[1].legend(fontsize=8)
+from matplotlib.lines import Line2D
+TS = {0.002: ("-", "o"), 0.03: ("--", "s"), 0.1: (":", "^")}
+for d in DS:
+    for t, (ls, mk) in TS.items():
+        r = cell.get((t, d))
+        if not r:
+            continue
+        pts = [p for p in r["points"] if p.get("used")]
+        axes[1].plot([p["dt"] for p in pts], [p["r"] / pts[0]["r"] for p in pts], ls, marker=mk, ms=4,
+                     color=P.D_COLOR[d])
+axes[1].axhline(1, color=P.MUTED, lw=0.8)
+h = [Line2D([], [], color=P.D_COLOR[d], lw=2, label=P.dl(d)) for d in DS]
+h += [Line2D([], [], color=P.MUTED, ls=ls, marker=mk, label=rf"$t_R = {t*1e3:g}$ ms") for t, (ls, mk) in TS.items()]
+axes[1].set_xscale("log"); axes[1].set_yscale("log"); axes[1].legend(handles=h, fontsize=8, ncol=2)
 axes[1].set_xlabel(r"period $\\Delta t$ (rounds)"); axes[1].set_ylabel(r"rate / rate at $\\Delta t$ = 1")
-axes[1].set_title(rf"U-curves at $d = {d}$", loc="left")
+axes[1].set_title("U-curves (below 1: waiting helps)", loc="left")
 fig.tight_layout()
 '''),
 md('''
