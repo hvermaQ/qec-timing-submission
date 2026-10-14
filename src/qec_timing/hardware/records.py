@@ -65,3 +65,17 @@ def record_from_bits(spec: MemorySpec, syndromes: np.ndarray, data: np.ndarray,
     rounds = {"dt": np.array(sched.dts), "t": np.array(sched.starts), "p_data": nan,
               "p_read": nan.copy()}
     return RawRecord(DetectorLayout(R, C), det, obs, rounds, payload or {}, attachments or {})
+
+
+def add_record_flips(syndromes: np.ndarray, data: np.ndarray, p_read: float,
+                     seed: int) -> tuple[np.ndarray, np.ndarray]:
+    """The paper's record flips, applied to returned shots instead of in the program.
+
+    Each recorded bit (every syndrome bit and every final data readout) is XORed with an
+    independent Bernoulli(p_read). A record flip changes only the classical bit, never a
+    qubit, and the program has no feed-forward on syndromes, so this is statistically
+    identical to flipping in situ; it also lets one run be analysed at several b_read."""
+    rng = np.random.default_rng(seed)
+    syn = syndromes ^ (rng.random(syndromes.shape) < p_read)
+    dat = data ^ (rng.random(data.shape) < p_read)
+    return syn, dat

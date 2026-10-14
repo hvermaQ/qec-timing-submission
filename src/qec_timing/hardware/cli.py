@@ -43,12 +43,17 @@ def cmd_build(a) -> None:
 
     pauli = "Z" if a.basis == "X" else "X"
     # Injected flips only (readout and gates are the device's); no injection = device noise.
-    noise = PaperNoise(a.p_inject, 0.0, b_read=0.0, pauli=pauli) if a.p_inject else CircuitNoise(0, 0, 0)
-    spec = MemorySpec(RotatedSurfaceCode(a.d), a.basis, Schedule.rounds(1.0, a.rounds), noise,
+    # Data flips only: record flips (b_read) are classical and are added to the shots offline.
+    noise = (PaperNoise(a.p_inject, a.lam, b_read=0.0, pauli=pauli) if a.p_inject
+             else CircuitNoise(0, 0, 0))
+    dt = 1.0 if a.total_time is None else a.total_time / a.rounds
+    spec = MemorySpec(RotatedSurfaceCode(a.d), a.basis, Schedule.rounds(dt, a.rounds), noise,
                       a.shots, a.seed)
     q = build_qir(spec)
     a.out.mkdir(parents=True, exist_ok=True)
     name = f"d{a.d}_{a.basis}_r{a.rounds}_p{a.p_inject:g}"
+    if a.lam or a.total_time is not None:
+        name += f"_lam{a.lam:g}_dt{dt:.4g}"
     (a.out / f"{name}.bc").write_bytes(q["bitcode"])
     (a.out / f"{name}.ll").write_text(q["ll"])
     (a.out / f"{name}.json").write_text(json.dumps(q["meta"], indent=2))
@@ -234,7 +239,10 @@ def main(argv=None) -> int:
     b.add_argument("--d", type=int, default=3)
     b.add_argument("--basis", choices=("X", "Z"), default="X")
     b.add_argument("--rounds", type=int, default=2)
-    b.add_argument("--p-inject", type=float, default=0.0)
+    b.add_argument("--p-inject", type=float, default=0.0, help="the paper's p (p_stab)")
+    b.add_argument("--lam", type=float, default=0.0, help="the paper's lambda: idle flips grow with dt")
+    b.add_argument("--total-time", type=float, default=None,
+                   help="fixed T: dt = T / rounds (default dt = 1)")
     b.add_argument("--shots", type=int, default=100)
     b.add_argument("--seed", type=int, default=7_000_000)
     b.add_argument("--out", type=Path, default=PROGRAMS)
