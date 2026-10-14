@@ -346,9 +346,9 @@ for k, v in out.items():
 code('''
 fig, axes = plt.subplots(1, 2, figsize=(9.5, 3.4), sharey=True)
 for ax, basis in zip(axes, ("X", "Z")):
-    for label, ls in (("dephasing on", "-"), ("dephasing off", "--")):
+    for label, ls, c, m in (("dephasing on", "-", P.SERIES[1], "o"), ("dephasing off", "--", P.SERIES[0], "s")):
         dt, pl = zip(*out[(basis, label)])
-        ax.plot(dt, pl, ls, marker="o", color=P.SERIES[0], label=label)
+        ax.plot(dt, pl, ls, marker=m, ms=5, color=c, label=label)
     ax.legend(loc="upper right", fontsize=9)
     ax.set_xscale("log", base=2); ax.set_xlabel(r"$\\Delta t / t_R$, fixed $T = 48\\,t_R$")
     ax.set_title(f"{basis}-basis memory", loc="left")
