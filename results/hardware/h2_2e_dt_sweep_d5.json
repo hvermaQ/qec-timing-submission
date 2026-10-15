@@ -1,0 +1,32 @@
+{
+ "setup": "d=5 X, p=0.015, lam=1, T=10; record flips p_read=0.015 added offline; H2-2E via aqora q_sq, 1000 shots",
+ "rows": [
+  {
+   "R": 10,
+   "dt": 1.0,
+   "shots": 1000,
+   "failures": 177,
+   "pL": 0.177,
+   "stim_pL": 0.134,
+   "det_rate": 0.11765151515151515
+  },
+  {
+   "R": 4,
+   "dt": 2.5,
+   "shots": 1000,
+   "failures": 172,
+   "pL": 0.172,
+   "stim_pL": 0.156,
+   "det_rate": 0.15398333333333333
+  },
+  {
+   "R": 2,
+   "dt": 5.0,
+   "shots": 1000,
+   "failures": 185,
+   "pL": 0.185,
+   "stim_pL": 0.199,
+   "det_rate": 0.18363888888888888
+  }
+ ]
+}

@@ -48,3 +48,21 @@ depth-one time); 1/800 bounds the flip rate below 0.7% (95%), i.e. under ~0.3 s 
 idling in 16 layers, if the emulator's dephasing acts at its listed rates on this route.
 
 ![H2-1E transport idle](h2_1e_transport_idle.png)
+
+## d = 5 injected Δt sweep on H2-2E (2026-10-14/15), 1000 shots per point
+
+Programs: d = 5, X basis, the paper's p_data(Δt) injected in-program (p = 0.015, λ = 1, T = 10);
+record flips p_read = 0.015 added offline (`records.add_record_flips`). Syntax-checked on H2-1SC/H2-2SC.
+
+| R (Δt) | H2-2E p_L | Stim (injected only) | note |
+| --- | --- | --- | --- |
+| 70 (0.14) | — | 0.247 | rejected: "Job cost exceeds allowed cost (1002)" |
+| 20 (0.5) | — | 0.142 | COMPLETED (6.7 h) but aqora never pulled the result (resultUploadAttempts 0) |
+| 10 (1) | 177/1000 = 0.177 | 0.134 | +4.0σ |
+| 4 (2.5) | 172/1000 = 0.172 | 0.156 | +1.4σ |
+| 2 (5) | 185/1000 = 0.185 | 0.199 | −1.1σ |
+
+The emulator's own per-round noise lifts p_L most where there are most rounds: the U flattens and
+its minimum moves to longer Δt. Decoding uses the paper-model graph (emulator errors not on it).
+
+![d=5 sweep](h2_2e_dt_sweep_d5.png)
