@@ -1,3 +1,11 @@
+# Info:
+
+#TEAM Q_SQUARED or Q_SQ for short. Members: Harshit Verma, Harshank Shrotriya and Ilesh Vora.
+
+Full repo available on https://github.com/hvermaQ/qec-timing-submission
+
+Data available on request
+
 # qec-timing
 
 Optimal syndrome-measurement timing for QEC memories, after Haug, Bharti & Aolita (2026).
