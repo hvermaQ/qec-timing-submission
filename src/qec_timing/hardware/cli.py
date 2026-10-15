@@ -162,16 +162,22 @@ def cmd_calib_build(a) -> None:
 
     from hugr_qir.output import OutputFormat
 
-    from qec_timing.hardware.calibration_experiments import (idle_program, readout_program,
-                                                             transport_idle_program)
+    from qec_timing.hardware.calibration_experiments import (anchored_idle_program, idle_program,
+                                                             readout_program, transport_idle_program)
     from qec_timing.hardware.qir import _convert
 
     a.out.mkdir(parents=True, exist_ok=True)
-    jobs = [] if a.transport else [("readout", readout_program(a.readout_qubits),
+    jobs = [] if (a.transport or a.anchored) else [("readout", readout_program(a.readout_qubits),
                                     {"experiment": "readout", "n": a.readout_qubits})]
     for basis in a.bases:
         for L in a.layers:
-            if a.transport:
+            if a.anchored:
+                jobs.append((f"idleA_{basis}_L{L}",
+                             anchored_idle_program(a.targets, a.spectators, L, basis),
+                             {"experiment": "idle", "spectator_layer": "random-pairing zz_max, anchored",
+                              "basis": basis, "layers": L, "n_targets": a.targets,
+                              "n_spectators": a.spectators}))
+            elif a.transport:
                 jobs.append((f"idleT_{basis}_L{L}",
                              transport_idle_program(a.targets, a.spectators, L, basis),
                              {"experiment": "idle", "spectator_layer": "random-pairing zz_max",
@@ -310,6 +316,8 @@ def main(argv=None) -> int:
     cb.add_argument("--out", type=Path, default=Path("results/hardware/calibration_programs"))
     cb.add_argument("--transport", action="store_true",
                     help="spectators do random-pairing zz_max layers (forces transport)")
+    cb.add_argument("--anchored", action="store_true",
+                    help="as --transport, with targets tied to the start of the wait by an anchor qubit")
     cb.set_defaults(fn=cmd_calib_build)
 
     cf = sub.add_parser("calib-fit")

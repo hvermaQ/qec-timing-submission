@@ -171,6 +171,85 @@ def transport_idle_program(n_targets: int, n_spectators: int, layers: int, basis
     return main
 
 
+def anchored_idle_program(n_targets: int, n_spectators: int, layers: int, basis: str = "X",
+                          seed: int = 0):
+    """`transport_idle_program` with the targets ANCHORED to the start of the wait.
+
+    In the plain version nothing ties a target's preparation (H) to the spectator layers,
+    so a scheduler may postpone it to just before readout and the target waits in |0>,
+    blind to Z dephasing. Here each target gets ZZPhase(+1/2 turn) with one anchor qubit,
+    held in |0>, right after its H; the anchor then shares a ZZ with spectator 0 before
+    layer 1. So the targets' H precedes the anchor's gates, which precede the spectators'
+    layers: the targets are in |+> (or |0>) for the whole wait. At the end each target gets
+    ZZPhase(-1/2 turn) with the anchor, undoing the first (with the anchor in |0> each is
+    only a fixed Z rotation of the target), then the parity feed-forward and readout as
+    before. An anchor bit flip during the wait would flip every target together; the
+    L = 0 point measures that floor. Tags: t{i}, par."""
+    import numpy as np
+    from guppylang import guppy
+    from guppylang.std.angles import angle
+    from guppylang.std.builtins import result
+    from guppylang.std.qsystem import zz_max, zz_phase
+    from guppylang.std.quantum import discard, h, measure, project_z, qubit, z
+
+    if basis not in ("X", "Z"):
+        raise ValueError("basis must be X or Z")
+    if n_spectators < 2 or n_spectators % 2:
+        raise ValueError("need an even number of spectators (>= 2) to pair")
+    x_basis = basis == "X"
+    pairings = [np.random.default_rng(seed + k).permutation(n_spectators).reshape(-1, 2).tolist()
+                for k in range(layers)]
+
+    @guppy
+    def xor_(a: bool, b: bool) -> bool:
+        return a != b
+
+    @guppy
+    def cond_z(q: qubit, flip: bool) -> None:
+        if flip:
+            z(q)
+
+    @guppy
+    def couple(t: qubit, a: qubit) -> None:
+        zz_phase(t, a, angle(0.5))
+
+    @guppy
+    def uncouple(t: qubit, a: qubit) -> None:
+        zz_phase(t, a, angle(-0.5))
+
+    @guppy.comptime
+    def main() -> None:
+        targets = [qubit() for _ in range(n_targets)]
+        anc = qubit()
+        spect = [qubit() for _ in range(n_spectators)]
+        for q in targets:
+            if x_basis:
+                h(q)
+            couple(q, anc)
+        zz_max(anc, spect[0])
+        for pairs in pairings:
+            for s in spect:
+                h(s)
+            for a, b in pairs:
+                zz_max(spect[a], spect[b])
+        par = False
+        for s in spect:
+            par = xor_(par, project_z(s))
+        for q in targets:
+            uncouple(q, anc)
+            cond_z(q, par)
+        result("par", par)
+        for i, q in enumerate(targets):
+            if x_basis:
+                h(q)
+            result(f"t{i}", measure(q))
+        discard(anc)
+        for s in spect:
+            discard(s)
+
+    return main
+
+
 # --- fits (numpy) --------------------------------------------------------------
 
 @dataclass(frozen=True)
