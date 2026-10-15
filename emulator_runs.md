@@ -17,11 +17,11 @@ end on the emulator. Without injection, decoding turns 0 raw flips into 2 failur
 own errors (readout, hook, leakage) are not on the phenomenological graph, so the decoder needs the
 emulator's error model, not this graph.
 
-![H2-1E runs](emulator_runs.png)
+![H2-1E runs](results/hardware/emulator_runs.png)
 
 ## Calibration programs (readout, spectator idle L = 0-64), 100 shots each
 
-All 15 jobs COMPLETED on H2-1E (`q_sq`). Fit: `h2_1e_calibration_runs.fit.json` (`hardware.cli calib-fit`).
+All 15 jobs COMPLETED on H2-1E (`q_sq`). Fit: `results/hardware/h2_1e_calibration_runs.fit.json` (`hardware.cli calib-fit`).
 
 | test | result | H2-1E model value |
 | --- | --- | --- |
@@ -34,20 +34,20 @@ Reading: up to 64 spectator layers produce no detectable dephasing. With the emu
 measure-and-reset are far shorter than that, or the layers are not executed as idle time. Neither
 can be told apart at this depth; the grid has to reach ~10^3-10^4 layers (or a known layer duration).
 
-![H2-1E calibration runs](h2_1e_calibration_runs.png)
+![H2-1E calibration runs](results/hardware/h2_1e_calibration_runs.png)
 
 Grey lines: the emulator idle model for an assumed layer duration (1, 3.4, 10 ms). 0/800 at L = 64 rules out
 layers of about 3.4 ms or longer (if the layers are executed as idle time).
 
 ## Transport-spectator idle (random-pairing zz_max layers), 100 shots each
 
-All 10 jobs COMPLETED on H2-1E (`q_sq`). Fit: `h2_1e_transport_idle.fit.json`.
+All 10 jobs COMPLETED on H2-1E (`q_sq`). Fit: `results/hardware/h2_1e_transport_idle.fit.json`.
 X basis: 1, 1, 0, 2, 1 flips / 800 at L = 0, 2, 4, 8, 16; Z basis: 0, 0, 0, 1, 2 / 800. No growth.
 The emulator's own idle model predicts about 6-7% at L = 16 if a layer lasts ~60 ms (the published
 depth-one time); 1/800 bounds the flip rate below 0.7% (95%), i.e. under ~0.3 s of effective
 idling in 16 layers, if the emulator's dephasing acts at its listed rates on this route.
 
-![H2-1E transport idle](h2_1e_transport_idle.png)
+![H2-1E transport idle](results/hardware/h2_1e_transport_idle.png)
 
 ## d = 5 injected Δt sweep on H2-2E (2026-10-14/15), 1000 shots per point
 
@@ -65,7 +65,7 @@ record flips p_read = 0.015 added offline (`records.add_record_flips`). Syntax-c
 The emulator's own per-round noise lifts p_L most where there are most rounds: the U flattens and
 its minimum moves to longer Δt. Decoding uses the paper-model graph (emulator errors not on it).
 
-![d=5 sweep](h2_2e_dt_sweep_d5.png)
+![d=5 sweep](results/hardware/h2_2e_dt_sweep_d5.png)
 
 ### Circuit-level decoder and prediction (no new runs)
 
@@ -84,17 +84,17 @@ returned shots; sampling it predicts p_L. Checks: without gate noise it reproduc
 The emulator matches the circuit model within ~1σ once its gate noise is included; the decoder
 change is small (≤ 0.006). So the earlier +4σ at Δt = 1 was the emulator's per-round gate cost, not
 decoder mismatch. The model with H2-2E gates has a flatter U (minimum ≈ 0.158 near Δt ≈ 1–1.25).
-Data: `h2_2e_dt_sweep_d5_circuit_decoder.json`, `h2_2e_dt_sweep_d5_model_curves.json`.
+Data: `results/hardware/h2_2e_dt_sweep_d5_circuit_decoder.json`, `results/hardware/h2_2e_dt_sweep_d5_model_curves.json`.
 
 ## Anchored transport-spectator idle (targets tied to the start of the wait), H2-1E, 100 shots each
 
 X basis: 5, 7, 8, 3, 19 flips / 800 at L = 0, 2, 4, 8, 16; Z basis: 2, 1, 2, 1, 1 / 800 (flat).
 Against the unanchored run (1/800 at L = 16), anchoring brings out a rise at L = 16 (~3.5σ over the
 L = 0 floor of 0.6%, raised by the two target-anchor ZZ gates). One point above the floor: a timescale
-of ~30 ms per layer is indicative only (fit in `h2_1e_anchored_idle.fit.json` is unconstrained,
+of ~30 ms per layer is indicative only (fit in `results/hardware/h2_1e_anchored_idle.fit.json` is unconstrained,
 χ²/dof 13). Next: L = 32-64 and more shots.
 
-![anchored idle](h2_1e_anchored_idle.png)
+![anchored idle](results/hardware/h2_1e_anchored_idle.png)
 
 ### Anchored, long waits (1000 shots per X point, 500 for Z)
 
@@ -102,7 +102,7 @@ X: 82, 93, 112, 120 flips / 8000 at L = 0, 16, 32, 64; Z at L = 64: 18 / 4000. F
 emulator idle model: one layer ≈ 3.6 ± 0.8 ms (χ² 2.3 / 2 dof). The 2.4% at L = 16 from the
 100-shot run was a fluctuation (now 1.16%). Files: `h2_1e_anchored_idle_long*.json`, `.png`.
 
-![anchored long](h2_1e_anchored_idle_long.png)
+![anchored long](results/hardware/h2_1e_anchored_idle_long.png)
 
 ### Anchored, L = 128 (1000 shots), and a correction
 

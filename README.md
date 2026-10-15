@@ -199,7 +199,7 @@ Ordered: each step needs the one before it. Programs for 1–3 reuse the spectat
 | --- | --- | --- |
 | Summary of each study (numbers behind every figure) | `results/<study>/` (`crosscheck`, `scaling`, `premise`, `per_qubit`, `decoders`, `idle_scaling`, `regime`, `idle`, `effective`) | yes |
 | Hardware programs (QIR bitcode + metadata) | `results/hardware/programs/`, `results/hardware/calibration_programs/` | yes |
-| Hardware results and fits | `results/hardware/*.json`, `emulator_runs.md`, `syntax_checks.md` | yes |
+| Hardware results and fits | `results/hardware/*.json`, `results/hardware/syntax_checks.md`, `emulator_runs.md`, `job_ids.md` (top level) | yes |
 | Hardware write-ups, one per experiment | `results/hardware/experiments/` | yes |
 | Figures | `figures/` (written by the notebooks) | yes |
 | Raw simulation runs (detection events, manifests, checksums) | `store/runs/<run_id>/` | no (`store/` is gitignored) |

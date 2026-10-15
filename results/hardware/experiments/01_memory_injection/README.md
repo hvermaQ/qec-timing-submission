@@ -17,4 +17,4 @@ Two versions: `d3_X_r2_p0` (no injection) and `d3_X_r2_p0.05` (Z on each data qu
 Injection works end to end. The 2/100 with no injection came from a decoder that did not know
 the emulator's own noise.
 
-**Files.** `results/hardware/programs/d3_X_r2_*`, `results/hardware/emulator_runs.md`, `emulator_runs.png`.
+**Files.** `results/hardware/programs/d3_X_r2_*`, `emulator_runs.md` (top level), `results/hardware/emulator_runs.png`.
