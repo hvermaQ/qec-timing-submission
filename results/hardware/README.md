@@ -19,3 +19,5 @@ Order of use once access returns:
 3. `nexus-submit --confirm` on the emulator (H2-1E) first, then the device.
 4. `nexus-fetch`, then `store` (memory) or `calib-fit` (calibration) -> `config/*.json`.
 5. `python -m qec_timing.studies.regime --calibration config/<measured>.json --t-round <t_R>`.
+
+Experiment write-ups, one per experiment: [experiments/README.md](experiments/README.md).
