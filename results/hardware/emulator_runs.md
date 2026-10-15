@@ -85,3 +85,13 @@ The emulator matches the circuit model within ~1σ once its gate noise is includ
 change is small (≤ 0.006). So the earlier +4σ at Δt = 1 was the emulator's per-round gate cost, not
 decoder mismatch. The model with H2-2E gates has a flatter U (minimum ≈ 0.158 near Δt ≈ 1–1.25).
 Data: `h2_2e_dt_sweep_d5_circuit_decoder.json`, `h2_2e_dt_sweep_d5_model_curves.json`.
+
+## Anchored transport-spectator idle (targets tied to the start of the wait), H2-1E, 100 shots each
+
+X basis: 5, 7, 8, 3, 19 flips / 800 at L = 0, 2, 4, 8, 16; Z basis: 2, 1, 2, 1, 1 / 800 (flat).
+Against the unanchored run (1/800 at L = 16), anchoring brings out a rise at L = 16 (~3.5σ over the
+L = 0 floor of 0.6%, raised by the two target-anchor ZZ gates). One point above the floor: a timescale
+of ~30 ms per layer is indicative only (fit in `h2_1e_anchored_idle.fit.json` is unconstrained,
+χ²/dof 13). Next: L = 32-64 and more shots.
+
+![anchored idle](h2_1e_anchored_idle.png)

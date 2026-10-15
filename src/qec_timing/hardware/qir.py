@@ -53,10 +53,15 @@ def injection_probability(spec: MemorySpec) -> float:
     return ps.pop()
 
 
-def build_program(spec: MemorySpec):
-    """The traced Guppy 0.21 entrypoint for `spec` (no arguments)."""
+def build_program(spec: MemorySpec, herald: bool = False):
+    """The traced Guppy 0.21 entrypoint for `spec` (no arguments).
+
+    herald=True: every measurement is leakage-aware (`measure_leaked`, LazyMeasureLeaked):
+    each recorded value is 0, 1, or 2 = leaked. That measurement is destructive, so each
+    check gets a FRESH ancilla instead of reset reuse. Default False keeps the program
+    byte-identical to the validated non-heralded build."""
     from guppylang import guppy
-    from guppylang.std.builtins import comptime, result
+    from guppylang.std.builtins import comptime, owned, result
     from guppylang.std.qsystem.random import RNG
     from guppylang.std.qsystem.utils import get_current_shot
     from guppylang.std.quantum import cx, discard, h, measure, project_z, qubit, reset, x, z
@@ -81,6 +86,13 @@ def build_program(spec: MemorySpec):
             if rng.random_int_bounded(comptime(BOUND)) < comptime(threshold):
                 x(q)
 
+    if herald:
+        from guppylang.std.qsystem import _measure_leaked
+
+        @guppy
+        def meas3(q: qubit @ owned) -> int:
+            return _measure_leaked(q).read()
+
     @guppy.comptime
     def main() -> None:
         rng = RNG(seed + get_current_shot())
@@ -102,12 +114,19 @@ def build_program(spec: MemorySpec):
                 else:
                     for i in order:
                         cx(data[i], anc)
-                result(f"s{r}_{ci}", project_z(anc))
-                reset(anc)
+                if herald:
+                    result(f"s{r}_{ci}", meas3(anc))
+                    anc = qubit()
+                else:
+                    result(f"s{r}_{ci}", project_z(anc))
+                    reset(anc)
         for i, q in enumerate(data):
             if x_basis:
                 h(q)
-            result(f"m{i}", measure(q))
+            if herald:
+                result(f"m{i}", meas3(q))
+            else:
+                result(f"m{i}", measure(q))
         discard(anc)
         rng.discard()
 
@@ -138,7 +157,7 @@ def _convert(pkg, fmt):
     return box["out"]
 
 
-def build_qir(spec: MemorySpec) -> dict:
+def build_qir(spec: MemorySpec, herald: bool = False) -> dict:
     """Validated QIR for `spec`: {'bitcode': bytes, 'll': str, 'meta': dict}."""
     from hugr_qir.output import OutputFormat
 
@@ -146,7 +165,7 @@ def build_qir(spec: MemorySpec) -> dict:
     if n_qubits > H2_STABILIZER_QUBITS:
         raise ValueError(f"{n_qubits} qubits exceed H2's {H2_STABILIZER_QUBITS}")
     t0 = time.perf_counter()
-    pkg = build_program(spec).compile()
+    pkg = build_program(spec, herald).compile()
     t_hugr = time.perf_counter() - t0
     t1 = time.perf_counter()
     bc = _convert(pkg, OutputFormat.BITCODE)
@@ -154,7 +173,7 @@ def build_qir(spec: MemorySpec) -> dict:
     ll = _convert(pkg, OutputFormat.LLVM_IR)
     p = injection_probability(spec)
     meta = {"spec": spec.to_json(), "n_qubits": n_qubits,
-            "p_inject": p, "p_inject_effective": round(p * BOUND) / BOUND,
+            "p_inject": p, "p_inject_effective": round(p * BOUND) / BOUND, "herald": herald,
             "hugr_bytes": len(pkg.to_bytes()), "qir_bitcode_bytes": len(bc),
             "seconds_hugr": t_hugr, "seconds_qir": t_qir,
             "qir_calls": dict(Counter(re.findall(r"call [^@]*@([\w.]+)", ll))),
