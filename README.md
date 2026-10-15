@@ -4,12 +4,14 @@ Optimal syndrome-measurement timing for QEC memories, after Haug, Bharti & Aolit
 A package built from interfaces: codes, noise models, backends, decoders and applications
 are swappable, and every implementation is checked against the same contracts.
 
-**Status:** step 3 of the migration. Interfaces, store and contracts (step 1); the paper's
-model on Stim and Guppy/Selene with the cross-check (step 2); circuit-level noise on
-textbook and native gates, the effective-model fit, the premise study and the device
-regime study (step 3); application idle analysis and the hardware path: QIR builder,
-local Selene check, aqora and Nexus adapters, calibration experiments and fits (step 4);
-narrative notebooks, `CLAIMS.md` and `REPRODUCE.md` (step 5).
+**Status.** Simulation arc complete (notebooks 01–09). Hardware arc: programs built, checked
+locally and on the H2 syntax checkers, and run on Quantinuum's H2-1E / H2-2E emulators through
+aqora (organisation `q_sq`); no device is available to this account. Results so far:
+in-program noise injection agrees with Stim on the emulator; a d = 5 Δt sweep on H2-2E follows a
+circuit model of the program that includes H2-2E's gate noise; spectator experiments measure the
+emulator's idle dephasing (one spectator layer ≈ 3.6 ms). Open: two sweep points (one result not
+returned by aqora, one over the per-job cost limit), linear vs quadratic idle growth, and a
+leakage-heralded decoder (the QIR toolchain cannot compile leakage-aware measurement).
 
 **Start here:** `CLAIMS.md` (every claim, its evidence and its level), the notebooks in
 `notebooks/` (figures in `figures/`), and `REPRODUCE.md` (one command per result).
@@ -23,6 +25,7 @@ The notebooks run in two arcs:
   the d = 5 Δt sweep (14), gauging the idle parameters with spectator qubits (15).
 
 Retired notebooks (kept for the record, not part of the argument) are in `notebooks/retired/`.
+Hardware experiments, one short README each: `results/hardware/experiments/`.
 
 ## Setup
 
@@ -36,6 +39,11 @@ Three environments, pinned in `envs/`. Tests that need another env skip.
 
 The H2 env is separate because hugr-qir 0.1.2 (QIR for H2) needs guppylang 0.21, while the
 simulations use guppylang 1.x. The package core (numpy only) imports in all three.
+Neither hugr-qir 0.1.2 nor 0.3.0 can lower leakage-aware measurement (`measure_leaked`) to QIR.
+
+Hardware access: log in once with `.venv-h2/bin/aqora login`; submissions run as an aqora
+organisation (`--as-entity`). Syntax checkers (`*SC`) execute nothing; emulator runs spend credits
+and need `--confirm`.
 
 ```bash
 uv venv --python 3.12 .venv-main
@@ -87,6 +95,11 @@ They hold no logic of their own.
 | backend | `stim_circuit` | `backends/stim_circuit.py` | textbook circuit (Stim generated), aligned to `RotatedSurfaceCode` |
 | backend | `stim_native` | `backends/stim_native.py` | Selene's native gates mirrored into Stim |
 | extractor | `edges` | `extract/edges.py` | p_data, p_read (and space / diagonal parts) from detection events |
+| hardware | memory program | `hardware/qir.py` | Guppy 0.21 memory experiment → validated QIR; in-program injection of p_data(Δt) |
+| hardware | idle programs | `hardware/calibration_experiments.py` | readout, spectator idle (measure-reset, transport, anchored), fits |
+| hardware | program model | `hardware/program_model.py` | the hardware program in Stim gate for gate: decoder (DEM) and p_L prediction |
+| hardware | record flips | `hardware/records.py` | `add_record_flips`: the paper's p_read added to returned bits |
+| plotting | circuit diagrams | `diagrams.py` | schematic and circuit drawings of the hardware programs |
 
 ## Studies
 
@@ -103,7 +116,7 @@ Each is a module with a CLI; every run goes to the store, the summary to `result
 | `python -m qec_timing.studies.per_qubit` | How unequal are data qubits' errors per round, and where do they come from? | `results/per_qubit/` |
 | `python -m qec_timing.studies.decoders` | Does decoding with the paper's graph instead of the circuit's full error model change the answer? | `results/decoders/` |
 | `python -m qec_timing.studies.idle_scaling` | How does Δt* move with idle strength (power laws, calibrated ansatz, Δt* map with a held-out test)? | `results/idle_scaling/` |
-| `python -m qec_timing.hardware.cli ...` (H2 env) | Build, check locally, price, submit and fetch hardware programs; fit calibrations | `results/hardware/`, `config/` |
+| `python -m qec_timing.hardware.cli ...` (H2 env) | Build (`build`, `calib-build --transport\|--anchored`), check locally, syntax-check (`aqora-check`), run (`aqora-submit --confirm`), fit (`calib-fit`) | `results/hardware/`, `config/` |
 
 **Regression against the original repo.** The circuit-level backends reproduce the
 original notebooks' cached failure counts exactly (same circuits, same seeds): 12/12
