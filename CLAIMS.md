@@ -33,7 +33,9 @@ Labels in the notebooks: *measured* (computed in this repo), *paper* (Haug, Bhar
 | T2 | Under realistic circuit noise (gates, uniform idle on data and ancillas, native gates), every curve keeps an interior optimum (18/18). | notebook 04; `results/premise/` | 4 |
 | T3 | On H2-1E's own rates, waiting pays ×15–45 at t_R = 1–2 ms, ×1.4–1.9 at 30 ms; back to back is best from 50 ms (d = 7), 70 ms (d = 5) and 150 ms (d = 3). The optimal period stays near 50–95 ms while rounds are shorter. | notebook 08; `results/regime/grid/` (39 cells) | 3 (emulator parameters; t_R and the quadratic-rate convention assumed) |
 | T4 | The hardware program is built from the code interface, validated as QIR, byte-identical to the original Stage 7a program, and passes the backend contract on local Selene end to end. | notebook 11; `tests/test_hardware.py`; `results/hardware/programs/` | 4 |
-| T5 | Submission path ready: syntax check / cost / submit / fetch / store, every request and response kept verbatim, credit spend gated by `--confirm`. | `qec_timing.hardware.cli`; `results/hardware/README.md` | 2 (not yet executed: provider-side outage) |
+| T5 | Submission path used end to end through aqora (organisation `q_sq`): syntax check, submit, fetch, store; every request and response kept verbatim; credit spend gated by `--confirm`. 40+ syntax checks and 30+ emulator jobs on H2-1E / H2-2E. Limits met: a per-job cost cap (largest accepted ~800 two-qubit gates × 1000 shots), one completed job whose result aqora never returned. | `qec_timing.hardware.cli`; `results/hardware/syntax_checks.md`; `results/hardware/experiments/` | 4 |
+| T7 | Noise injected inside the device program behaves the same on the H2-1E emulator as in Stim: d = 3 memory, every detector rate and the decoded p_L (6/100 against 7.2%) agree. | notebook 14; `results/hardware/h2_1e_memory_d3.json` | 3 (100 shots) |
+| T8 | The trade-off survives device-grade noise: a d = 5 Δt sweep on H2-2E (1000 shots per point) follows a gate-level model of the program with H2-2E's published gate errors within ~1σ at all three returned points; the U-curve is higher and flatter (minimum ≈ 0.16 near Δt ≈ 1, against ≈ 0.13 for the paper's model). | notebook 14; `results/hardware/h2_2e_dt_sweep_d5*.json`; `hardware/program_model.py` | 3 (3 of 5 points; left arm model only) |
 | T6 | Program size and cost scale linearly in rounds × checks; d ≤ 7 fits H2's 56 qubits. | notebook 10; `results/hardware/qir_scaling.json` | 4 |
 
 ## Scientific Merit (20%)
@@ -46,6 +48,8 @@ Labels in the notebooks: *measured* (computed in this repo), *paper* (Haug, Bhar
 | S3 | Limits found and stated: the model underestimates p_L more with d (use it for Δt*, not p_L); effective g ≈ 0.54–0.74 at d = 3–7 (paper 0.8, fitted at d = 11–27); Z-basis memories are blind to trapped-ion idling. | notebooks 03, 04, 07 | 4 |
 | S3b | Data qubits are not equal: per-round error varies ~3× across the lattice; 16–17% spreads from ancillas with native gates (7–9% textbook). | notebook 05; `results/per_qubit/` | 4 |
 | S3c | The decoder decides the answer: the paper's phenomenological graph raises p_L up to 3.1× (d = 7) and moves Δt* about threefold; all circuit-level results decode with the full DEM. | notebook 06; `results/decoders/` | 4 |
+| S3e | On emulator data too, the decoder must know the circuit: decoding the d = 3 noise-only run on the paper's graph creates 2/100 failures where the raw data have none; a gate-level model of the hardware program (one reused ancilla, serial checks) gives the DEM used for the d = 5 sweep. | notebook 14; `results/hardware/h2_1e_memory_d3.json`, `h2_2e_dt_sweep_d5_circuit_decoder.json` | 3 |
+| S3f | Idling on the emulator, measured with spectator qubits: targets must be anchored to the start of the wait (otherwise a scheduler can prepare them late and they never idle in |+⟩); anchored targets show no consistent dephasing up to 128 spectator layers (X basis ≈ 1.2%, Z ≈ 0.45%; any idle error < 0.5%). γ and c are not yet resolved. | notebook 15; `results/hardware/h2_1e_*idle*.json` | 2 (an upper bound; longer waits refused by the cost cap) |
 | S3d | Δt* follows the power laws the ansatz implies (slopes −1.00…−1.05 against −1, −0.48…−0.49 against −0.5) with idle noise on every qubit; with the idle term composed as the circuit applies it, the calibrated ansatz predicts a held-out mixed-noise simulation to within 1.6–3.2%, giving the Δt* map over the idle plane. Idle on every qubit lengthens Δt* by 1–16% against data-only idle. | notebook 07; `results/idle_scaling/idle_scaling_uniform.json` (data-only reference equal to original notebook 07) | 5 (held-out test) |
 | S4 | Exact regressions against prior results: circuit-level failure counts identical at the same seeds (18/18), full-circuit Δt* identical at all 18 settings. | `tests/test_circuit.py`; `results/premise/README.md` | 5 |
 | S5 | A statistical pitfall found and fixed: overlapping per-shot seeds faked a −3.5σ bias; the package now refuses them. | `results/crosscheck/README.md`; `tests/test_core.py` | 4 |
@@ -63,7 +67,12 @@ Labels in the notebooks: *measured* (computed in this repo), *paper* (Haug, Bhar
 
 ## Not claimed
 
-- Nothing has run on hardware or the hosted emulator yet. Every device number is either an
-  emulator default or a scan over an unknown (t_R).
+- Nothing has run on a device: this account sees only emulators (H2-1E, H2-2E) and syntax
+  checkers. Device numbers are emulator defaults, or a scan over the unknown round time t_R,
+  which aqora does not report. Published depth-one times (55–68 ms on H2 / Helios) suggest
+  current surface-code rounds of ~100–250 ms, at or past the back-to-back boundary of T3: an
+  estimate, not a measurement.
+- No leakage-heralded decoding: the QIR toolchain (hugr-qir 0.1.2, 0.3.0) cannot compile
+  leakage-aware measurement; the gate-level leakage gadget is designed, not built.
 - No adaptive controller (paper Appendix F) or burst λ(t) (Eq. 9).
 - Codes beyond CSS with one logical qubit; decoders beyond PyMatching (the interface takes others).

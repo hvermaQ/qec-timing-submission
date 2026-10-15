@@ -27,6 +27,30 @@ The notebooks run in two arcs:
 Retired notebooks (kept for the record, not part of the argument) are in `notebooks/retired/`.
 Hardware experiments, one short README each: `results/hardware/experiments/`.
 
+## Where results and data live
+
+| What | Where | In git? |
+| --- | --- | --- |
+| Summary of each study (numbers behind every figure) | `results/<study>/` (`crosscheck`, `scaling`, `premise`, `per_qubit`, `decoders`, `idle_scaling`, `regime`, `idle`, `effective`) | yes |
+| Hardware programs (QIR bitcode + metadata) | `results/hardware/programs/`, `results/hardware/calibration_programs/` | yes |
+| Hardware results and fits | `results/hardware/*.json`, `emulator_runs.md`, `syntax_checks.md` | yes |
+| Hardware write-ups, one per experiment | `results/hardware/experiments/` | yes |
+| Figures | `figures/` (written by the notebooks) | yes |
+| Raw simulation runs (detection events, manifests, checksums) | `store/runs/<run_id>/` | no (`store/` is gitignored) |
+| Derived results with lineage | `store/derived/<id>/` | no |
+| Raw hardware jobs (program sent, job record, provider result verbatim) | `store/hardware/<time>_<provider>_<program>_<platform>/` | no |
+| Device parameters | `config/*.json` (with sources) | yes |
+
+## Experiments on the role of the decoder
+
+| Experiment | Finding | Where |
+| --- | --- | --- |
+| Paper's graph vs the circuit's full DEM, same detection events (simulation) | the simple graph raises p_L up to 3.1× (d = 7) and moves Δt* about threefold | notebook 06; `results/decoders/` |
+| One-calibration model vs full circuit (simulation) | the model places Δt* well but underestimates p_L more with d; all circuit-level results decode with the full DEM | notebook 04; `results/premise/` |
+| Per-qubit error sources (simulation) | errors differ ~3× across the lattice and spread from ancillas: structure a uniform model misses | notebook 05; `results/per_qubit/` |
+| Emulator, noise-only memory (H2-1E) | decoding on the paper's graph creates 2/100 failures where the raw data have none | notebook 14; `results/hardware/h2_1e_memory_d3.json` |
+| Emulator, d = 5 sweep (H2-2E) | a gate-level model of the hardware program supplies the DEM; decoder choice moves p_L by ≤ 0.006 there, the device's gate noise explains the rest | notebook 14; `results/hardware/h2_2e_dt_sweep_d5_circuit_decoder.json`; `hardware/program_model.py` |
+
 ## Setup
 
 Three environments, pinned in `envs/`. Tests that need another env skip.
