@@ -66,3 +66,22 @@ The emulator's own per-round noise lifts p_L most where there are most rounds: t
 its minimum moves to longer Δt. Decoding uses the paper-model graph (emulator errors not on it).
 
 ![d=5 sweep](h2_2e_dt_sweep_d5.png)
+
+### Circuit-level decoder and prediction (no new runs)
+
+`hardware/program_model.py` rebuilds the hardware program in Stim gate for gate (one reused
+ancilla, serial checks, injected p_data(Δt)) with H2-2E's p1 = 7.3e-5, p2 = 1.29e-3 and, as an
+assumption, H2-1E's p_meas = 1e-3, p_init = 4e-5; no idle dephasing or leakage. Its DEM decodes the
+returned shots; sampling it predicts p_L. Checks: without gate noise it reproduces the paper model
+(0.144/0.132/0.153/0.200 vs 0.142/0.134/0.156/0.199) and decodes local Selene identically.
+
+| Δt | H2-2E, paper graph | H2-2E, circuit decoder | model with H2-2E gates | difference |
+| --- | --- | --- | --- | --- |
+| 1 | 0.177 | 0.173 | 0.159 | +1.2σ |
+| 2.5 | 0.172 | 0.172 | 0.173 | 0.0σ |
+| 5 | 0.185 | 0.191 | 0.208 | −1.4σ |
+
+The emulator matches the circuit model within ~1σ once its gate noise is included; the decoder
+change is small (≤ 0.006). So the earlier +4σ at Δt = 1 was the emulator's per-round gate cost, not
+decoder mismatch. The model with H2-2E gates has a flatter U (minimum ≈ 0.158 near Δt ≈ 1–1.25).
+Data: `h2_2e_dt_sweep_d5_circuit_decoder.json`, `h2_2e_dt_sweep_d5_model_curves.json`.

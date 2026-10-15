@@ -1,0 +1,39 @@
+{
+ "model": "hardware program in Stim (one reused ancilla, serial checks), H2-2E p1,p2; p_meas,p_init from H2-1E; no idle/leakage",
+ "rows": [
+  {
+   "R": 20,
+   "dt": 0.5,
+   "stim_program_injected_only": 0.143915,
+   "stim_program_with_H22E_gates": 0.18163,
+   "local_selene_decoded_program_dem": 0.148
+  },
+  {
+   "R": 10,
+   "dt": 1.0,
+   "stim_program_injected_only": 0.13201,
+   "stim_program_with_H22E_gates": 0.15907,
+   "local_selene_decoded_program_dem": 0.134,
+   "h22e_paper_graph": 0.177,
+   "h22e_program_dem_H22E": 0.173
+  },
+  {
+   "R": 4,
+   "dt": 2.5,
+   "stim_program_injected_only": 0.153415,
+   "stim_program_with_H22E_gates": 0.17315,
+   "local_selene_decoded_program_dem": 0.1535,
+   "h22e_paper_graph": 0.172,
+   "h22e_program_dem_H22E": 0.172
+  },
+  {
+   "R": 2,
+   "dt": 5.0,
+   "stim_program_injected_only": 0.2001,
+   "stim_program_with_H22E_gates": 0.20846,
+   "local_selene_decoded_program_dem": 0.196,
+   "h22e_paper_graph": 0.185,
+   "h22e_program_dem_H22E": 0.191
+  }
+ ]
+}
