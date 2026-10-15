@@ -41,6 +41,16 @@ Hardware experiments, one short README each: `results/hardware/experiments/`.
 | Raw hardware jobs (program sent, job record, provider result verbatim) | `store/hardware/<time>_<provider>_<program>_<platform>/` | no |
 | Device parameters | `config/*.json` (with sources) | yes |
 
+**All raw data are kept, so every result can be reproduced or re-decoded.** `store/` (64 GB, not
+in git) holds 4,768 simulation runs. Each run keeps every shot's detection events
+(`raw/detectors.npy`) and logical outcomes (`raw/observables.npy`), along with a manifest that
+records the full spec, the seed, the code commit, the package versions and a SHA-256 checksum
+for every file. The 81 returned emulator jobs keep the program that was sent and the provider's
+result verbatim (`store/hardware/*/result_0.txt`). Because decoding is a separate step,
+**any other decoder** (another matching weighting, belief propagation, union-find, a
+leakage-aware or neural decoder) can be run on the same shots without simulating or
+submitting anything again.
+
 ## Experiments on the role of the decoder
 
 | Experiment | Finding | Where |
