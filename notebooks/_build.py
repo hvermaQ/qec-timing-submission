@@ -1367,16 +1367,17 @@ md('''
 ## Anchored, long waits (1000 shots = 8000 samples per X point)
 '''),
 code('''
+from scipy.stats import chi2 as chi2_dist
 lg = json.loads((H / "h2_1e_anchored_idle_long.json").read_text())
-ft = json.loads((H / "h2_1e_anchored_idle_long_fit.json").read_text())
 om = 2 * math.pi * cal["quad_rate"] * cal["quad_factor"]; g = cal["gamma"]
 pz = lambda t: g * t + np.sin(om * t / 2) ** 2 - 2 * g * t * np.sin(om * t / 2) ** 2
-L = np.array([0, 16, 32, 64]); k = np.array([lg[f"X_L{l}"]["k"] for l in L]); n = 8000; p = k / n
+L = np.array([l for l in (0, 16, 32, 64, 128) if f"X_L{l}" in lg]); n = 8000
+k = np.array([lg[f"X_L{l}"]["k"] for l in L]); p = k / n; se = np.sqrt(p * (1 - p) / n)
 for l, kk in zip(L, k):
-    print(f"X, L = {l:>2}: {kk}/{n} = {100 * kk / n:.2f}%")
-print(f"Z, L = 64: {lg['Z_L64']['k']}/{lg['Z_L64']['n']} = {100 * lg['Z_L64']['p']:.2f}%")
-print(f"fit with the emulator's idle model: one layer = {1e3 * ft['layer_seconds']:.1f} ± {1e3 * ft['layer_seconds_se']:.1f} ms "
-      f"(chi2 {ft['chi2']:.2f} on 2 dof)")
+    print(f"X, L = {l:>3}: {kk}/{n} = {100 * kk / n:.2f}%")
+print(f"Z, L =  64: {lg['Z_L64']['k']}/{lg['Z_L64']['n']} = {100 * lg['Z_L64']['p']:.2f}%")
+w = 1 / se ** 2; m = (w * p).sum() / w.sum(); c = (((p - m) / se) ** 2).sum()
+print(f"no growth (constant {100 * m:.2f}%): chi2 {c:.1f} on {len(L) - 1} dof, p = {chi2_dist.sf(c, len(L) - 1):.3f}")
 '''),
 code('''
 fig, ax = plt.subplots(figsize=(7.5, 4))
@@ -1384,25 +1385,29 @@ ci = np.array([cp(int(v), n) for v in k]).T; x = np.where(L == 0, 0.7, L)
 ax.errorbar(x, p * 100, yerr=[(p - ci[0]) * 100, (ci[1] - p) * 100], fmt="o", color=P.SERIES[1], capsize=4, label="anchored, X basis")
 z = lg["Z_L64"]; lo, hi = cp(z["k"], z["n"])
 ax.errorbar([64 * 1.07], [100 * z["p"]], yerr=[[100 * (z["p"] - lo)], [100 * (hi - z["p"])]], fmt="s", color=P.SERIES[0], capsize=4, label="anchored, Z basis")
-Ls = np.geomspace(0.7, 64, 200); f, tau = ft["floor"], ft["layer_seconds"]
-for tt, ls, lab in ((tau, "-", f"fit: one layer = {1e3 * tau:.1f} ms"), (30e-3, "--", "if a layer took 30 ms"), (60e-3, "-.", "if a layer took 60 ms")):
-    q = pz(tt * np.where(Ls < 1, 0, Ls)); ax.plot(Ls, (f + q - 2 * f * q) * 100, ls, color=P.INK if ls == "-" else P.MUTED, lw=1.3, label=lab)
-ax.set_xscale("log"); ax.set_xticks([0.7, 16, 32, 64], ["0", "16", "32", "64"]); ax.xaxis.set_minor_formatter(plt.NullFormatter())
-ax.set_ylim(0, 4); ax.set_xlabel("transport layers L"); ax.set_ylabel("target flip rate (%)"); ax.legend(fontsize=8, loc="upper left")
-ax.set_title("Slow growth: a layer is ≈ ms of idling on the emulator (95% CI)", loc="left")
+ax.axhline(100 * m, color=P.INK, lw=1, label=f"no growth: {100 * m:.2f}%")
+Ls = np.geomspace(0.7, 128, 200)
+for tt, ls in ((3.6e-3, ":"), (30e-3, "--"), (60e-3, "-.")):
+    q = pz(tt * np.where(Ls < 1, 0, Ls)); ax.plot(Ls, (m + q - 2 * m * q) * 100, ls, color=P.MUTED, lw=1.2, label=f"emulator idle model if a layer took {tt * 1e3:g} ms")
+ax.set_xscale("log"); ax.set_xticks([0.7, 16, 32, 64, 128], ["0", "16", "32", "64", "128"]); ax.xaxis.set_minor_formatter(plt.NullFormatter())
+ax.set_ylim(0, 4); ax.set_xlabel("transport layers L"); ax.set_ylabel("target flip rate (%)"); ax.legend(fontsize=7.5, loc="upper left")
+ax.set_title("No consistent growth up to L = 128 (95% CI)", loc="left")
 fig.tight_layout()
 '''),
 md('''
 **Reading.**
-- *Measured:* the X basis rises slowly (1.03% → 1.50% by L = 64, ~3σ); the Z basis stays low (0.45%),
-  as for Z-only idling.
-- *Measured:* fitted with the emulator's own idle model (γ, ω from its data sheet), one spectator
-  layer is ≈ 3.6 ± 0.8 ms of idling, far shorter than the published ~60 ms depth-one time (which
-  is measured with all qubits in use): these small 17-qubit layers need little transport.
-- *Open:* linear and quadratic growth cannot yet be told apart (linear-only χ² 0.8, quadratic-only
-  2.6, on 2 dof). Longer waits separate them; L = 256 was refused as over the per-job limit and
-  L = 128 is queued. The time per layer depends on circuit size, so it does not give a
-  surface-code round time.
+- *Measured:* the X-basis flip rate stays near 1.2% from L = 0 to 128 (1.03, 1.16, 1.40, 1.50,
+  1.11%); the Z basis stays low (0.45%). The points scatter more than chance allows around a
+  constant (p ≈ 0.04), but they do not rise steadily: L = 128 is back at the floor.
+- *Measured:* any idle dephasing of the waiting targets is below ~0.5% even at L = 128. With the
+  emulator's own idle rates that means under ~0.2 s of effective idling in 128 layers: ≲ 1–2 ms
+  per layer, if the targets really idle in |+⟩ for the whole wait. The ~60 ms published depth-one
+  time is ruled out for these layers.
+- *Withdrawn:* an earlier 100-shot point (2.4% at L = 16) and a 4-point fit (≈ 3.6 ms per layer)
+  were not confirmed by the L = 128 run.
+- *Open:* whether the emulator applies its idle dephasing to these programs at all. Longer waits
+  are capped: L = 256 (~1050 two-qubit gates) was refused as over the per-job cost limit. The
+  time per layer depends on circuit size, so it does not give a surface-code round time.
 '''),
 ]
 

@@ -103,3 +103,9 @@ emulator idle model: one layer ≈ 3.6 ± 0.8 ms (χ² 2.3 / 2 dof). The 2.4% at
 100-shot run was a fluctuation (now 1.16%). Files: `h2_1e_anchored_idle_long*.json`, `.png`.
 
 ![anchored long](h2_1e_anchored_idle_long.png)
+
+### Anchored, L = 128 (1000 shots), and a correction
+
+X at L = 128: 89 / 8000 = 1.11%, back at the floor. Across L = 0-128 the X rate shows no steady
+growth (constant 1.22%, χ² 10.2 / 4 dof). The "≈ 3.6 ms per layer" fit above is withdrawn: any idle
+dephasing is below ~0.5% at L = 128. L = 256 refused (cost limit), at 1000 and at 500 shots.

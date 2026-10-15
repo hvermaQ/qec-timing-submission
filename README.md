@@ -8,8 +8,8 @@ are swappable, and every implementation is checked against the same contracts.
 locally and on the H2 syntax checkers, and run on Quantinuum's H2-1E / H2-2E emulators through
 aqora (organisation `q_sq`); no device is available to this account. Results so far:
 in-program noise injection agrees with Stim on the emulator; a d = 5 Δt sweep on H2-2E follows a
-circuit model of the program that includes H2-2E's gate noise; spectator experiments measure the
-emulator's idle dephasing (one spectator layer ≈ 3.6 ms). Open: two sweep points (one result not
+circuit model of the program that includes H2-2E's gate noise; spectator experiments see no
+consistent idle dephasing up to 128 layers (below ~0.5%). Open: two sweep points (one result not
 returned by aqora, one over the per-job cost limit), linear vs quadratic idle growth, and a
 leakage-heralded decoder (the QIR toolchain cannot compile leakage-aware measurement).
 

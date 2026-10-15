@@ -1,8 +1,6 @@
 {
- "floor": 0.011166836713123462,
- "layer_seconds": 0.003552945245010109,
- "layer_seconds_se": 0.000777852729946034,
- "chi2": 2.2702638445585275,
- "slope_per_layer": 7.756675006713729e-05,
- "slope_se": 2.671701247316921e-05
+ "note": "No consistent growth over L = 0-128; the earlier layer-duration fit is withdrawn.",
+ "constant_rate": 0.0122,
+ "chi2_constant": 10.2,
+ "dof": 4
 }
