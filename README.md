@@ -17,9 +17,10 @@ The notebooks run in two arcs:
 - **simulation, 01–09:** idle in applications (01); the paper's model, Guppy vs Stim (02);
   dephasing needs the X basis (03); realistic circuit noise (04–06); how the optimum moves
   with idle strength (07); the regime on H2-1E rates (08); the payoff, time for space (09);
-- **hardware, 10–13:** program size and cost (10), the device program checked end to end
+- **hardware, 10–15:** program size and cost (10), the device program checked end to end
   (11), measuring the device's idle noise and feeding it back (12), the hardware experiments
-  drawn, with their syntax checks (13).
+  drawn, with their syntax checks (13), noise injection on the H2 emulators: injection check and
+  the d = 5 Δt sweep (14), gauging the idle parameters with spectator qubits (15).
 
 Retired notebooks (kept for the record, not part of the argument) are in `notebooks/retired/`.
 

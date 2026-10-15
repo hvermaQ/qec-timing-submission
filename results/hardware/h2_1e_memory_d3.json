@@ -1,0 +1,60 @@
+{
+ "setup": "d=3 rotated surface code, X basis, 2 rounds, one reused ancilla; H2-1E via aqora (q_sq), 100 shots; decoded with the paper-model graph (p_data = injected p or 2e-3, p_read = 1e-3)",
+ "runs": {
+  "d3_X_r2_p0": {
+   "injected_p": 0.0,
+   "shots": 100,
+   "detector_rates": [
+    0.01,
+    0.0,
+    0.01,
+    0.01,
+    0.02,
+    0.01,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "raw_logical_flips": 0,
+   "decoded_failures": 2
+  },
+  "d3_X_r2_p0.05": {
+   "injected_p": 0.05,
+   "shots": 100,
+   "detector_rates": [
+    0.23,
+    0.15,
+    0.1,
+    0.06,
+    0.11,
+    0.1,
+    0.13,
+    0.1,
+    0.0,
+    0.01,
+    0.03,
+    0.0
+   ],
+   "raw_logical_flips": 26,
+   "decoded_failures": 6,
+   "stim_detector_rates": [
+    0.17192,
+    0.17128,
+    0.096575,
+    0.095075,
+    0.17329,
+    0.173475,
+    0.09615,
+    0.09704,
+    0.005115,
+    0.004945,
+    0.00305,
+    0.00292
+   ],
+   "stim_pL": 0.07175
+  }
+ }
+}

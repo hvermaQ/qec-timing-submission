@@ -13,3 +13,6 @@ emulator runs spend credits. Raw job records stay in `store/hardware/` (local, n
 | 05 | [Leakage-heralded decoding](05_heralded_leakage/README.md) | — | design only |
 
 Common commands (H2 env): `hardware.cli build | calib-build | aqora-check | aqora-submit --confirm | calib-fit`.
+
+Notebooks: `notebooks/14_emulator_noise_injection.ipynb` (experiments 01, 04) and
+`notebooks/15_emulator_idle_parameters.ipynb` (experiments 02, 03).

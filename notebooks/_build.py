@@ -1199,6 +1199,213 @@ md('''
 '''),
 ]
 
+NB["14_emulator_noise_injection"] = [
+md('''
+# 14 — Noise injection on the H2 emulators
+
+Can the trade-off be shown on Quantinuum's own emulators, with their full gate, readout and
+leakage noise? The memory program injects the paper's data error itself (one seeded RNG per
+shot), so Δt is set by the program, not by the machine's unknown round time. Two steps: a small
+d = 3 check that injection works end to end, then a d = 5 Δt sweep.
+
+**Runs.** aqora as organisation `q_sq`; H2-1E (d = 3, 100 shots) and H2-2E (d = 5, 1000 shots per
+point). Every program syntax-checked first. Results: `results/hardware/h2_1e_memory_d3.json`,
+`h2_2e_dt_sweep_d5_circuit_decoder.json`, `h2_2e_dt_sweep_d5_model_curves.json`.
+'''),
+SETUP,
+code('''
+from scipy.stats import beta
+cp = lambda k, n: (beta.ppf(.025, k, n - k + 1) if k else 0.0, beta.ppf(.975, k + 1, n - k))
+mem = json.loads((R / "hardware" / "h2_1e_memory_d3.json").read_text())
+for name, r in mem["runs"].items():
+    print(f"{name:<15} injected p {r['injected_p']:<5} raw logical flips {r['raw_logical_flips']}/{r['shots']}, "
+          f"decoded failures {r['decoded_failures']}/{r['shots']}" + (f", Stim {r['stim_pL']:.3f}" if "stim_pL" in r else ""))
+'''),
+md('''
+## Step 1: injection works end to end (d = 3, 2 rounds, H2-1E)
+'''),
+code('''
+fig, axes = plt.subplots(1, 2, figsize=(11, 3.6), gridspec_kw={"width_ratios": [2.2, 1]})
+labels = [f"r{r} c{c}" for r in range(2) for c in range(4)] + [f"final c{c}" for c in range(4)]
+x = np.arange(12); w = 0.38
+for i, (name, lab, col) in enumerate((("d3_X_r2_p0", "emulator noise only", P.SERIES[0]),
+                                      ("d3_X_r2_p0.05", "+ injected Z, p = 0.05", P.SERIES[1]))):
+    r = mem["runs"][name]; dr = np.array(r["detector_rates"]); n = r["shots"]
+    ci = np.array([cp(int(round(v * n)), n) for v in dr]).T
+    axes[0].bar(x + (i - .5) * w, dr, w, color=col, alpha=.85, label=lab)
+    axes[0].errorbar(x + (i - .5) * w, dr, yerr=[dr - ci[0], ci[1] - dr], fmt="none", ecolor=P.INK_2, lw=.8)
+    if "stim_detector_rates" in r:
+        axes[0].plot(x + (i - .5) * w, r["stim_detector_rates"], "_", ms=14, mew=2, color=P.INK, label="Stim, injection only")
+    for j, (k, tag) in enumerate(((r["raw_logical_flips"], "undecoded"), (r["decoded_failures"], "decoded"))):
+        lo, hi = cp(k, n); xx = i * 2.4 + j
+        axes[1].errorbar(xx, k / n, yerr=[[k / n - lo], [hi - k / n]], fmt="s" if j == 0 else "o", color=col, capsize=3)
+    if "stim_pL" in r:
+        axes[1].plot([i * 2.4 + .7, i * 2.4 + 1.3], [r["stim_pL"]] * 2, color=P.INK, lw=2)
+axes[0].set_xticks(x, labels, rotation=45, ha="right", fontsize=8); axes[0].set_ylabel("detection probability")
+axes[0].legend(fontsize=8); axes[0].set_title("Detectors (100 shots, 95% CI)", loc="left")
+axes[1].set_xticks([0, 1, 2.4, 3.4], ["p0\\nraw", "p0\\ndecoded", "p0.05\\nraw", "p0.05\\ndecoded"], fontsize=8)
+axes[1].set_ylabel("logical X failure"); axes[1].set_title("Logical error (black: Stim)", loc="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* with injection, every detector and the decoded logical error (6/100 against Stim's
+  7.2%) agree with Stim within the statistics: noise written into the program behaves the same on
+  the emulator as in simulation.
+- *Measured:* with no injection, the raw data show no logical flip, but decoding on the paper's
+  graph produces 2/100: the emulator's own errors are not on that graph. Step 2 decodes with a
+  circuit model of the program instead.
+'''),
+md('''
+## Step 2: the Δt sweep at d = 5 (H2-2E)
+
+d = 5, X basis, fixed T = 10, R = T/Δt rounds; before each round every data qubit gets Z with the
+paper's p_data(Δt) (p = 0.015, λ = 1); record flips p_read = 0.015 are added to the returned bits
+afterwards (a classical flip, identical to doing it in the program). Two references: the paper's
+model alone, and a Stim model of the program gate for gate (one reused ancilla, serial checks)
+with H2-2E's published gate errors (`hardware/program_model.py`), whose detector error model also
+decodes the emulator's shots.
+'''),
+code('''
+cur = json.loads((R / "hardware" / "h2_2e_dt_sweep_d5_model_curves.json").read_text())
+dec = json.loads((R / "hardware" / "h2_2e_dt_sweep_d5_circuit_decoder.json").read_text())["rows"]
+pts = [r for r in dec if "h22e_program_dem_H22E" in r]
+print(f"{'dt':>5}{'emulator':>10}{'model + H2-2E gates':>21}{'paper model':>13}")
+for r in dec:
+    e = r.get("h22e_program_dem_H22E")
+    print(f"{r['dt']:>5.2g}{(f'{e:.3f}' if e is not None else 'missing'):>10}{r['stim_program_with_H22E_gates']:>21.3f}{r['stim_program_injected_only']:>13.3f}")
+'''),
+code('''
+fig, ax = plt.subplots(figsize=(7.5, 4))
+dts = [10 / r for r in cur["R"]]
+ax.plot(dts, cur["curves"]["injected only"], "-", color=P.MUTED, lw=2, label="paper model (injected noise only)")
+ax.plot(dts, cur["curves"]["injected + H2-2E gate/readout noise"], "--", color=P.SERIES[0], lw=2,
+        label="circuit model of the program + H2-2E gate noise")
+x = np.array([r["dt"] for r in pts]); y = np.array([r["h22e_program_dem_H22E"] for r in pts])
+ci = np.array([cp(int(round(v * 1000)), 1000) for v in y]).T
+ax.errorbar(x, y, yerr=[y - ci[0], ci[1] - y], fmt="o", color=P.SERIES[1], ms=7, capsize=4,
+            label="H2-2E emulator (1000 shots, 95% CI)")
+ax.set_xscale("log"); ax.set_xticks([0.25, 0.5, 1, 2, 5], ["0.25", "0.5", "1", "2", "5"])
+ax.xaxis.set_minor_formatter(plt.NullFormatter())
+ax.set_xlabel(r"interval $\\Delta t$ ($T$ = 10; $R = T/\\Delta t$ rounds)"); ax.set_ylabel(r"$p_L$ at $T$ = 10")
+ax.legend(fontsize=8, loc="upper center")
+ax.set_title("d = 5: the emulator follows the circuit model with its gate noise", loc="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* the three returned points agree with the circuit model including H2-2E's gate noise
+  within about 1σ (+1.2σ, 0.0σ, −1.4σ); against the paper model alone the Δt = 1 point is 4σ high.
+- *Interp.:* the emulator adds its gate and readout error once per round, so frequent extraction
+  costs more than in the paper's model: the U-curve is higher and flatter, minimum ≈ 0.16 near
+  Δt ≈ 1, instead of ≈ 0.13. The trade-off survives device-grade noise.
+- *Missing:* Δt = 0.5 (R = 20) ran to completion but aqora never returned its result; Δt = 0.14
+  (R = 70) was refused as over the per-job cost limit, so the left arm is model only.
+- *Not in the model:* idle dephasing in real time and leakage.
+'''),
+]
+
+NB["15_emulator_idle_parameters"] = [
+md('''
+# 15 — Gauging the idle parameters on the H2 emulator
+
+The regime question turns on how fast idle qubits dephase and how long a step of work takes. Guppy
+has no delay instruction, so idle time is made with spectators: 8 target qubits wait while other
+qubits do L layers of work, then the targets are read out. Targets in |+⟩ (X basis) feel Z
+dephasing; targets in |0⟩ (Z basis) should not. A Z on the targets conditioned on the spectators'
+outcomes (feed-forward) keeps their readout after the wait.
+
+**Runs.** H2-1E via aqora (`q_sq`). Results: `results/hardware/h2_1e_calibration_runs.fit.json`,
+`h2_1e_transport_idle.fit.json`, `h2_1e_anchored_idle.fit.json`, `h2_1e_anchored_idle_long*.json`.
+'''),
+SETUP,
+code('''
+import math
+from scipy.stats import beta
+cp = lambda k, n: (beta.ppf(.025, k, n - k + 1) if k else 0.0, beta.ppf(.975, k + 1, n - k))
+H = R / "hardware"
+cal = json.loads((Path("..") / "config" / "h2_1e_emulator.json").read_text())
+first = json.loads((H / "h2_1e_calibration_runs.fit.json").read_text())
+ro = first["readout"]
+print(f"readout (800 samples each): p_meas0 = {ro['p_meas0']:.4f}, p_meas1 = {ro['p_meas1']:.4f}  "
+      f"(emulator model {cal['p_meas0']}, {cal['p_meas1']})")
+'''),
+md('''
+## Three spectator designs
+
+1. **measure-and-reset:** 2 spectators do H, measure, reset per layer (forces no transport);
+2. **transport:** 8 spectators do H and a native ZZ on a fresh random pairing per layer
+   (Quantinuum's own memory-benchmark layer);
+3. **anchored:** as 2, but each target is first tied to an anchor qubit (a ZZ, undone at the end)
+   that also touches the spectators, so a scheduler cannot prepare the targets late.
+
+Without the anchor nothing forces a target's H to happen before the wait: a scheduler can move it
+to just before readout, the target then waits in |0⟩ and sees no dephasing.
+'''),
+code('''
+designs = [("measure-and-reset", first["idle"]["X"], 800, P.MUTED, "^"),
+           ("transport", json.loads((H / "h2_1e_transport_idle.fit.json").read_text())["idle"]["X"], 800, P.SERIES[0], "s"),
+           ("anchored", json.loads((H / "h2_1e_anchored_idle.fit.json").read_text())["idle"]["X"], 800, P.SERIES[1], "o")]
+fig, ax = plt.subplots(figsize=(7.5, 3.8))
+for i, (lab, d, n, col, mk) in enumerate(designs):
+    L = np.array(d["layers"]); p = np.array(d["P"]); k = np.round(p * n).astype(int)
+    ci = np.array([cp(int(v), n) for v in k]).T; x = np.where(L == 0, 0.6, L) * (0.92 + 0.08 * i)
+    ax.errorbar(x, p * 100, yerr=[(p - ci[0]) * 100, (ci[1] - p) * 100], fmt=mk, color=col, capsize=3, label=f"{lab} (100 shots)")
+ax.set_xscale("log"); ax.set_xticks([0.6, 2, 4, 8, 16, 32, 64], ["0", "2", "4", "8", "16", "32", "64"])
+ax.xaxis.set_minor_formatter(plt.NullFormatter())
+ax.set_xlabel("spectator layers L"); ax.set_ylabel("target flip rate, X basis (%)"); ax.legend(fontsize=8)
+ax.set_title("Three spectator designs, 100 shots each (95% CI)", loc="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* measure-and-reset and transport spectators give no growth up to L = 64 and 16. The
+  anchored targets sit on a higher floor (two extra ZZ gates each). The single high point at
+  L = 16 (2.4%) was not reproduced with 10× the shots below: a fluctuation.
+'''),
+md('''
+## Anchored, long waits (1000 shots = 8000 samples per X point)
+'''),
+code('''
+lg = json.loads((H / "h2_1e_anchored_idle_long.json").read_text())
+ft = json.loads((H / "h2_1e_anchored_idle_long_fit.json").read_text())
+om = 2 * math.pi * cal["quad_rate"] * cal["quad_factor"]; g = cal["gamma"]
+pz = lambda t: g * t + np.sin(om * t / 2) ** 2 - 2 * g * t * np.sin(om * t / 2) ** 2
+L = np.array([0, 16, 32, 64]); k = np.array([lg[f"X_L{l}"]["k"] for l in L]); n = 8000; p = k / n
+for l, kk in zip(L, k):
+    print(f"X, L = {l:>2}: {kk}/{n} = {100 * kk / n:.2f}%")
+print(f"Z, L = 64: {lg['Z_L64']['k']}/{lg['Z_L64']['n']} = {100 * lg['Z_L64']['p']:.2f}%")
+print(f"fit with the emulator's idle model: one layer = {1e3 * ft['layer_seconds']:.1f} ± {1e3 * ft['layer_seconds_se']:.1f} ms "
+      f"(chi2 {ft['chi2']:.2f} on 2 dof)")
+'''),
+code('''
+fig, ax = plt.subplots(figsize=(7.5, 4))
+ci = np.array([cp(int(v), n) for v in k]).T; x = np.where(L == 0, 0.7, L)
+ax.errorbar(x, p * 100, yerr=[(p - ci[0]) * 100, (ci[1] - p) * 100], fmt="o", color=P.SERIES[1], capsize=4, label="anchored, X basis")
+z = lg["Z_L64"]; lo, hi = cp(z["k"], z["n"])
+ax.errorbar([64 * 1.07], [100 * z["p"]], yerr=[[100 * (z["p"] - lo)], [100 * (hi - z["p"])]], fmt="s", color=P.SERIES[0], capsize=4, label="anchored, Z basis")
+Ls = np.geomspace(0.7, 64, 200); f, tau = ft["floor"], ft["layer_seconds"]
+for tt, ls, lab in ((tau, "-", f"fit: one layer = {1e3 * tau:.1f} ms"), (30e-3, "--", "if a layer took 30 ms"), (60e-3, "-.", "if a layer took 60 ms")):
+    q = pz(tt * np.where(Ls < 1, 0, Ls)); ax.plot(Ls, (f + q - 2 * f * q) * 100, ls, color=P.INK if ls == "-" else P.MUTED, lw=1.3, label=lab)
+ax.set_xscale("log"); ax.set_xticks([0.7, 16, 32, 64], ["0", "16", "32", "64"]); ax.xaxis.set_minor_formatter(plt.NullFormatter())
+ax.set_ylim(0, 4); ax.set_xlabel("transport layers L"); ax.set_ylabel("target flip rate (%)"); ax.legend(fontsize=8, loc="upper left")
+ax.set_title("Slow growth: a layer is ≈ ms of idling on the emulator (95% CI)", loc="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* the X basis rises slowly (1.03% → 1.50% by L = 64, ~3σ); the Z basis stays low (0.45%),
+  as for Z-only idling.
+- *Measured:* fitted with the emulator's own idle model (γ, ω from its data sheet), one spectator
+  layer is ≈ 3.6 ± 0.8 ms of idling, far shorter than the published ~60 ms depth-one time (which
+  is measured with all qubits in use): these small 17-qubit layers need little transport.
+- *Open:* linear and quadratic growth cannot yet be told apart (linear-only χ² 0.8, quadratic-only
+  2.6, on 2 dof). Longer waits separate them; L = 256 was refused as over the per-job limit and
+  L = 128 is queued. The time per layer depends on circuit size, so it does not give a
+  surface-code round time.
+'''),
+]
+
 for name, cells in NB.items():
     # Every figure cell also writes its PNG to figures/<notebook>_<n>.png (repo root).
     k = 0
