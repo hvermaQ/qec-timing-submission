@@ -12,16 +12,24 @@
 | --- | --- | --- |
 | `idle_*` | measure and reset | flat, 0–0.25% up to L = 64 |
 | `idleT_*` | random-pairing ZZ (forces transport) | flat, 0–0.25% up to L = 16 |
-| `idleA_*` | same, with targets **anchored** to the start of the wait | 0.6% floor, **2.4% at L = 16** |
+| `idleA_*` | same, with targets **anchored** to the start of the wait | slow rise, see below |
 
 Why anchoring: without it, nothing stops the scheduler from preparing the targets just before
 readout, so they wait in |0⟩ and see no dephasing. The anchor (one extra qubit, a ZZ with each
 target, undone at the end) forces the targets into |+⟩ before the wait.
 
-**Runs.** H2-1E, 100 shots per point. Running now: anchored X at L = 0, 16, 32, 64 (1000 shots)
-and Z at L = 64 (500 shots).
+**Anchored, long waits (H2-1E, 1000 shots = 8000 samples per point).**
 
-**Reading so far.** One point above the floor fits about 30 ms per layer on the emulator's idle
-model. The long waits should turn this into a fitted curve.
+| L | 0 | 16 | 32 | 64 | Z basis, L = 64 |
+| --- | --- | --- | --- | --- | --- |
+| flip rate | 1.03% | 1.16% | 1.40% | 1.50% | 0.45% |
 
-**Files.** `results/hardware/calibration_programs/idle*`, `h2_1e_*idle*.fit.json`, `.png`.
+- X rises slowly (+0.5 points by L = 64, ~3σ); Z stays low, as for Z-only idling.
+- Fit with the emulator's own idle model: **one spectator layer ≈ 3.6 ± 0.8 ms** of idling
+  (χ² 2.3 on 2 dof). Far shorter than the published ~60 ms depth-one time: these small
+  17-qubit layers seem to need little transport on the emulator.
+- An earlier 100-shot run showed 2.4% at L = 16; with 10× the shots it is 1.16%. That point was
+  a fluctuation, and the "~30 ms per layer" read from it is withdrawn.
+
+**Files.** `results/hardware/calibration_programs/idle*`, `h2_1e_*idle*.fit.json`,
+`h2_1e_anchored_idle_long*.json`, `h2_1e_anchored_idle_long.png`.

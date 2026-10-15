@@ -8,7 +8,7 @@ emulator runs spend credits. Raw job records stay in `store/hardware/` (local, n
 | --- | --- | --- | --- |
 | 01 | [Memory with noise injection](01_memory_injection/README.md) | H2-1E | done |
 | 02 | [Readout error](02_readout/README.md) | H2-1E | done |
-| 03 | [Idle dephasing with spectator qubits](03_idle_spectators/README.md) | H2-1E | running (long waits) |
+| 03 | [Idle dephasing with spectator qubits](03_idle_spectators/README.md) | H2-1E | done |
 | 04 | [Δt sweep, d = 5](04_dt_sweep_d5/README.md) | H2-2E | 3 of 5 points |
 | 05 | [Leakage-heralded decoding](05_heralded_leakage/README.md) | — | design only |
 

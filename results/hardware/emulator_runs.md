@@ -95,3 +95,11 @@ of ~30 ms per layer is indicative only (fit in `h2_1e_anchored_idle.fit.json` is
 χ²/dof 13). Next: L = 32-64 and more shots.
 
 ![anchored idle](h2_1e_anchored_idle.png)
+
+### Anchored, long waits (1000 shots per X point, 500 for Z)
+
+X: 82, 93, 112, 120 flips / 8000 at L = 0, 16, 32, 64; Z at L = 64: 18 / 4000. Fit with the
+emulator idle model: one layer ≈ 3.6 ± 0.8 ms (χ² 2.3 / 2 dof). The 2.4% at L = 16 from the
+100-shot run was a fluctuation (now 1.16%). Files: `h2_1e_anchored_idle_long*.json`, `.png`.
+
+![anchored long](h2_1e_anchored_idle_long.png)
