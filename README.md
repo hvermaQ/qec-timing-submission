@@ -14,7 +14,7 @@ returned by aqora, one over the per-job cost limit), linear vs quadratic idle gr
 leakage-heralded decoder (the QIR toolchain cannot compile leakage-aware measurement).
 
 **Start here:** *Claims and evidence* below (every claim, its evidence and its level), the notebooks in
-`notebooks/` (figures in `figures/`), and `REPRODUCE.md` (one command per result).
+`notebooks/` (figures in `figures/`), the scripts in *Running* below, and `REPRODUCE.md` (one command per result).
 The notebooks run in two arcs:
 - **simulation, 01–09:** idle in applications (01); the paper's model, Guppy vs Stim (02);
   dephasing needs the X basis (03); realistic circuit noise (04–06); how the optimum moves
@@ -26,6 +26,46 @@ The notebooks run in two arcs:
 
 Retired notebooks (kept for the record, not part of the argument) are in `notebooks/retired/`.
 Hardware experiments, one short README each: `results/hardware/experiments/`.
+
+## Running
+
+Four scripts at the top level, one per part of the story. Each runs the studies, then
+executes the matching notebooks (figures go to `figures/`). Set up the environments first
+(*Setup* below). Simulations are stored in `store/` by a hash of their full specification,
+so a rerun only decodes what is already there and an interrupted run resumes.
+
+| Script | What it answers | Notebooks | Time from scratch |
+| --- | --- | --- | --- |
+| `./run_idle_importance.sh` | Why idling matters: idle share of applications (adder 84–87%, QFT 41–51%); when waiting at d beats back-to-back rounds at d + 2 | 01, 09 | ~1 h |
+| `./run_approach_A.sh` | Approach (A): the paper's model with noise injected in a Guppy program, against Stim; 1/Δt* vs d | 02 | ~15 min |
+| `./run_approach_B.sh` | Approach (B): native gates, gate noise and idle dephasing (γ, c); the optimum under circuit noise (Fig. 1), the Δt* map (Fig. 2), H2's regime | 03–08 | ~2 h |
+| `./run_hardware.sh <step>` | Hardware experiments on the H2 emulators through aqora | 10–15 | see below |
+
+Options, as environment variables: `WORKERS=16` (parallel workers, default 8),
+`NOTEBOOKS=0` (studies only), `PY=...` (another interpreter). Examples:
+
+```bash
+./run_approach_A.sh
+```
+```bash
+WORKERS=16 NOTEBOOKS=0 ./run_approach_B.sh
+```
+
+`run_hardware.sh` runs in steps, so nothing costs credits by accident:
+
+| Step | Does | Needs | Cost |
+| --- | --- | --- | --- |
+| `build` | every program as QIR, a contract check on local Selene, program-size scaling | H2 env | free |
+| `check` | every program through the H2-1SC / H2-2SC syntax checkers (validates, executes nothing) | aqora login | free |
+| `submit` | prints the run plan (experiment, program, emulator, shots) and stops | — | free |
+| `submit --confirm` | runs the plan: d = 3 memory (H2-1E), d = 5 Δt sweep (H2-2E), anchored idle (H2-1E) | aqora login | **credits** |
+| `analyse` | executes notebooks 10–15 on the results in `results/hardware/` | main env | free |
+
+Log in once with `.venv-h2/bin/aqora login`; jobs run as the organisation in `ENTITY`
+(default `q_sq`). `build` rewrites the committed programs byte for byte. Two limits are known:
+R = 70 at 1000 shots exceeds aqora's per-job cost cap, and the returned jobs land in
+`store/hardware/`, but turning them into the summary files in `results/hardware/` is not
+yet scripted (notebooks 14–15 read those summaries).
 
 ## Claims and evidence
 

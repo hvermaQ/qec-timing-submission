@@ -4,6 +4,9 @@ Linux, Python from `uv`. Times are on a 20-core, 31 GB workstation. Every comman
 the repository root. Every simulation run is written to `store/` (gitignored, about 7 GB
 after a full reproduction) and every study summary to `results/` (committed).
 
+The top-level scripts (`run_approach_A.sh`, `run_approach_B.sh`, `run_idle_importance.sh`,
+`run_hardware.sh`) run the commands below in groups; see *Running* in `README.md`.
+
 Studies look runs up in the store before running them, so a second invocation only decodes
 stored data, and an interrupted study resumes where it stopped.
 
