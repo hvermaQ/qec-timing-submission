@@ -1,0 +1,17 @@
+{
+  "platform": "nexus:H2-2E",
+  "as_entity": "q_sq",
+  "shots": 1000,
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_sleep_five_point_h2_2e_67d11d0348065703/sleep_0p5.bc",
+  "parallel_sleep_verified": false,
+  "authorization": "User explicitly authorized submission with timing unresolved"
+}

@@ -1,0 +1,353 @@
+{
+  "experiment": "d3_X_two_round_all_data_sleep_five_point",
+  "distance": 3,
+  "extraction_rounds": 2,
+  "check_sector": "X only",
+  "data_qubits": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "ancilla_qubit": 9,
+  "durations_raw": [
+    0.0,
+    0.1,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "duration_unit": "unverified",
+  "shots": 1000,
+  "platform": "nexus:H2-2E",
+  "as_entity": "q_sq",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "parallel_sleep_verified": false,
+  "estimated_hqc_per_job": [
+    114.0,
+    130.4
+  ],
+  "estimated_hqc_total": [
+    570.0,
+    652.0
+  ],
+  "estimate_note": "Excludes/includes virtual Rz; assumes no extra wait/barrier charge",
+  "analysis_policy": "Save raw results only; analyze on user request",
+  "build": "programs/d3_sleep_five_point_h2_2e_67d11d0348065703",
+  "rows": [
+    {
+      "duration_raw": 0.0,
+      "shots": 1000,
+      "logical_failures": 2,
+      "logical_error_rate": 0.002,
+      "wilson_95": [
+        0.000548643588120728,
+        0.007262807863492177
+      ],
+      "raw_logical_flips": 3,
+      "per_data_qubit_flips": [
+        3,
+        3,
+        1,
+        0,
+        2,
+        0,
+        0,
+        1,
+        2
+      ],
+      "inter_round_syndrome_changes": [
+        6,
+        3,
+        3,
+        6
+      ],
+      "detector_rates": [
+        0.005,
+        0.002,
+        0.002,
+        0.003,
+        0.006,
+        0.003,
+        0.003,
+        0.006,
+        0.003,
+        0.004,
+        0.001,
+        0.002
+      ],
+      "decoder_sensitivity_failures": {
+        "0.002": 2,
+        "0.02": 2,
+        "0.1": 2
+      },
+      "job_id": "AFByb3ZpZGVySm9iAaGb-E_weuOiSP2Hj2Jdfg",
+      "result_sha256": "089b17853956a4b300aa47bb91e99f8ade784d2a9d5732c8ee3ba9eb684f8cc4",
+      "returned_properties": {}
+    },
+    {
+      "duration_raw": 0.1,
+      "shots": 1000,
+      "logical_failures": 5,
+      "logical_error_rate": 0.005,
+      "wilson_95": [
+        0.0021375355273244596,
+        0.011650955373375113
+      ],
+      "raw_logical_flips": 11,
+      "per_data_qubit_flips": [
+        3,
+        6,
+        3,
+        4,
+        6,
+        3,
+        4,
+        3,
+        4
+      ],
+      "inter_round_syndrome_changes": [
+        21,
+        16,
+        4,
+        9
+      ],
+      "detector_rates": [
+        0.002,
+        0.004,
+        0.001,
+        0.003,
+        0.021,
+        0.016,
+        0.004,
+        0.009,
+        0.009,
+        0.005,
+        0.006,
+        0.003
+      ],
+      "decoder_sensitivity_failures": {
+        "0.002": 5,
+        "0.02": 5,
+        "0.1": 5
+      },
+      "job_id": "AFByb3ZpZGVySm9iAaGb-FYJeyKLv_ofmAmwTA",
+      "result_sha256": "6eee108c98f22e9ff57cb9af450140cb29ebc13041502158a719677cbcb6b943",
+      "returned_properties": {}
+    },
+    {
+      "duration_raw": 0.5,
+      "shots": 1000,
+      "logical_failures": 17,
+      "logical_error_rate": 0.017,
+      "wilson_95": [
+        0.010640689856816328,
+        0.027055958840229925
+      ],
+      "raw_logical_flips": 94,
+      "per_data_qubit_flips": [
+        27,
+        26,
+        22,
+        33,
+        25,
+        38,
+        34,
+        35,
+        34
+      ],
+      "inter_round_syndrome_changes": [
+        106,
+        116,
+        53,
+        66
+      ],
+      "detector_rates": [
+        0.003,
+        0.008,
+        0.004,
+        0.005,
+        0.106,
+        0.116,
+        0.053,
+        0.066,
+        0.006,
+        0.003,
+        0.002,
+        0.006
+      ],
+      "decoder_sensitivity_failures": {
+        "0.002": 17,
+        "0.02": 17,
+        "0.1": 17
+      },
+      "job_id": "AFByb3ZpZGVySm9iAaGb-FxAduOd4MTqj3l2dg",
+      "result_sha256": "9b00a901a81bd50de3432cea8df242beeead1d22281e3b2e4899dc960b583209",
+      "returned_properties": {}
+    },
+    {
+      "duration_raw": 0.75,
+      "shots": 1000,
+      "logical_failures": 48,
+      "logical_error_rate": 0.048,
+      "wilson_95": [
+        0.036393301020807914,
+        0.06306608865013393
+      ],
+      "raw_logical_flips": 139,
+      "per_data_qubit_flips": [
+        49,
+        71,
+        69,
+        55,
+        63,
+        65,
+        47,
+        68,
+        50
+      ],
+      "inter_round_syndrome_changes": [
+        220,
+        200,
+        108,
+        113
+      ],
+      "detector_rates": [
+        0.005,
+        0.004,
+        0.001,
+        0.003,
+        0.22,
+        0.2,
+        0.108,
+        0.113,
+        0.007,
+        0.005,
+        0.003,
+        0.004
+      ],
+      "decoder_sensitivity_failures": {
+        "0.002": 48,
+        "0.02": 48,
+        "0.1": 48
+      },
+      "job_id": "AFByb3ZpZGVySm9iAaGb-GOAehCbxwBeNWvUtg",
+      "result_sha256": "e1c71d6de7b670b325a91c2183cadb19f57a9033aaf47cf69fc96896ae17a86c",
+      "returned_properties": {}
+    },
+    {
+      "duration_raw": 1.0,
+      "shots": 1000,
+      "logical_failures": 140,
+      "logical_error_rate": 0.14,
+      "wilson_95": [
+        0.11986857462597704,
+        0.1628866914836227
+      ],
+      "raw_logical_flips": 261,
+      "per_data_qubit_flips": [
+        110,
+        103,
+        96,
+        106,
+        94,
+        114,
+        113,
+        92,
+        84
+      ],
+      "inter_round_syndrome_changes": [
+        296,
+        303,
+        196,
+        164
+      ],
+      "detector_rates": [
+        0.004,
+        0.004,
+        0.004,
+        0.003,
+        0.296,
+        0.303,
+        0.196,
+        0.164,
+        0.005,
+        0.008,
+        0.001,
+        0.003
+      ],
+      "decoder_sensitivity_failures": {
+        "0.002": 140,
+        "0.02": 140,
+        "0.1": 140
+      },
+      "job_id": "AFByb3ZpZGVySm9iAaGb-GmmcFCF0koVMVevlQ",
+      "result_sha256": "90140fe13a870a2819cdec219c39ad87d555b91c8b08c8d7d0200102b36d4516",
+      "returned_properties": {}
+    }
+  ],
+  "primary_decoder": "Fixed historical phenomenological MWPM: p_data=.002, p_read=.001, lam=0",
+  "decoder_models": {
+    "0.002": {
+      "p_data": 0.002,
+      "p_read": 0.001,
+      "lam": 0,
+      "dem_sha256": "83d8d69e1023365e2678fcfc74c50fcad093e3f325e769d6183c4c4ac538817b"
+    },
+    "0.02": {
+      "p_data": 0.02,
+      "p_read": 0.001,
+      "lam": 0,
+      "dem_sha256": "3f8dacc0faa569c64d8e4297509f424d20c9692a0369309f06512816cc7f59b5"
+    },
+    "0.1": {
+      "p_data": 0.1,
+      "p_read": 0.001,
+      "lam": 0,
+      "dem_sha256": "0c426314a9ab368871afea914ea7ea0019fb9cd80376406e4c067b353cae9ab4"
+    }
+  },
+  "comparisons": [
+    {
+      "duration_raw": 0.1,
+      "difference_vs_zero": 0.003,
+      "fisher_two_sided_p": 0.4523030431748567
+    },
+    {
+      "duration_raw": 0.5,
+      "difference_vs_zero": 0.015000000000000001,
+      "fisher_two_sided_p": 0.0006904706659632367
+    },
+    {
+      "duration_raw": 0.75,
+      "difference_vs_zero": 0.046,
+      "fisher_two_sided_p": 1.3320183864584882e-12
+    },
+    {
+      "duration_raw": 1.0,
+      "difference_vs_zero": 0.138,
+      "fisher_two_sided_p": 2.238658423155328e-41
+    }
+  ],
+  "versions": {
+    "numpy": "1.24.3",
+    "stim": "1.15.0",
+    "pymatching": "2.4.0"
+  },
+  "actual_billed_hqc": null,
+  "all_packed_shots_match_formatted_counts": true,
+  "logical_observable": "X on data qubits 0,3,6; failure after predicted logical correction"
+}

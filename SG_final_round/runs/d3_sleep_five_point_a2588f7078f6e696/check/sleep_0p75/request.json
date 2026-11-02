@@ -1,0 +1,15 @@
+{
+  "platform": "nexus:H2-1SC",
+  "as_entity": "q_sq",
+  "shots": 1,
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_sleep_five_point_a2588f7078f6e696/sleep_0p75.bc"
+}

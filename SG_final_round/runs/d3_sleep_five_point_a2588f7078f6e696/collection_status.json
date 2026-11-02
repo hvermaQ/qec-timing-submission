@@ -1,0 +1,68 @@
+{
+  "build": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_sleep_five_point_a2588f7078f6e696",
+  "analysis_status": "completed_on_user_request",
+  "all_results_stored": true,
+  "jobs": [
+    {
+      "variant": "sleep_0p0",
+      "job_id": "AFByb3ZpZGVySm9iAaGbgdnsdkCMOqKxGIBYwA",
+      "status": "COMPLETED",
+      "raw_files": {
+        "result_0.txt": {
+          "bytes": 313789,
+          "sha256": "b3e91b67398dcdc05170b4c5ea4c5f2c7a285808589ef6bae78c0cc5cc469960"
+        }
+      },
+      "stored_successfully": true
+    },
+    {
+      "variant": "sleep_0p1",
+      "job_id": "AFByb3ZpZGVySm9iAaGbgd_0eTOZK28S-fax0w",
+      "status": "COMPLETED",
+      "raw_files": {
+        "result_0.txt": {
+          "bytes": 321594,
+          "sha256": "764578e42bc85d2436a6f2aa8123648983e01b9a0a2c96c5a76f864c091bce1b"
+        }
+      },
+      "stored_successfully": true
+    },
+    {
+      "variant": "sleep_0p5",
+      "job_id": "AFByb3ZpZGVySm9iAaGbgeXrchGQdJCI-RlGJA",
+      "status": "COMPLETED",
+      "raw_files": {
+        "result_0.txt": {
+          "bytes": 345018,
+          "sha256": "ef76d9d0726cb53b6bcccde3df1c8efb26ac2f32d152070d9bfa3dfba0e159fc"
+        }
+      },
+      "stored_successfully": true
+    },
+    {
+      "variant": "sleep_0p75",
+      "job_id": "AFByb3ZpZGVySm9iAaGbgezjc6KqvizAFNcATw",
+      "status": "COMPLETED",
+      "raw_files": {
+        "result_0.txt": {
+          "bytes": 382928,
+          "sha256": "32191641456ee6b26897e362e4af6c398ea8c958bd1372e80c359f525e1c2828"
+        }
+      },
+      "stored_successfully": true
+    },
+    {
+      "variant": "sleep_1p0",
+      "job_id": "AFByb3ZpZGVySm9iAaGbgfLwcCGWbrwVjtHZ2A",
+      "status": "COMPLETED",
+      "raw_files": {
+        "result_0.txt": {
+          "bytes": 425298,
+          "sha256": "253babc5aa5d446651d24a05a90c786db42e3aa9f0dcff8befbbed126d43358b"
+        }
+      },
+      "stored_successfully": true
+    }
+  ],
+  "analysis": "results/d3_sleep_five_point_h2_1e_1000.json"
+}

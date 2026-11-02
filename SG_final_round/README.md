@@ -111,3 +111,35 @@ H2-1E through Aqora: raw sleep arguments 0, 0.1, 0.5, 0.75, 1, with 1,000
 shots each and no no-sleep variant. Error counts: 0, 1, 21, 55, 92. See
 `results/single_qubit_sweep_1000.md` for intervals, settings and raw-record paths.
 The 200-shot pilot and d=3 artifacts are preserved separately.
+
+## Completed d=3 all-data wait with extraction
+
+The requested 0, 0.5, 1 sweep with 1,000 shots per setting completed on H2-1E
+through Aqora using the existing two-round X-check extraction circuit. Decoded
+logical failures: 3, 13, 115 out of 1,000 each. See
+`results/d3_sleep_sweep_1000.md` for intervals, decoder assumptions, all-qubit
+results, interpretation and the 342.0–391.2 HQC estimate. Actual billing, sleep
+units and parallel overlap remain unverified. The user explicitly authorized
+execution with the scheduling limitation recorded.
+
+## Fresh five-point d=3 sweep: submitted, analysis deferred
+
+Five new H2-1E jobs (1,000 shots each) use raw sleep arguments 0, 0.1, 0.5,
+0.75, 1 with the same two-round X-check circuit and noise settings. See
+`results/d3_sleep_five_point_submission.md` for job IDs and collection details.
+Raw results are collected every ten minutes by the heartbeat
+`collect-aqora-five-point-d3-results`, which stops after storage completes.
+Analysis is deferred until the user requests it.
+
+## H2-2E five-point replica: submitted, analysis deferred
+
+Five additional 1,000-shot jobs use the same QIR and requested noise options on
+H2-2E, after passing H2-2SC validation. Sleep arguments are 0, 0.1, 0.5, 0.75, 1.
+See `results/d3_sleep_five_point_h2_2e_submission.md` for job IDs and raw-result
+paths. The existing collector now checks both H2-1E and H2-2E every 30 minutes.
+H2-1E jobs are preserved. No quantum-hardware execution was submitted.
+
+The H2-2E data have now been decoded on user request: logical failures are
+2, 5, 17, 48, 140 / 1,000 at raw arguments 0, 0.1, 0.5, 0.75, 1.
+See `results/d3_sleep_five_point_h2_2e_analysis.md` for confidence intervals,
+decoder assumptions, the overall error model and limits on idle-rate inference.

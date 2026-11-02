@@ -1,0 +1,40 @@
+{
+  "platform": "nexus:H2-2E",
+  "as_entity": "q_sq",
+  "shots": 1000,
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_sleep_five_point_h2_2e_67d11d0348065703/sleep_0p75.bc",
+  "parallel_sleep_verified": false,
+  "authorization": "User explicitly authorized submission with timing unresolved",
+  "job_id": "AFByb3ZpZGVySm9iAaGb-GOAehCbxwBeNWvUtg",
+  "job": {
+    "__typename": "ProviderJob",
+    "id": "AFByb3ZpZGVySm9iAaGb-GOAehCbxwBeNWvUtg",
+    "provider": "nexus",
+    "status": "COMPLETED",
+    "error": null,
+    "duration": 3,
+    "resultCount": 1,
+    "createdAt": "2026-11-02T11:15:09.312735+00:00",
+    "platform": {
+      "id": "AFByb3ZpZGVyUGxhdGZvcm0BoEjlejN5IpHinxZkQMVy",
+      "name": "H2-2E",
+      "provider": "NEXUS"
+    }
+  },
+  "results": [
+    {
+      "index": 0,
+      "format": 1000,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "clang",
+    "-target",
+    "aarch64-unknown-linux-gnu",
+    "-x",
+    "ir",
+    "-c",
+    "-emit-llvm",
+    "-O0",
+    "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_sleep_five_point_h2_2e_67d11d0348065703/sleep_0p1.ll",
+    "-o",
+    "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_sleep_five_point_h2_2e_67d11d0348065703/sleep_0p1.bc"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

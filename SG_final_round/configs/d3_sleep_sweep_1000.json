@@ -1,0 +1,46 @@
+{
+  "experiment": "d3_X_two_round_all_data_sleep",
+  "distance": 3,
+  "extraction_rounds": 2,
+  "check_sector": "X only",
+  "data_qubits": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "ancilla_qubit": 9,
+  "durations_raw": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "duration_unit": "unverified",
+  "shots": 1000,
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "parallel_sleep_verified": false,
+  "estimated_hqc_per_job": [
+    114.0,
+    130.4
+  ],
+  "estimated_hqc_total": [
+    342.0,
+    391.2
+  ],
+  "estimate_note": "Excludes/includes virtual Rz; assumes no extra wait/barrier charge"
+}

@@ -1,0 +1,207 @@
+{
+  "rows": [
+    {
+      "duration_raw": 0.0,
+      "mean_data_error": 0.0013333333333333333,
+      "shot_bootstrap_95": [
+        0.0006666666666666666,
+        0.002111111111111111
+      ],
+      "shot_mean_standard_error": 0.00038277524378886883,
+      "per_qubit_error": [
+        0.003,
+        0.003,
+        0.001,
+        0.0,
+        0.002,
+        0.0,
+        0.0,
+        0.001,
+        0.002
+      ],
+      "fault_weight_histogram": [
+        988,
+        12,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "effective_extra_flip_probability": 0.0,
+      "effective_extra_flip_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "duration_raw": 0.1,
+      "mean_data_error": 0.004,
+      "shot_bootstrap_95": [
+        0.002777777777777778,
+        0.005333333333333333
+      ],
+      "shot_mean_standard_error": 0.0006548842017961699,
+      "per_qubit_error": [
+        0.003,
+        0.006,
+        0.003,
+        0.004,
+        0.006,
+        0.003,
+        0.004,
+        0.003,
+        0.004
+      ],
+      "fault_weight_histogram": [
+        964,
+        36,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "effective_extra_flip_probability": 0.0026737967914438505,
+      "effective_extra_flip_bootstrap_95": [
+        0.0011165698972755698,
+        0.004226918798665183
+      ]
+    },
+    {
+      "duration_raw": 0.5,
+      "mean_data_error": 0.030444444444444444,
+      "shot_bootstrap_95": [
+        0.02711111111111111,
+        0.03388888888888889
+      ],
+      "shot_mean_standard_error": 0.0017326464706301887,
+      "per_qubit_error": [
+        0.027,
+        0.026,
+        0.022,
+        0.033,
+        0.025,
+        0.038,
+        0.034,
+        0.035,
+        0.034
+      ],
+      "fault_weight_histogram": [
+        748,
+        230,
+        22,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "effective_extra_flip_probability": 0.029188948306595366,
+      "effective_extra_flip_bootstrap_95": [
+        0.02573529411764706,
+        0.03270318526296092
+      ]
+    },
+    {
+      "duration_raw": 0.75,
+      "mean_data_error": 0.059666666666666666,
+      "shot_bootstrap_95": [
+        0.055,
+        0.06444444444444444
+      ],
+      "shot_mean_standard_error": 0.002416772932795434,
+      "per_qubit_error": [
+        0.049,
+        0.071,
+        0.069,
+        0.055,
+        0.063,
+        0.065,
+        0.047,
+        0.068,
+        0.05
+      ],
+      "fault_weight_histogram": [
+        563,
+        348,
+        79,
+        9,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "effective_extra_flip_probability": 0.05848930481283423,
+      "effective_extra_flip_bootstrap_95": [
+        0.05371071985736573,
+        0.06336302895322941
+      ]
+    },
+    {
+      "duration_raw": 1.0,
+      "mean_data_error": 0.10133333333333333,
+      "shot_bootstrap_95": [
+        0.0951111111111111,
+        0.10755555555555556
+      ],
+      "shot_mean_standard_error": 0.0031877060893513052,
+      "per_qubit_error": [
+        0.11,
+        0.103,
+        0.096,
+        0.106,
+        0.094,
+        0.114,
+        0.113,
+        0.092,
+        0.084
+      ],
+      "fault_weight_histogram": [
+        383,
+        387,
+        176,
+        43,
+        11,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "effective_extra_flip_probability": 0.10026737967914438,
+      "effective_extra_flip_bootstrap_95": [
+        0.09400089206066012,
+        0.10654642618570474
+      ]
+    }
+  ],
+  "bootstrap_repetitions": 10000,
+  "bootstrap_seed": 20261102,
+  "extra_channel_assumption": "p(u)=p0+(1-2*p0)*q(u); background unchanged, added XOR flip channel",
+  "descriptive_fit": {
+    "form": "mean_data_error(u) = measured_p0 + a*u + b*u^2",
+    "p0": 0.0013333333333333333,
+    "a_per_raw_argument": 0.015244984269889045,
+    "b_per_raw_argument_squared": 0.08449534903680812,
+    "fitted_values": [
+      0.0013333333333333333,
+      0.0037027852506903193,
+      0.03007966272747989,
+      0.06029570536895469,
+      0.10107366664003051
+    ],
+    "status": "descriptive only; no physical rate calibration or model identification"
+  },
+  "uncertainty_note": "Shot bootstrap retains within-shot qubit correlation; assumes independent shots, no run-to-run variability measured"
+}

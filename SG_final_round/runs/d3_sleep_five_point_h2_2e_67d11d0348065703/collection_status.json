@@ -1,0 +1,68 @@
+{
+  "build": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_sleep_five_point_h2_2e_67d11d0348065703",
+  "analysis_status": "completed_on_user_request",
+  "all_results_stored": true,
+  "jobs": [
+    {
+      "variant": "sleep_0p0",
+      "job_id": "AFByb3ZpZGVySm9iAaGb-E_weuOiSP2Hj2Jdfg",
+      "status": "COMPLETED",
+      "raw_files": {
+        "result_0.txt": {
+          "bytes": 305984,
+          "sha256": "089b17853956a4b300aa47bb91e99f8ade784d2a9d5732c8ee3ba9eb684f8cc4"
+        }
+      },
+      "stored_successfully": true
+    },
+    {
+      "variant": "sleep_0p1",
+      "job_id": "AFByb3ZpZGVySm9iAaGb-FYJeyKLv_ofmAmwTA",
+      "status": "COMPLETED",
+      "raw_files": {
+        "result_0.txt": {
+          "bytes": 317134,
+          "sha256": "6eee108c98f22e9ff57cb9af450140cb29ebc13041502158a719677cbcb6b943"
+        }
+      },
+      "stored_successfully": true
+    },
+    {
+      "variant": "sleep_0p5",
+      "job_id": "AFByb3ZpZGVySm9iAaGb-FxAduOd4MTqj3l2dg",
+      "status": "COMPLETED",
+      "raw_files": {
+        "result_0.txt": {
+          "bytes": 346133,
+          "sha256": "9b00a901a81bd50de3432cea8df242beeead1d22281e3b2e4899dc960b583209"
+        }
+      },
+      "stored_successfully": true
+    },
+    {
+      "variant": "sleep_0p75",
+      "job_id": "AFByb3ZpZGVySm9iAaGb-GOAehCbxwBeNWvUtg",
+      "status": "COMPLETED",
+      "raw_files": {
+        "result_0.txt": {
+          "bytes": 371778,
+          "sha256": "e1c71d6de7b670b325a91c2183cadb19f57a9033aaf47cf69fc96896ae17a86c"
+        }
+      },
+      "stored_successfully": true
+    },
+    {
+      "variant": "sleep_1p0",
+      "job_id": "AFByb3ZpZGVySm9iAaGb-GmmcFCF0koVMVevlQ",
+      "status": "COMPLETED",
+      "raw_files": {
+        "result_0.txt": {
+          "bytes": 411919,
+          "sha256": "90140fe13a870a2819cdec219c39ad87d555b91c8b08c8d7d0200102b36d4516"
+        }
+      },
+      "stored_successfully": true
+    }
+  ],
+  "analysis": "results/d3_sleep_five_point_h2_2e_1000.json"
+}

@@ -1,0 +1,59 @@
+{
+  "experiment": "d3_X_two_round_all_data_sleep_five_point",
+  "distance": 3,
+  "extraction_rounds": 2,
+  "check_sector": "X only",
+  "data_qubits": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "ancilla_qubit": 9,
+  "durations_raw": [
+    0.0,
+    0.1,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "duration_unit": "unverified",
+  "shots": 1000,
+  "platform": "nexus:H2-2E",
+  "as_entity": "q_sq",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "parallel_sleep_verified": false,
+  "estimated_hqc_per_job": [
+    114.0,
+    130.4
+  ],
+  "estimated_hqc_total": [
+    570.0,
+    652.0
+  ],
+  "estimate_note": "Excludes/includes virtual Rz; assumes no extra wait/barrier charge",
+  "analysis_policy": "Save raw results only; analyze on user request",
+  "bitcode_sha256": {
+    "sleep_0p0": "8144a53591b44c0227c8afd8cab18a7b504d2ea6a69d0be0c09944d38c9bbc57",
+    "sleep_0p1": "c86517f6ae376e137ef5e718d82440bbc78f7546f9a8be6375bfe47ac9232258",
+    "sleep_0p5": "3a19a5f875179dc7b5ec6b212bc3d9ad580d69ed2e6c12fb7f54f10e80033c9a",
+    "sleep_0p75": "8283a134971b53db81f4358420a922df51ca8fd9a87b3cc8335a2ae86e0de022",
+    "sleep_1p0": "1d4618297c493a8a1448d0d4cb93e87fe770e89bd5186c6c5fca249d262d7839"
+  },
+  "baseline_sha256": "1d76441345a391205fcb9c9898deed404462c26098f58d57a0f0c19385ccd531",
+  "execution_status": "completed_with_parallel_sleep_unverified",
+  "analysis": "results/d3_sleep_five_point_h2_2e_1000.json"
+}
