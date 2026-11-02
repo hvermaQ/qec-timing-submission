@@ -1,0 +1,7 @@
+{
+  "prepares_plus_x": true,
+  "ideal_outcome": 0,
+  "single_Z_error_outcome": 1,
+  "llvm_assembly_and_roundtrip": "passed for all 3 variants",
+  "backend_sleep_semantics": "unverified"
+}

@@ -1,0 +1,83 @@
+{
+  "experiment": "single_qubit_explicit_sleep_1000",
+  "durations_raw": [
+    0.0,
+    0.1,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "duration_unit": "unverified",
+  "shots": 1000,
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "build": "programs/single_qubit_sweep_73005efe45e835e4",
+  "rows": [
+    {
+      "duration_raw": 0.0,
+      "shots": 1000,
+      "errors": 0,
+      "error_rate": 0.0,
+      "wilson_95": [
+        2.168404344971009e-19,
+        0.0038267584855551234
+      ],
+      "job_id": "AFByb3ZpZGVySm9iAaGbNQ75cSCMKm-_8Crm8g"
+    },
+    {
+      "duration_raw": 0.1,
+      "shots": 1000,
+      "errors": 1,
+      "error_rate": 0.001,
+      "wilson_95": [
+        0.00017654637062607809,
+        0.0056425585979579355
+      ],
+      "job_id": "AFByb3ZpZGVySm9iAaGbNRVicBCtYWaMgM-wkA"
+    },
+    {
+      "duration_raw": 0.5,
+      "shots": 1000,
+      "errors": 21,
+      "error_rate": 0.021,
+      "wilson_95": [
+        0.013775739567924286,
+        0.03189029506123752
+      ],
+      "job_id": "AFByb3ZpZGVySm9iAaGbNRtcfhKxEiVUcerAVw"
+    },
+    {
+      "duration_raw": 0.75,
+      "shots": 1000,
+      "errors": 55,
+      "error_rate": 0.055,
+      "wilson_95": [
+        0.04249742737476844,
+        0.07090838767737563
+      ],
+      "job_id": "AFByb3ZpZGVySm9iAaGbNSKjdxG0osMLH2saVA"
+    },
+    {
+      "duration_raw": 1.0,
+      "shots": 1000,
+      "errors": 92,
+      "error_rate": 0.092,
+      "wilson_95": [
+        0.07561389956796885,
+        0.11150873535624412
+      ],
+      "job_id": "AFByb3ZpZGVySm9iAaGbNShpeOO9STiU_gfbIQ"
+    }
+  ],
+  "estimated_hqc": 37.0,
+  "actual_billed_hqc": null
+}

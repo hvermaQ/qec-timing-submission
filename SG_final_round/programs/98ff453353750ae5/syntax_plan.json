@@ -1,0 +1,23 @@
+[
+  {
+    "variant": "no_sleep",
+    "program": "SG_final_round/programs/98ff453353750ae5/no_sleep.bc",
+    "platform": "nexus:H2-1SC",
+    "shots": 1,
+    "status": "not_submitted"
+  },
+  {
+    "variant": "sleep_zero",
+    "program": "SG_final_round/programs/98ff453353750ae5/sleep_zero.bc",
+    "platform": "nexus:H2-1SC",
+    "shots": 1,
+    "status": "not_submitted"
+  },
+  {
+    "variant": "sleep_finite",
+    "program": "SG_final_round/programs/98ff453353750ae5/sleep_finite.bc",
+    "platform": "nexus:H2-1SC",
+    "shots": 1,
+    "status": "not_submitted"
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "build": "programs/98ff453353750ae5",
+  "structural_tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s SG_final_round/tests -v",
+    "passed": 4,
+    "failed": 0
+  },
+  "variants": {
+    "no_sleep": {
+      "llvm_assembly": "passed",
+      "call_counts_preserved": true,
+      "quantinuum_qircheck": "not_run",
+      "h2_syntax_check": "not_run",
+      "emulator_execution": "not_run"
+    },
+    "sleep_zero": {
+      "llvm_assembly": "passed",
+      "call_counts_preserved": true,
+      "quantinuum_qircheck": "not_run",
+      "h2_syntax_check": "not_run",
+      "emulator_execution": "not_run"
+    },
+    "sleep_finite": {
+      "llvm_assembly": "passed",
+      "call_counts_preserved": true,
+      "quantinuum_qircheck": "not_run",
+      "h2_syntax_check": "not_run",
+      "emulator_execution": "not_run"
+    }
+  },
+  "duration_units": "unverified",
+  "provider_jobs_submitted": 0
+}

@@ -1,0 +1,31 @@
+{
+  "experiment": "single_qubit_explicit_sleep_1000",
+  "durations_raw": [
+    0.0,
+    0.1,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "duration_unit": "unverified",
+  "shots": 1000,
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "bitcode_sha256": {
+    "sleep_0p0": "e41175b5296ac26af2aff9d9032712a8d7d770e4bde75d9a909847b5ae9e36e5",
+    "sleep_0p1": "cc9ebb4867e32b128fd35270f370411f6ebbb75453653154dbc3904d6ebf9144",
+    "sleep_0p5": "3aa9d9125d4bb43a9029a96b2ec803766506f28478c31992283a13da681b5b59",
+    "sleep_0p75": "a171f7a423b812caa334c74db669e9117ee501a4f1d5fc05777cc7ff0b744e96",
+    "sleep_1p0": "973a67437a819d65c2459443132eabbca2f0372ade48998371d3ba6b924a0d4c"
+  },
+  "local_validation": "all 5 LLVM assembly and roundtrip checks passed"
+}

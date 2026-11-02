@@ -1,0 +1,51 @@
+{
+  "experiment": "standalone_X_memory",
+  "platform": "nexus:H2-1E",
+  "virtual_qubit": 0,
+  "physical_ion": "backend assigned",
+  "duration_unit": "unverified",
+  "rows": [
+    {
+      "variant": "no_sleep",
+      "duration_raw": null,
+      "job_id": "AFByb3ZpZGVySm9iAaGbKRV_fwG5lEKNR-M2yg",
+      "status": "COMPLETED",
+      "error": null,
+      "shots": 200,
+      "errors": 0,
+      "error_rate": 0.0,
+      "wilson_95": [
+        1.734723475976807e-18,
+        0.018845326377266575
+      ]
+    },
+    {
+      "variant": "sleep_zero",
+      "duration_raw": 0.0,
+      "job_id": "AFByb3ZpZGVySm9iAaGbKc1efjG9ec-mDV8xdw",
+      "status": "COMPLETED",
+      "error": null,
+      "shots": 200,
+      "errors": 0,
+      "error_rate": 0.0,
+      "wilson_95": [
+        1.734723475976807e-18,
+        0.018845326377266575
+      ]
+    },
+    {
+      "variant": "sleep_0p5",
+      "duration_raw": 0.5,
+      "job_id": "AFByb3ZpZGVySm9iAaGbK4Vyf1GTwHQ3-J0wlg",
+      "status": "COMPLETED",
+      "error": null,
+      "shots": 200,
+      "errors": 2,
+      "error_rate": 0.01,
+      "wilson_95": [
+        0.0027466581335444384,
+        0.0357217617161768
+      ]
+    }
+  ]
+}

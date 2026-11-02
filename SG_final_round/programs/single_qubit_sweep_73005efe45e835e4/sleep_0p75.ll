@@ -1,0 +1,28 @@
+source_filename = "single_qubit_memory"
+target triple = "aarch64-unknown-linux-gnu"
+%Qubit = type opaque
+%Result = type opaque
+@label = private constant [3 x i8] c"m0\00"
+define void @main() #0 {
+  call void @__quantum__rt__initialize(i8* null)
+  call void @__quantum__qis__phasedx__body(double 0x3FF921FB54442D18, double 0x3FF921FB54442D18, %Qubit* null)
+  call void @__quantum__qis__sleep__body(%Qubit* null, double 7.50000000000000000e-01)
+  call void @__quantum__qis__phasedx__body(double 0x3FF921FB54442D18, double 0xBFF921FB54442D18, %Qubit* null)
+  call void @__quantum__qis__mz__body(%Qubit* null, %Result* null)
+  %bit = call i1 @__quantum__rt__read_result(%Result* null)
+  call void @__quantum__rt__bool_record_output(i1 %bit, i8* getelementptr ([3 x i8], [3 x i8]* @label, i64 0, i64 0))
+  ret void
+}
+declare void @__quantum__rt__initialize(i8*)
+declare void @__quantum__qis__phasedx__body(double, double, %Qubit*)
+declare void @__quantum__qis__mz__body(%Qubit*, %Result* writeonly) #1
+declare i1 @__quantum__rt__read_result(%Result* readonly)
+declare void @__quantum__rt__bool_record_output(i1, i8*)
+declare void @__quantum__qis__sleep__body(%Qubit*, double)
+attributes #0 = { "entry_point" "output_labeling_schema" "qir_profiles"="adaptive_profile" "required_num_qubits"="1" "required_num_results"="1" }
+attributes #1 = { "irreversible" }
+!llvm.module.flags = !{!0, !1, !2, !3}
+!0 = !{i32 1, !"qir_major_version", i32 1}
+!1 = !{i32 7, !"qir_minor_version", i32 0}
+!2 = !{i32 1, !"dynamic_qubit_management", i1 false}
+!3 = !{i32 1, !"dynamic_result_management", i1 false}

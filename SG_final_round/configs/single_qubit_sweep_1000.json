@@ -1,0 +1,23 @@
+{
+  "experiment": "single_qubit_explicit_sleep_1000",
+  "durations_raw": [
+    0.0,
+    0.1,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "duration_unit": "unverified",
+  "shots": 1000,
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  }
+}

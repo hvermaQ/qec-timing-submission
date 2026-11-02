@@ -1,0 +1,38 @@
+{
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "shots": 1000,
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/single_qubit_sweep_73005efe45e835e4/sleep_1p0.bc",
+  "job_id": "AFByb3ZpZGVySm9iAaGbNShpeOO9STiU_gfbIQ",
+  "job": {
+    "__typename": "ProviderJob",
+    "id": "AFByb3ZpZGVySm9iAaGbNShpeOO9STiU_gfbIQ",
+    "provider": "nexus",
+    "status": "COMPLETED",
+    "error": null,
+    "duration": 2,
+    "resultCount": 1,
+    "createdAt": "2026-11-02T07:41:54.665354+00:00",
+    "platform": {
+      "id": "AFByb3ZpZGVyUGxhdGZvcm0BoEjlei1w4rlJdZoPbdHM",
+      "name": "H2-1E",
+      "provider": "NEXUS"
+    }
+  },
+  "results": [
+    {
+      "index": 0,
+      "format": 1000,
+      "error": null
+    }
+  ]
+}

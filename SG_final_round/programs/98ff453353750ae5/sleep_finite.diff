@@ -1,0 +1,19 @@
+--- original/guppy_baseline.ll
++++ sleep_finite.ll
+@@ -170,6 +170,7 @@
+ 
+ cond_exit_1230:                                   ; preds = %cond_exit_1145, %cond_1230_case_1
+   tail call void @__quantum__qis__reset__body(%Qubit* nonnull inttoptr (i64 9 to %Qubit*))
++  call void @__quantum__qis__sleep__body(%Qubit* inttoptr (i64 4 to %Qubit*), double 1.00000000000000002e-02)
+   tail call void @__quantum__qis__phasedx__body(double 0x3FF921FB54442D18, double 0xBFF921FB54442D18, %Qubit* nonnull inttoptr (i64 9 to %Qubit*))
+   tail call void @__quantum__qis__rz__body(double 0x400921FB54442D18, %Qubit* nonnull inttoptr (i64 9 to %Qubit*))
+   tail call void @__quantum__qis__phasedx__body(double 0xBFF921FB54442D18, double 0x3FF921FB54442D18, %Qubit* nonnull inttoptr (i64 1 to %Qubit*))
+@@ -346,6 +347,8 @@
+   ret void
+ }
+ 
++declare void @__quantum__qis__sleep__body(%Qubit*, double)
++
+ declare i64 @___get_current_shot() local_unnamed_addr
+ 
+ declare void @___random_seed(i64) local_unnamed_addr

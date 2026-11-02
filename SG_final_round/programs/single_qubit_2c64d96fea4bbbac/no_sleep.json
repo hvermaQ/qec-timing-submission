@@ -1,0 +1,13 @@
+{
+  "experiment": "standalone_X_memory",
+  "n_qubits": 1,
+  "virtual_qubit": 0,
+  "physical_ion_selection": "backend assigned",
+  "shots": 200,
+  "duration_raw": null,
+  "duration_unit": "unverified",
+  "p_inject": 0,
+  "expected_noiseless_bit": 0,
+  "llvm_assembly": "passed",
+  "sha256": "2916839c1aa04a3696f924fa078fb90781d35c9c918a919aa637e1e0fc78c638"
+}

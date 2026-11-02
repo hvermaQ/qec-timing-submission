@@ -1,0 +1,45 @@
+{
+  "status": "proposal_not_provider_quote",
+  "shots_per_setting": 10000,
+  "settings": [
+    null,
+    0,
+    0.01,
+    0.05,
+    0.1,
+    0.2,
+    0.5
+  ],
+  "cost_formula": "5*jobs + (N1q + 10*N2q + 5*Nm)/5000 * total_shots",
+  "assumptions": [
+    "No separate sleep surcharge assumed; endpoint semantics unverified",
+    "One-qubit counts assume two physical basis rotations, up to two virtual Rz, implicit preparation and final measurement; circuit not built",
+    "d3 split into two 5000-shot jobs per setting to stay below historical aqora 1000-HQC/job limit",
+    "No pilot, retries or compiler-added operations included"
+  ],
+  "estimates": [
+    {
+      "circuit": "proposed_standalone_one_qubit",
+      "physical_1q": 2,
+      "virtual_rz": 2,
+      "two_qubit": 0,
+      "prep_measure_reset": 2,
+      "shots_total": 70000,
+      "jobs": 7,
+      "hqc_excluding_rz": 202.99999999999997,
+      "hqc_including_rz": 231.0
+    },
+    {
+      "circuit": "existing_d3_single_sleep_target",
+      "physical_1q": 90,
+      "virtual_rz": 82,
+      "two_qubit": 24,
+      "prep_measure_reset": 43,
+      "shots_total": 70000,
+      "jobs": 14,
+      "hqc_excluding_rz": 7700.0,
+      "hqc_including_rz": 8848.0
+    }
+  ],
+  "source": "https://docs.quantinuum.com/systems/user_guide/hardware_user_guide/workflow.html"
+}

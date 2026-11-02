@@ -1,0 +1,61 @@
+{
+  "build": "programs/8cca8353b3f06d18",
+  "structural_tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s SG_final_round/tests -v",
+    "passed": 6,
+    "failed": 0
+  },
+  "variants": {
+    "no_sleep": {
+      "llvm_assembly": "passed",
+      "call_counts_preserved": true,
+      "quantinuum_qircheck": "not_run",
+      "h2_syntax_check": "not_run",
+      "emulator_execution": "not_run"
+    },
+    "sleep_zero": {
+      "llvm_assembly": "passed",
+      "call_counts_preserved": true,
+      "quantinuum_qircheck": "not_run",
+      "h2_syntax_check": "not_run",
+      "emulator_execution": "not_run"
+    },
+    "sleep_0p01": {
+      "llvm_assembly": "passed",
+      "call_counts_preserved": true,
+      "quantinuum_qircheck": "not_run",
+      "h2_syntax_check": "not_run",
+      "emulator_execution": "not_run"
+    },
+    "sleep_0p02": {
+      "llvm_assembly": "passed",
+      "call_counts_preserved": true,
+      "quantinuum_qircheck": "not_run",
+      "h2_syntax_check": "not_run",
+      "emulator_execution": "not_run"
+    },
+    "sleep_0p05": {
+      "llvm_assembly": "passed",
+      "call_counts_preserved": true,
+      "quantinuum_qircheck": "not_run",
+      "h2_syntax_check": "not_run",
+      "emulator_execution": "not_run"
+    },
+    "sleep_0p1": {
+      "llvm_assembly": "passed",
+      "call_counts_preserved": true,
+      "quantinuum_qircheck": "not_run",
+      "h2_syntax_check": "not_run",
+      "emulator_execution": "not_run"
+    },
+    "sleep_0p2": {
+      "llvm_assembly": "passed",
+      "call_counts_preserved": true,
+      "quantinuum_qircheck": "not_run",
+      "h2_syntax_check": "not_run",
+      "emulator_execution": "not_run"
+    }
+  },
+  "duration_units": "unverified",
+  "provider_jobs_submitted": 0
+}

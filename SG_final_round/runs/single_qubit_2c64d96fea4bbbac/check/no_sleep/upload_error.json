@@ -1,0 +1,6 @@
+{
+  "stage": "start_provider_model_upload",
+  "error": "GraphQL had errors: Missing Authorization",
+  "job_created": false,
+  "emulator_shots_executed": 0
+}

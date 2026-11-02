@@ -1,0 +1,51 @@
+[
+  {
+    "variant": "no_sleep",
+    "program": "SG_final_round/programs/8cca8353b3f06d18/no_sleep.bc",
+    "platform": "nexus:H2-1SC",
+    "shots": 1,
+    "status": "not_submitted"
+  },
+  {
+    "variant": "sleep_zero",
+    "program": "SG_final_round/programs/8cca8353b3f06d18/sleep_zero.bc",
+    "platform": "nexus:H2-1SC",
+    "shots": 1,
+    "status": "not_submitted"
+  },
+  {
+    "variant": "sleep_0p01",
+    "program": "SG_final_round/programs/8cca8353b3f06d18/sleep_0p01.bc",
+    "platform": "nexus:H2-1SC",
+    "shots": 1,
+    "status": "not_submitted"
+  },
+  {
+    "variant": "sleep_0p02",
+    "program": "SG_final_round/programs/8cca8353b3f06d18/sleep_0p02.bc",
+    "platform": "nexus:H2-1SC",
+    "shots": 1,
+    "status": "not_submitted"
+  },
+  {
+    "variant": "sleep_0p05",
+    "program": "SG_final_round/programs/8cca8353b3f06d18/sleep_0p05.bc",
+    "platform": "nexus:H2-1SC",
+    "shots": 1,
+    "status": "not_submitted"
+  },
+  {
+    "variant": "sleep_0p1",
+    "program": "SG_final_round/programs/8cca8353b3f06d18/sleep_0p1.bc",
+    "platform": "nexus:H2-1SC",
+    "shots": 1,
+    "status": "not_submitted"
+  },
+  {
+    "variant": "sleep_0p2",
+    "program": "SG_final_round/programs/8cca8353b3f06d18/sleep_0p2.bc",
+    "platform": "nexus:H2-1SC",
+    "shots": 1,
+    "status": "not_submitted"
+  }
+]

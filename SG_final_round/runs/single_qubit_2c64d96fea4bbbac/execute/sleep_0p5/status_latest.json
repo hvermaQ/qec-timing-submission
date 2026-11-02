@@ -1,0 +1,15 @@
+{
+  "__typename": "ProviderJob",
+  "id": "AFByb3ZpZGVySm9iAaGbK4Vyf1GTwHQ3-J0wlg",
+  "provider": "nexus",
+  "status": "COMPLETED",
+  "error": null,
+  "duration": 9,
+  "resultCount": 1,
+  "createdAt": "2026-11-02T07:31:23.122453+00:00",
+  "platform": {
+    "id": "AFByb3ZpZGVyUGxhdGZvcm0BoEjlei1w4rlJdZoPbdHM",
+    "name": "H2-1E",
+    "provider": "NEXUS"
+  }
+}

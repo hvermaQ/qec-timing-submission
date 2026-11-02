@@ -1,0 +1,114 @@
+{
+  "calibration_source": "config/h2_1e_emulator.json",
+  "calibration_sha256": "5224cd6c70f7c81f62685ef958dc99149a54b15d2a134983e562906db4531fd4",
+  "gamma_per_second_assumed": 0.0028,
+  "quadratic_rate_cycles_per_second_assumed": 0.043,
+  "coherent_to_incoherent_factor_assumed": 2.0,
+  "omega_radians_per_second": 0.5403539364174443,
+  "linear_quadratic_small_time_crossover_seconds": 0.038358479475195495,
+  "assumptions": [
+    "raw sleep argument interpreted as seconds for this calculation ONLY",
+    "saved cycles convention and factor 2; job simulator mode is unverified",
+    "one uninterrupted idle channel on q4; no DD; no extra channel splitting",
+    "expected faults exclude gate/readout/preparation errors and correction"
+  ],
+  "rows": [
+    {
+      "raw_argument_if_seconds": 0.01,
+      "milliseconds_if_seconds": 10.0,
+      "included_in_current_sweep": true,
+      "p_z_saved_cycles_convention": 3.529913287954114e-05,
+      "expected_target_z_faults_per_1000_shots": 0.03529913287954114,
+      "p_z_alternative_radians_convention": 2.8184889634204635e-05,
+      "p_z_without_stabilizer_multiplier": 2.9824786549917718e-05
+    },
+    {
+      "raw_argument_if_seconds": 0.05,
+      "milliseconds_if_seconds": 50.0,
+      "included_in_current_sweep": true,
+      "p_z_saved_cycles_convention": 0.00032242679109520644,
+      "expected_target_z_faults_per_1000_shots": 0.32242679109520644,
+      "p_z_alternative_radians_convention": 0.00014462119857949662,
+      "p_z_without_stabilizer_multiplier": 0.00018560877851708758
+    },
+    {
+      "raw_argument_if_seconds": 0.1,
+      "milliseconds_if_seconds": 100.0,
+      "included_in_current_sweep": true,
+      "p_z_saved_cycles_convention": 0.0010093696710237394,
+      "expected_target_z_faults_per_1000_shots": 1.0093696710237394,
+      "p_z_alternative_radians_convention": 0.00029847953170406515,
+      "p_z_without_stabilizer_multiplier": 0.0004623756972874336
+    },
+    {
+      "raw_argument_if_seconds": 0.2,
+      "milliseconds_if_seconds": 200.0,
+      "included_in_current_sweep": true,
+      "p_z_saved_cycles_convention": 0.0034737160607979335,
+      "expected_target_z_faults_per_1000_shots": 3.4737160607979334,
+      "p_z_alternative_radians_convention": 0.000633875343499591,
+      "p_z_without_stabilizer_multiplier": 0.0012889609951494767
+    },
+    {
+      "raw_argument_if_seconds": 0.5,
+      "milliseconds_if_seconds": 500.0,
+      "included_in_current_sweep": true,
+      "p_z_saved_cycles_convention": 0.01948737400460115,
+      "expected_target_z_faults_per_1000_shots": 19.48737400460115,
+      "p_z_alternative_radians_convention": 0.0018608846787866243,
+      "p_z_without_stabilizer_multiplier": 0.005942536074341923
+    },
+    {
+      "raw_argument_if_seconds": 1.0,
+      "milliseconds_if_seconds": 1000.0,
+      "included_in_current_sweep": false,
+      "p_z_saved_cycles_convention": 0.07363774654051607,
+      "expected_target_z_faults_per_1000_shots": 73.63774654051606,
+      "p_z_alternative_radians_convention": 0.00463751266076779,
+      "p_z_without_stabilizer_multiplier": 0.020836587154207165
+    }
+  ],
+  "previous_anchored_run_source": "results/hardware/h2_1e_anchored_idle_long.json",
+  "previous_anchored_run_sha256": "750814438f906e50a3b6d1540bf1edf547378720f267d7002905700ddec67290",
+  "previous_anchored_counts": {
+    "X_L0": {
+      "k": 82,
+      "n": 8000,
+      "p": 0.01025,
+      "job_dir": "20261015T004505Z_aqora_idleA_X_L0_H2-1E"
+    },
+    "X_L16": {
+      "k": 93,
+      "n": 8000,
+      "p": 0.011625,
+      "job_dir": "20261015T004521Z_aqora_idleA_X_L16_H2-1E"
+    },
+    "X_L32": {
+      "k": 112,
+      "n": 8000,
+      "p": 0.014,
+      "job_dir": "20261015T004537Z_aqora_idleA_X_L32_H2-1E"
+    },
+    "X_L64": {
+      "k": 120,
+      "n": 8000,
+      "p": 0.015,
+      "job_dir": "20261015T004553Z_aqora_idleA_X_L64_H2-1E"
+    },
+    "Z_L64": {
+      "k": 18,
+      "n": 4000,
+      "p": 0.0045,
+      "job_dir": "20261015T004613Z_aqora_idleA_Z_L64_H2-1E"
+    },
+    "X_L128": {
+      "k": 89,
+      "n": 8000,
+      "p": 0.011125,
+      "job_dir": "20261015T033353Z_aqora_idleA_X_L128_H2-1E"
+    }
+  },
+  "previous_fit_status": "3.6 ms/layer estimate withdrawn after L=128; no confirmed layer-to-seconds conversion",
+  "sleep_unit_status": "unverified",
+  "new_emulator_jobs_submitted": 0
+}

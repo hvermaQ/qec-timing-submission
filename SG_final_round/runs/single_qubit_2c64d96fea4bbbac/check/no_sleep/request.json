@@ -1,0 +1,15 @@
+{
+  "platform": "nexus:H2-1SC",
+  "as_entity": "q_sq",
+  "shots": 1,
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/single_qubit_2c64d96fea4bbbac/no_sleep.bc",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  }
+}

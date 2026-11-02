@@ -1,0 +1,12 @@
+{
+  "experiment": "d3_explicit_sleep_support",
+  "distance": 3,
+  "basis": "X",
+  "rounds": 2,
+  "data_qubit": 4,
+  "finite_durations_raw": [0.01, 0.02, 0.05, 0.1, 0.2],
+  "duration_unit": "unverified",
+  "purpose": "syntax_support_only_until_duration_semantics_verified",
+  "syntax_platform": "nexus:H2-1SC",
+  "emulator_platform": "nexus:H2-1E"
+}

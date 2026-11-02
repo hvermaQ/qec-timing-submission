@@ -1,0 +1,94 @@
+{
+  "spec": {
+    "spec_version": 1,
+    "code": {
+      "name": "rotated_surface",
+      "params": {
+        "d": 3
+      }
+    },
+    "basis": "X",
+    "schedule": {
+      "tick": 1.0,
+      "interval": 1,
+      "n_rounds": 2
+    },
+    "noise": {
+      "name": "circuit",
+      "params": {
+        "p1": 0,
+        "p2": 0,
+        "p_meas": 0,
+        "p_init": 0.0,
+        "idle": {
+          "gamma": 0.0,
+          "c": 0.0,
+          "depol": 0.0
+        },
+        "placement": "uniform"
+      },
+      "data_pauli": null
+    },
+    "shots": 100,
+    "seed": 7000000,
+    "allow_invisible_noise": false,
+    "extra": {
+      "explicit_sleep_probe": {
+        "enabled": true,
+        "duration_raw": 0.5,
+        "duration_unit": "unverified",
+        "physical_duration_seconds": null,
+        "target_data_qubit": 4,
+        "after_round_index": 0,
+        "scheduling_semantics": "unverified"
+      }
+    }
+  },
+  "n_qubits": 10,
+  "n_checks": 4,
+  "p_inject": 0.0,
+  "p_inject_effective": 0.0,
+  "offline_readout_flips": false,
+  "sleep": {
+    "enabled": true,
+    "duration_raw": 0.5,
+    "duration_unit": "unverified",
+    "physical_duration_seconds": null,
+    "target_data_qubit": 4,
+    "after_round_index": 0,
+    "scheduling_semantics": "unverified"
+  },
+  "validation": {
+    "llvm_assembly": "passed",
+    "call_counts_preserved": true,
+    "quantinuum_qircheck": "not_run",
+    "h2_syntax_check": "not_run",
+    "emulator_execution": "not_run"
+  },
+  "qir_calls": {
+    "___get_current_shot": 1,
+    "___random_seed": 1,
+    "__quantum__qis__mz__body": 17,
+    "__quantum__qis__phasedx__body": 90,
+    "__quantum__qis__reset__body": 16,
+    "__quantum__qis__rz__body": 82,
+    "__quantum__qis__rzz__body": 24,
+    "__quantum__qis__sleep__body": 1,
+    "__quantum__rt__bool_record_output": 17,
+    "__quantum__rt__initialize": 1,
+    "__quantum__rt__read_result": 17
+  },
+  "baseline_source": "results/hardware/programs/d3_X_r2_p0",
+  "baseline_ll_sha256": "1d76441345a391205fcb9c9898deed404462c26098f58d57a0f0c19385ccd531",
+  "baseline_compiler_versions": {
+    "guppylang": "0.21.11",
+    "hugr": "0.15.5",
+    "hugr-qir": "0.1.2",
+    "pyqir": "0.12.6",
+    "quantinuum-qircheck": "0.7.0"
+  },
+  "builder_sha256": "8f1775a21bcc2268b13911afc1bfe3666de7cb8e2b566ee2d99a9ed421fea419",
+  "ll_sha256": "cdfd60e2fdec5944e5d9e5e25a1b8f3f3705fbb0e113f790f91d8e91f8b0cf5b",
+  "bc_sha256": "c2188ade8db27b33ef40d63ac2bcca6ad899d80a018a22ed6f3d257eb888e0d7",
+  "schedule_note": "Inherited schedule is a placeholder, not measured time; sleep units unknown."
+}
