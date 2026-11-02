@@ -16,7 +16,7 @@ from qec_timing import plotting as P
 
 @dataclass
 class Op:
-    kind: str                     # "box", "cx", "meas", "reset", "cond", "bracket"
+    kind: str                     # "box", "cx", "zz", "meas", "reset", "cond", "barrier"
     wires: tuple[int, ...]
     label: str = ""
     color: str | None = None
@@ -41,7 +41,7 @@ class Circuit:
         last = [-1] * len(self.wires)
         for op in self.ops:
             span = (range(len(self.wires)) if op.kind == "barrier" else
-                    range(min(op.wires), max(op.wires) + 1) if op.kind == "cx" else op.wires)
+                    range(min(op.wires), max(op.wires) + 1) if op.kind in ("cx", "zz") else op.wires)
             op.col = max(last[w] for w in span) + 1
             for w in span:
                 last[w] = op.col
@@ -71,6 +71,12 @@ def draw(ax, circ: Circuit, title: str = "", dx: float = 0.62):
             ax.plot(x, y[b], "o", ms=10, mfc=P.SURFACE, mec=c, mew=1.0, zorder=2)
             ax.plot([x, x], [y[b] - 0.17, y[b] + 0.17], color=c, lw=1.0, zorder=3)
             ax.plot([x - 0.1, x + 0.1], [y[b], y[b]], color=c, lw=1.0, zorder=3)
+        elif op.kind == "zz":
+            a, b = op.wires
+            ax.plot([x, x], [y[a], y[b]], color=c, lw=1.0, zorder=1)
+            for w in (a, b):
+                ax.text(x, y[w], op.label or "ZZ", ha="center", va="center", fontsize=7, color=c,
+                        bbox=dict(box, ec=c), zorder=3)
         else:
             for w in op.wires:
                 label = {"meas": op.label or "M", "reset": "|0⟩"}.get(op.kind, op.label)
@@ -170,6 +176,74 @@ def idle_circuit(basis: str = "X", show_targets: int = 2, spectators: int = 2) -
         if x_basis:
             circ.add("box", q, label="H")
         circ.add("meas", q, label=f"t{q}")
+    return circ
+
+
+def _idle_wires(show_targets: int, spectators: int, anchor: bool):
+    t = [f"t{i}" for i in range(show_targets)] + ["⋮"]
+    circ = Circuit(t + (["anchor"] if anchor else []) + [f"s{i}" for i in range(spectators)])
+    a = len(t) if anchor else None
+    sp = list(range(len(t) + bool(anchor), len(circ.wires)))
+    return circ, list(range(show_targets)), a, sp
+
+
+def _transport_layer(circ: Circuit, sp: list[int], label: str):
+    """One random-pairing layer: H on every spectator, then ZZ on pairs (one pairing shown)."""
+    first = len(circ.ops)
+    for q in sp:
+        circ.add("box", q, label="H")
+    half = len(sp) // 2
+    for i in range(half):
+        circ.add("zz", sp[i], sp[i + half], color=P.SERIES[0])
+    circ.region(first, len(circ.ops) - 1, sp[0], sp[-1], label)
+
+
+def _feed_forward_and_read(circ: Circuit, tg: list[int], sp: list[int], x_basis: bool,
+                           anchor: int | None = None):
+    circ.add("barrier", 0, label="after L layers")
+    for q in sp:
+        circ.add("meas", q, label="M")
+    circ.add("barrier", 0, label="feed-forward")
+    for q in tg:
+        if anchor is not None:
+            circ.add("zz", q, anchor, label="−½", color=P.SERIES[1])
+        circ.add("cond", q, label="Z if parity", color=P.SERIES[1])
+    for q in tg:
+        if x_basis:
+            circ.add("box", q, label="H")
+        circ.add("meas", q, label=f"t{q}")
+
+
+def transport_idle_circuit(basis: str = "X", show_targets: int = 2, spectators: int = 4) -> Circuit:
+    """`calibration_experiments.transport_idle_program`: targets wait while spectators run L
+    layers of H then native ZZ on a fresh random pairing (forcing ion transport); spectators
+    measured, then the parity feed-forward and target readout as in `idle_circuit`."""
+    circ, tg, _, sp = _idle_wires(show_targets, spectators, anchor=False)
+    x_basis = basis == "X"
+    if x_basis:
+        for q in tg:
+            circ.add("box", q, label="H")
+    circ.add("barrier", 0, label="prepared")
+    _transport_layer(circ, sp, "repeat L times, new random pairing (targets idle)")
+    _feed_forward_and_read(circ, tg, sp, x_basis)
+    return circ
+
+
+def anchored_idle_circuit(basis: str = "X", show_targets: int = 2, spectators: int = 4) -> Circuit:
+    """`calibration_experiments.anchored_idle_program`: as `transport_idle_circuit`, but each
+    target is coupled to one anchor qubit (ZZPhase +½, anchor in |0⟩) right after its
+    preparation, the anchor touches spectator 0 before the layers, and the coupling is undone
+    (ZZPhase −½) at the end. This forces the targets' preparation before the wait."""
+    circ, tg, a, sp = _idle_wires(show_targets, spectators, anchor=True)
+    x_basis = basis == "X"
+    for q in tg:
+        if x_basis:
+            circ.add("box", q, label="H")
+        circ.add("zz", q, a, label="+½", color=P.SERIES[1])
+    circ.add("zz", a, sp[0], color=P.SERIES[1])
+    circ.add("barrier", 0, label="anchored")
+    _transport_layer(circ, sp, "repeat L times, new random pairing (targets idle)")
+    _feed_forward_and_read(circ, tg, sp, x_basis, anchor=a)
     return circ
 
 

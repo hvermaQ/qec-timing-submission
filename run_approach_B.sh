@@ -19,7 +19,7 @@ $PY -m qec_timing.studies.regime --calibration "$H2" --t-round 0.002 0.01 0.03 0
 if [[ "${NOTEBOOKS:-1}" == 1 ]]; then
   for nb in 03_dephasing_needs_x_basis 04_premise_realistic_noise 05_per_qubit_error \
             06_decoder_matters 07_dt_star_vs_idle_strength 08_regime_on_h2; do
-    .venv-main/bin/jupyter nbconvert --to notebook --execute --inplace "notebooks/$nb.ipynb"
+    .venv-main/bin/jupyter execute --inplace "notebooks/$nb.ipynb"
   done
 fi
 echo "approach B done: results/{premise,effective,per_qubit,decoders,idle_scaling,regime}, figures/03-08_*"

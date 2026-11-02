@@ -1,5 +1,5 @@
 {
- "setup": "d=3 rotated surface code, X basis, 2 rounds, one reused ancilla; H2-1E via aqora (q_sq), 100 shots; decoded with the paper-model graph (p_data = injected p or 2e-3, p_read = 1e-3)",
+ "setup": "d=3 rotated surface code, X basis, 2 rounds, one reused ancilla; H2-1E via aqora (q_sq), 100 shots; decoded with the paper-model graph (p_data = injected p or 0.002, p_read = 0.001); stim_* = that graph's model in Stim, 200000 shots",
  "runs": {
   "d3_X_r2_p0": {
    "injected_p": 0.0,

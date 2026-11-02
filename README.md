@@ -24,10 +24,11 @@ leakage-heralded decoder (the QIR toolchain cannot compile leakage-aware measure
 **Start here:** *Claims and evidence* below (every claim, its evidence and its level), the notebooks in
 `notebooks/` (figures in `figures/`), the scripts in *Running* below, and `REPRODUCE.md` (one command per result).
 The notebooks run in two arcs:
-- **simulation, 01–09:** idle in applications (01); the paper's model, Guppy vs Stim (02);
+- **simulation, 01–10 (run locally):** idle in applications (01); the paper's model, Guppy vs Stim (02);
   dephasing needs the X basis (03); realistic circuit noise (04–06); how the optimum moves
   with idle strength (07); the regime on H2-1E rates (08); the payoff, time for space (09);
-- **hardware, 10–15:** program size and cost (10), the device program checked end to end
+  the program's size and cost as QIR (10);
+- **hardware, 11–15 (H2 emulators, `hardware/`):** the device program checked end to end
   (11), measuring the device's idle noise and feeding it back (12), the hardware experiments
   drawn, with their syntax checks (13), noise injection on the H2 emulators: injection check and
   the d = 5 Δt sweep (14), gauging the idle parameters with spectator qubits (15).
@@ -37,17 +38,17 @@ Hardware experiments, one short README each: `results/hardware/experiments/`.
 
 ## Running
 
-Four scripts at the top level, one per part of the story. Each runs the studies, then
-executes the matching notebooks (figures go to `figures/`). Set up the environments first
-(*Setup* below). Simulations are stored in `store/` by a hash of their full specification,
-so a rerun only decodes what is already there and an interrupted run resumes.
+**Simulations (notebooks 01–10): three scripts at the top level**, one per part of the story,
+all local. Each runs the studies, then executes the matching notebooks (figures go to
+`figures/`). Set up the environments first (*Setup* below). Simulations are stored in `store/`
+by a hash of their full specification, so a rerun only decodes what is already there and an
+interrupted run resumes.
 
 | Script | What it answers | Notebooks | Time from scratch |
 | --- | --- | --- | --- |
 | `./run_idle_importance.sh` | Why idling matters: idle share of applications (adder 84–87%, QFT 41–51%); when waiting at d beats back-to-back rounds at d + 2 | 01, 09 | ~1 h |
-| `./run_approach_A.sh` | Approach (A): the paper's model with noise injected in a Guppy program, against Stim; 1/Δt* vs d | 02 | ~15 min |
+| `./run_approach_A.sh` | Approach (A): the paper's model with noise injected in a Guppy program, against Stim; 1/Δt* vs d; what the program costs as QIR | 02, 10 | ~15 min |
 | `./run_approach_B.sh` | Approach (B): native gates, gate noise and idle dephasing (γ, c); the optimum under circuit noise (Fig. 1), the Δt* map (Fig. 2), H2's regime | 03–08 | ~2 h |
-| `./run_hardware.sh <step>` | Hardware experiments on the H2 emulators through aqora | 10–15 | see below |
 
 Options, as environment variables: `WORKERS=16` (parallel workers, default 8),
 `NOTEBOOKS=0` (studies only), `PY=...` (another interpreter). Examples:
@@ -59,21 +60,20 @@ Options, as environment variables: `WORKERS=16` (parallel workers, default 8),
 WORKERS=16 NOTEBOOKS=0 ./run_approach_B.sh
 ```
 
-`run_hardware.sh` runs in steps, so nothing costs credits by accident:
+**Hardware (notebooks 11–15): [`hardware/`](hardware/README.md)**, one script per step, so the
+one that spends credits can't run by accident:
 
-| Step | Does | Needs | Cost |
-| --- | --- | --- | --- |
-| `build` | every program as QIR, a contract check on local Selene, program-size scaling | H2 env | free |
-| `check` | every program through the H2-1SC / H2-2SC syntax checkers (validates, executes nothing) | aqora login | free |
-| `submit` | prints the run plan (experiment, program, emulator, shots) and stops | — | free |
-| `submit --confirm` | runs the plan: d = 3 memory (H2-1E), d = 5 Δt sweep (H2-2E), anchored idle (H2-1E) | aqora login | **credits** |
-| `analyse` | executes notebooks 10–15 on the results in `results/hardware/` | main env | free |
+| Step | Does | Cost |
+| --- | --- | --- |
+| `hardware/1_build.sh` | every program as QIR (byte for byte the committed ones), contract check on local Selene | free |
+| `hardware/2_check.sh` | the planned programs through the H2-1SC / H2-2SC syntax checkers | free |
+| `hardware/3_submit.sh [--confirm]` | prints the run plan (47 emulator jobs); with `--confirm`, runs it on H2-1E / H2-2E | **credits** |
+| `hardware/4_collect.sh` | returned jobs in `store/hardware/` → the summaries in `results/hardware/` | free |
+| `hardware/5_analyse.sh` | executes notebooks 11–15 on those summaries | free |
 
-Log in once with `.venv-h2/bin/aqora login`; jobs run as the organisation in `ENTITY`
-(default `q_sq`). `build` rewrites the committed programs byte for byte. Two limits are known:
-R = 70 at 1000 shots exceeds aqora's per-job cost cap, and the returned jobs land in
-`store/hardware/`, but turning them into the summary files in `results/hardware/` is not
-yet scripted (notebooks 14–15 read those summaries).
+Each step after 1 takes experiment names to run part of the plan (`hardware/3_submit.sh
+dt_sweep_d5`). `collect` reproduces the committed hardware summaries from the stored jobs; what
+is exact and what is a seeded model prediction is listed in [`hardware/README.md`](hardware/README.md).
 
 ## Claims and evidence
 
@@ -317,6 +317,7 @@ Each is a module with a CLI; every run goes to the store, the summary to `result
 | `python -m qec_timing.studies.decoders` | Does decoding with the paper's graph instead of the circuit's full error model change the answer? | `results/decoders/` |
 | `python -m qec_timing.studies.idle_scaling` | How does Δt* move with idle strength (power laws, calibrated ansatz, Δt* map with a held-out test)? | `results/idle_scaling/` |
 | `python -m qec_timing.hardware.cli ...` (H2 env) | Build (`build`, `calib-build --transport\|--anchored`), check locally, syntax-check (`aqora-check`), run (`aqora-submit --confirm`), fit (`calib-fit`) | `results/hardware/`, `config/` |
+| `python -m qec_timing.hardware.cli collect` (main env) | What do the returned emulator jobs give: decoded failures, idle fits, model predictions? | `results/hardware/` |
 
 **Regression against the original repo.** The circuit-level backends reproduce the
 original notebooks' cached failure counts exactly (same circuits, same seeds): 12/12
@@ -364,3 +365,11 @@ Each contract is also tested against a deliberately broken implementation
 record the spec, backend versions and code commit. `check_lineage` flags results
 built on runs from different code. `store/` is gitignored; canonical runs are added
 explicitly.
+
+## References
+
+Device specifications (Quantinuum):
+- [Performance validation](https://docs.quantinuum.com/systems/user_guide/hardware_user_guide/performance_validation.html):
+  per-machine benchmarks for H2-1, H2-2 and Helios-1, including memory (idle) error per depth-1
+  circuit time, gate, SPAM, leakage and crosstalk errors.
+- [H2 product data sheet](https://docs.quantinuum.com/systems/_static/assets/data_sheets/Quantinuum%20H2%20Product%20Data%20Sheet.pdf).

@@ -4,8 +4,9 @@ Linux, Python from `uv`. Times are on a 20-core, 31 GB workstation. Every comman
 the repository root. Every simulation run is written to `store/` (gitignored, about 7 GB
 after a full reproduction) and every study summary to `results/` (committed).
 
-The top-level scripts (`run_approach_A.sh`, `run_approach_B.sh`, `run_idle_importance.sh`,
-`run_hardware.sh`) run the commands below in groups; see *Running* in `README.md`.
+The top-level scripts (`run_approach_A.sh`, `run_approach_B.sh`, `run_idle_importance.sh`)
+run the simulation commands below in groups; the hardware steps are scripts in `hardware/`.
+See *Running* in `README.md`.
 
 Studies look runs up in the store before running them, so a second invocation only decodes
 stored data, and an interrupted study resumes where it stopped.
@@ -29,11 +30,11 @@ uv venv --python 3.11.13 .venv-h2 && uv pip sync --python .venv-h2/bin/python en
 
 | env | command | result | time |
 | --- | --- | --- | --- |
-| core | `.venv/bin/python -m pytest` | 50 passed, 11 skipped (need other envs) | 2 s |
-| main | `.venv-main/bin/python -m pytest` | 100 passed, 5 skipped (H2 env) | 17 s |
-| H2 | `.venv-h2/bin/python -m pytest` | 57 passed, 4 skipped (main env) | 9 s |
+| core | `.venv/bin/python -m pytest` | 50 passed, 13 skipped (need other envs) | 2 s |
+| main | `.venv-main/bin/python -m pytest` | 102 passed, 5 skipped (H2 env) | 30 s |
+| H2 | `.venv-h2/bin/python -m pytest` | 58 passed, 5 skipped (main env) | 8 s |
 
-Dated record of these runs: `results/test_runs/2026-10-13.txt`. The 6 warnings in the main
+Dated record of these runs: `results/test_runs/2026-10-30.txt`. The 6 warnings in the main
 env are selene-sim leaving its own log files open (ResourceWarning), not ours. `-m "not slow"` skips the tests that
 compile Guppy/Selene programs.
 
@@ -42,7 +43,8 @@ What the tests pin, beyond unit behaviour:
 - **Exact regressions against the original research repo:**
   - circuit-level failure counts identical at the same seeds (textbook and native gates);
   - the H2 QIR byte-identical to the original Stage 7a program;
-  - application idle fractions equal to the original notebook 10.
+  - application idle fractions equal to the original notebook 10;
+  - every hardware summary in `results/hardware/` rebuilt from the stored emulator jobs (needs `store/hardware/`).
 - **Fits recovering known parameters from synthetic data:** edge extraction, idle calibration, and `calib-fit` end to end.
 
 ## 3. Studies (main env unless noted)
@@ -61,8 +63,8 @@ What the tests pin, beyond unit behaviour:
 | decoder comparison | `python -m qec_timing.studies.decoders --workers 8` (after premise native) | ~10 min | `results/decoders/` |
 | Δt* vs idle strength, Δt* map | `python -m qec_timing.studies.idle_scaling --placement uniform --workers 8` | ~20 min | `results/idle_scaling/idle_scaling_uniform.json` |
 | same, data-only idle (original notebook 07 reference) | `python -m qec_timing.studies.idle_scaling --workers 8` | ~20 min | `results/idle_scaling/idle_scaling.json` |
-| QIR programs and scaling (H2 env) | `.venv-h2/bin/python -m qec_timing.hardware.cli build ...`, `scaling`, `calib-build` | 1 min | `results/hardware/` |
-| notebooks | `python notebooks/_build.py notebooks`, then execute | 2 min | `notebooks/*.ipynb` |
+| QIR scaling, notebook 10 (H2 env) | `.venv-h2/bin/python -m qec_timing.hardware.cli scaling` | 1 min | `results/hardware/qir_scaling.json` |
+| notebooks | `python notebooks/_build.py notebooks`, then `.venv-main/bin/jupyter execute --inplace notebooks/<nb>.ipynb` | 2 min | `notebooks/*.ipynb` |
 
 **Seeds.**
 - Every run's seed is fixed in the study modules, and its run id is a hash of its full specification, so reruns are identical.
@@ -74,11 +76,23 @@ What the tests pin, beyond unit behaviour:
 
 An earlier unbounded version exhausted memory and was fixed (commits `ca592d3`, `dd884a4`).
 
-## 4. Hardware (H2 env, needs an aqora or Nexus login)
+## 4. Hardware (notebooks 11–15)
 
-Nothing here has been run on a device yet: access through aqora is blocked by a Nexus
-terms challenge on the provider side (aqora issue, since 9 October). The order of use is in
-`results/hardware/README.md`. Credit-spending commands refuse to run without `--confirm`.
+Run on Quantinuum's H2-1E / H2-2E emulators through aqora (organisation `q_sq`); this
+account has no device. One script per step, in [`hardware/`](hardware/README.md):
+
+| step | command | env | cost | output |
+| --- | --- | --- | --- | --- |
+| programs as QIR | `hardware/1_build.sh` | H2 | free | `results/hardware/programs/`, `calibration_programs/` (bitcode byte for byte) |
+| syntax checks | `hardware/2_check.sh` | H2, aqora login | free | `store/hardware/*SC/` |
+| emulator runs (47 jobs) | `hardware/3_submit.sh --confirm` | H2, aqora login | **credits** | `store/hardware/*E/` |
+| summaries | `hardware/4_collect.sh` | main | free, 20 s | `results/hardware/*.json` |
+| notebooks 11–15 | `hardware/5_analyse.sh` | main | free | `figures/11-15_*` |
+
+`collect` rebuilds every committed summary from the 81 stored jobs: exactly for everything
+taken from the returned shots, and with the original seeds for the Stim model predictions (all
+but one model curve, which agrees within shot noise). Details: `hardware/README.md`. Commands
+that spend credits refuse to run without `--confirm`.
 
 ## 5. Provenance
 

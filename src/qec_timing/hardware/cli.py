@@ -1,4 +1,5 @@
-"""Hardware command line. H2 env ONLY (envs/h2.txt). Log in once first:
+"""Hardware command line. H2 env (envs/h2.txt), except `collect`, which runs in the
+main env (Stim, PyMatching). Log in once first:
 `.venv-h2/bin/aqora login` (aqora) or `.venv-h2/bin/qnx login` (Nexus).
 
     build         write a memory experiment as validated QIR (+ .json with its spec)
@@ -13,6 +14,7 @@
     scaling       QIR size, call count and build time against distance and rounds
     calib-build   readout and spectator-idle calibration programs (QIR), one per layer count
     calib-fit     fit returned calibration jobs and write a Calibration file
+    collect       every returned emulator job -> the summaries in results/hardware/ (main env)
 
 Examples (repo root):
     .venv-h2/bin/python -m qec_timing.hardware.cli build --d 3 --basis X --rounds 2 --p-inject 0.05
@@ -20,6 +22,7 @@ Examples (repo root):
     .venv-h2/bin/python -m qec_timing.hardware.cli aqora-list
     .venv-h2/bin/python -m qec_timing.hardware.cli aqora-check results/hardware/programs/d3_X_r2_p0.05.bc --platform nexus:H2-1SC
     .venv-h2/bin/python -m qec_timing.hardware.cli nexus-cost results/hardware/programs/d3_X_r2_p0.05.bc --shots 100
+    .venv-main/bin/python -m qec_timing.hardware.cli collect
 """
 
 from __future__ import annotations
@@ -202,21 +205,10 @@ def cmd_calib_fit(a) -> None:
     import dataclasses
 
     from qec_timing.hardware import Calibration
-    from qec_timing.hardware.calibration_experiments import (fit_idle, fit_readout, flips,
-                                                             to_calibration_fields)
-    from qec_timing.hardware.providers import load_shots
+    from qec_timing.hardware.calibration_experiments import to_calibration_fields
+    from qec_timing.hardware.collect import fit_calibration
 
-    out = {"readout": None, "idle": {}}
-    if a.readout:
-        out["readout"] = fit_readout(load_shots(a.readout))
-    by_basis: dict[str, list] = {}
-    for jd in a.idle:
-        meta = json.loads((jd / "program.json").read_text())
-        by_basis.setdefault(meta["basis"], []).append(
-            (meta["layers"], flips(load_shots(jd), meta["basis"])))
-    for basis, pts in by_basis.items():
-        pts.sort()
-        out["idle"][basis] = fit_idle([L for L, _ in pts], [r for _, r in pts])
+    out = fit_calibration(a.readout, a.idle)
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.with_suffix(".fit.json").write_text(json.dumps(out, indent=2))
     print(json.dumps(out, indent=2))
@@ -233,6 +225,13 @@ def cmd_calib_fit(a) -> None:
         f"gates and p_init from: {base.source}"))
     cal.save(a.out)
     print(f"wrote {a.out}")
+
+
+def cmd_collect(a) -> None:
+    from qec_timing.hardware.collect import collect
+
+    for p in collect(a.store / "hardware", a.out):
+        print(f"wrote {p}")
 
 
 def main(argv=None) -> int:
@@ -329,6 +328,10 @@ def main(argv=None) -> int:
                     help="gate and init errors are taken from here (not measured by these programs)")
     cf.add_argument("--out", type=Path, default=Path("config/h2_measured.json"))
     cf.set_defaults(fn=cmd_calib_fit)
+
+    co = sub.add_parser("collect")
+    co.add_argument("--out", type=Path, default=Path("results/hardware"))
+    co.set_defaults(fn=cmd_collect)
 
     a = ap.parse_args(argv)
     a.fn(a)

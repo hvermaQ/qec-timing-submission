@@ -2,16 +2,18 @@
  "rows": [
   {
    "dir": "20261014T083632Z_aqora_d3_X_r2_p0.05_H2-1SC",
-   "program": "d3_X_r2_p0.05 (first attempt)",
+   "program": "d3_X_r2_p0.05",
+   "platform": "H2-1SC",
    "as_entity": null,
    "job_id": null,
-   "status": "NOT SUBMITTED (refused: not authorized as personal account)",
+   "status": "NOT SUBMITTED",
    "error": null,
    "output": []
   },
   {
    "dir": "20261014T083711Z_aqora_d3_X_r2_p0.05_H2-1SC",
    "program": "d3_X_r2_p0.05",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5j2epfqOSWTk9CkY6Yg",
    "status": "COMPLETED",
@@ -27,6 +29,7 @@
   {
    "dir": "20261014T083941Z_aqora_readout_H2-1SC",
    "program": "readout",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5kUXvfFC3IecROuKY0Q",
    "status": "COMPLETED",
@@ -42,6 +45,7 @@
   {
    "dir": "20261014T083959Z_aqora_idle_X_L0_H2-1SC",
    "program": "idle_X_L0",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5kYuzfqCRZC7c9Ir-_A",
    "status": "COMPLETED",
@@ -57,6 +61,7 @@
   {
    "dir": "20261014T084016Z_aqora_idle_X_L16_H2-1SC",
    "program": "idle_X_L16",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5kc86eQCEfIHFNpd6Uw",
    "status": "COMPLETED",
@@ -72,6 +77,7 @@
   {
    "dir": "20261014T084034Z_aqora_idle_X_L2_H2-1SC",
    "program": "idle_X_L2",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5khNrcaOLGIT2SkfnDA",
    "status": "COMPLETED",
@@ -87,6 +93,7 @@
   {
    "dir": "20261014T084053Z_aqora_idle_X_L32_H2-1SC",
    "program": "idle_X_L32",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5kl9reICrINTQr5a5LA",
    "status": "COMPLETED",
@@ -102,6 +109,7 @@
   {
    "dir": "20261014T084110Z_aqora_idle_X_L4_H2-1SC",
    "program": "idle_X_L4",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5kqI5f_KF91WxvQMtFA",
    "status": "COMPLETED",
@@ -117,6 +125,7 @@
   {
    "dir": "20261014T084128Z_aqora_idle_X_L64_H2-1SC",
    "program": "idle_X_L64",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5kuc3fBOUxOBkXghNuw",
    "status": "COMPLETED",
@@ -132,6 +141,7 @@
   {
    "dir": "20261014T084239Z_aqora_idle_X_L8_H2-1SC",
    "program": "idle_X_L8",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5lDkXcFCOqFjrFM9jiw",
    "status": "COMPLETED",
@@ -147,6 +157,7 @@
   {
    "dir": "20261014T084312Z_aqora_idle_Z_L0_H2-1SC",
    "program": "idle_Z_L0",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5lH7ad0Oui6Ga7AxVHQ",
    "status": "COMPLETED",
@@ -162,6 +173,7 @@
   {
    "dir": "20261014T084331Z_aqora_idle_Z_L16_H2-1SC",
    "program": "idle_Z_L16",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5lMbnf2GDqbu5v_z9cQ",
    "status": "COMPLETED",
@@ -177,6 +189,7 @@
   {
    "dir": "20261014T084349Z_aqora_idle_Z_L2_H2-1SC",
    "program": "idle_Z_L2",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5lQ12eKCn3ClKuO2I5w",
    "status": "COMPLETED",
@@ -192,6 +205,7 @@
   {
    "dir": "20261014T084406Z_aqora_idle_Z_L32_H2-1SC",
    "program": "idle_Z_L32",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5lVB3fxG5GUoXUpsZCg",
    "status": "COMPLETED",
@@ -207,6 +221,7 @@
   {
    "dir": "20261014T084424Z_aqora_idle_Z_L4_H2-1SC",
    "program": "idle_Z_L4",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5lZTmcjCB7vuzJPkf4Q",
    "status": "COMPLETED",
@@ -222,6 +237,7 @@
   {
    "dir": "20261014T084441Z_aqora_idle_Z_L64_H2-1SC",
    "program": "idle_Z_L64",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5ldm3cwGN-uXRB3Rz2Q",
    "status": "COMPLETED",
@@ -237,6 +253,7 @@
   {
    "dir": "20261014T084459Z_aqora_idle_Z_L8_H2-1SC",
    "program": "idle_Z_L8",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5liDwdYCN1zkmlslnfg",
    "status": "COMPLETED",
@@ -251,16 +268,18 @@
   },
   {
    "dir": "20261014T093855Z_aqora_d3_X_r2_p0_H2-1SC",
-   "program": "d3_X_r2_p0.05 (first attempt)",
+   "program": "d3_X_r2_p0",
+   "platform": "H2-1SC",
    "as_entity": null,
    "job_id": null,
-   "status": "NOT SUBMITTED (refused: not authorized as personal account)",
+   "status": "NOT SUBMITTED",
    "error": null,
    "output": []
   },
   {
    "dir": "20261014T094040Z_aqora_d3_X_r2_p0_H2-1SC",
    "program": "d3_X_r2_p0",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE5yRtgfHOPea8Ntwvc1Q",
    "status": "COMPLETED",
@@ -276,6 +295,7 @@
   {
    "dir": "20261014T111349Z_aqora_idleT_X_L0_H2-1SC",
    "program": "idleT_X_L0",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE6HrR0erCJB7UhtJIMRw",
    "status": "COMPLETED",
@@ -291,6 +311,7 @@
   {
    "dir": "20261014T111428Z_aqora_idleT_X_L2_H2-1SC",
    "program": "idleT_X_L2",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE6Hvm-ckOhQm91qUU9WQ",
    "status": "COMPLETED",
@@ -306,6 +327,7 @@
   {
    "dir": "20261014T111445Z_aqora_idleT_X_L4_H2-1SC",
    "program": "idleT_X_L4",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE6Hz3ldGOQjaeqh3ES8g",
    "status": "COMPLETED",
@@ -321,6 +343,7 @@
   {
    "dir": "20261014T111504Z_aqora_idleT_X_L8_H2-1SC",
    "program": "idleT_X_L8",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE6H4WxeEO8NnvKjy7llQ",
    "status": "COMPLETED",
@@ -336,6 +359,7 @@
   {
    "dir": "20261014T111521Z_aqora_idleT_X_L16_H2-1SC",
    "program": "idleT_X_L16",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE6H8nMeoG1MOYvC43pEw",
    "status": "COMPLETED",
@@ -351,6 +375,7 @@
   {
    "dir": "20261014T111538Z_aqora_idleT_Z_L0_H2-1SC",
    "program": "idleT_Z_L0",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE6IA2QfcCBqZz1muCdpQ",
    "status": "COMPLETED",
@@ -366,6 +391,7 @@
   {
    "dir": "20261014T111556Z_aqora_idleT_Z_L2_H2-1SC",
    "program": "idleT_Z_L2",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE6IFEkf0CirkPqdbKs4A",
    "status": "COMPLETED",
@@ -381,6 +407,7 @@
   {
    "dir": "20261014T111614Z_aqora_idleT_Z_L4_H2-1SC",
    "program": "idleT_Z_L4",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE6IJjScdKNM5MIAgIZGQ",
    "status": "COMPLETED",
@@ -396,6 +423,7 @@
   {
    "dir": "20261014T111631Z_aqora_idleT_Z_L8_H2-1SC",
    "program": "idleT_Z_L8",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE6INwwf4KdNWP4fInl2Q",
    "status": "COMPLETED",
@@ -411,6 +439,7 @@
   {
    "dir": "20261014T111650Z_aqora_idleT_Z_L16_H2-1SC",
    "program": "idleT_Z_L16",
+   "platform": "H2-1SC",
    "as_entity": "q_sq",
    "job_id": "AFByb3ZpZGVySm9iAaE6ISV7f2OtKl0Jdv0ZHg",
    "status": "COMPLETED",
@@ -422,6 +451,314 @@
      "shots": 100
     }
    ]
+  },
+  {
+   "dir": "20261014T121024Z_aqora_d5_X_r70_p0.015_lam1_dt0.1429_H2-1SC",
+   "program": "d5_X_r70_p0.015_lam1_dt0.1429",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6UnxTdlC3EgEfFiH4mA",
+   "status": null,
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261014T123518Z_aqora_d5_X_r20_p0.015_lam1_dt0.5_H2-1SC",
+   "program": "d5_X_r20_p0.015_lam1_dt0.5",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6aUVFdGKydKNZypCrQA",
+   "status": null,
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261014T130018Z_aqora_d5_X_r10_p0.015_lam1_dt1_H2-1SC",
+   "program": "d5_X_r10_p0.015_lam1_dt1",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6gDWncWKR5Muc8qCaeg",
+   "status": null,
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261014T132518Z_aqora_d5_X_r4_p0.015_lam1_dt2.5_H2-1SC",
+   "program": "d5_X_r4_p0.015_lam1_dt2.5",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6lwoVdFOrHjVxRiA65Q",
+   "status": null,
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261014T132527Z_aqora_d5_X_r70_p0.015_lam1_dt0.1429_H2-2SC",
+   "program": "d5_X_r70_p0.015_lam1_dt0.1429",
+   "platform": "H2-2SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6lw80czG4dNcM_Lg0HA",
+   "status": "WAITING",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261014T132553Z_aqora_d5_X_r20_p0.015_lam1_dt0.5_H2-2SC",
+   "program": "d5_X_r20_p0.015_lam1_dt0.5",
+   "platform": "H2-2SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6l1F-cvGgSOqNDLYwMA",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261014T132610Z_aqora_d5_X_r10_p0.015_lam1_dt1_H2-2SC",
+   "program": "d5_X_r10_p0.015_lam1_dt1",
+   "platform": "H2-2SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6l5SDf3O_blQBfIlU_g",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261014T132631Z_aqora_d5_X_r4_p0.015_lam1_dt2.5_H2-2SC",
+   "program": "d5_X_r4_p0.015_lam1_dt2.5",
+   "platform": "H2-2SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6l-RidyCr5LKOtNJ7vw",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 73,
+     "bits": 4672,
+     "shots": 1000
+    }
+   ]
+  },
+  {
+   "dir": "20261014T132647Z_aqora_d5_X_r2_p0.015_lam1_dt5_H2-2SC",
+   "program": "d5_X_r2_p0.015_lam1_dt5",
+   "platform": "H2-2SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6mCLPfoGvTiTaSn_86A",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 49,
+     "bits": 3136,
+     "shots": 1000
+    }
+   ]
+  },
+  {
+   "dir": "20261014T135017Z_aqora_d5_X_r2_p0.015_lam1_dt5_H2-1SC",
+   "program": "d5_X_r2_p0.015_lam1_dt5",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE6rce4c6OszzUlXh4yiQ",
+   "status": null,
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261015T001406Z_aqora_idleA_X_L0_H2-1SC",
+   "program": "idleA_X_L0",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE86QpWfLKtS6uIdx98MQ",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261015T001440Z_aqora_idleA_X_L2_H2-1SC",
+   "program": "idleA_X_L2",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE86UgndGK_0ptPRVj5sQ",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261015T001456Z_aqora_idleA_X_L4_H2-1SC",
+   "program": "idleA_X_L4",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE86YaFc6Kp62ebFUWU-w",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261015T001513Z_aqora_idleA_X_L8_H2-1SC",
+   "program": "idleA_X_L8",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE86ckFeICJyxcUT8QVKQ",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261015T001530Z_aqora_idleA_X_L16_H2-1SC",
+   "program": "idleA_X_L16",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE86gzqftGxChKUjef9eg",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261015T001548Z_aqora_idleA_Z_L0_H2-1SC",
+   "program": "idleA_Z_L0",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE86lKPdPGlf7C_NvbFWg",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261015T001606Z_aqora_idleA_Z_L2_H2-1SC",
+   "program": "idleA_Z_L2",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE86peweUOgVEdV1xQ0Hw",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261015T001625Z_aqora_idleA_Z_L4_H2-1SC",
+   "program": "idleA_Z_L4",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE86uMCdOGCvmhg6-HuMQ",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261015T001644Z_aqora_idleA_Z_L8_H2-1SC",
+   "program": "idleA_Z_L8",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE86yqucNKrLB9NHG8cxg",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261015T001702Z_aqora_idleA_Z_L16_H2-1SC",
+   "program": "idleA_Z_L16",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE863Dsc7KBIdKv8t03qw",
+   "status": "COMPLETED",
+   "error": null,
+   "output": [
+    {
+     "registers": 9,
+     "bits": 576,
+     "shots": 100
+    }
+   ]
+  },
+  {
+   "dir": "20261015T004349Z_aqora_idleA_X_L32_H2-1SC",
+   "program": "idleA_X_L32",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE9BEUGdROkh7nUDJZQgQ",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261015T004424Z_aqora_idleA_X_L64_H2-1SC",
+   "program": "idleA_X_L64",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE9BIPufPC-PIX-6H2Upw",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261015T004441Z_aqora_idleA_Z_L64_H2-1SC",
+   "program": "idleA_Z_L64",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE9BMQYc3O-WAsXik_Pow",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261015T015653Z_aqora_idleA_X_L128_H2-1SC",
+   "program": "idleA_X_L128",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE9Ry-iefG4CrdPwnp9Rg",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261015T015731Z_aqora_idleA_X_L256_H2-1SC",
+   "program": "idleA_X_L256",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE9R3aQdiCXhPQLe_-6yQ",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
+  },
+  {
+   "dir": "20261015T015748Z_aqora_idleA_Z_L256_H2-1SC",
+   "program": "idleA_Z_L256",
+   "platform": "H2-1SC",
+   "as_entity": "q_sq",
+   "job_id": "AFByb3ZpZGVySm9iAaE9R7gfd4CRortAyE5rJw",
+   "status": "COMPLETED",
+   "error": null,
+   "output": []
   }
  ]
 }

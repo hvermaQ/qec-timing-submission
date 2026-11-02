@@ -25,11 +25,11 @@
     },
     "Z": {
       "spam_floor": 0.0,
-      "gamma_per_layer": 6.47091544946005e-05,
-      "gamma_per_layer_se": 0.0002477946122165692,
-      "c_per_layer": 6.199617977347032e-06,
-      "c_per_layer_se": 1.872969692581335e-05,
-      "chi2_per_dof": 0.08699235078325848,
+      "gamma_per_layer": 6.4709145981478e-05,
+      "gamma_per_layer_se": 0.00024779462132225864,
+      "c_per_layer": 6.199618595198578e-06,
+      "c_per_layer_se": 1.8729697340580215e-05,
+      "chi2_per_dof": 0.08699235078325257,
       "layers": [
         0,
         2,

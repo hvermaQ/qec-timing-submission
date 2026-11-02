@@ -1,4 +1,5 @@
-"""Quantinuum access through aqora or directly through Nexus. H2 env ONLY.
+"""Quantinuum access through aqora or directly through Nexus. H2 env ONLY, except
+`load_shots` on pytket results, which the main env also uses (`hardware.collect`).
 
 Every call keeps a record: a job directory under <store>/hardware/ with the
 program, its metadata (including the experiment spec), what was asked, and every
@@ -175,18 +176,29 @@ def nexus_fetch(job_dir: Path, timeout: float | None = None) -> Path:
 
 # --- results -> store ----------------------------------------------------------
 
+_PYTKET_RESULT = 1000      # aqora wire.RESULT_PYTKET_BACKEND_RESULT_JSON_V1
+_BACKEND_RESULT_KEYS = ("qubits", "bits", "counts", "shots", "state", "unitary",
+                        "density_matrix", "ppcirc")
+
+
 def load_shots(job_dir: Path) -> list[dict]:
     """Per-shot tag maps of a finished job: result_qsys.json (Nexus) or the first
-    result_*.txt in QSYS format (aqora)."""
+    result_*.txt from aqora. Pytket results (what aqora returns for H2 emulators) are
+    read with pytket alone, so this also works outside the H2 env."""
     if (job_dir / "result_qsys.json").exists():
         return json.loads((job_dir / "result_qsys.json").read_text())
-    from aqora._provider import wire
-    from aqora._provider.results import ProviderResult
     raw = sorted(job_dir.glob("result_*.txt"))[0].read_text()
     job = json.loads((job_dir / "job.json").read_text())
-    fmt = (job.get("results") or [{}])[0].get("format", wire.RESULT_QSYS_RESULT_JSON_V1)
-    if fmt == wire.RESULT_PYTKET_BACKEND_RESULT_JSON_V1:
-        return _pytket_tag_maps(ProviderResult(0, fmt, raw).to_backend_result())
+    fmt = (job.get("results") or [{}])[0].get("format")
+    if fmt == _PYTKET_RESULT:
+        from pytket.backends.backendresult import BackendResult
+        # The provider fills only the slots the job produced (`counts: []` beside real
+        # `shots`); from_dict keys on presence, so empty slots are dropped.
+        data = {k: v for k, v in json.loads(raw).items()
+                if k in _BACKEND_RESULT_KEYS and v not in ([], None)}
+        return _pytket_tag_maps(BackendResult.from_dict(data))
+    from aqora._provider import wire
+    from aqora._provider.results import ProviderResult
     return [s.collate_tags() for s in ProviderResult(
         0, wire.RESULT_QSYS_RESULT_JSON_V1, raw).to_qsys_result().results]
 

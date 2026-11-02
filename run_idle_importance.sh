@@ -13,7 +13,7 @@ $PY -m qec_timing.studies.regime --calibration config/h2_1e_emulator.json \
     --distances 3 5 7 --workers "$W" --out results/regime/grid        # results/regime/grid/
 if [[ "${NOTEBOOKS:-1}" == 1 ]]; then
   for nb in 01_idle_in_applications 09_time_for_space; do
-    .venv-main/bin/jupyter nbconvert --to notebook --execute --inplace "notebooks/$nb.ipynb"
+    .venv-main/bin/jupyter execute --inplace "notebooks/$nb.ipynb"
   done
 fi
 echo "idle importance done: results/idle, results/regime/grid, figures/01_*, figures/09_*"

@@ -35,11 +35,11 @@
     },
     "Z": {
       "spam_floor": 0.0,
-      "gamma_per_layer": 6.691522775491242e-05,
-      "gamma_per_layer_se": 0.00012445164776721913,
+      "gamma_per_layer": 6.691522753698922e-05,
+      "gamma_per_layer_se": 0.00012445164815597847,
       "c_per_layer": 0.0,
-      "c_per_layer_se": 4.371386201648454e-06,
-      "chi2_per_dof": 4.140070855296277,
+      "c_per_layer_se": 4.371386226114774e-06,
+      "chi2_per_dof": 4.14007083240941,
       "layers": [
         0,
         2,

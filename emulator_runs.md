@@ -83,7 +83,7 @@ returned shots; sampling it predicts p_L. Checks: without gate noise it reproduc
 
 The emulator matches the circuit model within ~1σ once its gate noise is included; the decoder
 change is small (≤ 0.006). So the earlier +4σ at Δt = 1 was the emulator's per-round gate cost, not
-decoder mismatch. The model with H2-2E gates has a flatter U (minimum ≈ 0.158 near Δt ≈ 1–1.25).
+decoder mismatch. The model with H2-2E gates has a flatter U (minimum ≈ 0.16 near Δt ≈ 1–1.7).
 Data: `results/hardware/h2_2e_dt_sweep_d5_circuit_decoder.json`, `results/hardware/h2_2e_dt_sweep_d5_model_curves.json`.
 
 ## Anchored transport-spectator idle (targets tied to the start of the wait), H2-1E, 100 shots each

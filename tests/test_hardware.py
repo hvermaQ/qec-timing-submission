@@ -1,5 +1,7 @@
 """Hardware path: bit conversion (any env) and the H2 program (H2 env only)."""
 
+from pathlib import Path
+
 import numpy as np
 import pytest
 
@@ -188,3 +190,54 @@ def test_calib_fit_end_to_end_recovers_device_rates(tmp_path):
     assert got.quad_rate == pytest.approx(truth.quad_rate, rel=0.25)
     assert got.p_meas1 == pytest.approx(truth.p_meas1, abs=4e-4)
     assert got.p2 == truth.p2 and "measured" in got.source
+
+
+def test_pytket_results_load_without_aqora(tmp_path):
+    """aqora returns H2 emulator results as pytket JSON with empty slots beside the shots;
+    load_shots reads them with pytket alone, so collect runs outside the H2 env."""
+    import json
+
+    pytest.importorskip("pytket")
+    from pytket.backends.backendresult import BackendResult
+    from pytket.circuit import Bit
+    from pytket.utils.outcomearray import OutcomeArray
+
+    from qec_timing.hardware.providers import load_shots
+
+    bits = [Bit("s0_1", i) for i in range(64)] + [Bit("m2", i) for i in range(64)]
+    rows = np.zeros((2, 128), dtype=np.uint8)
+    rows[0, 0] = 1                                 # shot 0: s0_1 = 1
+    rows[1, 64] = 1                                # shot 1: m2 = 1
+    raw = BackendResult(shots=OutcomeArray.from_readouts(rows), c_bits=bits).to_dict()
+    raw |= {"counts": [], "qubits": [], "name": "H2-1E Execution Result", "properties": {}}
+    (tmp_path / "result_0.txt").write_text(json.dumps(raw))
+    (tmp_path / "job.json").write_text(json.dumps({"results": [{"index": 0, "format": 1000}]}))
+    assert load_shots(tmp_path) == [{"s0_1": 1, "m2": 0}, {"s0_1": 0, "m2": 1}]
+
+
+_STORE_HW = Path(__file__).parents[1] / "store" / "hardware"
+
+
+@pytest.mark.slow
+@pytest.mark.skipif(not _STORE_HW.is_dir(), reason="needs the returned jobs in store/hardware/")
+def test_collect_reproduces_committed_hardware_results(tmp_path):
+    """Every summary in results/hardware/ comes back from the stored jobs: exactly, except
+    fit floats, which move in the 6th digit between numpy versions."""
+    import json
+
+    pytest.importorskip("stim")
+    pytest.importorskip("pymatching")
+    from qec_timing.hardware.collect import collect
+
+    def same(a, b):
+        if isinstance(a, dict):
+            return isinstance(b, dict) and a.keys() == b.keys() and all(same(a[k], b[k]) for k in a)
+        if isinstance(a, list):
+            return isinstance(b, list) and len(a) == len(b) and all(map(same, a, b))
+        if isinstance(a, float) or isinstance(b, float):
+            return a == pytest.approx(b, rel=1e-5, abs=1e-12)
+        return a == b
+
+    for p in collect(_STORE_HW, tmp_path):
+        committed = json.loads((Path(__file__).parents[1] / "results" / "hardware" / p.name).read_text())
+        assert same(json.loads(p.read_text()), committed), p.name

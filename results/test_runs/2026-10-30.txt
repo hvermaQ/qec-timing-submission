@@ -1,0 +1,32 @@
+Test run record, 2026-10-30T03:54:20Z, commit e0642e0 + the hardware/ restructure and hardware.collect committed with this file
+host: Linux 7.0.0-42-generic x86_64, 20 cores
+
+== .venv (Python 3.12.11)
+SKIPPED [1] tests/test_circuit.py:8: could not import 'stim': No module named 'stim'
+SKIPPED [1] tests/test_new_studies.py:6: could not import 'stim': No module named 'stim'
+SKIPPED [1] tests/test_phenom.py:7: could not import 'stim': No module named 'stim'
+SKIPPED [1] tests/test_studies.py:7: could not import 'stim': No module named 'stim'
+SKIPPED [1] tests/test_apps.py:32: could not import 'pytket': No module named 'pytket'
+SKIPPED [1] tests/test_apps.py:55: could not import 'pytket': No module named 'pytket'
+SKIPPED [2] tests/test_hardware.py:45: could not import 'hugr_qir': No module named 'hugr_qir'
+SKIPPED [1] tests/test_hardware.py:54: could not import 'hugr_qir': No module named 'hugr_qir'
+SKIPPED [1] tests/test_hardware.py:70: could not import 'hugr_qir': No module named 'hugr_qir'
+SKIPPED [1] tests/test_hardware.py:132: could not import 'hugr_qir': No module named 'hugr_qir'
+SKIPPED [1] tests/test_hardware.py:200: could not import 'pytket': No module named 'pytket'
+SKIPPED [1] tests/test_hardware.py:228: could not import 'stim': No module named 'stim'
+50 passed, 13 skipped in 1.92s
+
+== .venv-main (Python 3.12.11)
+SKIPPED [2] tests/test_hardware.py:45: could not import 'hugr_qir': No module named 'hugr_qir'
+SKIPPED [1] tests/test_hardware.py:54: could not import 'hugr_qir': No module named 'hugr_qir'
+SKIPPED [1] tests/test_hardware.py:70: could not import 'hugr_qir': No module named 'hugr_qir'
+SKIPPED [1] tests/test_hardware.py:132: could not import 'hugr_qir': No module named 'hugr_qir'
+102 passed, 5 skipped, 6 warnings in 29.97s
+
+== .venv-h2 (Python 3.11.13)
+SKIPPED [1] tests/test_circuit.py:8: could not import 'stim': No module named 'stim'
+SKIPPED [1] tests/test_new_studies.py:6: could not import 'stim': No module named 'stim'
+SKIPPED [1] tests/test_phenom.py:7: could not import 'stim': No module named 'stim'
+SKIPPED [1] tests/test_studies.py:7: could not import 'stim': No module named 'stim'
+SKIPPED [1] tests/test_hardware.py:228: could not import 'stim': No module named 'stim'
+58 passed, 5 skipped in 7.79s

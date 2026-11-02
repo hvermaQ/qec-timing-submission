@@ -1,5 +1,5 @@
 {
- "setup": "d=5 X, p=0.015, lam=1, T=10; record flips p_read=0.015 added offline; H2-2E via aqora q_sq, 1000 shots",
+ "setup": "d=5 X, p=0.015, lam=1, T=10; record flips p_read=0.015 added offline (seed 700 + R); H2-2E via aqora q_sq, 1000 shots; stim_pL = the paper's model, 50000 shots",
  "rows": [
   {
    "R": 10,
