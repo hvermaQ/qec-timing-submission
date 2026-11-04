@@ -1,0 +1,115 @@
+{
+  "all_results_stored": true,
+  "jobs": [
+    {
+      "name": "n2",
+      "shots": 1,
+      "job_id": "AFByb3ZpZGVySm9iAaGh9Eh5dlGu8vt3pq27iw",
+      "status": "COMPLETED",
+      "stored": true,
+      "raw_sha256": {
+        "result_0.txt": "8f53ff151b2031576bf9df0f8e5e5712b367763a08957fe512f0e51227cad781"
+      }
+    },
+    {
+      "name": "n3",
+      "shots": 1,
+      "job_id": "AFByb3ZpZGVySm9iAaGh9FGmfiCMISOkxkI_lw",
+      "status": "COMPLETED",
+      "stored": true,
+      "raw_sha256": {
+        "result_0.txt": "c420f8a953afbfe60a4d6e640002a08936365110c1abdf1f996f1ca1da9c9f8d"
+      }
+    },
+    {
+      "name": "n4",
+      "shots": 1,
+      "job_id": "AFByb3ZpZGVySm9iAaGh9FiUdBGfm59cKvq_UA",
+      "status": "COMPLETED",
+      "stored": true,
+      "raw_sha256": {
+        "result_0.txt": "d2addf949c0dd7ebd777c3657ddac7eb20e19f6f4f1264c7a12bd75347e9f829"
+      }
+    },
+    {
+      "name": "n5",
+      "shots": 1,
+      "job_id": "AFByb3ZpZGVySm9iAaGh9F-gczCvAqR4bkJ6_A",
+      "status": "COMPLETED",
+      "stored": true,
+      "raw_sha256": {
+        "result_0.txt": "b15cacba1608df994ac570348151ba6e62b85f6907eca17c4bec0fb74cf700df"
+      }
+    },
+    {
+      "name": "n6",
+      "shots": 1,
+      "job_id": "AFByb3ZpZGVySm9iAaGh9Gb6fnOgdkk-jHN6vQ",
+      "status": "COMPLETED",
+      "stored": true,
+      "raw_sha256": {
+        "result_0.txt": "ed29c62eab92ca525d4653e9fd56f9ddb4a075f4fc30db84be9cf7569bd3fcc0"
+      }
+    },
+    {
+      "name": "n7",
+      "shots": 1,
+      "job_id": "AFByb3ZpZGVySm9iAaGh9G4bcCCv8hB9z_mcQA",
+      "status": "COMPLETED",
+      "stored": true,
+      "raw_sha256": {
+        "result_0.txt": "9acf7a6eab34829b4a997bd7cc60ee57b99febd0bfd212b828ee59f5503682d4"
+      }
+    },
+    {
+      "name": "n8",
+      "shots": 1,
+      "job_id": "AFByb3ZpZGVySm9iAaGh9HX1daGkQlsHRLCLZg",
+      "status": "COMPLETED",
+      "stored": true,
+      "raw_sha256": {
+        "result_0.txt": "e3e039caae204b6969b83abaf86bcba12acc5d6d94f385b53787013126c25155"
+      }
+    },
+    {
+      "name": "n9",
+      "shots": 1,
+      "job_id": "AFByb3ZpZGVySm9iAaGh9H2feaOQXIe5HfD8sw",
+      "status": "COMPLETED",
+      "stored": true,
+      "raw_sha256": {
+        "result_0.txt": "fad009a5da0c720ac1ad1e6c507d1867ec10751c3e4848a76b756372423efdcc"
+      }
+    },
+    {
+      "name": "n10",
+      "shots": 1,
+      "job_id": "AFByb3ZpZGVySm9iAaGh9IUff5GHoEy5DAmeiA",
+      "status": "COMPLETED",
+      "stored": true,
+      "raw_sha256": {
+        "result_0.txt": "db4da3fbe76882ada57a983a4bd4a5c281ee11436d4aa1b99fc5b829720cd44c"
+      }
+    },
+    {
+      "name": "n15",
+      "shots": 1,
+      "job_id": "AFByb3ZpZGVySm9iAaGh9I3qfnCwl4HOwp5jJw",
+      "status": "COMPLETED",
+      "stored": true,
+      "raw_sha256": {
+        "result_0.txt": "977de5cb8a7e7798c34e6c69c2c1cd4861f49c3d35a96d6a76fffe7999ad324c"
+      }
+    },
+    {
+      "name": "n20",
+      "shots": 1,
+      "job_id": "AFByb3ZpZGVySm9iAaGh9JZJerCq4moJ6zwWDA",
+      "status": "COMPLETED",
+      "stored": true,
+      "raw_sha256": {
+        "result_0.txt": "42d1afaab8b3a0fd86cc803ee6b77bd650270f8496daa4cb0eb82126b7315784"
+      }
+    }
+  ]
+}

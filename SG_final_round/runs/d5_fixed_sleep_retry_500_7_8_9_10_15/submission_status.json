@@ -1,0 +1,42 @@
+[
+  {
+    "rounds": 7,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh_btJc1OSp-sympp0wQ",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0
+  },
+  {
+    "rounds": 8,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh_cTddPCWfnpLGd-2ng",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0
+  },
+  {
+    "rounds": 9,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh_czneAKE7ptaWtC-tA",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0
+  },
+  {
+    "rounds": 10,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh_dbTdWCnwYHAmMvzPg",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0
+  },
+  {
+    "rounds": 15,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh_eAme2K1z37mueIhtA",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0
+  }
+]

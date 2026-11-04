@@ -1,0 +1,17 @@
+{
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "shots": 1000,
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_fixed_sleep_refinement_3bb6e107a0ff6de3/n8.bc",
+  "rounds": 8,
+  "delta_t_seconds": 0.14285714285714285
+}

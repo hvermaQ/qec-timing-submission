@@ -1,0 +1,171 @@
+{
+  "platform": "nexus:H2-1E",
+  "distance": 5,
+  "basis": "X",
+  "submission_attempts": 34,
+  "job_status_counts": {
+    "REJECTED": 28,
+    "COMPLETED": 5,
+    "WAITING": 1
+  },
+  "completed_shots": 2667,
+  "rows": [
+    {
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 2,
+      "delta_t_seconds": 1.0,
+      "shots": 500,
+      "logical_failures": 72,
+      "logical_error_probability": 0.144,
+      "wilson_95": [
+        0.11593807411034973,
+        0.17749045629827542
+      ],
+      "raw_logical_parity_flips": 157,
+      "decoder_sensitivity_failures": {
+        "0.002": 72,
+        "0.02": 71,
+        "0.1": 71
+      },
+      "mean_data_error": 0.10624,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGh9ZhIdJKUHjfzj6faKQ",
+          "shots": 500,
+          "raw_sha256": "01985dadf6f018e66c7fb7e2224b80725e2117af884fe73547dd29e46c46e287",
+          "program_sha256": "7345035ca40a12710538cbf146d7951ed8b08fe08621db4f72af75b0e0d78cf2",
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_9fb82150bc37143a/execute/n2_part1/job.json",
+          "logical_failures": 72
+        }
+      ]
+    },
+    {
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 3,
+      "delta_t_seconds": 0.5,
+      "shots": 500,
+      "logical_failures": 6,
+      "logical_error_probability": 0.012,
+      "wilson_95": [
+        0.005510995174027703,
+        0.025930361116447292
+      ],
+      "raw_logical_parity_flips": 108,
+      "decoder_sensitivity_failures": {
+        "0.002": 6,
+        "0.02": 7,
+        "0.1": 11
+      },
+      "mean_data_error": 0.05712,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGh9aIpeOCwZYpJAaxv0A",
+          "shots": 500,
+          "raw_sha256": "46a960ee663116f6eec4263f55f843b8eaf98beff9a5154ae023332e83421305",
+          "program_sha256": "1989a119d984d89adec89ef0c1419e437e37dff84f25d6b99020c09e4f90ef64",
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_9fb82150bc37143a/execute/n3_part1/job.json",
+          "logical_failures": 6
+        }
+      ]
+    },
+    {
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 4,
+      "delta_t_seconds": 0.3333333333333333,
+      "shots": 500,
+      "logical_failures": 3,
+      "logical_error_probability": 0.006,
+      "wilson_95": [
+        0.0020425962719602363,
+        0.01749025210405338
+      ],
+      "raw_logical_parity_flips": 95,
+      "decoder_sensitivity_failures": {
+        "0.002": 3,
+        "0.02": 4,
+        "0.1": 11
+      },
+      "mean_data_error": 0.04424,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGh9azpeLGTJGRxMyDT9g",
+          "shots": 500,
+          "raw_sha256": "c8fa8eb894871b439a82e2fbc3beecc5344584a97d8a4ebfc78441a429e8a87c",
+          "program_sha256": "732a3793d36744c0addd486c7cc5122120736984e54441d13aadce2eec4292b3",
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_9fb82150bc37143a/execute/n4_part1/job.json",
+          "logical_failures": 3
+        }
+      ]
+    },
+    {
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 5,
+      "delta_t_seconds": 0.25,
+      "shots": 500,
+      "logical_failures": 4,
+      "logical_error_probability": 0.008,
+      "wilson_95": [
+        0.00311531518006224,
+        0.020387035834105168
+      ],
+      "raw_logical_parity_flips": 95,
+      "decoder_sensitivity_failures": {
+        "0.002": 4,
+        "0.02": 3,
+        "0.1": 7
+      },
+      "mean_data_error": 0.03736,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGh9bNPfRKRYbLP8CHB1A",
+          "shots": 500,
+          "raw_sha256": "2e2618b50ef5c457cfb418e5cdb30e336e5c0bcbdf2cd7807604ad40f92746fa",
+          "program_sha256": "4b7c6d124be36053eca2461948f424f4d2ebb656ea48c9f18c202abf48e55ca1",
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_9fb82150bc37143a/execute/n5_part1/job.json",
+          "logical_failures": 4
+        }
+      ]
+    },
+    {
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 6,
+      "delta_t_seconds": 0.2,
+      "shots": 667,
+      "logical_failures": 2,
+      "logical_error_probability": 0.0029985007496251873,
+      "wilson_95": [
+        0.0008226825608489393,
+        0.010866307017223676
+      ],
+      "raw_logical_parity_flips": 98,
+      "decoder_sensitivity_failures": {
+        "0.002": 2,
+        "0.02": 3,
+        "0.1": 11
+      },
+      "mean_data_error": 0.03700149925037481,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGh9boXefKot0ydZs8b_g",
+          "shots": 667,
+          "raw_sha256": "2b10c3355a34ef0753b7ba57a014332ddabf1952feb3188e9311b056acebe1a0",
+          "program_sha256": "cbd013fcb656b1c105e8543c45e761fc50ce9cdf5ff0f60b943053b37ad72d79",
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_9fb82150bc37143a/execute/n6_part1/job.json",
+          "logical_failures": 2
+        }
+      ]
+    }
+  ],
+  "primary_decoder": "Fixed phenomenological MWPM: p_data=.002, p_read=.001, lambda=0, final readout .001; d=5 topology",
+  "logical_observable": [
+    0,
+    5,
+    10,
+    15,
+    20
+  ],
+  "all_packed_shots_match_joint_formatted_counts": true,
+  "no_postselection": true,
+  "extraction_duration_neglected": true,
+  "parallel_sleep_verified": false
+}

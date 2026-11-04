@@ -1,0 +1,79 @@
+[
+  {
+    "name": "n2_part1",
+    "rounds": 2,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9ZhIdJKUHjfzj6faKQ",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 174.7,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "name": "n3_part1",
+    "rounds": 3,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9aIpeOCwZYpJAaxv0A",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 244.3,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "name": "n4_part1",
+    "rounds": 4,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9azpeLGTJGRxMyDT9g",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 313.9,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "name": "n5_part1",
+    "rounds": 5,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9bNPfRKRYbLP8CHB1A",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 383.5,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "name": "n6_part1",
+    "rounds": 6,
+    "shots": 667,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9boXefKot0ydZs8b_g",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 602.7654,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "name": "n6_part2",
+    "rounds": 6,
+    "shots": 667,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9cCpc-KAS2IUCMhHpw",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "name": "n6_part3",
+    "rounds": 6,
+    "shots": 666,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9ceocMOdDJp_8suX8Q",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "results": [],
+    "raw_sha256": {}
+  }
+]

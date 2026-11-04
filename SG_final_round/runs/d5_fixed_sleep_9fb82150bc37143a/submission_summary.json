@@ -1,0 +1,13 @@
+{
+  "full_sweep_hqc": 15464.4,
+  "waiting_jobs": 5,
+  "waiting_shots": 2667,
+  "waiting_reported_hqc": 1719.1654,
+  "rejected_jobs": 20,
+  "rejected_shots": 10333,
+  "rejected_reported_hqc": 0.0,
+  "remaining_estimated_hqc": 13745.2346,
+  "error": "Job cost exceeds allowed cost (code: 1002)",
+  "cause": "Funds or max-cost restriction; exact constraint unconfirmed",
+  "all_requested_shots_queued": false
+}

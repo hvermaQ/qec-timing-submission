@@ -1,0 +1,33 @@
+{
+  "distance": 5,
+  "basis": "X",
+  "rounds": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "shots_per_setting": 500,
+  "total_requested_sleep_seconds": 0.5,
+  "platform": "nexus:H2-1E",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "as_entity": "q_sq",
+  "bitcode_sha256": {
+    "n3": "2345eab893968feb433fd5b250e0cef4fe560156c95688025efc7bf521e1a138",
+    "n4": "245439fb14d7cdba3c1f68e15f40b4ff0a6be630d44973e7e528fb50884b780f",
+    "n5": "51fc567b4f9e6d3404307ec8e440a1e1ed450985b2d35599b53a611b84ce6af6",
+    "n6": "7449b032a3d9133eddcfc1e75e847d5b48888c74e27b125611be1d5861e5b1e8"
+  },
+  "estimated_hqc": 1394.8000000000002,
+  "local_validation": "Only sleep durations changed; all four LLVM assembly/roundtrip checks passed",
+  "parallel_sleep_verified": false,
+  "extraction_duration_neglected": true
+}

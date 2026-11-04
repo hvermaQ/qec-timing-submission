@@ -1,0 +1,86 @@
+{
+  "experiment": "d3_X_fixed_total_sleep_1s",
+  "distance": 3,
+  "basis": "X",
+  "rounds": [
+    2,
+    5,
+    10,
+    20,
+    40
+  ],
+  "shots_per_setting": 500,
+  "total_requested_sleep_seconds": 1.0,
+  "sleep_units": "seconds as agreed",
+  "extraction_duration_neglected": true,
+  "parallel_sleep_verified": false,
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "artificial_faults": false,
+  "plan": [
+    {
+      "name": "n2",
+      "rounds": 2,
+      "parts": [
+        500
+      ],
+      "delta_t_seconds": 1.0,
+      "delta_t_exact": "1/1"
+    },
+    {
+      "name": "n5",
+      "rounds": 5,
+      "parts": [
+        500
+      ],
+      "delta_t_seconds": 0.25,
+      "delta_t_exact": "1/4"
+    },
+    {
+      "name": "n10",
+      "rounds": 10,
+      "parts": [
+        500
+      ],
+      "delta_t_seconds": 0.1111111111111111,
+      "delta_t_exact": "1/9"
+    },
+    {
+      "name": "n20",
+      "rounds": 20,
+      "parts": [
+        500
+      ],
+      "delta_t_seconds": 0.05263157894736842,
+      "delta_t_exact": "1/19"
+    },
+    {
+      "name": "n40",
+      "rounds": 40,
+      "parts": [
+        250,
+        250
+      ],
+      "delta_t_seconds": 0.02564102564102564,
+      "delta_t_exact": "1/39"
+    }
+  ],
+  "bitcode_sha256": {
+    "n2": "84ae4a804445d0355299912ffd6868f91edd30e0ff7a7bf2719eec6e3058f599",
+    "n5": "d726054f73cfa699936aee3e1a2d1053c883715a386fff4ab3e51d59e9496843",
+    "n10": "cd886fbadbf186433834623cfb7a9b1e3f3bcb103ffb1c0a16160d07e2a3ebfc",
+    "n20": "7b3157882cd77e6cb691d1cdfda92c190d0769b9559537c3d86e896b1dce1e8a",
+    "n40": "a6dcba9bcbdfea28d5edd5029b5730d10e61fb0024d49a8e823bc5e915be8aa5"
+  },
+  "baseline_sha256": "1d76441345a391205fcb9c9898deed404462c26098f58d57a0f0c19385ccd531",
+  "note": "Pinned Guppy native non-final and final round blocks reused directly in QIR"
+}

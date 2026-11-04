@@ -143,3 +143,31 @@ The H2-2E data have now been decoded on user request: logical failures are
 2, 5, 17, 48, 140 / 1,000 at raw arguments 0, 0.1, 0.5, 0.75, 1.
 See `results/d3_sleep_five_point_h2_2e_analysis.md` for confidence intervals,
 decoder assumptions, the overall error model and limits on idle-rate inference.
+
+## Fixed one-second requested sleep: submitted to H2-1E
+
+The d=3 X-memory tradeoff experiment uses N=2,5,10,20,40 extraction rounds,
+with Delta t=1/(N-1) seconds between rounds and 500 shots per setting. Extraction
+duration is neglected. QIR reuses the pinned native extraction blocks; all five
+H2-1SC checks passed. Six emulator jobs were submitted (N=40 split 250+250).
+See `results/d3_fixed_sleep_500_submission.md` for job IDs and provenance.
+The 30-minute collector fetches existing jobs, then decodes and reports logical
+probabilities and whether an interior minimum is supported, without new jobs.
+
+## Fixed-sleep refinement: N=4,5,6,7,8
+
+Five fresh H2-1E jobs were submitted after passing H2-1SC checks: 1,000 shots
+each for N=4,6,7,8, and 500 additional shots for N=5. Total requested sleep is
+one second, with Delta t=1/(N-1). Pool only the original fixed-sleep N=5
+500-shot dataset with its new 500 shots. See
+`results/d3_fixed_sleep_refinement_submission.md` for IDs and provenance.
+The 30-minute collector saves raw results without automatic decoding.
+
+## Additional minimum-resolution sweep: N=3,4,5,6,7,8,10
+
+Seven additional H2-1E jobs passed H2-1SC checks and were submitted with
+6,000 new shots: 500 each for N=3,10 and 1,000 each for N=4,5,6,7,8.
+The exact QIR protocol, requested sleep budget and noise options are unchanged.
+See `results/d3_fixed_sleep_resolution_submission.md` for IDs, pooling sources
+and expected accumulated shot counts. Collection runs every 30 minutes without
+automatic decoding or changes to decoder methodology.

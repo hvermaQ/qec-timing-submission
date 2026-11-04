@@ -18,11 +18,11 @@ from qec_timing.decoders.pymatching_decoder import PyMatchingDecoder
 from qec_timing.spec import spec_from_json
 
 
-def unpack(raw):
+def unpack(raw, shots=SHOTS, n_rounds=2):
     """Cross-check packed joint shots against provider-formatted joint counts."""
     packed = np.asarray(raw['shots']['array'], dtype=np.uint8)
     bits = np.unpackbits(packed, axis=1)[:, :raw['shots']['width']]
-    assert bits.shape == (SHOTS, len(raw['bits']))
+    assert bits.shape == (shots, len(raw['bits']))
     observed = Counter(''.join(map(str, row)) for row in bits)
     reported = Counter()
     for row in raw['counts_formatted']:
@@ -36,9 +36,9 @@ def unpack(raw):
             tags[tag] = bits[:, column]
         else:
             assert not bits[:, column].any(), 'Nonboolean register output'
-    expected = {f'm{i}' for i in range(9)} | {f's{r}_{c}' for r in range(2) for c in range(4)}
+    expected = {f'm{i}' for i in range(9)} | {f's{r}_{c}' for r in range(n_rounds) for c in range(4)}
     assert set(tags) == expected
-    return [{tag: int(values[i]) for tag, values in tags.items()} for i in range(SHOTS)]
+    return [{tag: int(values[i]) for tag, values in tags.items()} for i in range(shots)]
 
 
 def main(five_point=False, platform='nexus:H2-1E'):

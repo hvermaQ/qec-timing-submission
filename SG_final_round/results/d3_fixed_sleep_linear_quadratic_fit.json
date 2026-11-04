@@ -1,0 +1,22 @@
+{
+  "form": "P_L(x)=C/x*(1+a*x+b*x^2)^alpha; x=Delta_t/(1 second)",
+  "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/d3_fixed_sleep_all_shots.json",
+  "shots": 13000,
+  "C": 0.0017706315772893467,
+  "a": 0.0,
+  "b": 11.585546995074711,
+  "alpha": 1.6,
+  "nonnegative_coefficients": true,
+  "linear_coefficient_at_boundary": true,
+  "deviance": 9.750018465649191,
+  "bootstrap_gof_p": 0.24275724275724275,
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 20261104,
+  "optimum_seconds": 0.19807532992636917,
+  "conditional_optimum_95": [
+    0.17106059872286108,
+    0.22118339275648016
+  ],
+  "fitted_minimum_probability": 0.0162802658751973,
+  "note": "Descriptive low-probability ansatz; linear term unresolved, not evidence that the physical linear channel is absent. Bounds and intervals exclude systematic errors."
+}

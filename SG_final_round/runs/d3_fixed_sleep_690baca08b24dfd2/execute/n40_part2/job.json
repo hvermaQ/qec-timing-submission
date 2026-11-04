@@ -1,0 +1,48 @@
+{
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "shots": 250,
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_fixed_sleep_690baca08b24dfd2/n40.bc",
+  "rounds": 40,
+  "delta_t_seconds": 0.02564102564102564,
+  "job_id": "AFByb3ZpZGVySm9iAaGfGPuweuCUuqzCetMs0A",
+  "job": {
+    "__typename": "ProviderJob",
+    "id": "AFByb3ZpZGVySm9iAaGfGPuweuCUuqzCetMs0A",
+    "provider": "nexus",
+    "status": "COMPLETED",
+    "error": null,
+    "duration": 11,
+    "resultCount": null,
+    "createdAt": "2026-11-03T01:49:37.072288+00:00",
+    "platform": {
+      "id": "AFByb3ZpZGVyUGxhdGZvcm0BoEjlei1w4rlJdZoPbdHM",
+      "name": "H2-1E",
+      "provider": "NEXUS"
+    }
+  },
+  "cancellation_request": {
+    "requested_by": "user",
+    "requested_at": "2026-11-03T03:34:10.177649+00:00",
+    "status": "not_cancelled",
+    "last_verified_provider_status": "WAITING",
+    "reason": "Installed SDK and public GraphQL mutation schema expose no provider-job cancellation action; browser session requires login",
+    "collection_automation_deleted": true
+  },
+  "results": [
+    {
+      "index": 0,
+      "format": 1000,
+      "error": null
+    }
+  ]
+}

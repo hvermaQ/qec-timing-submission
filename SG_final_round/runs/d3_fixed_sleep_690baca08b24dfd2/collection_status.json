@@ -1,0 +1,71 @@
+{
+  "all_results_stored": true,
+  "jobs": [
+    {
+      "name": "n2_part1",
+      "rounds": 2,
+      "shots": 500,
+      "job_id": "AFByb3ZpZGVySm9iAaGfGNfVdiCKOmWPC5nZyA",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "65974b1089553f843fd23857106df4bb321fc05aac6fc88623aa0bf8ea6a983a"
+      },
+      "stored": true
+    },
+    {
+      "name": "n5_part1",
+      "rounds": 5,
+      "shots": 500,
+      "job_id": "AFByb3ZpZGVySm9iAaGfGN5PcLGFvG-7P5iz3Q",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "40dcc5958bc4d6c881dcbb033fa13649675068837518698ba9256290376aaa60"
+      },
+      "stored": true
+    },
+    {
+      "name": "n10_part1",
+      "rounds": 10,
+      "shots": 500,
+      "job_id": "AFByb3ZpZGVySm9iAaGfGOUZcYOgGWZ3gES-Xg",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "286ab6883050ccc3f9a2a5b9533d69b5fb7f4f67d986f8da41da32f503956238"
+      },
+      "stored": true
+    },
+    {
+      "name": "n20_part1",
+      "rounds": 20,
+      "shots": 500,
+      "job_id": "AFByb3ZpZGVySm9iAaGfGOvVfbGVQVM5-z0pSw",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "d9f41984cfaf20aa550feafdbbbcbb73da89b20b6369f11d92462fc150f5c39f"
+      },
+      "stored": true
+    },
+    {
+      "name": "n40_part1",
+      "rounds": 40,
+      "shots": 250,
+      "job_id": "AFByb3ZpZGVySm9iAaGfGPOzfwOSJxV2rN2C2w",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "b12710010c2fb227a23b67613b2c927c5f370a3fee4f5b454b1bccaa57023edf"
+      },
+      "stored": true
+    },
+    {
+      "name": "n40_part2",
+      "rounds": 40,
+      "shots": 250,
+      "job_id": "AFByb3ZpZGVySm9iAaGfGPuweuCUuqzCetMs0A",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "f64f35294aa7f9ba53bd863aef513c9652668ea16fbaca132a1cba6ded718f46"
+      },
+      "stored": true
+    }
+  ]
+}

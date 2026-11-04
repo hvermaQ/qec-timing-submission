@@ -1,0 +1,71 @@
+error(0.18) D0
+error(0.09999999999999998) D0 D1
+error(0.09999999999999998) D0 D2
+error(0.001) D0 D4
+error(0.09999999999999998) D1 D3
+error(0.001) D1 D5
+error(0.18) D1 L0
+error(0.001) D2 D6
+error(0.09999999999999998) D2 L0
+error(0.09999999999999998) D3
+error(0.001) D3 D7
+error(0.18) D4
+error(0.09999999999999998) D4 D5
+error(0.09999999999999998) D4 D6
+error(0.001) D4 D8
+error(0.09999999999999998) D5 D7
+error(0.001) D5 D9
+error(0.18) D5 L0
+error(0.001) D6 D10
+error(0.09999999999999998) D6 L0
+error(0.09999999999999998) D7
+error(0.001) D7 D11
+error(0.18) D8
+error(0.09999999999999998) D8 D9
+error(0.09999999999999998) D8 D10
+error(0.001) D8 D12
+error(0.09999999999999998) D9 D11
+error(0.001) D9 D13
+error(0.18) D9 L0
+error(0.001) D10 D14
+error(0.09999999999999998) D10 L0
+error(0.09999999999999998) D11
+error(0.001) D11 D15
+error(0.18) D12
+error(0.09999999999999998) D12 D13
+error(0.09999999999999998) D12 D14
+error(0.001) D12 D16
+error(0.09999999999999998) D13 D15
+error(0.001) D13 D17
+error(0.18) D13 L0
+error(0.001) D14 D18
+error(0.09999999999999998) D14 L0
+error(0.09999999999999998) D15
+error(0.001) D15 D19
+error(0.001998) D16
+error(0.001) D16 D17
+error(0.001) D16 D18
+error(0.001) D17 D19
+error(0.001998) D17 L0
+error(0.001) D18 L0
+error(0.001) D19
+detector(0.5, 1.5, 0) D0
+detector(1.5, 0.5, 0) D1
+detector(0, 0.5, 0) D2
+detector(2, 1.5, 0) D3
+detector(0.5, 1.5, 1) D4
+detector(1.5, 0.5, 1) D5
+detector(0, 0.5, 1) D6
+detector(2, 1.5, 1) D7
+detector(0.5, 1.5, 2) D8
+detector(1.5, 0.5, 2) D9
+detector(0, 0.5, 2) D10
+detector(2, 1.5, 2) D11
+detector(0.5, 1.5, 3) D12
+detector(1.5, 0.5, 3) D13
+detector(0, 0.5, 3) D14
+detector(2, 1.5, 3) D15
+detector(0.5, 1.5, 4) D16
+detector(1.5, 0.5, 4) D17
+detector(0, 0.5, 4) D18
+detector(2, 1.5, 4) D19

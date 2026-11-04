@@ -1,0 +1,8 @@
+{
+  "requested_by": "user",
+  "requested_at": "2026-11-03T03:34:10.177649+00:00",
+  "status": "not_cancelled",
+  "last_verified_provider_status": "WAITING",
+  "reason": "Installed SDK and public GraphQL mutation schema expose no provider-job cancellation action; browser session requires login",
+  "collection_automation_deleted": true
+}

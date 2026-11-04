@@ -1,0 +1,40 @@
+{
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "shots": 1000,
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_fixed_sleep_resolution_c2380924e8c69578/n8.bc",
+  "rounds": 8,
+  "delta_t_seconds": 0.14285714285714285,
+  "job_id": "AFByb3ZpZGVySm9iAaGgw8UXd8G3fk6Jonaf1Q",
+  "job": {
+    "__typename": "ProviderJob",
+    "id": "AFByb3ZpZGVySm9iAaGgw8UXd8G3fk6Jonaf1Q",
+    "provider": "nexus",
+    "status": "COMPLETED",
+    "error": null,
+    "duration": 13,
+    "resultCount": null,
+    "createdAt": "2026-11-03T09:35:46.967358+00:00",
+    "platform": {
+      "id": "AFByb3ZpZGVyUGxhdGZvcm0BoEjlei1w4rlJdZoPbdHM",
+      "name": "H2-1E",
+      "provider": "NEXUS"
+    }
+  },
+  "results": [
+    {
+      "index": 0,
+      "format": 1000,
+      "error": null
+    }
+  ]
+}

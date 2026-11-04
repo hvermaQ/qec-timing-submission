@@ -1,0 +1,82 @@
+{
+  "all_results_stored": true,
+  "jobs": [
+    {
+      "name": "n3_part1",
+      "rounds": 3,
+      "shots": 500,
+      "job_id": "AFByb3ZpZGVySm9iAaGgw6Mmc_KLmuGYsQZmtg",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "72ea14789cb06b8c92fcd0295922b445feb72e75466609e758a3b507754657b9"
+      },
+      "stored": true
+    },
+    {
+      "name": "n4_part1",
+      "rounds": 4,
+      "shots": 1000,
+      "job_id": "AFByb3ZpZGVySm9iAaGgw6jxelOwJP1HqPSezg",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "c410c72f9c6a407d4de280667e7a47b4989c71155254172f537697b01da01d77"
+      },
+      "stored": true
+    },
+    {
+      "name": "n5_part1",
+      "rounds": 5,
+      "shots": 1000,
+      "job_id": "AFByb3ZpZGVySm9iAaGgw7DneCOXDPSvrFo_hA",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "c5db7dbdeb4e05802983a66a234d8c07aef12d210fad89a3ca1a18e5846963c6"
+      },
+      "stored": true
+    },
+    {
+      "name": "n6_part1",
+      "rounds": 6,
+      "shots": 1000,
+      "job_id": "AFByb3ZpZGVySm9iAaGgw7dFeqOrXSckDYeb3Q",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "5306d284d06c25607384dfa9a290e349104a2f26f80a7745946921933d3046ad"
+      },
+      "stored": true
+    },
+    {
+      "name": "n7_part1",
+      "rounds": 7,
+      "shots": 1000,
+      "job_id": "AFByb3ZpZGVySm9iAaGgw71pc-GZUFGpKnw4iQ",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "6a0fb5d536ceba1c2df589f5cf29df686726f4b91b3f9e4f35c16f8af0ec0846"
+      },
+      "stored": true
+    },
+    {
+      "name": "n8_part1",
+      "rounds": 8,
+      "shots": 1000,
+      "job_id": "AFByb3ZpZGVySm9iAaGgw8UXd8G3fk6Jonaf1Q",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "88cff17a5f68e9bbeea3f9e489ec001c9758d36f97e522968aef7dddfb8a8f2f"
+      },
+      "stored": true
+    },
+    {
+      "name": "n10_part1",
+      "rounds": 10,
+      "shots": 500,
+      "job_id": "AFByb3ZpZGVySm9iAaGgw8wrfbOFa8qM8gBJnA",
+      "status": "COMPLETED",
+      "raw_sha256": {
+        "result_0.txt": "4b44fa2cafbec12c37e5567265603d3c27decbb99a496cb3bbb6461a4e06bf30"
+      },
+      "stored": true
+    }
+  ]
+}

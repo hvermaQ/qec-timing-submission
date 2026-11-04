@@ -1,0 +1,27 @@
+{
+  "rounds": [
+    5,
+    6,
+    7,
+    8,
+    10
+  ],
+  "shots_per_setting": 500,
+  "total_execution_shots": 2500,
+  "platform": "nexus:H2-2E",
+  "as_entity": "q_sq",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "source_build": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d5_fixed_sleep_9fb82150bc37143a",
+  "estimated_hqc": 2683.1000000000004,
+  "total_requested_sleep_seconds": 1.0,
+  "parallel_sleep_verified": false,
+  "extraction_duration_neglected": true
+}
