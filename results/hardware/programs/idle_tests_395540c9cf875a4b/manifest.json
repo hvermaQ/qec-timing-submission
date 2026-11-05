@@ -1,0 +1,261 @@
+{
+  "platform": "nexus:H2-1E",
+  "options": {
+    "on": {
+      "simulator": "stabilizer",
+      "noisy_simulation": true,
+      "no_opt": true,
+      "error_params": {
+        "idle_dephasing": true,
+        "transport_dephasing": true
+      }
+    },
+    "off": {
+      "simulator": "stabilizer",
+      "noisy_simulation": true,
+      "no_opt": true,
+      "error_params": {
+        "idle_dephasing": false,
+        "transport_dephasing": false
+      }
+    }
+  },
+  "runs": {
+    "T0_X_sleep1_off": {
+      "name": "T0_X_sleep1_off",
+      "kind": "probe",
+      "basis": "X",
+      "sleep": 1.0,
+      "options": "off",
+      "shots": 1000,
+      "test": "T0"
+    },
+    "T2_Z_sleep0": {
+      "name": "T2_Z_sleep0",
+      "kind": "probe",
+      "basis": "Z",
+      "sleep": 0.0,
+      "options": "on",
+      "shots": 1000,
+      "test": "T2"
+    },
+    "T2_Z_sleep0p1": {
+      "name": "T2_Z_sleep0p1",
+      "kind": "probe",
+      "basis": "Z",
+      "sleep": 0.1,
+      "options": "on",
+      "shots": 1000,
+      "test": "T2"
+    },
+    "T2_Z_sleep0p5": {
+      "name": "T2_Z_sleep0p5",
+      "kind": "probe",
+      "basis": "Z",
+      "sleep": 0.5,
+      "options": "on",
+      "shots": 1000,
+      "test": "T2"
+    },
+    "T2_Z_sleep0p75": {
+      "name": "T2_Z_sleep0p75",
+      "kind": "probe",
+      "basis": "Z",
+      "sleep": 0.75,
+      "options": "on",
+      "shots": 1000,
+      "test": "T2"
+    },
+    "T2_Z_sleep1": {
+      "name": "T2_Z_sleep1",
+      "kind": "probe",
+      "basis": "Z",
+      "sleep": 1.0,
+      "options": "on",
+      "shots": 1000,
+      "test": "T2"
+    },
+    "T3_X_sleep0": {
+      "name": "T3_X_sleep0",
+      "kind": "probe",
+      "basis": "X",
+      "sleep": 0.0,
+      "options": "on",
+      "shots": 20000,
+      "test": "T3"
+    },
+    "T3_X_sleep0p04": {
+      "name": "T3_X_sleep0p04",
+      "kind": "probe",
+      "basis": "X",
+      "sleep": 0.04,
+      "options": "on",
+      "shots": 90000,
+      "test": "T3"
+    },
+    "T3_X_sleep0p07": {
+      "name": "T3_X_sleep0p07",
+      "kind": "probe",
+      "basis": "X",
+      "sleep": 0.07,
+      "options": "on",
+      "shots": 36000,
+      "test": "T3"
+    },
+    "T3_X_sleep0p1": {
+      "name": "T3_X_sleep0p1",
+      "kind": "probe",
+      "basis": "X",
+      "sleep": 0.1,
+      "options": "on",
+      "shots": 20000,
+      "test": "T3"
+    },
+    "T3_X_sleep0p2": {
+      "name": "T3_X_sleep0p2",
+      "kind": "probe",
+      "basis": "X",
+      "sleep": 0.2,
+      "options": "on",
+      "shots": 6000,
+      "test": "T3"
+    },
+    "T3_X_sleep0p35": {
+      "name": "T3_X_sleep0p35",
+      "kind": "probe",
+      "basis": "X",
+      "sleep": 0.35,
+      "options": "on",
+      "shots": 2000,
+      "test": "T3"
+    },
+    "T3_X_sleep0p5": {
+      "name": "T3_X_sleep0p5",
+      "kind": "probe",
+      "basis": "X",
+      "sleep": 0.5,
+      "options": "on",
+      "shots": 1000,
+      "test": "T3"
+    },
+    "T3_X_sleep1": {
+      "name": "T3_X_sleep1",
+      "kind": "probe",
+      "basis": "X",
+      "sleep": 1.0,
+      "options": "on",
+      "shots": 1000,
+      "test": "T3"
+    },
+    "T4_transport_L0_on": {
+      "name": "T4_transport_L0_on",
+      "kind": "transport",
+      "n": 4,
+      "layers": 0,
+      "options": "on",
+      "shots": 1000,
+      "test": "T4"
+    },
+    "T4_transport_L16_on": {
+      "name": "T4_transport_L16_on",
+      "kind": "transport",
+      "n": 4,
+      "layers": 16,
+      "options": "on",
+      "shots": 1000,
+      "test": "T4"
+    },
+    "T4_transport_L64_on": {
+      "name": "T4_transport_L64_on",
+      "kind": "transport",
+      "n": 4,
+      "layers": 64,
+      "options": "on",
+      "shots": 1000,
+      "test": "T4"
+    },
+    "T4_transport_L64_off": {
+      "name": "T4_transport_L64_off",
+      "kind": "transport",
+      "n": 4,
+      "layers": 64,
+      "options": "off",
+      "shots": 1000,
+      "test": "T4"
+    },
+    "T5a_sleep_each_0p25": {
+      "name": "T5a_sleep_each_0p25",
+      "kind": "concurrency",
+      "n": 4,
+      "sleep": 0.25,
+      "options": "on",
+      "shots": 1000,
+      "test": "T5a"
+    },
+    "T5_rounds5_on": {
+      "name": "T5_rounds5_on",
+      "kind": "rounds",
+      "targets": 8,
+      "rounds": 5,
+      "options": "on",
+      "shots": 1000,
+      "test": "T5"
+    },
+    "T5_rounds5_off": {
+      "name": "T5_rounds5_off",
+      "kind": "rounds",
+      "targets": 8,
+      "rounds": 5,
+      "options": "off",
+      "shots": 1000,
+      "test": "T5"
+    }
+  },
+  "bitcode_sha256": {
+    "T0_X_sleep1_off": "e2f225fa4cdca4351cf819214a5b06941faf90b992d4a88f54cb52f10614bd26",
+    "T2_Z_sleep0": "46d4d6e267a5db24c33d5311bf1ed8d3ac8fe2827bea051d65d9308d600b5b2c",
+    "T2_Z_sleep0p1": "dca04d4cea44078bf80b543fac8fec28cbed951c698eb290a401e99c1196b43e",
+    "T2_Z_sleep0p5": "c69e50dbf71aba0d3920ea9f6e6f983c9181e838bc04dd251f214f14ff34a807",
+    "T2_Z_sleep0p75": "e652bdb6aa9738917f7621be9dea57a341fe4cec9cb23d613023d3322ba16c43",
+    "T2_Z_sleep1": "4e0d6892a5074cbc983522ff151390753faf425c0eb43d975f7c575cc18cf463",
+    "T3_X_sleep0": "290ec8a510588591a07ff40906f96e30b22b0a04c814e91ff27b0b05ee663486",
+    "T3_X_sleep0p04": "1435b828adad0f2a7d6d7f15de2b4a9e2a57da4071d3a2a7e2387398b3852566",
+    "T3_X_sleep0p07": "b6d77691c90faba508bda249c839c26b626465467f8f38d8765b95713b6e0fd9",
+    "T3_X_sleep0p1": "438c2b5955e00503611911e82a165870cd35f513e4585c79e58158746c10b98f",
+    "T3_X_sleep0p2": "115f08d983a629b988c09a72a8534fd8b21df84534278071d6ee71953c9df024",
+    "T3_X_sleep0p35": "aee30477a63c948fc7d55c4abbdf52c66f5645b6c2fda57d3960f26c4900879f",
+    "T3_X_sleep0p5": "c1a766f672ae0913e00960c6ee1f6d807a9e5fe51b5b4823c575b4e2e3b04deb",
+    "T3_X_sleep1": "56909256a6f4dc8becb7ae6ce2da1a842e95b0f0c6574fc3a30194506b06c1e0",
+    "T4_transport_L0_on": "7817d5db892f69d3e7624c778b2cf5ad18ab12161b5c819014645729021e9ce9",
+    "T4_transport_L16_on": "1ac310de989fb7fc6d3ba2fae4465891f52be6cddf4468c462c6f031fdc26365",
+    "T4_transport_L64_on": "bc0f35a369903297307ed2c871a9d430d9634b197bbe6f4e0abe21cb19721bb6",
+    "T4_transport_L64_off": "48c7f917e1d009bc1c331b9641d371148136a5d531e5f6aab216816dd507d3b8",
+    "T5a_sleep_each_0p25": "6efbd6f3c323027003342a3823214ae8527c14db06a60a39dc556d5b5744cea8",
+    "T5_rounds5_on": "b83b1c5dcae14126195152050dd7ff48683d5b0b3ff90fd6387541d42670b862",
+    "T5_rounds5_off": "436722e558ef487f4382e61fc0bd7237bc094fde95819a884da11a9a5b4cbab1"
+  },
+  "hqc_estimate": {
+    "T0_X_sleep1_off": 7.4,
+    "T2_Z_sleep0": 7.0,
+    "T2_Z_sleep0p1": 7.0,
+    "T2_Z_sleep0p5": 7.0,
+    "T2_Z_sleep0p75": 7.0,
+    "T2_Z_sleep1": 7.0,
+    "T3_X_sleep0": 53.0,
+    "T3_X_sleep0p04": 221.0,
+    "T3_X_sleep0p07": 91.4,
+    "T3_X_sleep0p1": 53.0,
+    "T3_X_sleep0p2": 19.4,
+    "T3_X_sleep0p35": 9.8,
+    "T3_X_sleep0p5": 7.4,
+    "T3_X_sleep1": 7.4,
+    "T4_transport_L0_on": 14.6,
+    "T4_transport_L16_on": 78.6,
+    "T4_transport_L64_on": 270.6,
+    "T4_transport_L64_off": 270.6,
+    "T5a_sleep_each_0p25": 14.6,
+    "T5_rounds5_on": 204.0,
+    "T5_rounds5_off": 204.0
+  },
+  "hqc_estimate_total": 1561.8
+}

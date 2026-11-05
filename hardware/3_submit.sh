@@ -11,5 +11,6 @@ if [[ "${1:-}" != --confirm ]]; then
 fi
 shift
 plan_for "$@" | while read -r _ prog plat shots; do
-  $CLI_H2 aqora-submit "$prog" --platform "nexus:$plat" --shots "$shots" --as-entity "$ENTITY" --confirm
+  $CLI_H2 aqora-submit "$prog" --platform "nexus:$plat" --shots "$shots" --as-entity "$ENTITY" --confirm \
+    ${OPTIONS:+--options "$OPTIONS"}
 done

@@ -5,6 +5,9 @@ PY_H2=${PY_H2:-.venv-h2/bin/python}          # build, check, submit: Guppy 0.21,
 PY_MAIN=${PY_MAIN:-.venv-main/bin/python}    # collect, analyse: Stim, PyMatching, Jupyter
 CLI_H2="$PY_H2 -m qec_timing.hardware.cli"
 ENTITY=${ENTITY:-q_sq}                       # aqora organisation the jobs run as
+# Emulator options (JSON or @file), e.g. OPTIONS='{"no_opt": true}'. Empty = none sent, as for
+# every committed result (platform defaults); set it for new experiments.
+OPTIONS=${OPTIONS:-}
 P=results/hardware/programs
 C=results/hardware/calibration_programs
 

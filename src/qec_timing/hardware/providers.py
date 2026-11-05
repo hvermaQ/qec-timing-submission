@@ -75,8 +75,14 @@ def _is_syntax_checker(name: str) -> bool:
 
 
 def aqora_run(store: Store, program: Path, platform: str, shots: int, as_entity: str | None = None,
-              allow_execution: bool = False, confirm: bool = False, timeout: float = 1800.0) -> Path:
-    """Submit a program on aqora and wait. A syntax checker validates and prices it."""
+              allow_execution: bool = False, confirm: bool = False, timeout: float = 1800.0,
+              options: dict | None = None) -> Path:
+    """Submit a program on aqora and wait. A syntax checker validates and prices it.
+
+    `options` are Nexus backend options, passed through unchanged (aqora >= 0.36), e.g.
+    {"simulator": "stabilizer", "noisy_simulation": True, "no_opt": True,
+     "error_params": {"idle_dephasing": True, "transport_dephasing": True}}.
+    None sends no options: the platform's defaults, as for every job before 2026-11."""
     from aqora import QPU
     from aqora._provider.jobs import platform_matches, qualified_platform_name
 
@@ -94,9 +100,9 @@ def aqora_run(store: Store, program: Path, platform: str, shots: int, as_entity:
     job_dir = JobDir(store, "aqora", f"{program.stem}_{match[0]['name']}")
     job_dir.raw("program.bc", bc)
     job_dir.raw("program.json", json.dumps(meta, indent=2))
-    job = qpu.run(bc, shots=shots)
+    job = qpu.run(bc, shots=shots, options=options)
     job_dir.save(platform=name, platform_meta=match[0].get("meta"), shots=shots,
-                 as_entity=as_entity, job_id=job.job_id)
+                 as_entity=as_entity, options=options, job_id=job.job_id)
     try:
         job.wait(timeout=timeout, poll_interval=10.0)
     except (TimeoutError, RuntimeError) as err:

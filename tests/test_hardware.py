@@ -241,3 +241,44 @@ def test_collect_reproduces_committed_hardware_results(tmp_path):
     for p in collect(_STORE_HW, tmp_path):
         committed = json.loads((Path(__file__).parents[1] / "results" / "hardware" / p.name).read_text())
         assert same(json.loads(p.read_text()), committed), p.name
+
+
+def test_aqora_run_passes_backend_options(tmp_path, monkeypatch):
+    """Emulator options (idle/transport dephasing, no_opt, ...) reach aqora's run() and are kept
+    in the job record; without them nothing is sent, as for the jobs before 2026-11."""
+    import json
+    import sys
+    import types
+
+    from qec_timing.hardware import providers
+    from qec_timing.store import Store
+
+    sent = []
+
+    class Job:
+        job_id = "job-1"
+        def wait(self, **kw): pass
+        def refresh(self): return {"status": "COMPLETED"}
+        def results(self, **kw): return []
+
+    class QPU:
+        def __init__(self, **kw): pass
+        def run(self, bc, *, shots, options=None):
+            sent.append(options)
+            return Job()
+
+    jobs = types.SimpleNamespace(platform_matches=lambda want, p: True,
+                                 qualified_platform_name=lambda p: "nexus:" + p["name"])
+    monkeypatch.setitem(sys.modules, "aqora", types.SimpleNamespace(QPU=QPU))
+    monkeypatch.setitem(sys.modules, "aqora._provider", types.SimpleNamespace(jobs=jobs))
+    monkeypatch.setitem(sys.modules, "aqora._provider.jobs", jobs)
+    monkeypatch.setattr(providers, "aqora_platforms", lambda: [{"name": "H2-1SC", "meta": {}}])
+    prog = tmp_path / "p.bc"
+    prog.write_bytes(b"BC")
+    prog.with_suffix(".json").write_text("{}")
+
+    opts = {"no_opt": True, "error_params": {"idle_dephasing": False}}
+    d = providers.aqora_run(Store(tmp_path / "store"), prog, "nexus:H2-1SC", 1, options=opts)
+    providers.aqora_run(Store(tmp_path / "store2"), prog, "nexus:H2-1SC", 1)
+    assert sent == [opts, None]
+    assert json.loads((d / "job.json").read_text())["options"] == opts

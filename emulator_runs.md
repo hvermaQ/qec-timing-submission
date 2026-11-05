@@ -1,7 +1,10 @@
 # H2-1E emulator runs (2026-10-14)
 
 Submitted through aqora as organisation `q_sq` (`hardware.cli aqora-submit --confirm`), 100 shots
-each, H2-1E's full noise model (aqora cannot set emulator options). d = 3 rotated surface code,
+each, H2-1E's default noise model. No emulator options were sent with any job on this page:
+aqora 0.36 accepts them (`QPU.run(..., options=...)`), but our submit path did not pass them
+until 2026-11 (`aqora-submit --options`), so `no_opt` was also off and Quantinuum's compiler
+could optimise the programs. d = 3 rotated surface code,
 X basis, 2 rounds, one reused ancilla. Raw job records: `store/hardware/*_H2-1E/` (local).
 aqora reports `duration: 2` for both jobs: wall-clock of the emulation, not a physical round time.
 

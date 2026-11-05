@@ -1,0 +1,565 @@
+{
+  "build": "idle_tests_395540c9cf875a4b",
+  "platform": "nexus:H2-1E",
+  "options": {
+    "on": {
+      "simulator": "stabilizer",
+      "noisy_simulation": true,
+      "no_opt": true,
+      "error_params": {
+        "idle_dephasing": true,
+        "transport_dephasing": true
+      }
+    },
+    "off": {
+      "simulator": "stabilizer",
+      "noisy_simulation": true,
+      "no_opt": true,
+      "error_params": {
+        "idle_dephasing": false,
+        "transport_dephasing": false
+      }
+    }
+  },
+  "plan": {
+    "T0": {
+      "question": "Do emulator options sent through aqora take effect?",
+      "decision": "X-basis sleep(1.0) with dephasing off consistent with 0, far below the ~9% seen with it on -> options reach the emulator.",
+      "runs": [
+        {
+          "name": "T0_X_sleep1_off",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 1.0,
+          "options": "off",
+          "shots": 1000
+        }
+      ]
+    },
+    "T1": {
+      "question": "Is the hand-inserted sleep the instruction Quantinuum's own converter emits?",
+      "decision": "Same __quantum__qis__sleep__body(qubit, double) call from pytket-qir -> the hand edit is the official instruction. Every program here uses pytket-qir. The unit (seconds) is not documented and stays inferred.",
+      "runs": []
+    },
+    "T2": {
+      "question": "Does sleep cause dephasing only, or also bit flips?",
+      "decision": "Z-basis errors consistent with 0 at every sleep -> dephasing only.",
+      "runs": [
+        {
+          "name": "T2_Z_sleep0",
+          "kind": "probe",
+          "basis": "Z",
+          "sleep": 0.0,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T2_Z_sleep0p1",
+          "kind": "probe",
+          "basis": "Z",
+          "sleep": 0.1,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T2_Z_sleep0p5",
+          "kind": "probe",
+          "basis": "Z",
+          "sleep": 0.5,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T2_Z_sleep0p75",
+          "kind": "probe",
+          "basis": "Z",
+          "sleep": 0.75,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T2_Z_sleep1",
+          "kind": "probe",
+          "basis": "Z",
+          "sleep": 1.0,
+          "options": "on",
+          "shots": 1000
+        }
+      ]
+    },
+    "T3": {
+      "question": "What are the linear (gamma) and quadratic (f*k) idle terms?",
+      "decision": "Fit P = floor (+) [a + b - 2ab], a = gamma t, b = sin^2(pi fk t), with uncertainties; compare with the configured gamma = 0.0028/s, fk = 0.086. Shots give >= ~20 expected errors per point under the configured model.",
+      "runs": [
+        {
+          "name": "T3_X_sleep0",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.0,
+          "options": "on",
+          "shots": 20000
+        },
+        {
+          "name": "T3_X_sleep0p04",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.04,
+          "options": "on",
+          "shots": 90000
+        },
+        {
+          "name": "T3_X_sleep0p07",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.07,
+          "options": "on",
+          "shots": 36000
+        },
+        {
+          "name": "T3_X_sleep0p1",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.1,
+          "options": "on",
+          "shots": 20000
+        },
+        {
+          "name": "T3_X_sleep0p2",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.2,
+          "options": "on",
+          "shots": 6000
+        },
+        {
+          "name": "T3_X_sleep0p35",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.35,
+          "options": "on",
+          "shots": 2000
+        },
+        {
+          "name": "T3_X_sleep0p5",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.5,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T3_X_sleep1",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 1.0,
+          "options": "on",
+          "shots": 1000
+        }
+      ]
+    },
+    "T4": {
+      "question": "Is idling inside a circuit (transport layers) the same noise as sleep?",
+      "decision": "4 qubits in |+>, L layers of [barrier; RZZ(0) on a random pairing], as in Quantinuum's memory benchmark. Idle part = rate(on) - rate(off) at L = 64; with the T3 curve it converts to seconds per layer. Also: does the rate grow with L at all (L = 0, 16, 64)?",
+      "runs": [
+        {
+          "name": "T4_transport_L0_on",
+          "kind": "transport",
+          "n": 4,
+          "layers": 0,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T4_transport_L16_on",
+          "kind": "transport",
+          "n": 4,
+          "layers": 16,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T4_transport_L64_on",
+          "kind": "transport",
+          "n": 4,
+          "layers": 64,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T4_transport_L64_off",
+          "kind": "transport",
+          "n": 4,
+          "layers": 64,
+          "options": "off",
+          "shots": 1000
+        }
+      ]
+    },
+    "T5a": {
+      "question": "Do sleeps on different qubits run at the same time or one after another?",
+      "decision": "4 qubits in |+>, sleep(0.25) on each in turn. Error ~ P(0.25 s) (~0.5%) -> concurrent; ~ P(1 s) (~7-9%) -> serial.",
+      "runs": [
+        {
+          "name": "T5a_sleep_each_0p25",
+          "kind": "concurrency",
+          "n": 4,
+          "sleep": 0.25,
+          "options": "on",
+          "shots": 1000
+        }
+      ]
+    },
+    "T5": {
+      "question": "How long does a d = 3 syndrome round take?",
+      "decision": "8 targets in |+> wait (barriers) while the d = 3 X-memory circuit runs 5 rounds (one reused ancilla). Idle part = rate(on) - rate(off); inverting the T3 curve gives the block's idle time, / rounds = round time. A difference consistent with 0 gives an upper bound.",
+      "runs": [
+        {
+          "name": "T5_rounds5_on",
+          "kind": "rounds",
+          "targets": 8,
+          "rounds": 5,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T5_rounds5_off",
+          "kind": "rounds",
+          "targets": 8,
+          "rounds": 5,
+          "options": "off",
+          "shots": 1000
+        }
+      ]
+    }
+  },
+  "rows": {
+    "T0_X_sleep1_off": {
+      "test": "T0",
+      "k": 93,
+      "n": 1000,
+      "p": 0.093,
+      "ci95": [
+        0.07571840260686505,
+        0.1127194177011542
+      ]
+    },
+    "T2_Z_sleep0": {
+      "test": "T2",
+      "k": 0,
+      "n": 1000,
+      "p": 0.0,
+      "ci95": [
+        0.0,
+        0.0036820838968656716
+      ]
+    },
+    "T2_Z_sleep0p1": {
+      "test": "T2",
+      "k": 0,
+      "n": 1000,
+      "p": 0.0,
+      "ci95": [
+        0.0,
+        0.0036820838968656716
+      ]
+    },
+    "T2_Z_sleep0p5": {
+      "test": "T2",
+      "k": 0,
+      "n": 1000,
+      "p": 0.0,
+      "ci95": [
+        0.0,
+        0.0036820838968656716
+      ]
+    },
+    "T2_Z_sleep0p75": {
+      "test": "T2",
+      "k": 1,
+      "n": 1000,
+      "p": 0.001,
+      "ci95": [
+        2.5317487491292087e-05,
+        0.005558924279826757
+      ]
+    },
+    "T2_Z_sleep1": {
+      "test": "T2",
+      "k": 2,
+      "n": 1000,
+      "p": 0.002,
+      "ci95": [
+        0.00024230111687741302,
+        0.0072058389114560435
+      ]
+    },
+    "T3_X_sleep0": {
+      "test": "T3",
+      "k": 16,
+      "n": 20000,
+      "p": 0.0008,
+      "ci95": [
+        0.00045733607159476703,
+        0.0012988256380444822
+      ]
+    },
+    "T3_X_sleep0p04": {
+      "test": "T3",
+      "k": 87,
+      "n": 90000,
+      "p": 0.0009666666666666667,
+      "ci95": [
+        0.0007636352814385343,
+        0.001169698051894799
+      ]
+    },
+    "T3_X_sleep0p07": {
+      "test": "T3",
+      "k": 47,
+      "n": 36000,
+      "p": 0.0013055555555555555,
+      "ci95": [
+        0.0009325469799214682,
+        0.0016785641311896427
+      ]
+    },
+    "T3_X_sleep0p1": {
+      "test": "T3",
+      "k": 42,
+      "n": 20000,
+      "p": 0.0021,
+      "ci95": [
+        0.0015139015792264734,
+        0.0028375413941692036
+      ]
+    },
+    "T3_X_sleep0p2": {
+      "test": "T3",
+      "k": 34,
+      "n": 6000,
+      "p": 0.005666666666666667,
+      "ci95": [
+        0.003927429313209371,
+        0.007909677274199313
+      ]
+    },
+    "T3_X_sleep0p35": {
+      "test": "T3",
+      "k": 30,
+      "n": 2000,
+      "p": 0.015,
+      "ci95": [
+        0.01014271829127714,
+        0.02134466751107761
+      ]
+    },
+    "T3_X_sleep0p5": {
+      "test": "T3",
+      "k": 35,
+      "n": 1000,
+      "p": 0.035,
+      "ci95": [
+        0.024497527894758675,
+        0.04834238161422097
+      ]
+    },
+    "T3_X_sleep1": {
+      "test": "T3",
+      "k": 122,
+      "n": 1000,
+      "p": 0.122,
+      "ci95": [
+        0.10235113744007812,
+        0.14390421942741494
+      ]
+    },
+    "T4_transport_L0_on": {
+      "test": "T4",
+      "k": 0,
+      "n": 4000,
+      "p": 0.0,
+      "ci95": [
+        0.0,
+        0.000921794749483056
+      ]
+    },
+    "T4_transport_L16_on": {
+      "test": "T4",
+      "k": 3,
+      "n": 4000,
+      "p": 0.00075,
+      "ci95": [
+        0.00015469474465808772,
+        0.002190238662875176
+      ]
+    },
+    "T4_transport_L64_on": {
+      "test": "T4",
+      "k": 4,
+      "n": 4000,
+      "p": 0.001,
+      "ci95": [
+        0.00027253142615505906,
+        0.002558400143375983
+      ]
+    },
+    "T4_transport_L64_off": {
+      "test": "T4",
+      "k": 2,
+      "n": 4000,
+      "p": 0.0005,
+      "ci95": [
+        6.055805642043001e-05,
+        0.0018049927162650356
+      ]
+    },
+    "T5a_sleep_each_0p25": {
+      "test": "T5a",
+      "k": 33,
+      "n": 4000,
+      "p": 0.00825,
+      "ci95": [
+        0.005685530315649159,
+        0.011566724896905922
+      ]
+    },
+    "T5_rounds5_on": {
+      "test": "T5",
+      "k": 46,
+      "n": 8000,
+      "p": 0.00575,
+      "ci95": [
+        0.004212707497161272,
+        0.007662327048901248
+      ]
+    },
+    "T5_rounds5_off": {
+      "test": "T5",
+      "k": 10,
+      "n": 8000,
+      "p": 0.00125,
+      "ci95": [
+        0.0005995811874409131,
+        0.002297589098288791
+      ]
+    }
+  },
+  "t3_fit": {
+    "floor": 0.0008,
+    "gamma": 0.0,
+    "fk": 0.1126,
+    "chi2": 0.9381983072690245,
+    "dof": 5,
+    "gamma_68": [
+      0.0,
+      0.0019500000000000001
+    ],
+    "fk_68": [
+      0.1066,
+      0.11800000000000001
+    ],
+    "configured": {
+      "gamma": 0.0028,
+      "fk": 0.086
+    }
+  },
+  "derived": {
+    "T4": {
+      "idle_part_L64": 0.0005,
+      "se": 0.0006121172273347647,
+      "seconds_per_layer": 0.0009877634745670276,
+      "seconds_per_layer_upper_2se": 0.0018346566762944203
+    },
+    "T5": {
+      "idle_part": 0.0045,
+      "se": 0.0009330979986046481,
+      "rounds": 5,
+      "seconds_per_round": 0.037955459105781894,
+      "seconds_per_round_upper_2se": 0.04515892708300477
+    },
+    "T5a": {
+      "observed": 0.00825,
+      "fitted_concurrent": 0.008588048188518676,
+      "fitted_serial": 0.12060912056159852
+    }
+  },
+  "hqc_estimate_total": 1561.8,
+  "job_ids": {
+    "T0_X_sleep1_off": [
+      "AFByb3ZpZGVySm9iAaGbg3bVctOH6Qcu_Jk5WA"
+    ],
+    "T2_Z_sleep0": [
+      "AFByb3ZpZGVySm9iAaGbg39xdiOwnEpRogpWfg"
+    ],
+    "T2_Z_sleep0p1": [
+      "AFByb3ZpZGVySm9iAaGbg4WOcXGI1JL66--8TQ"
+    ],
+    "T2_Z_sleep0p5": [
+      "AFByb3ZpZGVySm9iAaGbg4tcf8K63rvm5ewAzQ"
+    ],
+    "T2_Z_sleep0p75": [
+      "AFByb3ZpZGVySm9iAaGbg5LkeROoFmrErSgcTA"
+    ],
+    "T2_Z_sleep1": [
+      "AFByb3ZpZGVySm9iAaGbg5jCf1KTJTh9ZazSGw"
+    ],
+    "T3_X_sleep0": [
+      "AFByb3ZpZGVySm9iAaGblPyPdFKsbE7Z8rFn4Q",
+      "AFByb3ZpZGVySm9iAaGblQL3esOcZyBTFUMKzg"
+    ],
+    "T3_X_sleep0p04": [
+      "AFByb3ZpZGVySm9iAaGblQrVc3G5iNOwppMqzw",
+      "AFByb3ZpZGVySm9iAaGblRIqd8GivmsVGGj5Ew",
+      "AFByb3ZpZGVySm9iAaGblRmhfICauzixZFdlkA",
+      "AFByb3ZpZGVySm9iAaGblSCDcKGi1IM4No0HIw",
+      "AFByb3ZpZGVySm9iAaGblSfvdFCfo611qu-KnA",
+      "AFByb3ZpZGVySm9iAaGblS4pdaGWYNAWnKEwDQ",
+      "AFByb3ZpZGVySm9iAaGblTp_fXKJ98fodfORvA",
+      "AFByb3ZpZGVySm9iAaGblUCyePKwlk0ZR6vpqQ",
+      "AFByb3ZpZGVySm9iAaGblUbofgOA-OV38eQ5lQ"
+    ],
+    "T3_X_sleep0p07": [
+      "AFByb3ZpZGVySm9iAaGblUz1daKfTkPMvAjgnQ",
+      "AFByb3ZpZGVySm9iAaGblVLzfaG461Hs9BwH5Q",
+      "AFByb3ZpZGVySm9iAaGblVypfDKhyWLFQzi-PA",
+      "AFByb3ZpZGVySm9iAaGblWKecVGKJwIQ7Hq4Nw"
+    ],
+    "T3_X_sleep0p1": [
+      "AFByb3ZpZGVySm9iAaGblWkqeACQRUxEw1lT-A",
+      "AFByb3ZpZGVySm9iAaGblW73dQO5VZtgnCYqGw"
+    ],
+    "T3_X_sleep0p2": [
+      "AFByb3ZpZGVySm9iAaGbg7bafNCJpfN-7bN3Yw"
+    ],
+    "T3_X_sleep0p35": [
+      "AFByb3ZpZGVySm9iAaGbg7yyd1G6ZD9GU9eUAA"
+    ],
+    "T3_X_sleep0p5": [
+      "AFByb3ZpZGVySm9iAaGbg8KYdbK1eb0rUq_74A"
+    ],
+    "T3_X_sleep1": [
+      "AFByb3ZpZGVySm9iAaGbg8iacCCn5tH1iYH4Pw"
+    ],
+    "T4_transport_L0_on": [
+      "AFByb3ZpZGVySm9iAaGbg86cfPK7pNKQn8x-ew"
+    ],
+    "T4_transport_L16_on": [
+      "AFByb3ZpZGVySm9iAaGbg9S5eNGgTKQ7k5AbeA"
+    ],
+    "T4_transport_L64_on": [
+      "AFByb3ZpZGVySm9iAaGbg9tceXKVXaWcjFsGlg"
+    ],
+    "T4_transport_L64_off": [
+      "AFByb3ZpZGVySm9iAaGbg-JQfnOc9esIf6ljJQ"
+    ],
+    "T5a_sleep_each_0p25": [
+      "AFByb3ZpZGVySm9iAaGbg-kAffCMKsn_Ratlvw"
+    ],
+    "T5_rounds5_on": [
+      "AFByb3ZpZGVySm9iAaGbg-8mffKkGXk2v94gDw"
+    ],
+    "T5_rounds5_off": [
+      "AFByb3ZpZGVySm9iAaGbg_WkeXKo8PqFPOcqRg"
+    ]
+  }
+}

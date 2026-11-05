@@ -1,0 +1,236 @@
+{
+  "platform": "nexus:H2-1E",
+  "check_platform": "nexus:H2-1SC",
+  "as_entity": "q_sq",
+  "options": {
+    "on": {
+      "simulator": "stabilizer",
+      "noisy_simulation": true,
+      "no_opt": true,
+      "error_params": {
+        "idle_dephasing": true,
+        "transport_dephasing": true
+      }
+    },
+    "off": {
+      "simulator": "stabilizer",
+      "noisy_simulation": true,
+      "no_opt": true,
+      "error_params": {
+        "idle_dephasing": false,
+        "transport_dephasing": false
+      }
+    }
+  },
+  "tests": {
+    "T0": {
+      "question": "Do emulator options sent through aqora take effect?",
+      "decision": "X-basis sleep(1.0) with dephasing off consistent with 0, far below the ~9% seen with it on -> options reach the emulator.",
+      "runs": [
+        {
+          "name": "T0_X_sleep1_off",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 1.0,
+          "options": "off",
+          "shots": 1000
+        }
+      ]
+    },
+    "T1": {
+      "question": "Is the hand-inserted sleep the instruction Quantinuum's own converter emits?",
+      "decision": "Same __quantum__qis__sleep__body(qubit, double) call from pytket-qir -> the hand edit is the official instruction. Every program here uses pytket-qir. The unit (seconds) is not documented and stays inferred.",
+      "runs": []
+    },
+    "T2": {
+      "question": "Does sleep cause dephasing only, or also bit flips?",
+      "decision": "Z-basis errors consistent with 0 at every sleep -> dephasing only.",
+      "runs": [
+        {
+          "name": "T2_Z_sleep0",
+          "kind": "probe",
+          "basis": "Z",
+          "sleep": 0.0,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T2_Z_sleep0p1",
+          "kind": "probe",
+          "basis": "Z",
+          "sleep": 0.1,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T2_Z_sleep0p5",
+          "kind": "probe",
+          "basis": "Z",
+          "sleep": 0.5,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T2_Z_sleep0p75",
+          "kind": "probe",
+          "basis": "Z",
+          "sleep": 0.75,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T2_Z_sleep1",
+          "kind": "probe",
+          "basis": "Z",
+          "sleep": 1.0,
+          "options": "on",
+          "shots": 1000
+        }
+      ]
+    },
+    "T3": {
+      "question": "What are the linear (gamma) and quadratic (f*k) idle terms?",
+      "decision": "Fit P = floor (+) [a + b - 2ab], a = gamma t, b = sin^2(pi fk t), with uncertainties; compare with the configured gamma = 0.0028/s, fk = 0.086. Shots give >= ~20 expected errors per point under the configured model.",
+      "runs": [
+        {
+          "name": "T3_X_sleep0",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.0,
+          "options": "on",
+          "shots": 20000
+        },
+        {
+          "name": "T3_X_sleep0p04",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.04,
+          "options": "on",
+          "shots": 90000
+        },
+        {
+          "name": "T3_X_sleep0p07",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.07,
+          "options": "on",
+          "shots": 36000
+        },
+        {
+          "name": "T3_X_sleep0p1",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.1,
+          "options": "on",
+          "shots": 20000
+        },
+        {
+          "name": "T3_X_sleep0p2",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.2,
+          "options": "on",
+          "shots": 6000
+        },
+        {
+          "name": "T3_X_sleep0p35",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.35,
+          "options": "on",
+          "shots": 2000
+        },
+        {
+          "name": "T3_X_sleep0p5",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 0.5,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T3_X_sleep1",
+          "kind": "probe",
+          "basis": "X",
+          "sleep": 1.0,
+          "options": "on",
+          "shots": 1000
+        }
+      ]
+    },
+    "T4": {
+      "question": "Is idling inside a circuit (transport layers) the same noise as sleep?",
+      "decision": "4 qubits in |+>, L layers of [barrier; RZZ(0) on a random pairing], as in Quantinuum's memory benchmark. Idle part = rate(on) - rate(off) at L = 64; with the T3 curve it converts to seconds per layer. Also: does the rate grow with L at all (L = 0, 16, 64)?",
+      "runs": [
+        {
+          "name": "T4_transport_L0_on",
+          "kind": "transport",
+          "n": 4,
+          "layers": 0,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T4_transport_L16_on",
+          "kind": "transport",
+          "n": 4,
+          "layers": 16,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T4_transport_L64_on",
+          "kind": "transport",
+          "n": 4,
+          "layers": 64,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T4_transport_L64_off",
+          "kind": "transport",
+          "n": 4,
+          "layers": 64,
+          "options": "off",
+          "shots": 1000
+        }
+      ]
+    },
+    "T5a": {
+      "question": "Do sleeps on different qubits run at the same time or one after another?",
+      "decision": "4 qubits in |+>, sleep(0.25) on each in turn. Error ~ P(0.25 s) (~0.5%) -> concurrent; ~ P(1 s) (~7-9%) -> serial.",
+      "runs": [
+        {
+          "name": "T5a_sleep_each_0p25",
+          "kind": "concurrency",
+          "n": 4,
+          "sleep": 0.25,
+          "options": "on",
+          "shots": 1000
+        }
+      ]
+    },
+    "T5": {
+      "question": "How long does a d = 3 syndrome round take?",
+      "decision": "8 targets in |+> wait (barriers) while the d = 3 X-memory circuit runs 5 rounds (one reused ancilla). Idle part = rate(on) - rate(off); inverting the T3 curve gives the block's idle time, / rounds = round time. A difference consistent with 0 gives an upper bound.",
+      "runs": [
+        {
+          "name": "T5_rounds5_on",
+          "kind": "rounds",
+          "targets": 8,
+          "rounds": 5,
+          "options": "on",
+          "shots": 1000
+        },
+        {
+          "name": "T5_rounds5_off",
+          "kind": "rounds",
+          "targets": 8,
+          "rounds": 5,
+          "options": "off",
+          "shots": 1000
+        }
+      ]
+    }
+  }
+}

@@ -19,7 +19,9 @@ script, so the one that spends credits can't run by accident. Run them from anyw
 [`config.sh`](config.sh), is the 47 emulator jobs the committed results come from. It leaves out
 two that went over aqora's per-job cost cap (d = 5 at R = 70; anchored idle at L = 256).
 
-Settings, as environment variables: `ENTITY` (aqora organisation, default `q_sq`), `PY_H2`,
+Settings, as environment variables: `ENTITY` (aqora organisation, default `q_sq`), `OPTIONS`
+(emulator options as JSON, e.g. `'{"no_opt": true, "error_params": {"idle_dephasing": true}}'`;
+empty by default, which is how every committed job ran: the platform's defaults), `PY_H2`,
 `PY_MAIN` (interpreters). Log in once with `.venv-h2/bin/aqora login`.
 
 ```bash

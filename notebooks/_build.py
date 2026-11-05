@@ -1647,6 +1647,294 @@ md('''
 '''),
 ]
 
+NB["17_idle_from_single_flips"] = [
+md('''
+# 17 — Notebook 15's idle plots again, with the anchor's bursts filtered out
+
+Notebook 16 showed that in the anchored runs one anchor flip flips several targets in the same
+shot ("bursts": shots with 2 or more flipped targets), and that these bursts make up most of the
+anchored floor and its scatter. Idle dephasing acts on each target separately. This notebook
+redraws the two plots of notebook 15 counting only flips from shots with **at most one** flipped
+target, i.e. with the burst shots removed.
+
+**Status of this analysis.** The filter was chosen after looking at the shots (notebook 16), so
+what follows is exploratory: it says what the existing data look like under the filter, not a
+test planned in advance. Two known limits of the filter:
+- an anchor flip at the very edge of a coupling sweep flips one target only and is kept, as a
+  single flip; such flips do not depend on L, so they raise the floor, not the slope;
+- an idle flip that happens in a burst shot is removed with it (≤ 1.4% of shots: negligible).
+
+**Source:** `results/hardware/h2_1e_idle_flip_patterns.json` (`hardware.cli collect`), the
+emulator's idle model from `config/h2_1e_emulator.json`; H2-1E via aqora (`q_sq`), one job per
+point.
+'''),
+SETUP,
+code('''
+import math
+from scipy.stats import beta, chi2 as chi2_dist
+cp = lambda k, n: (beta.ppf(.025, k, n - k + 1) if k else 0.0, beta.ppf(.975, k + 1, n - k))
+runs = json.loads((R / "hardware" / "h2_1e_idle_flip_patterns.json").read_text())["runs"]
+cal = json.loads((Path("..") / "config" / "h2_1e_emulator.json").read_text())
+om = 2 * math.pi * cal["quad_rate"] * cal["quad_factor"]; g = cal["gamma"]
+pz = lambda t: g * t + np.sin(om * t / 2) ** 2 - 2 * g * t * np.sin(om * t / 2) ** 2   # emulator idle, t in s
+oplus = lambda a, b: a + b - 2 * a * b                                                   # two flip chances
+
+def rates(run):
+    """(all flips, flips with burst shots removed) per target sample, with the counts behind them."""
+    m = np.array([pat.count("1") for pat, n in run["patterns"].items() for _ in range(n)])
+    n_t = len(next(iter(run["patterns"])))
+    keep = m <= 1
+    return dict(n=len(m), k_all=int(m.sum()), all=m.sum() / (n_t * len(m)),
+                kept=int(keep.sum()), k_one=int((m == 1).sum()), one=(m == 1).sum() / (n_t * keep.sum()),
+                bursts=int((m >= 2).sum()), n_t=n_t)
+
+def series(design, basis, shots):
+    rs = sorted((r for r in runs.values() if r["design"] == design and r["basis"] == basis and r["shots"] == shots),
+                key=lambda r: r["layers"])
+    return np.array([r["layers"] for r in rs]), [rates(r) for r in rs]
+
+for d in ("measure-and-reset", "transport", "anchored"):
+    L, rr = series(d, "X", 100)
+    print(f"{d:18s} X, 100 shots: burst shots per run {[r['bursts'] for r in rr]} at L = {L.tolist()}")
+'''),
+md('''
+## Notebook 15's first plot: three spectator designs, 100 shots each
+'''),
+code('''
+designs = [("measure-and-reset", P.MUTED, "^"), ("transport", P.SERIES[0], "s"), ("anchored", P.SERIES[1], "o")]
+fig, axes = plt.subplots(1, 2, figsize=(12, 3.8), sharey=True)
+for ax, key, title in ((axes[0], "all", "As in notebook 15: all flips"),
+                       (axes[1], "one", "Burst shots removed")):
+    for i, (d, col, mk) in enumerate(designs):
+        L, rr = series(d, "X", 100)
+        p = np.array([r[key] for r in rr])
+        if key == "all":
+            ci = np.array([cp(r["k_all"], r["n_t"] * r["n"]) for r in rr]).T
+        else:
+            ci = np.array([cp(r["k_one"], r["kept"]) for r in rr]).T / 8
+        x = np.where(L == 0, 0.6, L) * (0.92 + 0.08 * i)
+        ax.errorbar(x, 100 * p, yerr=[100 * (p - ci[0]), 100 * (ci[1] - p)], fmt=mk, color=col, capsize=3, label=d)
+    ax.set_xscale("log"); ax.set_xticks([0.6, 2, 4, 8, 16, 32, 64], ["0", "2", "4", "8", "16", "32", "64"])
+    ax.xaxis.set_minor_formatter(plt.NullFormatter()); ax.set_xlabel("spectator layers L")
+    ax.set_title(title + " (95% CI)", loc="left")
+axes[0].set_ylabel("target flip rate, X basis (%)"); axes[0].legend(fontsize=8)
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* removing the burst shots takes the anchored L = 16 point from 2.4% to 0: all 19 of
+  its flips were in 3 burst shots. Transport and measure-and-reset do not change (no bursts).
+- *Measured:* with bursts removed the three designs agree within their intervals (0–0.4%); the
+  anchored floor of notebook 15 was the bursts.
+- *Not decidable at 100 shots:* any trend; the intervals span the whole range.
+'''),
+md('''
+## Notebook 15's second plot: anchored, long waits (1000 shots per X point)
+'''),
+code('''
+L, rr = series("anchored", "X", 1000)
+p = np.array([r["one"] for r in rr]); kept = np.array([r["kept"] for r in rr]); k1 = np.array([r["k_one"] for r in rr])
+se = np.sqrt((k1 / kept) * (1 - k1 / kept) / kept) / 8
+for l, r in zip(L, rr):
+    print(f"X, L = {l:>3}: all flips {100 * r['all']:.2f}%   burst shots removed: {r['k_one']} single flips in "
+          f"{r['kept']} shots = {100 * r['one']:.3f}% per target   ({r['bursts']} burst shots removed)")
+zr = rates(runs["idleA_Z_L64@500"])
+print(f"Z, L =  64: all flips {100 * zr['all']:.2f}%, burst shots removed {100 * zr['one']:.3f}% ({zr['bursts']} burst shots)")
+
+w = 1 / se ** 2; m = (w * p).sum() / w.sum(); c0 = (w * (p - m) ** 2).sum()
+print(f"\\nconstant {100 * m:.3f}%: chi2 {c0:.1f} on {len(L) - 1} dof, p = {chi2_dist.sf(c0, len(L) - 1):.4f}")
+
+# Emulator idle model on a floor: P(L) = floor (+) pz(tau * L). Fit floor and tau (seconds per layer).
+taus = np.linspace(0, 20e-3, 2001); floors = np.linspace(0, 0.006, 601)
+best = (np.inf, None, None); prof = []
+for t in taus:
+    q = pz(t * L)
+    c = (w[None, :] * (oplus(floors[:, None], q[None, :]) - p[None, :]) ** 2).sum(axis=1)
+    j = int(c.argmin()); prof.append(c[j])
+    if c[j] < best[0]: best = (c[j], t, floors[j])
+prof = np.array(prof); c1, t1, f1 = best; inside = taus[prof <= c1 + 1]
+print(f"emulator idle model: floor {100 * f1:.3f}%, layer {1e3 * t1:.2f} ms "
+      f"(68%: {1e3 * inside.min():.2f}-{1e3 * inside.max():.2f} ms), chi2 {c1:.1f} on {len(L) - 2} dof")
+
+# Quantinuum's published H2-1 memory error per depth-1 layer (hardware, not the emulator): 2.0e-4 RB
+# infidelity, i.e. a Pauli error of 1.5 x 2.0e-4 per layer, of which 2/3 (Z, Y; depolarising) to all
+# (pure Z) flips an X-basis target.
+spec = (2 / 3 * 1.5 * 2.0e-4, 1.5 * 2.0e-4)
+print(f"published H2-1 memory error, X-basis flips per layer: {spec[0]:.1e}-{spec[1]:.1e}")
+slope = np.polyfit(L, p, 1, w=np.sqrt(w))[0]
+print(f"straight-line slope of the filtered rate: {slope:.1e} per layer per target")
+'''),
+code('''
+fig, ax = plt.subplots(figsize=(7.5, 4.2))
+ci = np.array([cp(int(k), int(n)) for k, n in zip(k1, kept)]).T / 8; x = np.where(L == 0, 0.7, L)
+pa = np.array([r["all"] for r in rr])
+ax.plot(x, 100 * pa, "o", color=P.MUTED, mfc="none", ms=6, label="all flips (notebook 15)")
+ax.errorbar(x, 100 * p, yerr=[100 * (p - ci[0]), 100 * (ci[1] - p)], fmt="o", color=P.SERIES[1], capsize=4,
+            label="anchored, X basis, burst shots removed")
+zci = np.array(cp(zr["k_one"], zr["kept"])) / 8
+ax.errorbar([64 * 1.07], [100 * zr["one"]], yerr=[[100 * (zr["one"] - zci[0])], [100 * (zci[1] - zr["one"])]],
+            fmt="s", color=P.SERIES[0], capsize=4, label="anchored, Z basis, burst shots removed")
+Ls = np.geomspace(0.7, 128, 200); Lr = np.where(Ls < 1, 0, Ls)
+ax.axhline(100 * m, color=P.INK, lw=1, label=f"no growth: {100 * m:.2f}%")
+ax.plot(Ls, 100 * oplus(f1, pz(t1 * Lr)), "-", color=P.SERIES[1], lw=1.2,
+        label=f"emulator idle model, fitted: {1e3 * t1:.1f} ms per layer")
+ax.fill_between(Ls, 100 * oplus(f1, spec[0] * Lr), 100 * oplus(f1, spec[1] * Lr), color=P.MUTED, alpha=0.25, lw=0,
+                label="published H2-1 memory error per depth-1 layer")
+ax.set_xscale("log"); ax.set_xticks([0.7, 16, 32, 64, 128], ["0", "16", "32", "64", "128"]); ax.xaxis.set_minor_formatter(plt.NullFormatter())
+ax.set_ylim(0, 2); ax.set_xlabel("transport layers L"); ax.set_ylabel("target flip rate (%)"); ax.legend(fontsize=7.5, loc="upper left")
+ax.set_title("Anchored, long waits, burst shots removed (95% CI)", loc="left")
+fig.tight_layout()
+'''),
+md('''
+**Reading.**
+- *Measured:* with the burst shots removed the X-basis rate rises with L, from 0.23% at L = 0
+  to 0.63% at L = 128, and a constant no longer fits (printed χ² above). Notebook 15's "no
+  consistent growth" came from the pooled rate, in which the bursts (fewest at L = 128) hid this.
+- *Measured, against the dephasing reading:* the Z basis at L = 64 (0.45%, no bursts) is as
+  high as the X basis at L = 64 (0.42%), and above the 100-shot Z runs at L ≤ 16 (~0.2%). Pure
+  dephasing cannot flip a Z-basis target. So either part of the rise is not dephasing (bit
+  flips, e.g. from transport or leakage), or the single Z point is high by chance. Z at more
+  values of L is needed to tell.
+- *Measured:* the emulator's own idle model (Z only) fits the filtered X points with a layer of
+  ~1.6 ms (68%: 1.4–1.8 ms). The rise per layer (3e-5) is several times below Quantinuum's
+  published H2-1 memory error per depth-1 layer (grey band, 2–3e-4 X-basis flips): the
+  emulator's layers are shorter, or its idle noise weaker, than that hardware figure.
+- *Exploratory:* the filter was chosen after seeing the data, each point is one job, and the
+  slope rests most on L = 128. This changes notebook 15's conclusion from "no idle growth seen"
+  to "a growth consistent with idling, seen once, to be confirmed".
+- *Next:* a run planned in advance: the same L grid and more shots in **both** bases, counting
+  single flips only, with one anchor per target (or the barrier now in Guppy 1.2) so that
+  bursts cannot occur.
+'''),
+]
+
+# ---------------------------------------------------------------------------
+NB["18_idle_tests_h2_1e"] = [
+md("""
+# 18 — Idle tests T0–T5 on the H2-1E emulator
+
+The questions, runs and decision rules were fixed before any shots (`scratchpad.md`,
+`config/idle_tests.json`). Every program was built with pytket + pytket-qir and sent with explicit
+emulator options (stabilizer simulator, noise on, `no_opt`; dephasing flags **on** unless marked
+**off**). T1 needed no runs, and T6 (real H2-1) was not run.
+
+| test | question |
+| --- | --- |
+| T0 | Do the emulator options take effect (sleep 1 s with dephasing off)? |
+| T2 | Does sleep cause bit flips (Z basis), or only dephasing? |
+| T3 | Linear (γ) and quadratic (fk) idle terms from an X-basis sleep sweep |
+| T4 | Idling inside a circuit (L transport layers) against sleep |
+| T5a | Do sleeps on different qubits run at the same time? |
+| T5 | Idle time inside one d = 3 syndrome round |
+
+**Source:** `results/hardware/h2_1e_idle_tests.json` (`python -m qec_timing.hardware.idle_tests analyze`);
+H2-1E via aqora (`q_sq`); raw records in `store/hardware/idle_tests_395540c9cf875a4b/` (local).
+"""),
+SETUP,
+code("""
+res = json.loads((R / "hardware" / "h2_1e_idle_tests.json").read_text())
+rows, fit, der = res["rows"], res["t3_fit"], res["derived"]
+sleep = {r["name"]: r.get("sleep") for t in res["plan"].values() for r in t["runs"]}
+model = lambda t, g, f: g * t + np.sin(np.pi * f * t) ** 2 - 2 * g * t * np.sin(np.pi * f * t) ** 2
+oplus = lambda a, b: a + b - 2 * a * b
+def pt(name):
+    r = rows[name]; lo, hi = r["ci95"]
+    return r["p"], max(r["p"] - lo, 0), max(hi - r["p"], 0)
+for n, r in rows.items():
+    print(f"{n:22s} {r['k']:5d}/{r['n']:<6d} {100 * r['p']:7.3f}%")
+print({k: fit[k] for k in ("floor", "gamma", "gamma_68", "fk", "fk_68", "chi2", "dof")})
+"""),
+md("""
+## T0, T2, T3: what one sleep does to one qubit
+
+Panel (a): the X-basis sweep (T3) on log axes, with the fit floor ⊕ (γt ⊕ sin²(πfk·t)) and the
+curve the emulator's configured values would give. A slope of 2 on these axes means the error grows
+as t². Panel (b): the same on linear axes, next to the Z-basis sweep (T2) and the sleep-1 s run
+with the dephasing flags off (T0).
+"""),
+code("""
+fig, (a, b) = plt.subplots(1, 2, figsize=(11, 4.2))
+t3 = sorted((sleep[n], n) for n in rows if rows[n]["test"] == "T3")
+tx = np.array([t for t, _ in t3]); P3 = np.array([pt(n) for _, n in t3]).T
+ts = np.geomspace(0.02, 1.2, 200); tl = np.linspace(0, 1.05, 200)
+fitc = lambda t: oplus(fit["floor"], model(t, fit["gamma"], fit["fk"]))
+conf = lambda t: oplus(fit["floor"], model(t, fit["configured"]["gamma"], fit["configured"]["fk"]))
+lab_fit = f"fit: fk = {fit['fk']:.3f}, γ = {fit['gamma']:.4f}/s (≤ {fit['gamma_68'][1]:.4f})"
+lab_conf = f"configured: fk = {fit['configured']['fk']}, γ = {fit['configured']['gamma']}/s"
+m = tx > 0
+a.errorbar(tx[m], 100 * P3[0][m], yerr=100 * P3[1:, m], fmt="o", color=P.SERIES[1], capsize=3, label="X basis (T3)")
+a.axhline(100 * fit["floor"], color=P.MUTED, lw=1, ls=":", label=f"sleep 0: {100 * fit['floor']:.2f}%")
+a.plot(ts, 100 * fitc(ts), color=P.SERIES[1], lw=1.2, label=lab_fit)
+a.plot(ts, 100 * conf(ts), color=P.INK, lw=1, ls="--", label=lab_conf)
+a.plot(ts, 100 * 0.12 * ts ** 2, color=P.MUTED, lw=1, ls="-.", label="∝ t² (guide)")
+a.set_xscale("log"); a.set_yscale("log"); a.set_xlabel("sleep t (s)"); a.set_ylabel("flip rate (%)")
+a.set_title("(a) X-basis sleep sweep, log axes (95% CI)", loc="left"); a.legend(fontsize=7.5)
+b.errorbar(tx, 100 * P3[0], yerr=100 * P3[1:], fmt="o", color=P.SERIES[1], capsize=3, label="X basis, dephasing on (T3)")
+b.plot(tl, 100 * fitc(tl), color=P.SERIES[1], lw=1.2)
+t2 = sorted((sleep[n], n) for n in rows if rows[n]["test"] == "T2"); P2 = np.array([pt(n) for _, n in t2]).T
+b.errorbar([t for t, _ in t2], 100 * P2[0], yerr=100 * P2[1:], fmt="s", color=P.SERIES[0], capsize=3, label="Z basis, dephasing on (T2)")
+p0 = pt("T0_X_sleep1_off")
+b.errorbar([1.03], [100 * p0[0]], yerr=[[100 * p0[1]], [100 * p0[2]]], fmt="D", color=P.INK, mfc="white", capsize=3,
+           label="X basis, dephasing OFF (T0)")
+b.set_xlabel("sleep t (s)"); b.set_ylabel("flip rate (%)"); b.set_ylim(bottom=0)
+b.set_title("(b) X vs Z, and dephasing off (95% CI)", loc="left"); b.legend(fontsize=7.5, loc="upper left")
+fig.tight_layout()
+"""),
+md("""
+**Reading.**
+- *T3:* the X error grows as t² (slope 2 in (a)); the fit needs no linear term (γ consistent with
+  0, below ~0.002/s) and gives fk ≈ 0.113, above the configured 0.086. The configured curve
+  (dashed) lies below every point from 0.2 s on.
+- *T2:* in the Z basis sleep gives ≤ 0.2% up to 1 s, against 12% in X: sleep is almost pure
+  dephasing.
+- *T0:* with both dephasing flags off, sleep 1 s still gives 9.3%, not ~0. The flags remove only
+  part of the sleep error (12.2% → 9.3%); most of it is not switched off by them.
+"""),
+md("""
+## T4, T5a, T5: idling inside circuits, compared with sleep
+
+Each bar is a flip rate with its 95% CI. In (a) and (c) the "off" runs are the same programs with
+the dephasing flags off; their difference is the part those flags control. The derived times
+use the T3 fit to turn that difference into seconds of sleep.
+"""),
+code("""
+fig, (a, b, c) = plt.subplots(1, 3, figsize=(12, 4), gridspec_kw=dict(width_ratios=[1.4, 1, 1]))
+def bars(ax, names, labels, colors):
+    v = np.array([pt(n) for n in names]).T
+    ax.bar(range(len(names)), 100 * v[0], yerr=100 * v[1:], color=colors, capsize=4)
+    ax.set_xticks(range(len(names)), labels, fontsize=8)
+bars(a, ["T4_transport_L0_on", "T4_transport_L16_on", "T4_transport_L64_on", "T4_transport_L64_off"],
+     ["L = 0\\non", "L = 16\\non", "L = 64\\non", "L = 64\\noff"], [P.SERIES[1]] * 3 + [P.MUTED])
+d4 = der["T4"]
+a.set_title(f"(a) T4: transport layers\\n≤ {1e3 * d4['seconds_per_layer_upper_2se']:.1f} ms of sleep per layer (2σ)", loc="left")
+a.set_ylabel("target flip rate (%)")
+c5 = der["T5a"]
+v = pt("T5a_sleep_each_0p25")
+b.bar([0], [100 * v[0]], yerr=[[100 * v[1]], [100 * v[2]]], color=P.SERIES[1], capsize=4)
+b.bar([1, 2], [100 * c5["fitted_concurrent"], 100 * c5["fitted_serial"]], color="none", edgecolor=P.INK, hatch="//")
+b.set_xticks([0, 1, 2], ["measured", "predicted:\\nsame time", "predicted:\\nin series"], fontsize=8)
+b.set_yscale("log"); b.set_title("(b) T5a: 4 qubits, sleep 0.25 s each", loc="left")
+bars(c, ["T5_rounds5_on", "T5_rounds5_off"], ["5 rounds\\non", "5 rounds\\noff"], [P.SERIES[1], P.MUTED])
+d5 = der["T5"]
+c.set_title(f"(c) T5: d = 3, 5 rounds\\n≈ {1e3 * d5['seconds_per_round']:.0f} ms of sleep per round (≤ {1e3 * d5['seconds_per_round_upper_2se']:.0f}, 2σ)", loc="left")
+for ax in (a, b, c): ax.set_ylim(bottom=0 if ax is not b else None)
+fig.tight_layout()
+print({k: der[k] for k in der})
+"""),
+md("""
+**Reading.**
+- *T4:* 64 transport layers add almost nothing (0.10% on, 0.05% off, 0 at L = 0): one layer is
+  worth ≲ 1.8 ms of sleep (central ~1 ms).
+- *T5a:* four sleeps of 0.25 s on four different qubits give what one 0.25 s sleep gives, not
+  what 1 s gives: sleeps on different qubits overlap in time.
+- *T5:* 5 rounds of d = 3 extraction give 0.58% on the waiting targets with dephasing on and
+  0.13% with it off; through the T3 curve that is ~38 ms of sleep per round (≤ 45 ms, 2σ).
+- *Caveat (from T0):* the "off" runs keep the part of the idle error that the flags do not
+  control, so (a) and (c) measure only the flag-controlled part. Through the quadratic curve,
+  that part would correspond to a somewhat longer time.
+"""),
+]
+
 for name, cells in NB.items():
     # Every figure cell also writes its PNG to figures/<notebook>_<n>.png (repo root).
     k = 0

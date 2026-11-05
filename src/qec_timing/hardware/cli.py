@@ -34,6 +34,9 @@ from pathlib import Path
 from qec_timing.store import Store
 
 PROGRAMS = Path("results/hardware/programs")
+OPTIONS_HELP = ("Nexus backend options as JSON, or @file.json, e.g. "
+                '\'{"no_opt": true, "error_params": {"idle_dephasing": true}}\'. '
+                "Omitted: no options, the platform's defaults")
 
 
 def cmd_build(a) -> None:
@@ -94,10 +97,18 @@ def cmd_aqora_list(a) -> None:
               f"inputFormats={m.get('inputFormats')}{sc}")
 
 
+def _options(text: str | None) -> dict | None:
+    """--options: a JSON object, or @path to a JSON file."""
+    if text is None:
+        return None
+    return json.loads(Path(text[1:]).read_text() if text.startswith("@") else text)
+
+
 def cmd_aqora_check(a) -> None:
     from qec_timing.hardware.providers import aqora_run
 
-    d = aqora_run(Store(a.store), a.program, a.platform, a.shots, a.as_entity)
+    d = aqora_run(Store(a.store), a.program, a.platform, a.shots, a.as_entity,
+                  options=_options(a.options))
     print(f"saved {d}")
 
 
@@ -105,7 +116,8 @@ def cmd_aqora_submit(a) -> None:
     from qec_timing.hardware.providers import aqora_run
 
     d = aqora_run(Store(a.store), a.program, a.platform, a.shots, a.as_entity,
-                  allow_execution=True, confirm=a.confirm, timeout=a.timeout)
+                  allow_execution=True, confirm=a.confirm, timeout=a.timeout,
+                  options=_options(a.options))
     print(f"saved {d}")
 
 
@@ -265,6 +277,7 @@ def main(argv=None) -> int:
     c.add_argument("--platform", required=True, help="as listed, e.g. nexus:H2-1SC")
     c.add_argument("--shots", type=int, default=100)
     c.add_argument("--as-entity", default=None)
+    c.add_argument("--options", default=None, help=OPTIONS_HELP)
     c.set_defaults(fn=cmd_aqora_check)
 
     asub = sub.add_parser("aqora-submit")
@@ -274,6 +287,7 @@ def main(argv=None) -> int:
     asub.add_argument("--as-entity", default=None)
     asub.add_argument("--timeout", type=float, default=3600.0, help="seconds to wait for the job")
     asub.add_argument("--confirm", action="store_true", help="required: execution spends credits")
+    asub.add_argument("--options", default=None, help=OPTIONS_HELP)
     asub.set_defaults(fn=cmd_aqora_submit)
 
     nc = sub.add_parser("nexus-cost")
