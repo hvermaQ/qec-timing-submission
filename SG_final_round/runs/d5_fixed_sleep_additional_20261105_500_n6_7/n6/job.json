@@ -1,0 +1,41 @@
+{
+  "rounds": 6,
+  "shots": 500,
+  "delta_t_seconds": 0.2,
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d5_fixed_sleep_9fb82150bc37143a/n6.bc",
+  "job_id": "AFByb3ZpZGVySm9iAaGraNgndfKmvFzoRE9qSA",
+  "job": {
+    "__typename": "ProviderJob",
+    "id": "AFByb3ZpZGVySm9iAaGraNgndfKmvFzoRE9qSA",
+    "provider": "nexus",
+    "status": "COMPLETED",
+    "error": null,
+    "duration": 110,
+    "resultCount": 1,
+    "createdAt": "2026-11-05T11:12:17.447098+00:00",
+    "platform": {
+      "id": "AFByb3ZpZGVyUGxhdGZvcm0BoEjlei1w4rlJdZoPbdHM",
+      "name": "H2-1E",
+      "provider": "NEXUS"
+    },
+    "hqcCost": 453.1
+  },
+  "results": [
+    {
+      "index": 0,
+      "format": 1000,
+      "error": null
+    }
+  ]
+}

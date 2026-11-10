@@ -6,6 +6,7 @@ from dataclasses import replace
 from pathlib import Path
 import numpy as np
 from analyze_single_qubit_pilot import wilson
+from redecode_d3_sleep_dependent import P_EXT, P_READ, round_probabilities
 from qec_timing.hardware.providers import _register_builtins
 from qec_timing.spec import spec_from_json
 from qec_timing.schedule import Schedule
@@ -50,6 +51,8 @@ def main():
         assert item['results'] and all(r['error'] is None for r in item['results'])
         path=Path(item['path']);job=json.loads(path.read_text())
         assert job['platform']=='nexus:H2-1E'
+        from single_qubit_sweep import OPTIONS
+        assert job['options']==OPTIONS
         rawpath=path.parent/'result_0.txt'
         assert hashlib.sha256(rawpath.read_bytes()).hexdigest()==item['raw_sha256']['result_0.txt']
         n=item['rounds'];u=item['delta_t_seconds'];total=round(u*(n-1),12)
@@ -80,19 +83,23 @@ def main():
             failure=np.any(prediction!=rec.observables,axis=1)
             sensitivity[str(p)]=int(failure.sum())
             if p==.002:primary=failure
-        k=sensitivity['0.002'];offset=0;sources=[]
+        sleep_dem=dem_for(paper_graph(spec,P_EXT,0,P_READ),noise=round_probabilities(n,u))
+        (demdir/f't{total}_n{n}_sleep.dem').write_text(sleep_dem)
+        prediction=PyMatchingDecoder(sleep_dem).decode_batch(rec.detectors)
+        primary=np.any(prediction!=rec.observables,axis=1)
+        k=int(primary.sum());offset=0;sources=[]
         for batch,meta in batches:
             sources.append(dict(meta,logical_failures=int(primary[offset:offset+len(batch)].sum())))
             offset+=len(batch)
         row=dict(total_requested_sleep_seconds=total,rounds=n,delta_t_seconds=u,shots=count,logical_failures=k,logical_error_probability=k/count,wilson_95=wilson(k,count),raw_logical_parity_flips=int(rec.observables.sum()),decoder_sensitivity_failures=sensitivity,mean_data_error=float(dat.mean()),sources=sources)
         rows.append(row);print(json.dumps(row),flush=True)
     status=Counter(r['status'] if not r['error'] else 'REJECTED' for r in inventory)
-    result=dict(platform='nexus:H2-1E',distance=5,basis='X',submission_attempts=len(inventory),job_status_counts=dict(status),completed_shots=sum(r['shots'] for r in rows),rows=rows,primary_decoder='Fixed phenomenological MWPM: p_data=.002, p_read=.001, lambda=0, final readout .001; d=5 topology',logical_observable=[0,5,10,15,20],all_packed_shots_match_joint_formatted_counts=True,no_postselection=True,extraction_duration_neglected=True,parallel_sleep_verified=False)
+    result=dict(platform='nexus:H2-1E',distance=5,basis='X',submission_attempts=len(inventory),job_status_counts=dict(status),completed_shots=sum(r['shots'] for r in rows),rows=rows,primary_decoder='Sleep-dependent phenomenological MWPM: p_ext=.002, p_read=.001, p_lin=.0028*u, p_quad=sin(pi*.043*2*u)^2; independent flip composition; first extraction has no sleep; d=5 topology',logical_observable=[0,5,10,15,20],all_packed_shots_match_joint_formatted_counts=True,no_postselection=True,extraction_duration_neglected=True,parallel_sleep_verified=False)
     OUT.with_suffix('.json').write_text(json.dumps(result,indent=2)+'\n')
     lines=['# d=5 H2-1E sleep experiments: logical error probabilities','',f"Status: {dict(status)} across {len(inventory)} unique execution attempts. Completed shots: {result['completed_shots']}. Rejected requests are not counted as zero-failure experiments. Waiting jobs have no logical estimate. No provider submissions were made during analysis.",'',result['primary_decoder']+'. No weights were optimized using these outcomes. These are probabilities per complete experiment, not per-round or per-second rates.','', '| Requested sleep T (s) | N | Delta t (s) | Failures / shots | P_L | 95% Wilson interval |','|---:|---:|---:|---:|---:|---:|']
     for r in rows:
         lo,hi=r['wilson_95'];lines.append(f"| {r['total_requested_sleep_seconds']} | {r['rounds']} | {r['delta_t_seconds']:.7g} | {r['logical_failures']}/{r['shots']} | {100*r['logical_error_probability']:.3f}% | {100*lo:.3f}–{100*hi:.3f}% |")
-    lines+=['','Raw packed shots match provider-formatted joint counts; all outputs are Boolean with the expected 25 data tags and 12 syndrome tags per round. Bitcode and raw-result hashes were verified. The measured logical parity was independently checked on q0,q5,q10,q15,q20. Ideal and logical-Z boundary cases were checked for every decoder. Sensitivity counts at p_data=.02,.1 are retained in JSON.','', 'Extraction duration is neglected; physical overlap of the all-data sleeps is unverified. The decoder is phenomenological, not a calibrated circuit-level model. Wilson intervals cover independent shot sampling only. T=1 and T=0.5 experiments are kept separate. Missing settings near 0.15 s prevent a resolved optimum claim.','', '## All execution attempts','', '| N | Requested sleep T (s) | Shots | State | Job ID |','|---:|---:|---:|---|---|']
+    lines+=['','Raw packed shots match provider-formatted joint counts; all outputs are Boolean with the expected 25 data tags and 12 syndrome tags per round. Bitcode and raw-result hashes were verified. The measured logical parity was independently checked on q0,q5,q10,q15,q20. Ideal and logical-Z boundary cases were checked for every decoder. Fixed-DEM sensitivity counts at p_data=.002,.02,.1 are retained in JSON.','', 'Extraction duration is neglected; physical overlap of the all-data sleeps is unverified. The decoder is phenomenological, not a calibrated circuit-level model. Wilson intervals cover independent shot sampling only. T=1 and T=0.5 experiments are kept separate. Nearby settings have few failures and overlapping sampling intervals; the observed minimum does not establish a unique optimum.','', '## All execution attempts','', '| N | Requested sleep T (s) | Shots | State | Job ID |','|---:|---:|---:|---|---|']
     for r in inventory:lines.append(f"| {r['rounds']} | {r['delta_t_seconds']*(r['rounds']-1):.4g} | {r['shots']} | {r['error'] or r['status']} | {r['job_id']} |")
     OUT.with_suffix('.md').write_text('\n'.join(lines)+'\n')
     print('STATUS',dict(status),'COMPLETED SHOTS',result['completed_shots'])

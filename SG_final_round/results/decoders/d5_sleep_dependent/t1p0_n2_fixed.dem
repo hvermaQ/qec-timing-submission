@@ -1,0 +1,123 @@
+error(0.002000000000000002) D0 D2
+error(0.002000000000000002) D0 D3
+error(0.002000000000000002) D0 D8
+error(0.002000000000000002) D0 D9
+error(0.001) D0 D12
+error(0.003992000000000003) D1
+error(0.002000000000000002) D1 D3
+error(0.002000000000000002) D1 D9
+error(0.001) D1 D13
+error(0.002000000000000002) D2 D4
+error(0.001) D2 D14
+error(0.003992000000000003) D2 L0
+error(0.002000000000000002) D3 D4
+error(0.002000000000000002) D3 D5
+error(0.001) D3 D15
+error(0.002000000000000002) D4 D6
+error(0.002000000000000002) D4 D7
+error(0.001) D4 D16
+error(0.003992000000000003) D5
+error(0.002000000000000002) D5 D7
+error(0.001) D5 D17
+error(0.002000000000000002) D6 D10
+error(0.001) D6 D18
+error(0.003992000000000003) D6 L0
+error(0.002000000000000002) D7 D10
+error(0.002000000000000002) D7 D11
+error(0.001) D7 D19
+error(0.001) D8 D20
+error(0.002000000000000002) D8 L0
+error(0.001) D9 D21
+error(0.001) D10 D22
+error(0.002000000000000002) D11
+error(0.001) D11 D23
+error(0.002000000000000002) D12 D14
+error(0.002000000000000002) D12 D15
+error(0.002000000000000002) D12 D20
+error(0.002000000000000002) D12 D21
+error(0.001) D12 D24
+error(0.003992000000000003) D13
+error(0.002000000000000002) D13 D15
+error(0.002000000000000002) D13 D21
+error(0.001) D13 D25
+error(0.002000000000000002) D14 D16
+error(0.001) D14 D26
+error(0.003992000000000003) D14 L0
+error(0.002000000000000002) D15 D16
+error(0.002000000000000002) D15 D17
+error(0.001) D15 D27
+error(0.002000000000000002) D16 D18
+error(0.002000000000000002) D16 D19
+error(0.001) D16 D28
+error(0.003992000000000003) D17
+error(0.002000000000000002) D17 D19
+error(0.001) D17 D29
+error(0.002000000000000002) D18 D22
+error(0.001) D18 D30
+error(0.003992000000000003) D18 L0
+error(0.002000000000000002) D19 D22
+error(0.002000000000000002) D19 D23
+error(0.001) D19 D31
+error(0.001) D20 D32
+error(0.002000000000000002) D20 L0
+error(0.001) D21 D33
+error(0.001) D22 D34
+error(0.002000000000000002) D23
+error(0.001) D23 D35
+error(0.001) D24 D26
+error(0.001) D24 D27
+error(0.001) D24 D32
+error(0.001) D24 D33
+error(0.001998) D25
+error(0.001) D25 D27
+error(0.001) D25 D33
+error(0.001) D26 D28
+error(0.001998) D26 L0
+error(0.001) D27 D28
+error(0.001) D27 D29
+error(0.001) D28 D30
+error(0.001) D28 D31
+error(0.001998) D29
+error(0.001) D29 D31
+error(0.001) D30 D34
+error(0.001998) D30 L0
+error(0.001) D31 D34
+error(0.001) D31 D35
+error(0.001) D32 L0
+error(0.001) D35
+detector(0.5, 1.5, 0) D0
+detector(0.5, 3.5, 0) D1
+detector(1.5, 0.5, 0) D2
+detector(1.5, 2.5, 0) D3
+detector(2.5, 1.5, 0) D4
+detector(2.5, 3.5, 0) D5
+detector(3.5, 0.5, 0) D6
+detector(3.5, 2.5, 0) D7
+detector(0, 0.5, 0) D8
+detector(0, 2.5, 0) D9
+detector(4, 1.5, 0) D10
+detector(4, 3.5, 0) D11
+detector(0.5, 1.5, 1) D12
+detector(0.5, 3.5, 1) D13
+detector(1.5, 0.5, 1) D14
+detector(1.5, 2.5, 1) D15
+detector(2.5, 1.5, 1) D16
+detector(2.5, 3.5, 1) D17
+detector(3.5, 0.5, 1) D18
+detector(3.5, 2.5, 1) D19
+detector(0, 0.5, 1) D20
+detector(0, 2.5, 1) D21
+detector(4, 1.5, 1) D22
+detector(4, 3.5, 1) D23
+detector(0.5, 1.5, 2) D24
+detector(0.5, 3.5, 2) D25
+detector(1.5, 0.5, 2) D26
+detector(1.5, 2.5, 2) D27
+detector(2.5, 1.5, 2) D28
+detector(2.5, 3.5, 2) D29
+detector(3.5, 0.5, 2) D30
+detector(3.5, 2.5, 2) D31
+detector(0, 0.5, 2) D32
+detector(0, 2.5, 2) D33
+detector(4, 1.5, 2) D34
+detector(4, 3.5, 2) D35

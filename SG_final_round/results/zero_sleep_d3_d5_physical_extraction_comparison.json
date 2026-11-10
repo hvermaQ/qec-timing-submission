@@ -1,0 +1,132 @@
+{
+  "rows": [
+    {
+      "distance": 3,
+      "rounds": 2,
+      "sleep_argument": 0,
+      "shots": 2000,
+      "data_qubits": 9,
+      "error_bits": 41,
+      "data_bit_measurements": 18000,
+      "mean_data_error": 0.002277777777777778,
+      "m_shot_bootstrap_95": [
+        0.0016111111111111111,
+        0.003
+      ],
+      "conditional_p_ext": 0.001140188919661389,
+      "p_ext_shot_bootstrap_95": [
+        0.000806205522900727,
+        0.0015022567754193195
+      ],
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGbWgzzd8KcJnrXT8rg7Q",
+          "shots": 1000,
+          "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d3_sleep_sweep_f219bffeea86811d/execute/sleep_0p0/job.json",
+          "raw_sha256": "df55a352640717c50c6e15848f3d7d16fbe56a39b9f2d2005e23cc0b86e6c86e",
+          "error_bits": 16,
+          "per_qubit_error_bits": [
+            1,
+            1,
+            3,
+            3,
+            3,
+            1,
+            0,
+            3,
+            1
+          ],
+          "shots_with_any_error": 16
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGbgdnsdkCMOqKxGIBYwA",
+          "shots": 1000,
+          "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d3_sleep_five_point_a2588f7078f6e696/execute/sleep_0p0/job.json",
+          "raw_sha256": "b3e91b67398dcdc05170b4c5ea4c5f2c7a285808589ef6bae78c0cc5cc469960",
+          "error_bits": 25,
+          "per_qubit_error_bits": [
+            1,
+            3,
+            4,
+            3,
+            7,
+            0,
+            4,
+            3,
+            0
+          ],
+          "shots_with_any_error": 25
+        }
+      ]
+    },
+    {
+      "distance": 5,
+      "rounds": 2,
+      "sleep_argument": 0,
+      "shots": 1000,
+      "data_qubits": 25,
+      "error_bits": 284,
+      "data_bit_measurements": 25000,
+      "mean_data_error": 0.01136,
+      "m_shot_bootstrap_95": [
+        0.010039999999999999,
+        0.01272
+      ],
+      "conditional_p_ext": 0.005712634189381671,
+      "p_ext_shot_bootstrap_95": [
+        0.005045456632631784,
+        0.006400972448283693
+      ],
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGw2szSeEOEn8VwSyFWAw",
+          "shots": 1000,
+          "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_zero_sleep_n2_1000_20261106/execute/job.json",
+          "raw_sha256": "a677c26760e6e8bde56a6f1d024cda62245e8c5074c663eaa25ed054194af4e0",
+          "error_bits": 284,
+          "per_qubit_error_bits": [
+            16,
+            1,
+            3,
+            5,
+            8,
+            16,
+            11,
+            10,
+            11,
+            16,
+            9,
+            16,
+            7,
+            19,
+            8,
+            20,
+            13,
+            11,
+            12,
+            14,
+            12,
+            9,
+            14,
+            7,
+            16
+          ],
+          "shots_with_any_error": 242
+        }
+      ]
+    }
+  ],
+  "assumptions": "Two identical independent effective flips per data qubit, negligible preparation and final readout background. Bootstrap resamples complete shots within each job, preserving within-shot spatial correlations; does not include run-to-run systematic uncertainty.",
+  "formula": "m=(1-(1-2*p_ext)^2)/2; p_ext=(1-sqrt(1-2*m))/2",
+  "bootstrap_replicates": 10000,
+  "seed": 20261106,
+  "p_ext_ratio_5_over_3": 5.010252328252934,
+  "p_ext_ratio_bootstrap_95": [
+    3.7099393787646324,
+    7.183246182250998
+  ],
+  "p_ext_difference_5_minus_3_bootstrap_95": [
+    0.003816804578845896,
+    0.005346991529931829
+  ]
+}

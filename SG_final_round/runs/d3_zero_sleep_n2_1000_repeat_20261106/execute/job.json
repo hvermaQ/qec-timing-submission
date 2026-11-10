@@ -1,0 +1,47 @@
+{
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "shots": 1000,
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_sleep_five_point_a2588f7078f6e696/sleep_0p0.bc",
+  "parallel_sleep_verified": false,
+  "distance": 3,
+  "rounds": 2,
+  "delta_t_seconds": 0.0,
+  "total_requested_sleep_seconds": 0.0,
+  "estimated_hqc": 114.0,
+  "program_sha256": "8144a53591b44c0227c8afd8cab18a7b504d2ea6a69d0be0c09944d38c9bbc57",
+  "repeat_of_job_id": "AFByb3ZpZGVySm9iAaGbgdnsdkCMOqKxGIBYwA",
+  "job_id": "AFByb3ZpZGVySm9iAaGw-zLjd9G3EKZ7QW8t9A",
+  "job": {
+    "__typename": "ProviderJob",
+    "id": "AFByb3ZpZGVySm9iAaGw-zLjd9G3EKZ7QW8t9A",
+    "provider": "nexus",
+    "status": "COMPLETED",
+    "error": null,
+    "duration": 4,
+    "resultCount": 1,
+    "createdAt": "2026-11-06T13:10:15.011794+00:00",
+    "platform": {
+      "id": "AFByb3ZpZGVyUGxhdGZvcm0BoEjlei1w4rlJdZoPbdHM",
+      "name": "H2-1E",
+      "provider": "NEXUS"
+    },
+    "hqcCost": 114.0
+  },
+  "results": [
+    {
+      "index": 0,
+      "format": 1000,
+      "error": null
+    }
+  ]
+}

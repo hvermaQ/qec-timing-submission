@@ -1,0 +1,18 @@
+[
+  {
+    "rounds": 6,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGraNgndfKmvFzoRE9qSA",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 453.1
+  },
+  {
+    "rounds": 7,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGraN-BeKK5t0wHR8-q-A",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 522.7
+  }
+]

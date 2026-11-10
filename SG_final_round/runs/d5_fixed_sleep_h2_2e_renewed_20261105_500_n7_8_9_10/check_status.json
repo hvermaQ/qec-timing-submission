@@ -1,0 +1,34 @@
+[
+  {
+    "rounds": 7,
+    "shots": 1,
+    "job_id": "AFByb3ZpZGVySm9iAaGq5DleeYGtqdH7k4-DDQ",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 6.0354
+  },
+  {
+    "rounds": 8,
+    "shots": 1,
+    "job_id": "AFByb3ZpZGVySm9iAaGq5ENtcaCoch6_pXpHBw",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 6.1746
+  },
+  {
+    "rounds": 9,
+    "shots": 1,
+    "job_id": "AFByb3ZpZGVySm9iAaGq5EzDdJGmIfkWC4QKEg",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 6.3138000000000005
+  },
+  {
+    "rounds": 10,
+    "shots": 1,
+    "job_id": "AFByb3ZpZGVySm9iAaGq5JUPcZOAIFs65zPdRA",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 6.453
+  }
+]

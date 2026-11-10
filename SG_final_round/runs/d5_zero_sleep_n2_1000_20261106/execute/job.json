@@ -1,0 +1,43 @@
+{
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "shots": 1000,
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d5_zero_sleep_n2/n2.bc",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "distance": 5,
+  "rounds": 2,
+  "delta_t_seconds": 0.0,
+  "total_requested_sleep_seconds": 0.0,
+  "job_id": "AFByb3ZpZGVySm9iAaGw2szSeEOEn8VwSyFWAw",
+  "job": {
+    "__typename": "ProviderJob",
+    "id": "AFByb3ZpZGVySm9iAaGw2szSeEOEn8VwSyFWAw",
+    "provider": "nexus",
+    "status": "COMPLETED",
+    "error": null,
+    "duration": 92,
+    "resultCount": null,
+    "createdAt": "2026-11-06T12:34:51.730893+00:00",
+    "platform": {
+      "id": "AFByb3ZpZGVyUGxhdGZvcm0BoEjlei1w4rlJdZoPbdHM",
+      "name": "H2-1E",
+      "provider": "NEXUS"
+    },
+    "hqcCost": 344.4
+  },
+  "results": [
+    {
+      "index": 0,
+      "format": 1000,
+      "error": null
+    }
+  ]
+}

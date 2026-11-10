@@ -1,0 +1,40 @@
+{
+  "rounds": 9,
+  "shots": 1,
+  "delta_t_seconds": 0.125,
+  "platform": "nexus:H2-2SC",
+  "as_entity": "q_sq",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d5_fixed_sleep_9fb82150bc37143a/n9.bc",
+  "job_id": "AFByb3ZpZGVySm9iAaGq5EzDdJGmIfkWC4QKEg",
+  "job": {
+    "id": "AFByb3ZpZGVySm9iAaGq5EzDdJGmIfkWC4QKEg",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 6.3138000000000005,
+    "resultCount": 1,
+    "results": {
+      "nodes": [
+        {
+          "index": 0,
+          "error": null
+        }
+      ]
+    }
+  },
+  "results": [
+    {
+      "index": 0,
+      "error": null
+    }
+  ],
+  "validation_evidence": "Completed checker with API per-item error metadata; sample output download unavailable"
+}

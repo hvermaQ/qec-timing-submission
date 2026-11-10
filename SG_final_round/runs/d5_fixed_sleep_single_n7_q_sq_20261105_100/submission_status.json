@@ -1,0 +1,10 @@
+[
+  {
+    "rounds": 7,
+    "shots": 100,
+    "job_id": "AFByb3ZpZGVySm9iAaGrBBykcRCUvPyJjdPP_A",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0
+  }
+]

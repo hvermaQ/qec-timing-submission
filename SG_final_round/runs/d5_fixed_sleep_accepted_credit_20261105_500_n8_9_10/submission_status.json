@@ -1,0 +1,26 @@
+[
+  {
+    "rounds": 8,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGrMc27dICj6c3unJaTMA",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 592.3
+  },
+  {
+    "rounds": 9,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGrMdU5dnGPvqZKW5OjFA",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 661.9
+  },
+  {
+    "rounds": 10,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGrMd0ne9GRdlyOgakfww",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 731.5
+  }
+]

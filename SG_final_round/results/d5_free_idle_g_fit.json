@@ -1,0 +1,444 @@
+{
+  "scope": "All pooled d=5 T=1 s rows; free a,b,C,g; fixed pooled zero-sleep p_ext",
+  "shots": 9667,
+  "p_ext": 0.005662058911112933,
+  "g": 0.9999999899999998,
+  "C": 0.0018475453802179289,
+  "a": 1.2938373042407885e-24,
+  "b": 0.01886095600221664,
+  "lambda_1": 2.2592236468153213e-22,
+  "lambda_2": 3.293390727109619,
+  "delta_t_star": 0.24642988323419546,
+  "deviance": 1.7926832068536538,
+  "nominal_df": 5,
+  "profile": [
+    {
+      "g": 0.3,
+      "deviance": 114.4332869855332
+    },
+    {
+      "g": 0.4,
+      "deviance": 49.58029310375016
+    },
+    {
+      "g": 0.5,
+      "deviance": 21.977313062666816
+    },
+    {
+      "g": 0.6,
+      "deviance": 10.168842240244041
+    },
+    {
+      "g": 0.7,
+      "deviance": 5.066375644159642
+    },
+    {
+      "g": 0.8,
+      "deviance": 2.882669228729819
+    },
+    {
+      "g": 0.9,
+      "deviance": 2.0251374682998087
+    },
+    {
+      "g": 0.99,
+      "deviance": 1.798793712128624
+    }
+  ],
+  "sweep_comparison": [
+    {
+      "u": 0.1,
+      "fitted_q": 0.00018860956002216643
+    },
+    {
+      "u": 0.25,
+      "fitted_q": 0.00117880975013854
+    },
+    {
+      "u": 0.5,
+      "fitted_q": 0.00471523900055416
+    },
+    {
+      "u": 0.75,
+      "fitted_q": 0.010609287751246862
+    },
+    {
+      "u": 1,
+      "fitted_q": 0.01886095600221664
+    }
+  ],
+  "rows": [
+    {
+      "distance": 5,
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 2,
+      "delta_t_seconds": 1.0,
+      "shots": 1000,
+      "logical_failures": 146,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGh9ZhIdJKUHjfzj6faKQ",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_9fb82150bc37143a/execute/n2_part1/job.json",
+          "raw_sha256": "01985dadf6f018e66c7fb7e2224b80725e2117af884fe73547dd29e46c46e287",
+          "program_sha256": "7345035ca40a12710538cbf146d7951ed8b08fe08621db4f72af75b0e0d78cf2",
+          "offset": 0,
+          "fixed_failures": 72,
+          "sleep_failures": 71,
+          "corrected": 2,
+          "introduced": 1
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGryB9geWGIbBY4dHZ1ww",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n2_3_4_5/n2/job.json",
+          "raw_sha256": "f6dfb47fd94efb0ec2dbbd91eb6c46be1d74b09808c18c3e396ad44f4938034f",
+          "program_sha256": "7345035ca40a12710538cbf146d7951ed8b08fe08621db4f72af75b0e0d78cf2",
+          "offset": 500,
+          "fixed_failures": 76,
+          "sleep_failures": 75,
+          "corrected": 1,
+          "introduced": 0
+        }
+      ],
+      "logical_error_probability": 0.146,
+      "wilson_95": [
+        0.1254692734304005,
+        0.1692400715773725
+      ],
+      "predicted_probability": 0.14621648434392745
+    },
+    {
+      "distance": 5,
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 3,
+      "delta_t_seconds": 0.5,
+      "shots": 1000,
+      "logical_failures": 25,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGh9aIpeOCwZYpJAaxv0A",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_9fb82150bc37143a/execute/n3_part1/job.json",
+          "raw_sha256": "46a960ee663116f6eec4263f55f843b8eaf98beff9a5154ae023332e83421305",
+          "program_sha256": "1989a119d984d89adec89ef0c1419e437e37dff84f25d6b99020c09e4f90ef64",
+          "offset": 0,
+          "fixed_failures": 6,
+          "sleep_failures": 7,
+          "corrected": 0,
+          "introduced": 1
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGryCY-dAKTG0COOdEjew",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n2_3_4_5/n3/job.json",
+          "raw_sha256": "a366ab642ffb4e38dc31c13a1eaf742090e3f8aa184c16e011631a576f709661",
+          "program_sha256": "1989a119d984d89adec89ef0c1419e437e37dff84f25d6b99020c09e4f90ef64",
+          "offset": 500,
+          "fixed_failures": 19,
+          "sleep_failures": 18,
+          "corrected": 2,
+          "introduced": 1
+        }
+      ],
+      "logical_error_probability": 0.025,
+      "wilson_95": [
+        0.016990131293434067,
+        0.0366452892678433
+      ],
+      "predicted_probability": 0.022399254798126277
+    },
+    {
+      "distance": 5,
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 4,
+      "delta_t_seconds": 0.3333333333333333,
+      "shots": 1500,
+      "logical_failures": 19,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGh9azpeLGTJGRxMyDT9g",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_9fb82150bc37143a/execute/n4_part1/job.json",
+          "raw_sha256": "c8fa8eb894871b439a82e2fbc3beecc5344584a97d8a4ebfc78441a429e8a87c",
+          "program_sha256": "732a3793d36744c0addd486c7cc5122120736984e54441d13aadce2eec4292b3",
+          "offset": 0,
+          "fixed_failures": 3,
+          "sleep_failures": 4,
+          "corrected": 0,
+          "introduced": 1
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGryCzRdQOG8a2sG7U1Tw",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n2_3_4_5/n4/job.json",
+          "raw_sha256": "c98513b268ed5306905caefc067f4fe4032bf1da2ae5deeedd3a9b9c818ec6c5",
+          "program_sha256": "732a3793d36744c0addd486c7cc5122120736984e54441d13aadce2eec4292b3",
+          "offset": 500,
+          "fixed_failures": 8,
+          "sleep_failures": 8,
+          "corrected": 2,
+          "introduced": 2
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGv6EbJeTKvBA-Q9WkKbQ",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261106_500_n4_5_6_7/n4/job.json",
+          "raw_sha256": "e884fb72d444d4baa0fc44a76bd2216fb9b17eb62e144d806c38f2d5dcea0bbd",
+          "program_sha256": "732a3793d36744c0addd486c7cc5122120736984e54441d13aadce2eec4292b3",
+          "offset": 1000,
+          "fixed_failures": 8,
+          "sleep_failures": 7,
+          "corrected": 1,
+          "introduced": 0
+        }
+      ],
+      "logical_error_probability": 0.012666666666666666,
+      "wilson_95": [
+        0.008123957091804919,
+        0.019699094716798638
+      ],
+      "predicted_probability": 0.014125502053129835
+    },
+    {
+      "distance": 5,
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 5,
+      "delta_t_seconds": 0.25,
+      "shots": 1500,
+      "logical_failures": 17,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGh9bNPfRKRYbLP8CHB1A",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_9fb82150bc37143a/execute/n5_part1/job.json",
+          "raw_sha256": "2e2618b50ef5c457cfb418e5cdb30e336e5c0bcbdf2cd7807604ad40f92746fa",
+          "program_sha256": "4b7c6d124be36053eca2461948f424f4d2ebb656ea48c9f18c202abf48e55ca1",
+          "offset": 0,
+          "fixed_failures": 4,
+          "sleep_failures": 3,
+          "corrected": 1,
+          "introduced": 0
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGryDOLfmCKlw7lMR61nA",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n2_3_4_5/n5/job.json",
+          "raw_sha256": "a0ef58cb01bfb8df364606c9e231372ada12bdc5f905ff6749c937e7fafd785a",
+          "program_sha256": "4b7c6d124be36053eca2461948f424f4d2ebb656ea48c9f18c202abf48e55ca1",
+          "offset": 500,
+          "fixed_failures": 9,
+          "sleep_failures": 8,
+          "corrected": 1,
+          "introduced": 0
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGv6E4ccRCljMC6g2enaA",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261106_500_n4_5_6_7/n5/job.json",
+          "raw_sha256": "0eca5cfceacec38aede9b5b544e43b15abfbe952e635ef1e3beb92897590b689",
+          "program_sha256": "4b7c6d124be36053eca2461948f424f4d2ebb656ea48c9f18c202abf48e55ca1",
+          "offset": 1000,
+          "fixed_failures": 9,
+          "sleep_failures": 6,
+          "corrected": 3,
+          "introduced": 0
+        }
+      ],
+      "logical_error_probability": 0.011333333333333334,
+      "wilson_95": [
+        0.007087940474416899,
+        0.018075256482773812
+      ],
+      "predicted_probability": 0.012957488570846073
+    },
+    {
+      "distance": 5,
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 6,
+      "delta_t_seconds": 0.2,
+      "shots": 1667,
+      "logical_failures": 21,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGh9boXefKot0ydZs8b_g",
+          "shots": 667,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_9fb82150bc37143a/execute/n6_part1/job.json",
+          "raw_sha256": "2b10c3355a34ef0753b7ba57a014332ddabf1952feb3188e9311b056acebe1a0",
+          "program_sha256": "cbd013fcb656b1c105e8543c45e761fc50ce9cdf5ff0f60b943053b37ad72d79",
+          "offset": 0,
+          "fixed_failures": 2,
+          "sleep_failures": 2,
+          "corrected": 0,
+          "introduced": 0
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGraNgndfKmvFzoRE9qSA",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n6_7/n6/job.json",
+          "raw_sha256": "9bdd7a2b9f60a84ec975fceddc5e246799239a89123be4bef31c8b4c759fb937",
+          "program_sha256": "cbd013fcb656b1c105e8543c45e761fc50ce9cdf5ff0f60b943053b37ad72d79",
+          "offset": 667,
+          "fixed_failures": 11,
+          "sleep_failures": 12,
+          "corrected": 0,
+          "introduced": 1
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGv6FVnflOnZPZ72gOJkQ",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261106_500_n4_5_6_7/n6/job.json",
+          "raw_sha256": "ec50c469386a0a27cd13b086d9a72b25584ec4a3e573307a74f6106dd2cc67e8",
+          "program_sha256": "cbd013fcb656b1c105e8543c45e761fc50ce9cdf5ff0f60b943053b37ad72d79",
+          "offset": 1167,
+          "fixed_failures": 6,
+          "sleep_failures": 7,
+          "corrected": 1,
+          "introduced": 2
+        }
+      ],
+      "logical_error_probability": 0.01259748050389922,
+      "wilson_95": [
+        0.008254199274960315,
+        0.019181951880308325
+      ],
+      "predicted_probability": 0.013390601404994535
+    },
+    {
+      "distance": 5,
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 7,
+      "delta_t_seconds": 0.16666666666666666,
+      "shots": 1500,
+      "logical_failures": 21,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGrME4YcAOsrYEdogemeg",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_single_n7_q_sq_20261105_500_attempt2/n7/job.json",
+          "raw_sha256": "b01df96c122a7a04f6595bc9f3dd5b73002cff907c85ba137466f715663260ef",
+          "program_sha256": "a72dd1908bfa08fea22161be90444bc1e7ba7810a903930a76b6244866aee62f",
+          "offset": 0,
+          "fixed_failures": 8,
+          "sleep_failures": 7,
+          "corrected": 1,
+          "introduced": 0
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGraN-BeKK5t0wHR8-q-A",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n6_7/n7/job.json",
+          "raw_sha256": "3f8d834b0bc8fe3d77601bc8648524b1ddce99734be3c824ea6003395838ec5c",
+          "program_sha256": "a72dd1908bfa08fea22161be90444bc1e7ba7810a903930a76b6244866aee62f",
+          "offset": 500,
+          "fixed_failures": 6,
+          "sleep_failures": 5,
+          "corrected": 1,
+          "introduced": 0
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGv6F0af1O0ml6Uj54GWg",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261106_500_n4_5_6_7/n7/job.json",
+          "raw_sha256": "35a7b03c50381364df9269528a95d423266d3af16d0a45c853484f8c5884e7c3",
+          "program_sha256": "a72dd1908bfa08fea22161be90444bc1e7ba7810a903930a76b6244866aee62f",
+          "offset": 1000,
+          "fixed_failures": 8,
+          "sleep_failures": 9,
+          "corrected": 0,
+          "introduced": 1
+        }
+      ],
+      "logical_error_probability": 0.014,
+      "wilson_95": [
+        0.009174941314692178,
+        0.02130796534532423
+      ],
+      "predicted_probability": 0.014414426961389644
+    },
+    {
+      "distance": 5,
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 8,
+      "delta_t_seconds": 0.14285714285714285,
+      "shots": 500,
+      "logical_failures": 9,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGrMc27dICj6c3unJaTMA",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_accepted_credit_20261105_500_n8_9_10/n8/job.json",
+          "raw_sha256": "b79092794e4491a210db6e905896b134d645984435971876da901cf59e881928",
+          "program_sha256": "48607a14e4d1b59e00498d1f052661fe337c1065b42dbcdfbb813ebe71c853ab",
+          "offset": 0,
+          "fixed_failures": 9,
+          "sleep_failures": 9,
+          "corrected": 0,
+          "introduced": 0
+        }
+      ],
+      "logical_error_probability": 0.018,
+      "wilson_95": [
+        0.009498193296197078,
+        0.033851670908739286
+      ],
+      "predicted_probability": 0.015719738651106603
+    },
+    {
+      "distance": 5,
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 9,
+      "delta_t_seconds": 0.125,
+      "shots": 500,
+      "logical_failures": 11,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGrMdU5dnGPvqZKW5OjFA",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_accepted_credit_20261105_500_n8_9_10/n9/job.json",
+          "raw_sha256": "47cfc80d7b802bbe5b344759fd5dd8d0468868b15aea65df0e1d34fd481351a8",
+          "program_sha256": "b1fa74a6c655afc51bd293b15efb682cb7b8801b094ece9c63ed07a659cfdd1e",
+          "offset": 0,
+          "fixed_failures": 11,
+          "sleep_failures": 11,
+          "corrected": 0,
+          "introduced": 0
+        }
+      ],
+      "logical_error_probability": 0.022,
+      "wilson_95": [
+        0.012328008269927582,
+        0.03896086121131637
+      ],
+      "predicted_probability": 0.01718155292224166
+    },
+    {
+      "distance": 5,
+      "total_requested_sleep_seconds": 1.0,
+      "rounds": 10,
+      "delta_t_seconds": 0.1111111111111111,
+      "shots": 500,
+      "logical_failures": 10,
+      "sources": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGrMd0ne9GRdlyOgakfww",
+          "shots": 500,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_accepted_credit_20261105_500_n8_9_10/n10/job.json",
+          "raw_sha256": "834e8e1b62d8d3067eea9daa432e77476e719136f72bc762a86883b7d79f2edf",
+          "program_sha256": "bfccf48d6e044e546b801fc1445e01e89631adc6ef4fb49c65863723363aed81",
+          "offset": 0,
+          "fixed_failures": 10,
+          "sleep_failures": 10,
+          "corrected": 0,
+          "introduced": 0
+        }
+      ],
+      "logical_error_probability": 0.02,
+      "wilson_95": [
+        0.010899183596210813,
+        0.036420183246879345
+      ],
+      "predicted_probability": 0.01873972175530788
+    }
+  ]
+}

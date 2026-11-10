@@ -1,0 +1,22 @@
+{
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_sq",
+  "shots": 1000,
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d5_zero_sleep_n2/n2.bc",
+  "distance": 5,
+  "rounds": 2,
+  "delta_t_seconds": 0.0,
+  "total_requested_sleep_seconds": 0.0,
+  "estimated_hqc": 344.4,
+  "program_sha256": "33b4a6a66064d1be117b2f14a268eb5f2d6a97e741237125afa5d1cdff56fed0",
+  "repeat_of_job_id": "AFByb3ZpZGVySm9iAaGw2szSeEOEn8VwSyFWAw"
+}

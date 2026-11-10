@@ -390,18 +390,92 @@
     "raw_sha256": {}
   },
   {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_accepted_credit_20261105_500_n8_9_10/n10/job.json",
+    "rounds": 10,
+    "shots": 500,
+    "delta_t_seconds": 0.1111111111111111,
+    "job_id": "AFByb3ZpZGVySm9iAaGrMd0ne9GRdlyOgakfww",
+    "id": "AFByb3ZpZGVySm9iAaGrMd0ne9GRdlyOgakfww",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 731.5,
+    "resultCount": 1,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "834e8e1b62d8d3067eea9daa432e77476e719136f72bc762a86883b7d79f2edf"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_accepted_credit_20261105_500_n8_9_10/n8/job.json",
+    "rounds": 8,
+    "shots": 500,
+    "delta_t_seconds": 0.14285714285714285,
+    "job_id": "AFByb3ZpZGVySm9iAaGrMc27dICj6c3unJaTMA",
+    "id": "AFByb3ZpZGVySm9iAaGrMc27dICj6c3unJaTMA",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 592.3,
+    "resultCount": 1,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "b79092794e4491a210db6e905896b134d645984435971876da901cf59e881928"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_accepted_credit_20261105_500_n8_9_10/n9/job.json",
+    "rounds": 9,
+    "shots": 500,
+    "delta_t_seconds": 0.125,
+    "job_id": "AFByb3ZpZGVySm9iAaGrMdU5dnGPvqZKW5OjFA",
+    "id": "AFByb3ZpZGVySm9iAaGrMdU5dnGPvqZKW5OjFA",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 661.9,
+    "resultCount": 1,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "47cfc80d7b802bbe5b344759fd5dd8d0468868b15aea65df0e1d34fd481351a8"
+    }
+  },
+  {
     "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_half_second_h2_1e_500_n3_4_5_6/execute/n3/job.json",
     "rounds": 3,
     "shots": 500,
     "delta_t_seconds": 0.25,
     "job_id": "AFByb3ZpZGVySm9iAaGiJxjQcFGyRWIw7DeXng",
     "id": "AFByb3ZpZGVySm9iAaGiJxjQcFGyRWIw7DeXng",
-    "status": "WAITING",
+    "status": "COMPLETED",
     "error": null,
     "hqcCost": 244.3,
-    "resultCount": null,
-    "results": [],
-    "raw_sha256": {}
+    "resultCount": 1,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "9d3f5d947d0c3b60e83e01ee9856f55f9eb92f09580b16b94183129bfd6cfda4"
+    }
   },
   {
     "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_half_second_h2_1e_500_n3_4_5_6/execute/n4/job.json",
@@ -438,6 +512,62 @@
     "delta_t_seconds": 0.1,
     "job_id": "AFByb3ZpZGVySm9iAaGiJzNJfFOtCJb0tPfnCA",
     "id": "AFByb3ZpZGVySm9iAaGiJzNJfFOtCJb0tPfnCA",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_renewed_20261105_500_n7_8_9_10/n10/job.json",
+    "rounds": 10,
+    "shots": 500,
+    "delta_t_seconds": 0.1111111111111111,
+    "job_id": "AFByb3ZpZGVySm9iAaGq39nKflO9amddS-lGKw",
+    "id": "AFByb3ZpZGVySm9iAaGq39nKflO9amddS-lGKw",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_renewed_20261105_500_n7_8_9_10/n7/job.json",
+    "rounds": 7,
+    "shots": 500,
+    "delta_t_seconds": 0.16666666666666666,
+    "job_id": "AFByb3ZpZGVySm9iAaGq38HYcwOsAfg6F5_7hg",
+    "id": "AFByb3ZpZGVySm9iAaGq38HYcwOsAfg6F5_7hg",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_renewed_20261105_500_n7_8_9_10/n8/job.json",
+    "rounds": 8,
+    "shots": 500,
+    "delta_t_seconds": 0.14285714285714285,
+    "job_id": "AFByb3ZpZGVySm9iAaGq38piceGCgFM9sTHrHA",
+    "id": "AFByb3ZpZGVySm9iAaGq38piceGCgFM9sTHrHA",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_renewed_20261105_500_n7_8_9_10/n9/job.json",
+    "rounds": 9,
+    "shots": 500,
+    "delta_t_seconds": 0.125,
+    "job_id": "AFByb3ZpZGVySm9iAaGq39HIfOOx8NHn3VxBcA",
+    "id": "AFByb3ZpZGVySm9iAaGq39HIfOOx8NHn3VxBcA",
     "status": null,
     "error": "Job cost exceeds allowed cost (code: 1002)",
     "hqcCost": 0.0,
@@ -514,5 +644,245 @@
     "resultCount": null,
     "results": [],
     "raw_sha256": {}
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_single_n7_q_sq_20261105_100/n7/job.json",
+    "rounds": 7,
+    "shots": 100,
+    "delta_t_seconds": 0.16666666666666666,
+    "job_id": "AFByb3ZpZGVySm9iAaGrBBykcRCUvPyJjdPP_A",
+    "id": "AFByb3ZpZGVySm9iAaGrBBykcRCUvPyJjdPP_A",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_single_n7_q_sq_20261105_500/n7/job.json",
+    "rounds": 7,
+    "shots": 500,
+    "delta_t_seconds": 0.16666666666666666,
+    "job_id": "AFByb3ZpZGVySm9iAaGrAP2_edKvWuXitEdbbw",
+    "id": "AFByb3ZpZGVySm9iAaGrAP2_edKvWuXitEdbbw",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "results": [],
+    "raw_sha256": {}
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_single_n7_q_sq_20261105_500_attempt2/n7/job.json",
+    "rounds": 7,
+    "shots": 500,
+    "delta_t_seconds": 0.16666666666666666,
+    "job_id": "AFByb3ZpZGVySm9iAaGrME4YcAOsrYEdogemeg",
+    "id": "AFByb3ZpZGVySm9iAaGrME4YcAOsrYEdogemeg",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 522.7,
+    "resultCount": 1,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "b01df96c122a7a04f6595bc9f3dd5b73002cff907c85ba137466f715663260ef"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n6_7/n6/job.json",
+    "rounds": 6,
+    "shots": 500,
+    "delta_t_seconds": 0.2,
+    "job_id": "AFByb3ZpZGVySm9iAaGraNgndfKmvFzoRE9qSA",
+    "status": "COMPLETED",
+    "error": null,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "9bdd7a2b9f60a84ec975fceddc5e246799239a89123be4bef31c8b4c759fb937"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n6_7/n7/job.json",
+    "rounds": 7,
+    "shots": 500,
+    "delta_t_seconds": 0.16666666666666666,
+    "job_id": "AFByb3ZpZGVySm9iAaGraN-BeKK5t0wHR8-q-A",
+    "status": "COMPLETED",
+    "error": null,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "3f8d834b0bc8fe3d77601bc8648524b1ddce99734be3c824ea6003395838ec5c"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n2_3_4_5/n2/job.json",
+    "rounds": 2,
+    "shots": 500,
+    "delta_t_seconds": 1.0,
+    "job_id": "AFByb3ZpZGVySm9iAaGryB9geWGIbBY4dHZ1ww",
+    "status": "COMPLETED",
+    "error": null,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "f6dfb47fd94efb0ec2dbbd91eb6c46be1d74b09808c18c3e396ad44f4938034f"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n2_3_4_5/n3/job.json",
+    "rounds": 3,
+    "shots": 500,
+    "delta_t_seconds": 0.5,
+    "job_id": "AFByb3ZpZGVySm9iAaGryCY-dAKTG0COOdEjew",
+    "status": "COMPLETED",
+    "error": null,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "a366ab642ffb4e38dc31c13a1eaf742090e3f8aa184c16e011631a576f709661"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n2_3_4_5/n4/job.json",
+    "rounds": 4,
+    "shots": 500,
+    "delta_t_seconds": 0.3333333333333333,
+    "job_id": "AFByb3ZpZGVySm9iAaGryCzRdQOG8a2sG7U1Tw",
+    "status": "COMPLETED",
+    "error": null,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "c98513b268ed5306905caefc067f4fe4032bf1da2ae5deeedd3a9b9c818ec6c5"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n2_3_4_5/n5/job.json",
+    "rounds": 5,
+    "shots": 500,
+    "delta_t_seconds": 0.25,
+    "job_id": "AFByb3ZpZGVySm9iAaGryDOLfmCKlw7lMR61nA",
+    "status": "COMPLETED",
+    "error": null,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "a0ef58cb01bfb8df364606c9e231372ada12bdc5f905ff6749c937e7fafd785a"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261106_500_n4_5_6_7/n4/job.json",
+    "rounds": 4,
+    "shots": 500,
+    "delta_t_seconds": 0.3333333333333333,
+    "job_id": "AFByb3ZpZGVySm9iAaGv6EbJeTKvBA-Q9WkKbQ",
+    "status": "COMPLETED",
+    "error": null,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "e884fb72d444d4baa0fc44a76bd2216fb9b17eb62e144d806c38f2d5dcea0bbd"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261106_500_n4_5_6_7/n5/job.json",
+    "rounds": 5,
+    "shots": 500,
+    "delta_t_seconds": 0.25,
+    "job_id": "AFByb3ZpZGVySm9iAaGv6E4ccRCljMC6g2enaA",
+    "status": "COMPLETED",
+    "error": null,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "0eca5cfceacec38aede9b5b544e43b15abfbe952e635ef1e3beb92897590b689"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261106_500_n4_5_6_7/n6/job.json",
+    "rounds": 6,
+    "shots": 500,
+    "delta_t_seconds": 0.2,
+    "job_id": "AFByb3ZpZGVySm9iAaGv6FVnflOnZPZ72gOJkQ",
+    "status": "COMPLETED",
+    "error": null,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "ec50c469386a0a27cd13b086d9a72b25584ec4a3e573307a74f6106dd2cc67e8"
+    }
+  },
+  {
+    "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261106_500_n4_5_6_7/n7/job.json",
+    "rounds": 7,
+    "shots": 500,
+    "delta_t_seconds": 0.16666666666666666,
+    "job_id": "AFByb3ZpZGVySm9iAaGv6F0af1O0ml6Uj54GWg",
+    "status": "COMPLETED",
+    "error": null,
+    "results": [
+      {
+        "index": 0,
+        "format": 1000,
+        "error": null
+      }
+    ],
+    "raw_sha256": {
+      "result_0.txt": "35a7b03c50381364df9269528a95d423266d3af16d0a45c853484f8c5884e7c3"
+    }
   }
 ]

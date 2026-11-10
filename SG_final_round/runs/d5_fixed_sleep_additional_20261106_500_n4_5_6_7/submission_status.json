@@ -1,0 +1,38 @@
+[
+  {
+    "rounds": 4,
+    "shots": 500,
+    "id": "AFByb3ZpZGVySm9iAaGv6EbJeTKvBA-Q9WkKbQ",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 313.9,
+    "resultCount": 1
+  },
+  {
+    "rounds": 5,
+    "shots": 500,
+    "id": "AFByb3ZpZGVySm9iAaGv6E4ccRCljMC6g2enaA",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 383.5,
+    "resultCount": 1
+  },
+  {
+    "rounds": 6,
+    "shots": 500,
+    "id": "AFByb3ZpZGVySm9iAaGv6FVnflOnZPZ72gOJkQ",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 453.1,
+    "resultCount": 1
+  },
+  {
+    "rounds": 7,
+    "shots": 500,
+    "id": "AFByb3ZpZGVySm9iAaGv6F0af1O0ml6Uj54GWg",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 522.7,
+    "resultCount": 1
+  }
+]

@@ -1,0 +1,72 @@
+{
+  "decoder": "Sleep-dependent phenomenological DEM with zero additional sleep noise; verified identical fixed-decoder predictions on these data",
+  "rows": [
+    {
+      "platform": "nexus:H2-1E",
+      "distance": 3,
+      "rounds": 2,
+      "sleep_argument": 0,
+      "shots": 1000,
+      "logical_failures": 3,
+      "logical_error_probability": 0.003,
+      "wilson_95": [
+        0.0010207838811386186,
+        0.008783014053503173
+      ],
+      "physical_readout_errors": 16,
+      "mean_data_error": 0.0017777777777777779,
+      "conditional_p_ext": 0.0008896804201388719,
+      "job_id": "AFByb3ZpZGVySm9iAaGbWgzzd8KcJnrXT8rg7Q",
+      "raw_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d3_sleep_sweep_f219bffeea86811d/execute/sleep_0p0/result_0.txt"
+    },
+    {
+      "platform": "nexus:H2-1E",
+      "distance": 3,
+      "rounds": 2,
+      "sleep_argument": 0,
+      "shots": 1000,
+      "logical_failures": 3,
+      "logical_error_probability": 0.003,
+      "wilson_95": [
+        0.0010207838811386186,
+        0.008783014053503173
+      ],
+      "physical_readout_errors": 25,
+      "mean_data_error": 0.002777777777777778,
+      "conditional_p_ext": 0.0013908232782802732,
+      "job_id": "AFByb3ZpZGVySm9iAaGbgdnsdkCMOqKxGIBYwA",
+      "raw_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d3_sleep_five_point_a2588f7078f6e696/execute/sleep_0p0/result_0.txt"
+    },
+    {
+      "platform": "nexus:H2-2E",
+      "distance": 3,
+      "rounds": 2,
+      "sleep_argument": 0,
+      "shots": 1000,
+      "logical_failures": 2,
+      "logical_error_probability": 0.002,
+      "wilson_95": [
+        0.000548643588120728,
+        0.007262807863492177
+      ],
+      "physical_readout_errors": 12,
+      "mean_data_error": 0.0013333333333333333,
+      "conditional_p_ext": 0.0006671117046931907,
+      "job_id": "AFByb3ZpZGVySm9iAaGb-E_weuOiSP2Hj2Jdfg",
+      "raw_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d3_sleep_five_point_h2_2e_67d11d0348065703/execute/sleep_0p0/result_0.txt"
+    }
+  ],
+  "h2_1e_pooled": {
+    "shots": 2000,
+    "logical_failures": 6,
+    "probability": 0.003,
+    "wilson_95": [
+      0.0013756299236301083,
+      0.006529915073935308
+    ],
+    "mean_data_error": 0.002277777777777778,
+    "conditional_p_ext": 0.001140188919661389
+  },
+  "extraction_estimate_assumptions": "Two identical independent extraction rounds, negligible preparation and final readout error. Logical error alone does not identify physical extraction probability.",
+  "search_result": "Located three 1000-shot explicit-zero d3 controls; no 500-shot explicit-zero d3 control or completed zero-sleep d5 execution located in local records."
+}

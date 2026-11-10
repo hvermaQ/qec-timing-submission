@@ -1,0 +1,30 @@
+{
+  "rounds": 8,
+  "shots": 500,
+  "delta_t_seconds": 0.14285714285714285,
+  "platform": "nexus:H2-2E",
+  "as_entity": "q_sq",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d5_fixed_sleep_9fb82150bc37143a/n8.bc",
+  "provider_model_id": "AFByb3ZpZGVyTW9kZWwBoarkOoZ7E6wmpyvuQN8_",
+  "job_id": "AFByb3ZpZGVySm9iAaGq5uT2fqCoWXdsylUhzQ",
+  "job": {
+    "id": "AFByb3ZpZGVySm9iAaGq5uT2fqCoWXdsylUhzQ",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "results": {
+      "nodes": []
+    },
+    "createdAt": "2026-11-05T08:50:21.046688+00:00"
+  }
+}

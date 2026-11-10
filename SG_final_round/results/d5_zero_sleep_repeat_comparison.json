@@ -1,0 +1,23 @@
+{
+  "rows": [
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaGw2szSeEOEn8VwSyFWAw",
+      "shots": 1000,
+      "error_bits": 284,
+      "data_bit_measurements": 25000,
+      "m5": 0.01136,
+      "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_zero_sleep_n2_1000_20261106/execute"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaGxEjGnciGlRBDbhqTwvA",
+      "shots": 1000,
+      "error_bits": 279,
+      "data_bit_measurements": 25000,
+      "m5": 0.01116,
+      "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_zero_sleep_n2_1000_repeat_20261106/execute"
+    }
+  ],
+  "combined_shots": 2000,
+  "combined_error_bits": 563,
+  "combined_m5": 0.01126
+}

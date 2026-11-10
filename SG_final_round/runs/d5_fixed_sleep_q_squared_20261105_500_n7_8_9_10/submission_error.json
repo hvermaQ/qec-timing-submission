@@ -1,0 +1,16 @@
+{
+  "platform": "nexus:H2-1E",
+  "as_entity": "q_squared",
+  "rounds": [
+    7,
+    8,
+    9,
+    10
+  ],
+  "shots_per_setting": 500,
+  "total_requested_sleep_seconds": 1.0,
+  "entity_lookup": null,
+  "error": "Entity not found: Username(\"q_squared\")",
+  "failure_stage": "start_provider_model_upload before execution-job creation",
+  "created_jobs": 0
+}
