@@ -1,0 +1,43 @@
+{
+  "platform": "nexus:H2-2",
+  "as_entity": "q_sq",
+  "options": {
+    "no_opt": true
+  },
+  "distance": 3,
+  "basis": "X",
+  "rounds": 6,
+  "shots": 1000,
+  "total_requested_sleep_seconds": 1.0,
+  "delta_t_seconds": 0.2,
+  "parallel_sleep_verified": false,
+  "artificial_faults": false,
+  "program": "SG_final_round/programs/d3_fixed_sleep_resolution_c2380924e8c69578/n6.bc",
+  "program_sha256": "ec7e4611997636af0818356f4523420ae515599f80aac03c51d2e85cb7c32a4f",
+  "prior_syntax_check_job_id": "AFByb3ZpZGVySm9iAaGgwpW0f2GJ55u4OAe-gg",
+  "estimated_hqc": 286.8,
+  "git_commit": "10a68ae0b00f38bf24a616c3eef090f640bd9f44",
+  "aqora_version": "0.36.0",
+  "decoder": {
+    "type": "sleep-dependent MWPM",
+    "p_ext": 0.002,
+    "p_read": 0.001,
+    "linear_rate_per_second": 0.0028,
+    "frequency_hz": 0.043,
+    "frequency_multiplier": 2.0
+  },
+  "resolved_platform": {
+    "id": "AFByb3ZpZGVyUGxhdGZvcm0BoWN4O-50QJEUvZnZWOfa",
+    "name": "H2-2",
+    "provider": "NEXUS",
+    "meta": {
+      "maxQubits": null,
+      "maxShots": null,
+      "maxCircuits": null,
+      "inputFormats": [
+        "TKET_CIRCUIT_JSON_V1",
+        "QIR_V1"
+      ]
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "platform": "nexus:H2-2",
+  "as_entity": "q_sq",
+  "options": {
+    "no_opt": true
+  },
+  "distance": 3,
+  "basis": "X",
+  "rounds": 4,
+  "shots": 1000,
+  "total_requested_sleep_seconds": 1.0,
+  "delta_t_seconds": 0.3333333333333333,
+  "parallel_sleep_verified": false,
+  "artificial_faults": false,
+  "program": "SG_final_round/programs/d3_fixed_sleep_resolution_c2380924e8c69578/n4.bc",
+  "program_sha256": "f8bcef7bfc2747921c8c6b83b17f7023e6a844e0c0efbfd922d14f218becac50",
+  "prior_syntax_check_job_id": "AFByb3ZpZGVySm9iAaGgwoXuc9OZZqWupBj6EA",
+  "estimated_hqc": 200.4,
+  "git_commit": "10a68ae0b00f38bf24a616c3eef090f640bd9f44",
+  "aqora_version": "0.36.0",
+  "decoder": {
+    "policy_version": "h2_2_p_ext_0_00117_20261112",
+    "platform": "nexus:H2-2",
+    "type": "sleep-dependent MWPM",
+    "p_ext": 0.00117,
+    "p_read": 0.001,
+    "linear_rate_per_second": 0.0028,
+    "frequency_hz": 0.043,
+    "frequency_multiplier": 2.0,
+    "selection": "User-specified going-forward value from d=3 N=2 zero-sleep control; effective baseline includes unseparated preparation/readout contributions.",
+    "calibration_job_id": "AFByb3ZpZGVySm9iAaHPP4sff7OAv5OZhac2rA"
+  },
+  "resolved_platform": {
+    "id": "AFByb3ZpZGVyUGxhdGZvcm0BoWN4O-50QJEUvZnZWOfa",
+    "name": "H2-2",
+    "provider": "NEXUS",
+    "meta": {
+      "maxQubits": null,
+      "maxShots": null,
+      "maxCircuits": null,
+      "inputFormats": [
+        "TKET_CIRCUIT_JSON_V1",
+        "QIR_V1"
+      ]
+    }
+  },
+  "job_id": "AFByb3ZpZGVySm9iAaHSzbhqcxK89zYMHqgYfQ",
+  "job": {
+    "id": "AFByb3ZpZGVySm9iAaHSzbhqcxK89zYMHqgYfQ",
+    "providerId": "655711c4-746a-46f6-9f0c-3c8ab4dc72e7",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 200.4,
+    "resultCount": 1,
+    "createdAt": "2026-11-13T02:47:39.882693+00:00",
+    "duration": 5968,
+    "platform": {
+      "id": "AFByb3ZpZGVyUGxhdGZvcm0BoWN4O-50QJEUvZnZWOfa",
+      "name": "H2-2",
+      "provider": "NEXUS"
+    },
+    "__typename": "ProviderJob",
+    "provider": "nexus"
+  },
+  "results": [
+    {
+      "index": 0,
+      "error": null,
+      "format": 1000,
+      "raw_sha256": "c80cca2158ca26692821c22451a9211f8a0c42b6c164564614bdb20086502d22"
+    }
+  ]
+}

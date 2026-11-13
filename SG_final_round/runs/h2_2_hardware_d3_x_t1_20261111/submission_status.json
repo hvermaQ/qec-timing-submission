@@ -1,0 +1,98 @@
+[
+  {
+    "rounds": 2,
+    "shots": 250,
+    "id": "AFByb3ZpZGVySm9iAaHLBjc6ewKW1rFRYvW9xA",
+    "providerId": "41fcc1eb-0ece-4838-85d2-98bb35d691a8",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 32.25,
+    "resultCount": 1,
+    "createdAt": "2026-11-11T14:32:24.634652+00:00",
+    "duration": 311,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 3,
+    "shots": 350,
+    "id": "AFByb3ZpZGVySm9iAaHLBj18caCjwaLTy_VNTg",
+    "providerId": "b082580f-72f0-4537-8dd2-bde6d3ddc885",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 58.27,
+    "resultCount": 1,
+    "createdAt": "2026-11-11T14:32:26.236852+00:00",
+    "duration": 907,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 5,
+    "shots": 1000,
+    "id": "AFByb3ZpZGVySm9iAaHLBkM_c8Oxu3BIQzoppA",
+    "providerId": "17006ae2-dc9b-49fa-8fc4-6e17b3ef74bd",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 243.6,
+    "resultCount": 1,
+    "createdAt": "2026-11-11T14:32:27.711994+00:00",
+    "duration": 5247,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 6,
+    "shots": 1000,
+    "id": "AFByb3ZpZGVySm9iAaHLBklPf9Gw3n-zc8VCQw",
+    "providerId": "d44bbac3-24ad-4290-a0ee-241eee5e29ae",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 286.8,
+    "resultCount": 1,
+    "createdAt": "2026-11-11T14:32:29.263878+00:00",
+    "duration": 3931,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 10,
+    "shots": 500,
+    "id": "AFByb3ZpZGVySm9iAaHLBk-6dnOuSaFqnUFPWA",
+    "providerId": "02f01dd2-8906-4d05-98ed-8af18ece8b84",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 232.3,
+    "resultCount": 1,
+    "createdAt": "2026-11-11T14:32:30.906570+00:00",
+    "duration": 2310,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 20,
+    "shots": 500,
+    "id": "AFByb3ZpZGVySm9iAaHLBlcDeNCkhU4epmC2xw",
+    "providerId": "b0113fc6-c48a-401b-a584-50abc16d3f2b",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 448.3,
+    "resultCount": 1,
+    "createdAt": "2026-11-11T14:32:32.771244+00:00",
+    "duration": 3537,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  }
+]

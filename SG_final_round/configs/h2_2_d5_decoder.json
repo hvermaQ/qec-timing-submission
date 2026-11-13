@@ -1,0 +1,17 @@
+{
+  "policy_version": "h2_2_d5_p_ext_0_004_20261113",
+  "platform": "nexus:H2-2",
+  "type": "sleep-dependent MWPM",
+  "p_ext": 0.004,
+  "p_read": 0.001,
+  "linear_rate_per_second": 0.0028,
+  "frequency_hz": 0.043,
+  "frequency_multiplier": 2.0,
+  "selection": "User-selected rounded baseline from pooled 750-shot d=5 N=2 zero-sleep controls; includes preparation/readout contributions.",
+  "distance": 5,
+  "calibration_job_ids": [
+    "AFByb3ZpZGVySm9iAaHTkCk8cmCs3HYizx6LiQ",
+    "AFByb3ZpZGVySm9iAaHT7TgXfYOpdKlZsyUfeg"
+  ],
+  "calibration_result": "SG_final_round/results/d5_h2_2_zero_sleep_pooled_750.json"
+}

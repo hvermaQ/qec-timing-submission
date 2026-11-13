@@ -1,0 +1,12 @@
+{
+  "policy_version": "h2_2_p_ext_0_00117_20261112",
+  "platform": "nexus:H2-2",
+  "type": "sleep-dependent MWPM",
+  "p_ext": 0.00117,
+  "p_read": 0.001,
+  "linear_rate_per_second": 0.0028,
+  "frequency_hz": 0.043,
+  "frequency_multiplier": 2.0,
+  "selection": "User-specified going-forward value from d=3 N=2 zero-sleep control; effective baseline includes unseparated preparation/readout contributions.",
+  "calibration_job_id": "AFByb3ZpZGVySm9iAaHPP4sff7OAv5OZhac2rA"
+}

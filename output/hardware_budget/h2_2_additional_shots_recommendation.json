@@ -1,0 +1,73 @@
+{
+  "source": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/analysis.json",
+  "assumed_hardware_budget": 8000,
+  "completed_h2_2_hqc": 1301.52,
+  "remaining_h2_1_commitments_hqc": 90.52,
+  "proposed_hqc": 2472.21,
+  "rows": [
+    {
+      "rounds": 2,
+      "interval_seconds": 1.0,
+      "additional_shots": 250,
+      "total_shots": 500,
+      "estimated_hqc": 32.25
+    },
+    {
+      "rounds": 3,
+      "interval_seconds": 0.5,
+      "additional_shots": 650,
+      "total_shots": 1000,
+      "estimated_hqc": 103.93
+    },
+    {
+      "rounds": 4,
+      "interval_seconds": 0.3333333333333333,
+      "additional_shots": 750,
+      "total_shots": 750,
+      "estimated_hqc": 151.55
+    },
+    {
+      "rounds": 5,
+      "interval_seconds": 0.25,
+      "additional_shots": 1000,
+      "total_shots": 2000,
+      "estimated_hqc": 243.6
+    },
+    {
+      "rounds": 6,
+      "interval_seconds": 0.2,
+      "additional_shots": 1000,
+      "total_shots": 2000,
+      "estimated_hqc": 286.8
+    },
+    {
+      "rounds": 10,
+      "interval_seconds": 0.1111111111111111,
+      "additional_shots": 500,
+      "total_shots": 1000,
+      "estimated_hqc": 232.3
+    },
+    {
+      "rounds": 20,
+      "interval_seconds": 0.05263157894736842,
+      "additional_shots": 1000,
+      "total_shots": 1500,
+      "estimated_hqc": 891.6
+    },
+    {
+      "rounds": 40,
+      "interval_seconds": 0.02564102564102564,
+      "additional_shots": 300,
+      "total_shots": 300,
+      "estimated_hqc": 530.18
+    }
+  ],
+  "primary_purpose": "Estimate the low-error region and test the short-interval rise without fixing the optimum at N=6",
+  "assumptions": [
+    "One new job per setting",
+    "Existing native circuit cost relation remains applicable",
+    "Same total requested sleep and frozen sleep-dependent decoder",
+    "No additional hardware spending beyond recorded jobs assumed"
+  ],
+  "remaining_after_proposal_hqc": 4135.75
+}

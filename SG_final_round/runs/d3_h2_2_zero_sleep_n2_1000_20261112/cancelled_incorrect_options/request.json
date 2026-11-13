@@ -1,0 +1,23 @@
+{
+  "platform": "nexus:H2-2",
+  "as_entity": "q_sq",
+  "shots": 1000,
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_h2_2_zero_sleep_n2/n2.bc",
+  "options": {
+    "simulator": "stabilizer",
+    "noisy_simulation": true,
+    "no_opt": true,
+    "error_params": {
+      "idle_dephasing": true,
+      "transport_dephasing": true
+    }
+  },
+  "distance": 3,
+  "rounds": 2,
+  "delta_t_seconds": 0.0,
+  "total_requested_sleep_seconds": 0.0,
+  "basis": "X",
+  "artificial_faults": false,
+  "estimated_hqc": 114.0,
+  "program_sha256": "d460069a1e6367cd91eae6a3f17abacd73526d527f5500bacc38e16291847cc5"
+}

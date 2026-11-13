@@ -1,0 +1,13 @@
+{
+  "node": {
+    "id": "AFByb3ZpZGVySm9iAaHFSvfOekGOcDeSfSprbg",
+    "providerId": "45a7278c-f92d-4e0c-a6d1-18e7fd069009",
+    "status": "RUNNING",
+    "error": null,
+    "resultCount": null,
+    "duration": null,
+    "createdAt": "2026-11-10T11:49:47.086844+00:00",
+    "resultUploadAttempts": 0
+  },
+  "checked_at_utc": "2026-11-12T02:24:19.067093+00:00"
+}

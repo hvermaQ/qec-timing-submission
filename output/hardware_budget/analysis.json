@@ -1,0 +1,140 @@
+{
+  "historical": {
+    "3": {
+      "jobs": 20,
+      "shots": 15000,
+      "hqc": 5039.8
+    },
+    "5": {
+      "jobs": 19,
+      "shots": 9667,
+      "hqc": 7992.9654
+    }
+  },
+  "plan": [
+    {
+      "distance": 3,
+      "rounds": 2,
+      "interval_seconds": 1.0,
+      "shots": 250,
+      "jobs": 1,
+      "hqc": 32.25,
+      "predicted_p": 0.11504771387022618
+    },
+    {
+      "distance": 3,
+      "rounds": 3,
+      "interval_seconds": 0.5,
+      "shots": 350,
+      "jobs": 1,
+      "hqc": 58.27,
+      "predicted_p": 0.027673339722060753
+    },
+    {
+      "distance": 3,
+      "rounds": 5,
+      "interval_seconds": 0.25,
+      "shots": 1000,
+      "jobs": 2,
+      "hqc": 248.6,
+      "predicted_p": 0.015495274487451187
+    },
+    {
+      "distance": 3,
+      "rounds": 6,
+      "interval_seconds": 0.2,
+      "shots": 1000,
+      "jobs": 2,
+      "hqc": 291.8,
+      "predicted_p": 0.015453066237978293
+    },
+    {
+      "distance": 3,
+      "rounds": 10,
+      "interval_seconds": 0.1111111111111111,
+      "shots": 500,
+      "jobs": 1,
+      "hqc": 232.3,
+      "predicted_p": 0.020241255779805276
+    },
+    {
+      "distance": 3,
+      "rounds": 20,
+      "interval_seconds": 0.05263157894736842,
+      "shots": 1000,
+      "jobs": 2,
+      "hqc": 896.6,
+      "predicted_p": 0.03778589874799558
+    },
+    {
+      "distance": 5,
+      "rounds": 2,
+      "interval_seconds": 1.0,
+      "shots": 250,
+      "jobs": 1,
+      "hqc": 89.85,
+      "predicted_p": 0.14621648089968822
+    },
+    {
+      "distance": 5,
+      "rounds": 3,
+      "interval_seconds": 0.5,
+      "shots": 350,
+      "jobs": 1,
+      "hqc": 172.51000000000002,
+      "predicted_p": 0.02239925494429236
+    },
+    {
+      "distance": 5,
+      "rounds": 5,
+      "interval_seconds": 0.25,
+      "shots": 1000,
+      "jobs": 2,
+      "hqc": 767.0,
+      "predicted_p": 0.012957489137940944
+    },
+    {
+      "distance": 5,
+      "rounds": 6,
+      "interval_seconds": 0.2,
+      "shots": 1000,
+      "jobs": 2,
+      "hqc": 906.2,
+      "predicted_p": 0.013390602094091377
+    },
+    {
+      "distance": 5,
+      "rounds": 10,
+      "interval_seconds": 0.1111111111111111,
+      "shots": 400,
+      "jobs": 1,
+      "hqc": 586.2,
+      "predicted_p": 0.018739722928668132
+    },
+    {
+      "distance": 5,
+      "rounds": 20,
+      "interval_seconds": 0.05263157894736842,
+      "shots": 600,
+      "jobs": 2,
+      "hqc": 1717.0000000000002,
+      "predicted_p": 0.03607289642676422
+    }
+  ],
+  "precision": [
+    {
+      "distance": 3,
+      "star": 0.22225382350389725,
+      "se_quadratic": 0.014339693427668113,
+      "se_linear_quadratic_local": 0.022615584852362147
+    },
+    {
+      "distance": 5,
+      "star": 0.24642988901557222,
+      "se_quadratic": 0.011880199858035621,
+      "se_linear_quadratic_local": 0.029401614614341286
+    }
+  ],
+  "plan_hqc": 5998.58,
+  "plan_shots": 7700
+}

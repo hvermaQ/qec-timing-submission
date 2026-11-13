@@ -1,0 +1,299 @@
+{
+  "checked_at_utc": "2026-11-12T04:09:24.783448+00:00",
+  "groups": [
+    {
+      "platform": "H2-1",
+      "status": "CANCELLED",
+      "jobs": 4,
+      "shots": 3000,
+      "reported_hqc": 0.0,
+      "missing_cost_jobs": 0,
+      "hqc": 0.0
+    },
+    {
+      "platform": "H2-1",
+      "status": "RUNNING",
+      "jobs": 2,
+      "shots": 600,
+      "reported_hqc": 90.52000000000001,
+      "missing_cost_jobs": 0,
+      "hqc": 90.52
+    },
+    {
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "jobs": 6,
+      "shots": 3600,
+      "reported_hqc": 1301.52,
+      "missing_cost_jobs": 0,
+      "hqc": 1301.52
+    },
+    {
+      "platform": "H2-2",
+      "status": "WAITING",
+      "jobs": 4,
+      "shots": 3150,
+      "reported_hqc": 866.6300000000001,
+      "missing_cost_jobs": 0,
+      "hqc": 866.63
+    }
+  ],
+  "jobs": [
+    {
+      "rounds": 2,
+      "shots": 250,
+      "estimated_hqc": 32.25,
+      "source": "SG_final_round/runs/h2_1_hardware_d3_x_n2_t1_250/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHFSvfOekGOcDeSfSprbg",
+      "providerId": "45a7278c-f92d-4e0c-a6d1-18e7fd069009",
+      "status": "RUNNING",
+      "error": null,
+      "hqcCost": 32.25,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 10,
+      "shots": 500,
+      "estimated_hqc": 232.3,
+      "source": "SG_final_round/runs/h2_1_hardware_d3_x_t1_followup_20261111/n10/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHGRKfTcrOLCSigHHxcIQ",
+      "providerId": "39d0e06b-1f81-4496-933e-ce4c03b5ce6b",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 20,
+      "shots": 500,
+      "estimated_hqc": 448.3,
+      "source": "SG_final_round/runs/h2_1_hardware_d3_x_t1_followup_20261111/n20/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHGRK6VcOGeKMhJ9X7ZUg",
+      "providerId": "49eb6e49-efcc-41f9-a6e9-6f727469695d",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 3,
+      "shots": 350,
+      "estimated_hqc": 58.27,
+      "source": "SG_final_round/runs/h2_1_hardware_d3_x_t1_followup_20261111/n3/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHGRJU6frO5eaSQEDsNfw",
+      "providerId": "ca40bc41-a7b8-40b1-8f9b-e908284f7089",
+      "status": "RUNNING",
+      "error": null,
+      "hqcCost": 58.27,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 5,
+      "shots": 1000,
+      "estimated_hqc": 243.6,
+      "source": "SG_final_round/runs/h2_1_hardware_d3_x_t1_followup_20261111/n5/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHGRJtectGQMvp30W3GGg",
+      "providerId": "426bec15-7d0c-47bc-ba49-b05cd196f820",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 6,
+      "shots": 1000,
+      "estimated_hqc": 286.8,
+      "source": "SG_final_round/runs/h2_1_hardware_d3_x_t1_followup_20261111/n6/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHGRKF4cNKF5o2ZIdV5WQ",
+      "providerId": "c83bb9b5-7ff7-4e13-9bc8-60d956cfdfcc",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 10,
+      "shots": 500,
+      "estimated_hqc": 232.3,
+      "source": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n10/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHLBk-6dnOuSaFqnUFPWA",
+      "providerId": "02f01dd2-8906-4d05-98ed-8af18ece8b84",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 232.3,
+      "resultCount": 1,
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 2,
+      "shots": 250,
+      "estimated_hqc": 32.25,
+      "source": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n2/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHLBjc6ewKW1rFRYvW9xA",
+      "providerId": "41fcc1eb-0ece-4838-85d2-98bb35d691a8",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 32.25,
+      "resultCount": 1,
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 20,
+      "shots": 500,
+      "estimated_hqc": 448.3,
+      "source": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n20/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHLBlcDeNCkhU4epmC2xw",
+      "providerId": "b0113fc6-c48a-401b-a584-50abc16d3f2b",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 448.3,
+      "resultCount": 1,
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 3,
+      "shots": 350,
+      "estimated_hqc": 58.27,
+      "source": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n3/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHLBj18caCjwaLTy_VNTg",
+      "providerId": "b082580f-72f0-4537-8dd2-bde6d3ddc885",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 58.27,
+      "resultCount": 1,
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 5,
+      "shots": 1000,
+      "estimated_hqc": 243.6,
+      "source": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n5/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHLBkM_c8Oxu3BIQzoppA",
+      "providerId": "17006ae2-dc9b-49fa-8fc4-6e17b3ef74bd",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 243.6,
+      "resultCount": 1,
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 6,
+      "shots": 1000,
+      "estimated_hqc": 286.8,
+      "source": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n6/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHLBklPf9Gw3n-zc8VCQw",
+      "providerId": "d44bbac3-24ad-4290-a0ee-241eee5e29ae",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 286.8,
+      "resultCount": 1,
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 10,
+      "shots": 500,
+      "estimated_hqc": 232.3,
+      "source": "SG_final_round/runs/h2_2_hardware_d3_x_t1_additional_20261112/n10/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHN6q_BcsKajKpqB_q_ZQ",
+      "providerId": "e4d36e69-5d9f-4f6a-b6b5-c1a553801468",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 232.3,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 3,
+      "shots": 650,
+      "estimated_hqc": 103.93,
+      "source": "SG_final_round/runs/h2_2_hardware_d3_x_t1_additional_20261112/n3/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHN6pwYeYODISHlB864qw",
+      "providerId": "fedaa725-5f6d-417d-8a8a-02bd208c4d93",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 103.93,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 5,
+      "shots": 1000,
+      "estimated_hqc": 243.6,
+      "source": "SG_final_round/runs/h2_2_hardware_d3_x_t1_additional_20261112/n5/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHN6qJIfOKmFbROPf96sA",
+      "providerId": "4aa2f693-48df-46ed-9e5b-32dba9a49042",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 243.6,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "rounds": 6,
+      "shots": 1000,
+      "estimated_hqc": 286.8,
+      "source": "SG_final_round/runs/h2_2_hardware_d3_x_t1_additional_20261112/n6/job.json",
+      "id": "AFByb3ZpZGVySm9iAaHN6qiVdmOqv9mau6NINg",
+      "providerId": "e6560dcd-7884-4cc8-b24b-44d0cca17579",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 286.8,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    }
+  ]
+}

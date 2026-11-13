@@ -1,0 +1,67 @@
+[
+  {
+    "rounds": 2,
+    "shots": 500,
+    "id": "AFByb3ZpZGVySm9iAaHUTQhGcgGO8fSCbisVAg",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 174.7,
+    "resultCount": 1,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 3,
+    "shots": 750,
+    "id": "AFByb3ZpZGVySm9iAaHUTROCfcK48eiP0_O8zw",
+    "status": "RUNNING",
+    "error": null,
+    "hqcCost": 363.95,
+    "resultCount": null,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 4,
+    "shots": 1000,
+    "id": "AFByb3ZpZGVySm9iAaHUTRpndcKAy2T8HalnHQ",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 622.8,
+    "resultCount": null,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 6,
+    "shots": 750,
+    "id": "AFByb3ZpZGVySm9iAaHUTSLLenG5kvm2SFFPMQ",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 677.15,
+    "resultCount": null,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 10,
+    "shots": 500,
+    "id": "AFByb3ZpZGVySm9iAaHUTStFcSCuXIxn3LlfWA",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 731.5,
+    "resultCount": null,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  }
+]

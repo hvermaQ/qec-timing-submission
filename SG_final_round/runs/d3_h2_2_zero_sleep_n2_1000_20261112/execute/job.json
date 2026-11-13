@@ -1,0 +1,41 @@
+{
+  "platform": "nexus:H2-2",
+  "as_entity": "q_sq",
+  "shots": 1000,
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d3_h2_2_zero_sleep_n2/n2.bc",
+  "options": {
+    "no_opt": true
+  },
+  "distance": 3,
+  "rounds": 2,
+  "delta_t_seconds": 0.0,
+  "total_requested_sleep_seconds": 0.0,
+  "basis": "X",
+  "artificial_faults": false,
+  "estimated_hqc": 114.0,
+  "program_sha256": "d460069a1e6367cd91eae6a3f17abacd73526d527f5500bacc38e16291847cc5",
+  "job_id": "AFByb3ZpZGVySm9iAaHPP4sff7OAv5OZhac2rA",
+  "job": {
+    "__typename": "ProviderJob",
+    "id": "AFByb3ZpZGVySm9iAaHPP4sff7OAv5OZhac2rA",
+    "provider": "nexus",
+    "status": "COMPLETED",
+    "error": null,
+    "duration": 1979,
+    "resultCount": 1,
+    "createdAt": "2026-11-12T10:13:30.527841+00:00",
+    "platform": {
+      "id": "AFByb3ZpZGVyUGxhdGZvcm0BoWN4O-50QJEUvZnZWOfa",
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  },
+  "results": [
+    {
+      "index": 0,
+      "error": null,
+      "format": 1000,
+      "raw_sha256": "7496c1164f9837577608cb3f3783c7faa545c728d54cfd127f14c9376d8975d8"
+    }
+  ]
+}

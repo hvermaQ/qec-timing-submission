@@ -1,0 +1,63 @@
+{
+  "platform": "nexus:H2-2",
+  "as_entity": "q_sq",
+  "options": {
+    "no_opt": true
+  },
+  "distance": 5,
+  "basis": "X",
+  "rounds": 6,
+  "shots": 750,
+  "total_requested_sleep_seconds": 1.0,
+  "delta_t_seconds": 0.2,
+  "artificial_faults": false,
+  "parallel_sleep_verified": false,
+  "extraction_duration_neglected": true,
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d5_fixed_sleep_9fb82150bc37143a/n6.bc",
+  "program_sha256": "cbd013fcb656b1c105e8543c45e761fc50ce9cdf5ff0f60b943053b37ad72d79",
+  "estimated_hqc": 677.15,
+  "decoder_policy": {
+    "policy_version": "h2_2_d5_p_ext_0_004_20261113",
+    "platform": "nexus:H2-2",
+    "type": "sleep-dependent MWPM",
+    "p_ext": 0.004,
+    "p_read": 0.001,
+    "linear_rate_per_second": 0.0028,
+    "frequency_hz": 0.043,
+    "frequency_multiplier": 2.0,
+    "selection": "User-selected rounded baseline from pooled 750-shot d=5 N=2 zero-sleep controls; includes preparation/readout contributions.",
+    "distance": 5,
+    "calibration_job_ids": [
+      "AFByb3ZpZGVySm9iAaHTkCk8cmCs3HYizx6LiQ",
+      "AFByb3ZpZGVySm9iAaHT7TgXfYOpdKlZsyUfeg"
+    ],
+    "calibration_result": "SG_final_round/results/d5_h2_2_zero_sleep_pooled_750.json"
+  },
+  "resolved_platform": {
+    "id": "AFByb3ZpZGVyUGxhdGZvcm0BoWN4O-50QJEUvZnZWOfa",
+    "name": "H2-2",
+    "provider": "NEXUS",
+    "meta": {
+      "maxQubits": null,
+      "maxShots": null,
+      "maxCircuits": null,
+      "inputFormats": [
+        "TKET_CIRCUIT_JSON_V1",
+        "QIR_V1"
+      ]
+    }
+  },
+  "syntax_check_job_id": "AFByb3ZpZGVySm9iAaHUS86AdjGlm5hA-fMbWA",
+  "job_id": "AFByb3ZpZGVySm9iAaHUTSLLenG5kvm2SFFPMQ",
+  "job": {
+    "id": "AFByb3ZpZGVySm9iAaHUTSLLenG5kvm2SFFPMQ",
+    "status": "WAITING",
+    "error": null,
+    "hqcCost": 677.15,
+    "resultCount": null,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  }
+}

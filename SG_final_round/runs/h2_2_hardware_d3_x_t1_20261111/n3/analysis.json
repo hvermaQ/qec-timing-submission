@@ -1,0 +1,47 @@
+{
+  "rounds": 3,
+  "interval_seconds": 0.5,
+  "shots": 350,
+  "job_id": "AFByb3ZpZGVySm9iAaHLBj18caCjwaLTy_VNTg",
+  "provider_id": "b082580f-72f0-4537-8dd2-bde6d3ddc885",
+  "hqc": 58.27,
+  "data_bit_errors": 122,
+  "data_bits": 3150,
+  "raw_data_error_probability": 0.03873015873015873,
+  "raw_data_shot_bootstrap_95": [
+    0.032063492063492065,
+    0.045714285714285714
+  ],
+  "per_qubit_error_counts": [
+    19,
+    18,
+    21,
+    16,
+    8,
+    14,
+    7,
+    4,
+    15
+  ],
+  "per_qubit_error_probabilities": [
+    0.054285714285714284,
+    0.05142857142857143,
+    0.06,
+    0.045714285714285714,
+    0.022857142857142857,
+    0.04,
+    0.02,
+    0.011428571428571429,
+    0.04285714285714286
+  ],
+  "raw_logical_parity_flips": 38,
+  "raw_logical_parity_probability": 0.10857142857142857,
+  "logical_failures": 6,
+  "logical_error_probability": 0.017142857142857144,
+  "logical_wilson_95": [
+    0.007879807153229886,
+    0.03689012702432967
+  ],
+  "raw_sha256": "c9ecbaad30d1a56a375881ec5aae664dfb4f8e24b3a2c7e87e419906c38f7066",
+  "dem_sha256": "b41afa2989f50a4ef23d44c58a6e19f4cf9067712dbbf92104915c9d848c3980"
+}

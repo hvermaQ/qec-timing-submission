@@ -1,0 +1,69 @@
+{
+  "platform": "nexus:H2-2",
+  "as_entity": "q_sq",
+  "options": {
+    "no_opt": true
+  },
+  "distance": 3,
+  "basis": "X",
+  "rounds": 5,
+  "shots": 1000,
+  "total_requested_sleep_seconds": 1.0,
+  "delta_t_seconds": 0.25,
+  "parallel_sleep_verified": false,
+  "artificial_faults": false,
+  "program": "SG_final_round/programs/d3_fixed_sleep_690baca08b24dfd2/n5.bc",
+  "program_sha256": "d726054f73cfa699936aee3e1a2d1053c883715a386fff4ab3e51d59e9496843",
+  "prior_syntax_check_job_id": "AFByb3ZpZGVySm9iAaGfF-CIfrCXKxFLRrBa-A",
+  "estimated_hqc": 243.6,
+  "git_commit": "10a68ae0b00f38bf24a616c3eef090f640bd9f44",
+  "aqora_version": "0.36.0",
+  "decoder": {
+    "type": "sleep-dependent MWPM",
+    "p_ext": 0.002,
+    "p_read": 0.001,
+    "linear_rate_per_second": 0.0028,
+    "frequency_hz": 0.043,
+    "frequency_multiplier": 2.0
+  },
+  "resolved_platform": {
+    "id": "AFByb3ZpZGVyUGxhdGZvcm0BoWN4O-50QJEUvZnZWOfa",
+    "name": "H2-2",
+    "provider": "NEXUS",
+    "meta": {
+      "maxQubits": null,
+      "maxShots": null,
+      "maxCircuits": null,
+      "inputFormats": [
+        "TKET_CIRCUIT_JSON_V1",
+        "QIR_V1"
+      ]
+    }
+  },
+  "job_id": "AFByb3ZpZGVySm9iAaHN6qJIfOKmFbROPf96sA",
+  "job": {
+    "id": "AFByb3ZpZGVySm9iAaHN6qJIfOKmFbROPf96sA",
+    "providerId": "4aa2f693-48df-46ed-9e5b-32dba9a49042",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 243.6,
+    "resultCount": 1,
+    "createdAt": "2026-11-12T04:01:08.680457+00:00",
+    "duration": 4087,
+    "platform": {
+      "id": "AFByb3ZpZGVyUGxhdGZvcm0BoWN4O-50QJEUvZnZWOfa",
+      "name": "H2-2",
+      "provider": "NEXUS"
+    },
+    "__typename": "ProviderJob",
+    "provider": "nexus"
+  },
+  "results": [
+    {
+      "index": 0,
+      "error": null,
+      "format": 1000,
+      "raw_sha256": "25983dd05fbd66f26d82c315d8e12c7131302e939e59b86c7eee43ad139db105"
+    }
+  ]
+}

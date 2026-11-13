@@ -1,0 +1,227 @@
+{
+  "checked_at_utc": "2026-11-13T02:16:32.536189+00:00",
+  "rows": [
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHLBklPf9Gw3n-zc8VCQw",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 1000,
+      "rounds": 6,
+      "hqc": 286.8,
+      "estimated": false,
+      "reported_hqc": 286.8,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n6/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHLBlcDeNCkhU4epmC2xw",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 500,
+      "rounds": 20,
+      "hqc": 448.3,
+      "estimated": false,
+      "reported_hqc": 448.3,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n20/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHLBk-6dnOuSaFqnUFPWA",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 500,
+      "rounds": 10,
+      "hqc": 232.3,
+      "estimated": false,
+      "reported_hqc": 232.3,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n10/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHLBj18caCjwaLTy_VNTg",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 350,
+      "rounds": 3,
+      "hqc": 58.27,
+      "estimated": false,
+      "reported_hqc": 58.27,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n3/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHLBjc6ewKW1rFRYvW9xA",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 250,
+      "rounds": 2,
+      "hqc": 32.25,
+      "estimated": false,
+      "reported_hqc": 32.25,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n2/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHLBkM_c8Oxu3BIQzoppA",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 1000,
+      "rounds": 5,
+      "hqc": 243.6,
+      "estimated": false,
+      "reported_hqc": 243.6,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_20261111/n5/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHFSvfOekGOcDeSfSprbg",
+      "platform": "H2-1",
+      "status": "COMPLETED",
+      "shots": 250,
+      "rounds": 2,
+      "hqc": 32.25,
+      "estimated": false,
+      "reported_hqc": 32.25,
+      "path": "SG_final_round/runs/h2_1_hardware_d3_x_n2_t1_250/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHGRKF4cNKF5o2ZIdV5WQ",
+      "platform": "H2-1",
+      "status": "CANCELLED",
+      "shots": 1000,
+      "rounds": 6,
+      "hqc": 0.0,
+      "estimated": false,
+      "reported_hqc": 0.0,
+      "path": "SG_final_round/runs/h2_1_hardware_d3_x_t1_followup_20261111/n6/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHGRK6VcOGeKMhJ9X7ZUg",
+      "platform": "H2-1",
+      "status": "CANCELLED",
+      "shots": 500,
+      "rounds": 20,
+      "hqc": 0.0,
+      "estimated": false,
+      "reported_hqc": 0.0,
+      "path": "SG_final_round/runs/h2_1_hardware_d3_x_t1_followup_20261111/n20/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHGRKfTcrOLCSigHHxcIQ",
+      "platform": "H2-1",
+      "status": "CANCELLED",
+      "shots": 500,
+      "rounds": 10,
+      "hqc": 0.0,
+      "estimated": false,
+      "reported_hqc": 0.0,
+      "path": "SG_final_round/runs/h2_1_hardware_d3_x_t1_followup_20261111/n10/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHGRJU6frO5eaSQEDsNfw",
+      "platform": "H2-1",
+      "status": "COMPLETED",
+      "shots": 350,
+      "rounds": 3,
+      "hqc": 58.27,
+      "estimated": false,
+      "reported_hqc": 58.27,
+      "path": "SG_final_round/runs/h2_1_hardware_d3_x_t1_followup_20261111/n3/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHGRJtectGQMvp30W3GGg",
+      "platform": "H2-1",
+      "status": "CANCELLED",
+      "shots": 1000,
+      "rounds": 5,
+      "hqc": 0.0,
+      "estimated": false,
+      "reported_hqc": 0.0,
+      "path": "SG_final_round/runs/h2_1_hardware_d3_x_t1_followup_20261111/n5/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHPkersf8OWvXtdEP8HyA",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 1000,
+      "rounds": 4,
+      "hqc": 200.4,
+      "estimated": false,
+      "reported_hqc": 200.4,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_n2_n4_20261112/n4/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHPkeQicLCcrXIkWk6hqg",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 250,
+      "rounds": 2,
+      "hqc": 32.25,
+      "estimated": false,
+      "reported_hqc": 32.25,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_n2_n4_20261112/n2/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHN6qiVdmOqv9mau6NINg",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 1000,
+      "rounds": 6,
+      "hqc": 286.8,
+      "estimated": false,
+      "reported_hqc": 286.8,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_additional_20261112/n6/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHN6q_BcsKajKpqB_q_ZQ",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 500,
+      "rounds": 10,
+      "hqc": 232.3,
+      "estimated": false,
+      "reported_hqc": 232.3,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_additional_20261112/n10/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHN6pwYeYODISHlB864qw",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 650,
+      "rounds": 3,
+      "hqc": 103.93,
+      "estimated": false,
+      "reported_hqc": 103.93,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_additional_20261112/n3/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHN6qJIfOKmFbROPf96sA",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 1000,
+      "rounds": 5,
+      "hqc": 243.6,
+      "estimated": false,
+      "reported_hqc": 243.6,
+      "path": "SG_final_round/runs/h2_2_hardware_d3_x_t1_additional_20261112/n5/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHPPnwafAGmonJSVitiwQ",
+      "platform": "H2-2",
+      "status": "CANCELLED",
+      "shots": 1000,
+      "rounds": 2,
+      "hqc": 0.0,
+      "estimated": false,
+      "reported_hqc": 0.0,
+      "path": "SG_final_round/runs/d3_h2_2_zero_sleep_n2_1000_20261112/cancelled_incorrect_options/job.json"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHPP4sff7OAv5OZhac2rA",
+      "platform": "H2-2",
+      "status": "COMPLETED",
+      "shots": 1000,
+      "rounds": 2,
+      "hqc": 114.0,
+      "estimated": false,
+      "reported_hqc": 114.0,
+      "path": "SG_final_round/runs/d3_h2_2_zero_sleep_n2_1000_20261112/execute/job.json"
+    }
+  ],
+  "total_used_or_committed_hqc": 2605.32,
+  "remaining_from_8000": 5394.68
+}

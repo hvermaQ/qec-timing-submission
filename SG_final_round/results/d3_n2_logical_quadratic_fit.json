@@ -1,0 +1,40 @@
+{
+  "source": "d3_sleep_five_point_h2_1e_1000.json",
+  "method": "Unweighted least squares, intercept fixed to observed zero-sleep probability, coefficients unconstrained",
+  "model": "P_L(u)=c+a*u+b*u^2",
+  "c": 0.003,
+  "a": -0.06669008869829264,
+  "b": 0.17597847801187969,
+  "rows": [
+    {
+      "u": 0.0,
+      "observed": 0.003,
+      "fitted": 0.003
+    },
+    {
+      "u": 0.1,
+      "observed": 0.004,
+      "fitted": -0.0019092240897104675
+    },
+    {
+      "u": 0.5,
+      "observed": 0.016,
+      "fitted": 0.0136495751538236
+    },
+    {
+      "u": 0.75,
+      "observed": 0.046,
+      "fitted": 0.05197032735796284
+    },
+    {
+      "u": 1.0,
+      "observed": 0.115,
+      "fitted": 0.11228838931358705
+    }
+  ],
+  "nonnegative_coefficients_fit": {
+    "a": 0.0,
+    "b": 0.10112173168178172,
+    "c": 0.003
+  }
+}

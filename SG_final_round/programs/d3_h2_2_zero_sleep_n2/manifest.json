@@ -1,0 +1,22 @@
+{
+  "distance": 3,
+  "basis": "X",
+  "rounds": [
+    2
+  ],
+  "total_requested_sleep_seconds": 0.0,
+  "explicit_sleep_calls": 9,
+  "delta_t_seconds": 0.0,
+  "shots": 1000,
+  "platform": "nexus:H2-2",
+  "as_entity": "q_sq",
+  "options": {
+    "no_opt": true
+  },
+  "source": "/Users/harshank_s/qec-timing-submission/results/hardware/programs/d3_X_r2_p0",
+  "source_sha256": "1d76441345a391205fcb9c9898deed404462c26098f58d57a0f0c19385ccd531",
+  "bitcode_sha256": {
+    "n2": "d460069a1e6367cd91eae6a3f17abacd73526d527f5500bacc38e16291847cc5"
+  },
+  "estimated_hqc": 114.0
+}

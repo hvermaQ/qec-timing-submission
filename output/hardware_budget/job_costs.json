@@ -1,0 +1,470 @@
+[
+  {
+    "distance": 3,
+    "rounds": 2,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGfGNfVdiCKOmWPC5nZyA",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGfGNfVdiCKOmWPC5nZyA",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 59.5
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 2,
+    "shots": 1000,
+    "job_id": "AFByb3ZpZGVySm9iAaGbWhlCc4C5imMeU1O2dw",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGbWhlCc4C5imMeU1O2dw",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 2,
+    "shots": 1000,
+    "job_id": "AFByb3ZpZGVySm9iAaGbgfLwcCGWbrwVjtHZ2A",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGbgfLwcCGWbrwVjtHZ2A",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 3,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGgw6Mmc_KLmuGYsQZmtg",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGgw6Mmc_KLmuGYsQZmtg",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 81.1
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 4,
+    "shots": 1000,
+    "job_id": "AFByb3ZpZGVySm9iAaGfuYxbctGSIKmNl9b4sA",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGfuYxbctGSIKmNl9b4sA",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 200.4
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 4,
+    "shots": 1000,
+    "job_id": "AFByb3ZpZGVySm9iAaGgw6jxelOwJP1HqPSezg",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGgw6jxelOwJP1HqPSezg",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 200.4
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 5,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGfGN5PcLGFvG-7P5iz3Q",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGfGN5PcLGFvG-7P5iz3Q",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 124.3
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 5,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGfuZKwe6OQxL30PfT9XA",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGfuZKwe6OQxL30PfT9XA",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 124.3
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 5,
+    "shots": 1000,
+    "job_id": "AFByb3ZpZGVySm9iAaGgw7DneCOXDPSvrFo_hA",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGgw7DneCOXDPSvrFo_hA",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 243.6
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 6,
+    "shots": 1000,
+    "job_id": "AFByb3ZpZGVySm9iAaGfuZkNdiOR9-vNTanrqA",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGfuZkNdiOR9-vNTanrqA",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 286.8
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 6,
+    "shots": 1000,
+    "job_id": "AFByb3ZpZGVySm9iAaGgw7dFeqOrXSckDYeb3Q",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGgw7dFeqOrXSckDYeb3Q",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 286.8
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 7,
+    "shots": 1000,
+    "job_id": "AFByb3ZpZGVySm9iAaGfuaBtenO1QFvYapJYBg",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGfuaBtenO1QFvYapJYBg",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 330.0
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 7,
+    "shots": 1000,
+    "job_id": "AFByb3ZpZGVySm9iAaGgw71pc-GZUFGpKnw4iQ",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGgw71pc-GZUFGpKnw4iQ",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 330.0
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 8,
+    "shots": 1000,
+    "job_id": "AFByb3ZpZGVySm9iAaGfuacafiKPKzuAphfdlQ",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGfuacafiKPKzuAphfdlQ",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 373.2
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 8,
+    "shots": 1000,
+    "job_id": "AFByb3ZpZGVySm9iAaGgw8UXd8G3fk6Jonaf1Q",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGgw8UXd8G3fk6Jonaf1Q",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 373.2
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 10,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGfGOUZcYOgGWZ3gES-Xg",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGfGOUZcYOgGWZ3gES-Xg",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 232.3
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 10,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGgw8wrfbOFa8qM8gBJnA",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGgw8wrfbOFa8qM8gBJnA",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 232.3
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 20,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGfGOvVfbGVQVM5-z0pSw",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGfGOvVfbGVQVM5-z0pSw",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 448.3
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 40,
+    "shots": 250,
+    "job_id": "AFByb3ZpZGVySm9iAaGfGPOzfwOSJxV2rN2C2w",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGfGPOzfwOSJxV2rN2C2w",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 442.65
+    }
+  },
+  {
+    "distance": 3,
+    "rounds": 40,
+    "shots": 250,
+    "job_id": "AFByb3ZpZGVySm9iAaGfGPuweuCUuqzCetMs0A",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGfGPuweuCUuqzCetMs0A",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 442.65
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 2,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9ZhIdJKUHjfzj6faKQ",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGh9ZhIdJKUHjfzj6faKQ",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 174.7
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 2,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGryB9geWGIbBY4dHZ1ww",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGryB9geWGIbBY4dHZ1ww",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 174.7
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 3,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9aIpeOCwZYpJAaxv0A",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGh9aIpeOCwZYpJAaxv0A",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 244.3
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 3,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGryCY-dAKTG0COOdEjew",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGryCY-dAKTG0COOdEjew",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 244.3
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 4,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9azpeLGTJGRxMyDT9g",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGh9azpeLGTJGRxMyDT9g",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 313.9
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 4,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGryCzRdQOG8a2sG7U1Tw",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGryCzRdQOG8a2sG7U1Tw",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 313.9
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 4,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGv6EbJeTKvBA-Q9WkKbQ",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGv6EbJeTKvBA-Q9WkKbQ",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 313.9
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 5,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9bNPfRKRYbLP8CHB1A",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGh9bNPfRKRYbLP8CHB1A",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 383.5
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 5,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGryDOLfmCKlw7lMR61nA",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGryDOLfmCKlw7lMR61nA",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 383.5
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 5,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGv6E4ccRCljMC6g2enaA",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGv6E4ccRCljMC6g2enaA",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 383.5
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 6,
+    "shots": 667,
+    "job_id": "AFByb3ZpZGVySm9iAaGh9boXefKot0ydZs8b_g",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGh9boXefKot0ydZs8b_g",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 602.7654
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 6,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGraNgndfKmvFzoRE9qSA",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGraNgndfKmvFzoRE9qSA",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 453.1
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 6,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGv6FVnflOnZPZ72gOJkQ",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGv6FVnflOnZPZ72gOJkQ",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 453.1
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 7,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGrME4YcAOsrYEdogemeg",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGrME4YcAOsrYEdogemeg",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 522.7
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 7,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGraN-BeKK5t0wHR8-q-A",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGraN-BeKK5t0wHR8-q-A",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 522.7
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 7,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGv6F0af1O0ml6Uj54GWg",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGv6F0af1O0ml6Uj54GWg",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 522.7
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 8,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGrMc27dICj6c3unJaTMA",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGrMc27dICj6c3unJaTMA",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 592.3
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 9,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGrMdU5dnGPvqZKW5OjFA",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGrMdU5dnGPvqZKW5OjFA",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 661.9
+    }
+  },
+  {
+    "distance": 5,
+    "rounds": 10,
+    "shots": 500,
+    "job_id": "AFByb3ZpZGVySm9iAaGrMd0ne9GRdlyOgakfww",
+    "provider": {
+      "id": "AFByb3ZpZGVySm9iAaGrMd0ne9GRdlyOgakfww",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 731.5
+    }
+  }
+]

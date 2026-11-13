@@ -1,0 +1,312 @@
+{
+  "3": {
+    "0.0": {
+      "shots": 3000,
+      "counts": [
+        4,
+        7,
+        9,
+        11,
+        14,
+        2,
+        7,
+        8,
+        2
+      ],
+      "rates": [
+        0.0013333333333333333,
+        0.0023333333333333335,
+        0.003,
+        0.0036666666666666666,
+        0.004666666666666667,
+        0.0006666666666666666,
+        0.0023333333333333335,
+        0.0026666666666666666,
+        0.0006666666666666666
+      ],
+      "mean": 0.0023703703703703703,
+      "sd": 0.001337954953199144,
+      "expected_sampling_sd": 0.0008888228481751322,
+      "range": [
+        0.0006666666666666666,
+        0.004666666666666667
+      ],
+      "jobs": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGbWgzzd8KcJnrXT8rg7Q",
+          "shots": 1000,
+          "mean": 0.0017777777777777779,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d3_sleep_sweep_f219bffeea86811d/execute/sleep_0p0/job.json"
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGbgdnsdkCMOqKxGIBYwA",
+          "shots": 1000,
+          "mean": 0.002777777777777778,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d3_sleep_five_point_a2588f7078f6e696/execute/sleep_0p0/job.json"
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGw-zLjd9G3EKZ7QW8t9A",
+          "shots": 1000,
+          "mean": 0.0025555555555555557,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d3_zero_sleep_n2_1000_repeat_20261106/execute/job.json"
+        }
+      ]
+    },
+    "1.0": {
+      "shots": 2500,
+      "counts": [
+        245,
+        253,
+        259,
+        242,
+        269,
+        241,
+        264,
+        245,
+        261
+      ],
+      "rates": [
+        0.098,
+        0.1012,
+        0.1036,
+        0.0968,
+        0.1076,
+        0.0964,
+        0.1056,
+        0.098,
+        0.1044
+      ],
+      "mean": 0.10128888888888889,
+      "sd": 0.00417026511280891,
+      "expected_sampling_sd": 0.006029018883991717,
+      "range": [
+        0.0964,
+        0.1076
+      ],
+      "jobs": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGfGNfVdiCKOmWPC5nZyA",
+          "shots": 500,
+          "mean": 0.10155555555555555,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d3_fixed_sleep_690baca08b24dfd2/execute/n2_part1/job.json"
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGbWhlCc4C5imMeU1O2dw",
+          "shots": 1000,
+          "mean": 0.101,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d3_sleep_sweep_f219bffeea86811d/execute/sleep_1p0/job.json"
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGbgfLwcCGWbrwVjtHZ2A",
+          "shots": 1000,
+          "mean": 0.10144444444444445,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d3_sleep_five_point_a2588f7078f6e696/execute/sleep_1p0/job.json"
+        }
+      ]
+    },
+    "baseline_adjusted": {
+      "rates": [
+        0.09692513368983957,
+        0.09933020763563295,
+        0.10120724346076458,
+        0.09382135661517797,
+        0.10390309555854643,
+        0.0958611481975968,
+        0.10375083724045546,
+        0.09584450402144773,
+        0.10387182910547398
+      ],
+      "mean": 0.09939059505832618,
+      "sd": 0.003951049902813928
+    }
+  },
+  "5": {
+    "0.0": {
+      "shots": 2000,
+      "counts": [
+        32,
+        5,
+        8,
+        10,
+        20,
+        29,
+        27,
+        22,
+        27,
+        30,
+        21,
+        29,
+        15,
+        31,
+        18,
+        29,
+        31,
+        15,
+        23,
+        25,
+        25,
+        23,
+        24,
+        16,
+        28
+      ],
+      "rates": [
+        0.016,
+        0.0025,
+        0.004,
+        0.005,
+        0.01,
+        0.0145,
+        0.0135,
+        0.011,
+        0.0135,
+        0.015,
+        0.0105,
+        0.0145,
+        0.0075,
+        0.0155,
+        0.009,
+        0.0145,
+        0.0155,
+        0.0075,
+        0.0115,
+        0.0125,
+        0.0125,
+        0.0115,
+        0.012,
+        0.008,
+        0.014
+      ],
+      "mean": 0.011260000000000001,
+      "sd": 0.003764195354477058,
+      "expected_sampling_sd": 0.002355745714461673,
+      "range": [
+        0.0025,
+        0.016
+      ],
+      "jobs": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGw2szSeEOEn8VwSyFWAw",
+          "shots": 1000,
+          "mean": 0.01136,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_zero_sleep_n2_1000_20261106/execute/job.json"
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGxEjGnciGlRBDbhqTwvA",
+          "shots": 1000,
+          "mean": 0.01116,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_zero_sleep_n2_1000_repeat_20261106/execute/job.json"
+        }
+      ]
+    },
+    "1.0": {
+      "shots": 1000,
+      "counts": [
+        97,
+        102,
+        94,
+        110,
+        106,
+        86,
+        109,
+        97,
+        115,
+        104,
+        102,
+        96,
+        110,
+        129,
+        111,
+        115,
+        124,
+        139,
+        106,
+        104,
+        118,
+        115,
+        105,
+        111,
+        102
+      ],
+      "rates": [
+        0.097,
+        0.102,
+        0.094,
+        0.11,
+        0.106,
+        0.086,
+        0.109,
+        0.097,
+        0.115,
+        0.104,
+        0.102,
+        0.096,
+        0.11,
+        0.129,
+        0.111,
+        0.115,
+        0.124,
+        0.139,
+        0.106,
+        0.104,
+        0.118,
+        0.115,
+        0.105,
+        0.111,
+        0.102
+      ],
+      "mean": 0.10827999999999999,
+      "sd": 0.011461966090800772,
+      "expected_sampling_sd": 0.009832116134486549,
+      "range": [
+        0.086,
+        0.139
+      ],
+      "jobs": [
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGh9ZhIdJKUHjfzj6faKQ",
+          "shots": 500,
+          "mean": 0.10624,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_9fb82150bc37143a/execute/n2_part1/job.json"
+        },
+        {
+          "job_id": "AFByb3ZpZGVySm9iAaGryB9geWGIbBY4dHZ1ww",
+          "shots": 500,
+          "mean": 0.11032,
+          "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_fixed_sleep_additional_20261105_500_n2_3_4_5/n2/job.json"
+        }
+      ]
+    },
+    "baseline_adjusted": {
+      "rates": [
+        0.08367768595041322,
+        0.09999999999999999,
+        0.0907258064516129,
+        0.10606060606060606,
+        0.0979591836734694,
+        0.07363542739443872,
+        0.09815005138746147,
+        0.08793456032719837,
+        0.10431654676258993,
+        0.09175257731958762,
+        0.09346271705822268,
+        0.0839340885684861,
+        0.10406091370558376,
+        0.11713106295149639,
+        0.10386965376782079,
+        0.10350154479917612,
+        0.11197110423116616,
+        0.133502538071066,
+        0.09672466734902764,
+        0.09384615384615384,
+        0.1082051282051282,
+        0.10593654042988743,
+        0.09528688524590163,
+        0.1046747967479675,
+        0.0905349794238683
+      ],
+      "mean": 0.0992342087891332,
+      "sd": 0.01207269365166694
+    }
+  }
+}

@@ -1,0 +1,118 @@
+[
+  {
+    "job_id": "AFByb3ZpZGVySm9iAaHGRJtectGQMvp30W3GGg",
+    "rounds": 5,
+    "before": {
+      "id": "AFByb3ZpZGVySm9iAaHGRJtectGQMvp30W3GGg",
+      "providerId": "426bec15-7d0c-47bc-ba49-b05cd196f820",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 243.6,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    "requested_at_utc": "2026-11-12T03:04:57.103143+00:00",
+    "response": {
+      "id": "AFByb3ZpZGVySm9iAaHGRJtectGQMvp30W3GGg",
+      "providerId": "426bec15-7d0c-47bc-ba49-b05cd196f820",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 243.6,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    }
+  },
+  {
+    "job_id": "AFByb3ZpZGVySm9iAaHGRKF4cNKF5o2ZIdV5WQ",
+    "rounds": 6,
+    "before": {
+      "id": "AFByb3ZpZGVySm9iAaHGRKF4cNKF5o2ZIdV5WQ",
+      "providerId": "c83bb9b5-7ff7-4e13-9bc8-60d956cfdfcc",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 286.8,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    "requested_at_utc": "2026-11-12T03:04:58.496758+00:00",
+    "response": {
+      "id": "AFByb3ZpZGVySm9iAaHGRKF4cNKF5o2ZIdV5WQ",
+      "providerId": "c83bb9b5-7ff7-4e13-9bc8-60d956cfdfcc",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 286.8,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    }
+  },
+  {
+    "job_id": "AFByb3ZpZGVySm9iAaHGRKfTcrOLCSigHHxcIQ",
+    "rounds": 10,
+    "before": {
+      "id": "AFByb3ZpZGVySm9iAaHGRKfTcrOLCSigHHxcIQ",
+      "providerId": "39d0e06b-1f81-4496-933e-ce4c03b5ce6b",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 232.3,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    "requested_at_utc": "2026-11-12T03:04:59.881876+00:00",
+    "response": {
+      "id": "AFByb3ZpZGVySm9iAaHGRKfTcrOLCSigHHxcIQ",
+      "providerId": "39d0e06b-1f81-4496-933e-ce4c03b5ce6b",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 232.3,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    }
+  },
+  {
+    "job_id": "AFByb3ZpZGVySm9iAaHGRK6VcOGeKMhJ9X7ZUg",
+    "rounds": 20,
+    "before": {
+      "id": "AFByb3ZpZGVySm9iAaHGRK6VcOGeKMhJ9X7ZUg",
+      "providerId": "49eb6e49-efcc-41f9-a6e9-6f727469695d",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 448.3,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    "requested_at_utc": "2026-11-12T03:05:01.247846+00:00",
+    "response": {
+      "id": "AFByb3ZpZGVySm9iAaHGRK6VcOGeKMhJ9X7ZUg",
+      "providerId": "49eb6e49-efcc-41f9-a6e9-6f727469695d",
+      "status": "WAITING",
+      "error": null,
+      "hqcCost": 448.3,
+      "resultCount": null,
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    }
+  }
+]

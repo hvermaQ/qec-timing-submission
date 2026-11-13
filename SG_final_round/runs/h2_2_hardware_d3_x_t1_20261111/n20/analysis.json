@@ -1,0 +1,47 @@
+{
+  "rounds": 20,
+  "interval_seconds": 0.05263157894736842,
+  "shots": 500,
+  "job_id": "AFByb3ZpZGVySm9iAaHLBlcDeNCkhU4epmC2xw",
+  "provider_id": "b0113fc6-c48a-401b-a584-50abc16d3f2b",
+  "hqc": 448.3,
+  "data_bit_errors": 87,
+  "data_bits": 4500,
+  "raw_data_error_probability": 0.019333333333333334,
+  "raw_data_shot_bootstrap_95": [
+    0.015555555555555555,
+    0.023333333333333334
+  ],
+  "per_qubit_error_counts": [
+    2,
+    7,
+    18,
+    16,
+    8,
+    8,
+    13,
+    10,
+    5
+  ],
+  "per_qubit_error_probabilities": [
+    0.004,
+    0.014,
+    0.036,
+    0.032,
+    0.016,
+    0.016,
+    0.026,
+    0.02,
+    0.01
+  ],
+  "raw_logical_parity_flips": 29,
+  "raw_logical_parity_probability": 0.058,
+  "logical_failures": 8,
+  "logical_error_probability": 0.016,
+  "logical_wilson_95": [
+    0.008129253033388314,
+    0.03125110853339426
+  ],
+  "raw_sha256": "0bc8ad8d33779c92e7e91ebbe87440655d14b5267a0ebaa000871045b42f16aa",
+  "dem_sha256": "167c205b751465700c019ee184d520547de73ec724a02ba49eac1d3b93c2e9fe"
+}

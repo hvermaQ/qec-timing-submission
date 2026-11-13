@@ -1,0 +1,77 @@
+[
+  {
+    "rounds": 3,
+    "shots": 350,
+    "id": "AFByb3ZpZGVySm9iAaHGRJU6frO5eaSQEDsNfw",
+    "status": "RUNNING",
+    "error": null,
+    "hqcCost": 58.27,
+    "resultCount": null,
+    "createdAt": "2026-11-10T16:22:25.850088+00:00",
+    "duration": null,
+    "platform": {
+      "name": "H2-1",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 5,
+    "shots": 1000,
+    "id": "AFByb3ZpZGVySm9iAaHGRJtectGQMvp30W3GGg",
+    "status": "CANCELLED",
+    "error": null,
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "createdAt": "2026-11-10T16:22:27.422749+00:00",
+    "duration": null,
+    "platform": {
+      "name": "H2-1",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 6,
+    "shots": 1000,
+    "id": "AFByb3ZpZGVySm9iAaHGRKF4cNKF5o2ZIdV5WQ",
+    "status": "CANCELLED",
+    "error": null,
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "createdAt": "2026-11-10T16:22:28.984622+00:00",
+    "duration": null,
+    "platform": {
+      "name": "H2-1",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 10,
+    "shots": 500,
+    "id": "AFByb3ZpZGVySm9iAaHGRKfTcrOLCSigHHxcIQ",
+    "status": "CANCELLED",
+    "error": null,
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "createdAt": "2026-11-10T16:22:30.611798+00:00",
+    "duration": null,
+    "platform": {
+      "name": "H2-1",
+      "provider": "NEXUS"
+    }
+  },
+  {
+    "rounds": 20,
+    "shots": 500,
+    "id": "AFByb3ZpZGVySm9iAaHGRK6VcOGeKMhJ9X7ZUg",
+    "status": "CANCELLED",
+    "error": null,
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "createdAt": "2026-11-10T16:22:32.341174+00:00",
+    "duration": null,
+    "platform": {
+      "name": "H2-1",
+      "provider": "NEXUS"
+    }
+  }
+]

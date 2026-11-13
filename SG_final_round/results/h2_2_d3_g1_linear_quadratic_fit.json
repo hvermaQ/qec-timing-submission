@@ -1,0 +1,365 @@
+{
+  "platform": "nexus:H2-2",
+  "distance": 3,
+  "g": 1,
+  "alpha": 2,
+  "p_ext": 0.00117,
+  "total_requested_sleep_seconds": 1,
+  "shots": 9750,
+  "model": "P_L(u)=C/u*[1+((1-2*p_ext)/p_ext)*(a*u+b*u^2)]^2; u in seconds",
+  "C": 0.0010506367411319622,
+  "a_per_second": 0.0018308957700704186,
+  "b_per_second_squared": 0.004002969100483474,
+  "lambda_1": 1.5612063880072253,
+  "lambda_2": 3.4133351733233703,
+  "linear_coefficient_at_boundary": false,
+  "delta_t_star_seconds": 0.24543262951659914,
+  "delta_t_star_conditional_95_seconds": [
+    0.1765839849754484,
+    0.30910176428243125
+  ],
+  "continuous_N_star": 5.074437869037979,
+  "best_integer_N_2_to_100": 5,
+  "minimum_fitted_probability": 0.010805582229081416,
+  "binomial_deviance": 4.735691415266621,
+  "nominal_residual_df": 5,
+  "parametric_bootstrap_gof_p": 0.47952047952047955,
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 20261113,
+  "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/h2_2_hardware_p_ext_0_00117_10750_shots.json",
+  "source_sha256": "98e136164a9850db0421eeccb9024d93f7a4846e2ce44be5df248eecbaecc570",
+  "decoder_policy": {
+    "policy_version": "h2_2_p_ext_0_00117_20261112",
+    "platform": "nexus:H2-2",
+    "type": "sleep-dependent MWPM",
+    "p_ext": 0.00117,
+    "p_read": 0.001,
+    "linear_rate_per_second": 0.0028,
+    "frequency_hz": 0.043,
+    "frequency_multiplier": 2.0,
+    "selection": "User-specified going-forward value from d=3 N=2 zero-sleep control; effective baseline includes unseparated preparation/readout contributions.",
+    "calibration_job_id": "AFByb3ZpZGVySm9iAaHPP4sff7OAv5OZhac2rA"
+  },
+  "rows": [
+    {
+      "rounds": 2,
+      "total_requested_sleep_seconds": 1.0,
+      "interval_seconds": 1.0,
+      "shots": 500,
+      "jobs": 2,
+      "logical_failures": 21,
+      "logical_error_probability": 0.042,
+      "logical_wilson_95": [
+        0.027632310108451703,
+        0.06335158575433016
+      ],
+      "raw_data_bit_errors": 205,
+      "data_bits": 4500,
+      "raw_data_error_probability": 0.04555555555555556,
+      "raw_data_shot_bootstrap_95": [
+        0.03977777777777778,
+        0.05177777777777778
+      ],
+      "per_qubit_error_counts": [
+        28,
+        17,
+        24,
+        7,
+        10,
+        17,
+        22,
+        65,
+        15
+      ],
+      "old_decoder_failures": 21,
+      "changed_predictions": 0,
+      "corrected": 0,
+      "harmed": 0,
+      "job_ids": [
+        "AFByb3ZpZGVySm9iAaHLBjc6ewKW1rFRYvW9xA",
+        "AFByb3ZpZGVySm9iAaHPkeQicLCcrXIkWk6hqg"
+      ],
+      "fitted_probability": 0.03750263277969229
+    },
+    {
+      "rounds": 3,
+      "total_requested_sleep_seconds": 1.0,
+      "interval_seconds": 0.5,
+      "shots": 1500,
+      "jobs": 3,
+      "logical_failures": 16,
+      "logical_error_probability": 0.010666666666666666,
+      "logical_wilson_95": [
+        0.006576312321062792,
+        0.01725695721042149
+      ],
+      "raw_data_bit_errors": 352,
+      "data_bits": 13500,
+      "raw_data_error_probability": 0.026074074074074072,
+      "raw_data_shot_bootstrap_95": [
+        0.023333333333333334,
+        0.028888888888888888
+      ],
+      "per_qubit_error_counts": [
+        59,
+        58,
+        44,
+        26,
+        15,
+        27,
+        51,
+        49,
+        23
+      ],
+      "old_decoder_failures": 16,
+      "changed_predictions": 0,
+      "corrected": 0,
+      "harmed": 0,
+      "job_ids": [
+        "AFByb3ZpZGVySm9iAaHLBj18caCjwaLTy_VNTg",
+        "AFByb3ZpZGVySm9iAaHN6pwYeYODISHlB864qw",
+        "AFByb3ZpZGVySm9iAaHSzbKtfxCcJncm6gzE5g"
+      ],
+      "fitted_probability": 0.014577845453007452
+    },
+    {
+      "rounds": 4,
+      "total_requested_sleep_seconds": 1.0,
+      "interval_seconds": 0.3333333333333333,
+      "shots": 2000,
+      "jobs": 2,
+      "logical_failures": 21,
+      "logical_error_probability": 0.0105,
+      "logical_wilson_95": [
+        0.006877887380873443,
+        0.015998901907473176
+      ],
+      "raw_data_bit_errors": 332,
+      "data_bits": 18000,
+      "raw_data_error_probability": 0.018444444444444444,
+      "raw_data_shot_bootstrap_95": [
+        0.016555555555555556,
+        0.02038888888888889
+      ],
+      "per_qubit_error_counts": [
+        28,
+        49,
+        14,
+        63,
+        37,
+        40,
+        29,
+        52,
+        20
+      ],
+      "old_decoder_failures": 21,
+      "changed_predictions": 0,
+      "corrected": 0,
+      "harmed": 0,
+      "job_ids": [
+        "AFByb3ZpZGVySm9iAaHPkersf8OWvXtdEP8HyA",
+        "AFByb3ZpZGVySm9iAaHSzbhqcxK89zYMHqgYfQ"
+      ],
+      "fitted_probability": 0.011374343079637523
+    },
+    {
+      "rounds": 5,
+      "total_requested_sleep_seconds": 1.0,
+      "interval_seconds": 0.25,
+      "shots": 2000,
+      "jobs": 2,
+      "logical_failures": 27,
+      "logical_error_probability": 0.0135,
+      "logical_wilson_95": [
+        0.009294493997659236,
+        0.019570793006999862
+      ],
+      "raw_data_bit_errors": 397,
+      "data_bits": 18000,
+      "raw_data_error_probability": 0.022055555555555554,
+      "raw_data_shot_bootstrap_95": [
+        0.02,
+        0.024166666666666666
+      ],
+      "per_qubit_error_counts": [
+        27,
+        38,
+        42,
+        47,
+        86,
+        35,
+        53,
+        50,
+        19
+      ],
+      "old_decoder_failures": 27,
+      "changed_predictions": 0,
+      "corrected": 0,
+      "harmed": 0,
+      "job_ids": [
+        "AFByb3ZpZGVySm9iAaHLBkM_c8Oxu3BIQzoppA",
+        "AFByb3ZpZGVySm9iAaHN6qJIfOKmFbROPf96sA"
+      ],
+      "fitted_probability": 0.010807460395731786
+    },
+    {
+      "rounds": 6,
+      "total_requested_sleep_seconds": 1.0,
+      "interval_seconds": 0.2,
+      "shots": 2000,
+      "jobs": 2,
+      "logical_failures": 25,
+      "logical_error_probability": 0.0125,
+      "logical_wilson_95": [
+        0.008481081388571086,
+        0.018388039710650523
+      ],
+      "raw_data_bit_errors": 339,
+      "data_bits": 18000,
+      "raw_data_error_probability": 0.018833333333333334,
+      "raw_data_shot_bootstrap_95": [
+        0.016888888888888887,
+        0.020777777777777777
+      ],
+      "per_qubit_error_counts": [
+        29,
+        74,
+        27,
+        18,
+        32,
+        54,
+        24,
+        43,
+        38
+      ],
+      "old_decoder_failures": 26,
+      "changed_predictions": 1,
+      "corrected": 1,
+      "harmed": 0,
+      "job_ids": [
+        "AFByb3ZpZGVySm9iAaHLBklPf9Gw3n-zc8VCQw",
+        "AFByb3ZpZGVySm9iAaHN6qiVdmOqv9mau6NINg"
+      ],
+      "fitted_probability": 0.011026159887278177
+    },
+    {
+      "rounds": 10,
+      "total_requested_sleep_seconds": 1.0,
+      "interval_seconds": 0.1111111111111111,
+      "shots": 1000,
+      "jobs": 2,
+      "logical_failures": 13,
+      "logical_error_probability": 0.013,
+      "logical_wilson_95": [
+        0.0076128203893510256,
+        0.022114442375579666
+      ],
+      "raw_data_bit_errors": 153,
+      "data_bits": 9000,
+      "raw_data_error_probability": 0.017,
+      "raw_data_shot_bootstrap_95": [
+        0.014444444444444444,
+        0.019666666666666666
+      ],
+      "per_qubit_error_counts": [
+        14,
+        11,
+        25,
+        19,
+        24,
+        17,
+        14,
+        15,
+        14
+      ],
+      "old_decoder_failures": 13,
+      "changed_predictions": 0,
+      "corrected": 0,
+      "harmed": 0,
+      "job_ids": [
+        "AFByb3ZpZGVySm9iAaHLBk-6dnOuSaFqnUFPWA",
+        "AFByb3ZpZGVySm9iAaHN6q_BcsKajKpqB_q_ZQ"
+      ],
+      "fitted_probability": 0.013972744074036354
+    },
+    {
+      "rounds": 20,
+      "total_requested_sleep_seconds": 1.0,
+      "interval_seconds": 0.05263157894736842,
+      "shots": 500,
+      "jobs": 1,
+      "logical_failures": 9,
+      "logical_error_probability": 0.018,
+      "logical_wilson_95": [
+        0.009498193296197078,
+        0.033851670908739286
+      ],
+      "raw_data_bit_errors": 87,
+      "data_bits": 4500,
+      "raw_data_error_probability": 0.019333333333333334,
+      "raw_data_shot_bootstrap_95": [
+        0.015555555555555555,
+        0.023333333333333334
+      ],
+      "per_qubit_error_counts": [
+        2,
+        7,
+        18,
+        16,
+        8,
+        8,
+        13,
+        10,
+        5
+      ],
+      "old_decoder_failures": 8,
+      "changed_predictions": 5,
+      "corrected": 2,
+      "harmed": 3,
+      "job_ids": [
+        "AFByb3ZpZGVySm9iAaHLBlcDeNCkhU4epmC2xw"
+      ],
+      "fitted_probability": 0.02378769269331783
+    },
+    {
+      "rounds": 40,
+      "total_requested_sleep_seconds": 1.0,
+      "interval_seconds": 0.02564102564102564,
+      "shots": 250,
+      "jobs": 1,
+      "logical_failures": 12,
+      "logical_error_probability": 0.048,
+      "logical_wilson_95": [
+        0.02766820153069461,
+        0.08201230121318728
+      ],
+      "raw_data_bit_errors": 68,
+      "data_bits": 2250,
+      "raw_data_error_probability": 0.030222222222222223,
+      "raw_data_shot_bootstrap_95": [
+        0.023555555555555555,
+        0.037333333333333336
+      ],
+      "per_qubit_error_counts": [
+        5,
+        12,
+        6,
+        7,
+        8,
+        4,
+        11,
+        11,
+        4
+      ],
+      "old_decoder_failures": 14,
+      "changed_predictions": 4,
+      "corrected": 3,
+      "harmed": 1,
+      "job_ids": [
+        "AFByb3ZpZGVySm9iAaHSza0HdvKn7xU7YCXGDw"
+      ],
+      "fitted_probability": 0.04451249038702097
+    }
+  ],
+  "caveats": "Conditional on the empirical ansatz, fixed g and p_ext, independent common-probability shots, and neglected extraction duration. Zero-sleep control excluded. Bootstrap does not include calibration uncertainty, drift, model uncertainty, or adaptive setting selection. a,b describe the logical curve and are not independently measured physical idle rates."
+}
