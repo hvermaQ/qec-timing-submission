@@ -1,0 +1,16 @@
+{
+  "policy_version": "h2_2_d5_skip5_p_ext_0_005_20261114",
+  "platform": "nexus:H2-2",
+  "type": "sleep-dependent MWPM",
+  "p_ext": 0.005,
+  "p_read": 0.001,
+  "linear_rate_per_second": 0.0028,
+  "frequency_hz": 0.043,
+  "frequency_multiplier": 2.0,
+  "selection": "User-requested p_ext=0.005 for skip-index-5 finite-sleep decoding",
+  "distance": 5,
+  "calibration_job_ids": [
+    "AFByb3ZpZGVySm9iAaHZaESAcwCVLDEccgwFew"
+  ],
+  "calibration_result": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_h2_2_zero_sleep_n3_skip5_250_20261114/execute/raw_analysis.json"
+}

@@ -1,0 +1,53 @@
+{
+  "distance": 5,
+  "basis": "X",
+  "rounds": [
+    3
+  ],
+  "shots": 250,
+  "platform": "nexus:H2-2",
+  "options": {
+    "no_opt": true
+  },
+  "total_requested_sleep_seconds": 0,
+  "delta_t_seconds": 0,
+  "explicit_sleep_calls": 50,
+  "data_qubit_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+  ],
+  "ancilla_qubit_index": 26,
+  "unused_qubit_index": 5,
+  "required_num_qubits": 27,
+  "output_labels": "Original code-position labels preserved",
+  "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d5_h2_2_zero_sleep_n3/n3.ll",
+  "source_sha256": "7f7cf89357dd5ba556ddefc040361486346df5228b277fb5dad4aff3e78b8f2f",
+  "bitcode_sha256": {
+    "n3": "76e6779f7d0dff489ab016ee84ddeba8311b3d82d8307ff9a8332ee97366c9d5"
+  },
+  "estimated_hqc": 124.9,
+  "validation": "Exact inverse remapping reproduces audited original QIR; LLVM assembly and roundtrip gate counts pass"
+}

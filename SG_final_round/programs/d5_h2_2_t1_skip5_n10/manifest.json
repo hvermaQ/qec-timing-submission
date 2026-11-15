@@ -1,0 +1,39 @@
+{
+  "distance": 5,
+  "basis": "X",
+  "artificial_faults": false,
+  "total_requested_sleep_seconds": 1,
+  "bitcode_sha256": {
+    "n10": "9b7003adba269bea8a5fedb6f3a532a5665b70e6c9b197825c69a1b25fb182db"
+  },
+  "data_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+  ],
+  "ancilla_index": 26,
+  "unused_index": 5,
+  "output_labels": "Original code positions preserved"
+}

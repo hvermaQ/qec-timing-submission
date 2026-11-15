@@ -1,0 +1,15 @@
+[
+  {
+    "rounds": 10,
+    "shots": 250,
+    "id": "AFByb3ZpZGVySm9iAaHdGpXLeVG3kICqu28KuQ",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "resultCount": null,
+    "platform": {
+      "name": "H2-2",
+      "provider": "NEXUS"
+    }
+  }
+]

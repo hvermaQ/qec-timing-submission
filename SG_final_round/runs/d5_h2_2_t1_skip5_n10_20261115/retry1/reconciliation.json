@@ -1,0 +1,102 @@
+[
+  {
+    "id": "AFByb3ZpZGVySm9iAaHdf20iceGr8WB7ptlY7A",
+    "createdAt": "2026-11-15T04:37:58.178693+00:00",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "platform": {
+      "name": "H2-2"
+    }
+  },
+  {
+    "id": "AFByb3ZpZGVySm9iAaHdaAAweGKDhCwwenvXLQ",
+    "createdAt": "2026-11-15T04:12:22.960699+00:00",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "platform": {
+      "name": "H2-2"
+    }
+  },
+  {
+    "id": "AFByb3ZpZGVySm9iAaHdRfNWdEOiObAudDGzAA",
+    "createdAt": "2026-11-15T03:35:11.446973+00:00",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "platform": {
+      "name": "H2-2"
+    }
+  },
+  {
+    "id": "AFByb3ZpZGVySm9iAaHdGpXLeVG3kICqu28KuQ",
+    "createdAt": "2026-11-15T02:47:49.451599+00:00",
+    "status": null,
+    "error": "Job cost exceeds allowed cost (code: 1002)",
+    "hqcCost": 0.0,
+    "platform": {
+      "name": "H2-2"
+    }
+  },
+  {
+    "id": "AFByb3ZpZGVySm9iAaHcntRFdxCLfihzgQTZNA",
+    "createdAt": "2026-11-15T00:32:38.981333+00:00",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 6.454,
+    "platform": {
+      "name": "H2-2SC"
+    }
+  },
+  {
+    "id": "AFByb3ZpZGVySm9iAaHaHrnLciGksuSuRYKSIQ",
+    "createdAt": "2026-11-14T12:53:29.163747+00:00",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 453.6,
+    "platform": {
+      "name": "H2-2"
+    }
+  },
+  {
+    "id": "AFByb3ZpZGVySm9iAaHaHrJFdSGVyItCrNYa1Q",
+    "createdAt": "2026-11-14T12:53:27.237599+00:00",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 175.2,
+    "platform": {
+      "name": "H2-2"
+    }
+  },
+  {
+    "id": "AFByb3ZpZGVySm9iAaHaHZk-c8O9X5ogWyG3yQ",
+    "createdAt": "2026-11-14T12:52:15.294116+00:00",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 5.8972,
+    "platform": {
+      "name": "H2-2SC"
+    }
+  },
+  {
+    "id": "AFByb3ZpZGVySm9iAaHaHZFzdqGQI-b_kXRm6Q",
+    "createdAt": "2026-11-14T12:52:13.299907+00:00",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 5.3404,
+    "platform": {
+      "name": "H2-2SC"
+    }
+  },
+  {
+    "id": "AFByb3ZpZGVySm9iAaHZojNudBKadSwOPUbSaA",
+    "createdAt": "2026-11-14T10:37:28.303002+00:00",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 314.4,
+    "platform": {
+      "name": "H2-2"
+    }
+  }
+]

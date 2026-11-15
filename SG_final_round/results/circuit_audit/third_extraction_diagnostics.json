@@ -1,0 +1,97 @@
+[
+  {
+    "rounds": 3,
+    "shots": 750,
+    "check2_round_one_rates": [
+      0.0026666666666666666,
+      0.06266666666666666,
+      0.492
+    ],
+    "third_extraction_detection_events": 360,
+    "q5_errors": 320,
+    "joint_q5_and_third_event": 254,
+    "q5_given_third_event": 0.7055555555555556,
+    "q5_without_third_event": 0.16923076923076924,
+    "q5_rates_by_five_record_order_blocks": [
+      0.46,
+      0.4066666666666667,
+      0.4,
+      0.48,
+      0.38666666666666666
+    ]
+  },
+  {
+    "rounds": 4,
+    "shots": 1000,
+    "check2_round_one_rates": [
+      0.01,
+      0.048,
+      0.458,
+      0.473
+    ],
+    "third_extraction_detection_events": 458,
+    "q5_errors": 423,
+    "joint_q5_and_third_event": 331,
+    "q5_given_third_event": 0.722707423580786,
+    "q5_without_third_event": 0.16974169741697417,
+    "q5_rates_by_five_record_order_blocks": [
+      0.38,
+      0.4,
+      0.49,
+      0.425,
+      0.42
+    ]
+  },
+  {
+    "rounds": 6,
+    "shots": 750,
+    "check2_round_one_rates": [
+      0.009333333333333334,
+      0.025333333333333333,
+      0.42533333333333334,
+      0.436,
+      0.44133333333333336,
+      0.46
+    ],
+    "third_extraction_detection_events": 324,
+    "q5_errors": 318,
+    "joint_q5_and_third_event": 243,
+    "q5_given_third_event": 0.75,
+    "q5_without_third_event": 0.176056338028169,
+    "q5_rates_by_five_record_order_blocks": [
+      0.36666666666666664,
+      0.44666666666666666,
+      0.4,
+      0.4066666666666667,
+      0.5
+    ]
+  },
+  {
+    "rounds": 10,
+    "shots": 500,
+    "check2_round_one_rates": [
+      0.0,
+      0.022,
+      0.444,
+      0.44,
+      0.444,
+      0.442,
+      0.464,
+      0.476,
+      0.494,
+      0.516
+    ],
+    "third_extraction_detection_events": 217,
+    "q5_errors": 242,
+    "joint_q5_and_third_event": 120,
+    "q5_given_third_event": 0.5529953917050692,
+    "q5_without_third_event": 0.43109540636042404,
+    "q5_rates_by_five_record_order_blocks": [
+      0.52,
+      0.44,
+      0.45,
+      0.52,
+      0.49
+    ]
+  }
+]

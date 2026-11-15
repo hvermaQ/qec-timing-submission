@@ -1,0 +1,648 @@
+{
+  "description": "Offline decoder-weight sensitivity, varying syndrome and final-readout p_read together. No added record flips, postselection, or new hardware jobs. Parameter range is a stress test, not calibrated uncertainty; baseline remains p_read=0.001.",
+  "baseline_policy": {
+    "policy_version": "h2_2_d5_p_ext_0_004_20261113",
+    "platform": "nexus:H2-2",
+    "type": "sleep-dependent MWPM",
+    "p_ext": 0.004,
+    "p_read": 0.001,
+    "linear_rate_per_second": 0.0028,
+    "frequency_hz": 0.043,
+    "frequency_multiplier": 2.0,
+    "selection": "User-selected rounded baseline from pooled 750-shot d=5 N=2 zero-sleep controls; includes preparation/readout contributions.",
+    "distance": 5,
+    "calibration_job_ids": [
+      "AFByb3ZpZGVySm9iAaHTkCk8cmCs3HYizx6LiQ",
+      "AFByb3ZpZGVySm9iAaHT7TgXfYOpdKlZsyUfeg"
+    ],
+    "calibration_result": "SG_final_round/results/d5_h2_2_zero_sleep_pooled_750.json"
+  },
+  "source": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/d5_h2_2_t1_p_ext_0_004_3500_shots.json",
+  "source_sha256": "e0af21242ee77670ef809588ff887b57ef3b2337a4ab3d00b60a2429da9a4c5e",
+  "provenance": [
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHUTQhGcgGO8fSCbisVAg",
+      "raw_sha256": "e1c5487c68601d7129e1cd0cdbef8040bbcd1c13a9144e2c7c36818cfc42db7f",
+      "raw_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_h2_2_t1_20261113/execute/n2/result_0.txt"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHUTROCfcK48eiP0_O8zw",
+      "raw_sha256": "84fd38a0cf3dc670cd166bf5e660c978c842fba1e1dab5c8019dba9eabba5a80",
+      "raw_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_h2_2_t1_20261113/execute/n3/result_0.txt"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHUTRpndcKAy2T8HalnHQ",
+      "raw_sha256": "c891ccef569c6abc4c5d7f6cda512d0e4532b672fc15968b5c385c36a9dd4965",
+      "raw_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_h2_2_t1_20261113/execute/n4/result_0.txt"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHUTSLLenG5kvm2SFFPMQ",
+      "raw_sha256": "ebd1685a5324cfca9d01e4bf5ca48feb58d7b36ec76199c9b267b68a39a2c68a",
+      "raw_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_h2_2_t1_20261113/execute/n6/result_0.txt"
+    },
+    {
+      "job_id": "AFByb3ZpZGVySm9iAaHUTStFcSCuXIxn3LlfWA",
+      "raw_sha256": "f5b38ac95b8a0cbef428be2723297e32118d3157960615c4b54a5bd83aa421de",
+      "raw_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_h2_2_t1_20261113/execute/n10/result_0.txt"
+    }
+  ],
+  "configurations": [
+    {
+      "p_read": 0.0001,
+      "rows": [
+        {
+          "rounds": 2,
+          "shots": 500,
+          "logical_failures": 11,
+          "logical_error_probability": 0.022,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.0001_n2.dem",
+          "dem_sha256": "624b9f6e126fcf56bc7ff1ac782acb2b59f544ffda4c5bc3bf0765ea6928b578"
+        },
+        {
+          "rounds": 3,
+          "shots": 750,
+          "logical_failures": 30,
+          "logical_error_probability": 0.04,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.0001_n3.dem",
+          "dem_sha256": "7198bd3047db4a38e2206b347982feaa44dc948e3cfb8f7d59cca9abf898359f"
+        },
+        {
+          "rounds": 4,
+          "shots": 1000,
+          "logical_failures": 40,
+          "logical_error_probability": 0.04,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.0001_n4.dem",
+          "dem_sha256": "b8eb249099a1b06f4bf5b622dfe1296c704ffc0d5277d8c608516dbc5b30b483"
+        },
+        {
+          "rounds": 6,
+          "shots": 750,
+          "logical_failures": 13,
+          "logical_error_probability": 0.017333333333333333,
+          "changed_predictions": 3,
+          "corrected": 1,
+          "harmed": 2,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.0001_n6.dem",
+          "dem_sha256": "2747157b9edae7f8b81c8aa7600edc3d755f895568dd1722fd566657f246a059"
+        },
+        {
+          "rounds": 10,
+          "shots": 500,
+          "logical_failures": 23,
+          "logical_error_probability": 0.046,
+          "changed_predictions": 8,
+          "corrected": 2,
+          "harmed": 6,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.0001_n10.dem",
+          "dem_sha256": "bc915fd49fb3d01bf699882126e9108483cacea55cd72345474d428c936d51cb"
+        }
+      ]
+    },
+    {
+      "p_read": 0.00025,
+      "rows": [
+        {
+          "rounds": 2,
+          "shots": 500,
+          "logical_failures": 11,
+          "logical_error_probability": 0.022,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.00025_n2.dem",
+          "dem_sha256": "5c7cab142bec4ba1a67c3c08663d9befe9aa848a45161c853d5f8d49fd0103b5"
+        },
+        {
+          "rounds": 3,
+          "shots": 750,
+          "logical_failures": 30,
+          "logical_error_probability": 0.04,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.00025_n3.dem",
+          "dem_sha256": "0e07fcae23960ecf8669f4763c3858ab6de6464fdb4309076750bdba4554e43f"
+        },
+        {
+          "rounds": 4,
+          "shots": 1000,
+          "logical_failures": 40,
+          "logical_error_probability": 0.04,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.00025_n4.dem",
+          "dem_sha256": "e7ac733955f21b23e199de4ec1ebfafe82ce8f51cfdd1e3a71ee39b3c723d1b1"
+        },
+        {
+          "rounds": 6,
+          "shots": 750,
+          "logical_failures": 13,
+          "logical_error_probability": 0.017333333333333333,
+          "changed_predictions": 3,
+          "corrected": 1,
+          "harmed": 2,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.00025_n6.dem",
+          "dem_sha256": "81052eb296b62326092424e03d37af1dd696a744b763bd5430219ee4aeb5d04a"
+        },
+        {
+          "rounds": 10,
+          "shots": 500,
+          "logical_failures": 23,
+          "logical_error_probability": 0.046,
+          "changed_predictions": 6,
+          "corrected": 1,
+          "harmed": 5,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.00025_n10.dem",
+          "dem_sha256": "325912588ad80dd6f8aadcde4dc46373214c4824061ba0fa3ba3728726c73650"
+        }
+      ]
+    },
+    {
+      "p_read": 0.0005,
+      "rows": [
+        {
+          "rounds": 2,
+          "shots": 500,
+          "logical_failures": 11,
+          "logical_error_probability": 0.022,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.0005_n2.dem",
+          "dem_sha256": "1d08eff3f3ea3740168b163a282b94cff4b81c70eb4d45bb35f2e6584961505b"
+        },
+        {
+          "rounds": 3,
+          "shots": 750,
+          "logical_failures": 30,
+          "logical_error_probability": 0.04,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.0005_n3.dem",
+          "dem_sha256": "6dce7f4063d681c7b90593420dffc915de2c4dade7517dc2cd3fe958d2ede215"
+        },
+        {
+          "rounds": 4,
+          "shots": 1000,
+          "logical_failures": 40,
+          "logical_error_probability": 0.04,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.0005_n4.dem",
+          "dem_sha256": "f219501a4db0c388f069a15a726407a9ab5209b9ad798c0d3ced20e7dd478ee1"
+        },
+        {
+          "rounds": 6,
+          "shots": 750,
+          "logical_failures": 12,
+          "logical_error_probability": 0.016,
+          "changed_predictions": 2,
+          "corrected": 1,
+          "harmed": 1,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.0005_n6.dem",
+          "dem_sha256": "6fc3f1fb5a0819c094470b60eea3a7bfe4bd94bb72477dd0b657d4805fdee2d7"
+        },
+        {
+          "rounds": 10,
+          "shots": 500,
+          "logical_failures": 21,
+          "logical_error_probability": 0.042,
+          "changed_predictions": 2,
+          "corrected": 0,
+          "harmed": 2,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.0005_n10.dem",
+          "dem_sha256": "6652fd20d45232e3fb675cc495e3ce30f58bad7b56b5a65523a327e2df3b85c4"
+        }
+      ]
+    },
+    {
+      "p_read": 0.001,
+      "rows": [
+        {
+          "rounds": 2,
+          "shots": 500,
+          "logical_failures": 11,
+          "logical_error_probability": 0.022,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.001_n2.dem",
+          "dem_sha256": "4138a5c534d1e30f5f01f1c97073dc70add69f8c8ba2d3bffd9ea34cad262a63"
+        },
+        {
+          "rounds": 3,
+          "shots": 750,
+          "logical_failures": 30,
+          "logical_error_probability": 0.04,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.001_n3.dem",
+          "dem_sha256": "1d1956f1e95029afdd2a6089f74f90e33e001431b2700bb4eb2b563d307936cc"
+        },
+        {
+          "rounds": 4,
+          "shots": 1000,
+          "logical_failures": 40,
+          "logical_error_probability": 0.04,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.001_n4.dem",
+          "dem_sha256": "e7208a0ab0caf94e28110e75d8386a2a46579ccbe05044b0618a67441f223ef6"
+        },
+        {
+          "rounds": 6,
+          "shots": 750,
+          "logical_failures": 12,
+          "logical_error_probability": 0.016,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.001_n6.dem",
+          "dem_sha256": "15510611baacd9fb66350de4a97ee6799cd823a703b11b76dd54086f3a04a840"
+        },
+        {
+          "rounds": 10,
+          "shots": 500,
+          "logical_failures": 19,
+          "logical_error_probability": 0.038,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.001_n10.dem",
+          "dem_sha256": "d46eeda5a79d2af737d2c37daaa9612925ce411d8a1189359681f0982f773036"
+        }
+      ]
+    },
+    {
+      "p_read": 0.002,
+      "rows": [
+        {
+          "rounds": 2,
+          "shots": 500,
+          "logical_failures": 11,
+          "logical_error_probability": 0.022,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.002_n2.dem",
+          "dem_sha256": "0cd94b8e98dce63c373dbe965d3537ac75c52aa325ceb928ed72f8d951e02a6d"
+        },
+        {
+          "rounds": 3,
+          "shots": 750,
+          "logical_failures": 30,
+          "logical_error_probability": 0.04,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.002_n3.dem",
+          "dem_sha256": "a9fe4609ed099fe28d40ea3a71bcdfa95fdb19fc3c2b87f9f007a45b014308dc"
+        },
+        {
+          "rounds": 4,
+          "shots": 1000,
+          "logical_failures": 39,
+          "logical_error_probability": 0.039,
+          "changed_predictions": 1,
+          "corrected": 1,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.002_n4.dem",
+          "dem_sha256": "2a28e30599c532fe496013e5052c542b237369e78347073c2981ba5ab58cff4f"
+        },
+        {
+          "rounds": 6,
+          "shots": 750,
+          "logical_failures": 14,
+          "logical_error_probability": 0.018666666666666668,
+          "changed_predictions": 2,
+          "corrected": 0,
+          "harmed": 2,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.002_n6.dem",
+          "dem_sha256": "39c483199eb7d72b1f901fdf792a4a9f13737e6768eff0849338c071a200df3f"
+        },
+        {
+          "rounds": 10,
+          "shots": 500,
+          "logical_failures": 18,
+          "logical_error_probability": 0.036,
+          "changed_predictions": 1,
+          "corrected": 1,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.002_n10.dem",
+          "dem_sha256": "3c5fd23bedb87706ee7ba743b460b47a331e3192ffc0b338aa4b4f025d4b3c8f"
+        }
+      ]
+    },
+    {
+      "p_read": 0.004,
+      "rows": [
+        {
+          "rounds": 2,
+          "shots": 500,
+          "logical_failures": 11,
+          "logical_error_probability": 0.022,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.004_n2.dem",
+          "dem_sha256": "eee2e02112a85503d16e478ee400e94617dbdc92519cc36269654bf17efc5f50"
+        },
+        {
+          "rounds": 3,
+          "shots": 750,
+          "logical_failures": 30,
+          "logical_error_probability": 0.04,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.004_n3.dem",
+          "dem_sha256": "4048851f196cffbb19f777e0e8f12b134db36ce4554743f88984c931f851f304"
+        },
+        {
+          "rounds": 4,
+          "shots": 1000,
+          "logical_failures": 36,
+          "logical_error_probability": 0.036,
+          "changed_predictions": 6,
+          "corrected": 5,
+          "harmed": 1,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.004_n4.dem",
+          "dem_sha256": "58d1069e8f9f16b1cd9c3be31cdc9b0fcfc13af5c3b9948bcd46d49147dcb7a2"
+        },
+        {
+          "rounds": 6,
+          "shots": 750,
+          "logical_failures": 13,
+          "logical_error_probability": 0.017333333333333333,
+          "changed_predictions": 3,
+          "corrected": 1,
+          "harmed": 2,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.004_n6.dem",
+          "dem_sha256": "3bdd01e3fe06ea038ee4e635f7803396437eddae379f3645168509c1b0a270c5"
+        },
+        {
+          "rounds": 10,
+          "shots": 500,
+          "logical_failures": 18,
+          "logical_error_probability": 0.036,
+          "changed_predictions": 3,
+          "corrected": 2,
+          "harmed": 1,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.004_n10.dem",
+          "dem_sha256": "da4b03412e04c94a96d26ce59c94adb7a5758bcb1da014be61df6fd10468ebd0"
+        }
+      ]
+    },
+    {
+      "p_read": 0.01,
+      "rows": [
+        {
+          "rounds": 2,
+          "shots": 500,
+          "logical_failures": 11,
+          "logical_error_probability": 0.022,
+          "changed_predictions": 0,
+          "corrected": 0,
+          "harmed": 0,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.01_n2.dem",
+          "dem_sha256": "ccaca37e6e80ddbe2fcfdc799cfc6622241f83a4a73e658d3586d35dce6080cd"
+        },
+        {
+          "rounds": 3,
+          "shots": 750,
+          "logical_failures": 30,
+          "logical_error_probability": 0.04,
+          "changed_predictions": 2,
+          "corrected": 1,
+          "harmed": 1,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.01_n3.dem",
+          "dem_sha256": "4f46dd840c17caa7c140651133ea924b5e3dc300f3776fd38d28d41f5c8ade7b"
+        },
+        {
+          "rounds": 4,
+          "shots": 1000,
+          "logical_failures": 35,
+          "logical_error_probability": 0.035,
+          "changed_predictions": 9,
+          "corrected": 7,
+          "harmed": 2,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.01_n4.dem",
+          "dem_sha256": "37d1c17dd7304ed4cbb437542066f0a6c1eb9da5a32492f18efcf7cb33210587"
+        },
+        {
+          "rounds": 6,
+          "shots": 750,
+          "logical_failures": 12,
+          "logical_error_probability": 0.016,
+          "changed_predictions": 18,
+          "corrected": 9,
+          "harmed": 9,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.01_n6.dem",
+          "dem_sha256": "fb731b4c89326a14b63f6925e026841bf799ca932c096d40227571673d04396f"
+        },
+        {
+          "rounds": 10,
+          "shots": 500,
+          "logical_failures": 19,
+          "logical_error_probability": 0.038,
+          "changed_predictions": 16,
+          "corrected": 8,
+          "harmed": 8,
+          "dem_path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/decoders/d5_h2_2_p_read_sensitivity/p_read_0.01_n10.dem",
+          "dem_sha256": "1363870c8de6a3e59280e0ecc6290b4cad89c747c72adf865bd87bc4ebc45241"
+        }
+      ]
+    }
+  ],
+  "raw_errors": [
+    {
+      "rounds": 2,
+      "shots": 500,
+      "interval_seconds": 1.0,
+      "raw_data_bit_errors": 519,
+      "data_bits": 12500,
+      "raw_data_error_probability": 0.04152,
+      "data_bit_errors_by_qubit": [
+        15,
+        14,
+        106,
+        51,
+        14,
+        7,
+        19,
+        71,
+        7,
+        9,
+        23,
+        8,
+        27,
+        11,
+        11,
+        17,
+        3,
+        14,
+        24,
+        9,
+        5,
+        22,
+        11,
+        7,
+        14
+      ]
+    },
+    {
+      "rounds": 3,
+      "shots": 750,
+      "interval_seconds": 0.5,
+      "raw_data_bit_errors": 1315,
+      "data_bits": 18750,
+      "raw_data_error_probability": 0.07013333333333334,
+      "data_bit_errors_by_qubit": [
+        13,
+        9,
+        26,
+        13,
+        22,
+        320,
+        143,
+        152,
+        20,
+        49,
+        45,
+        49,
+        11,
+        41,
+        22,
+        30,
+        36,
+        28,
+        65,
+        28,
+        17,
+        62,
+        42,
+        27,
+        45
+      ]
+    },
+    {
+      "rounds": 4,
+      "shots": 1000,
+      "interval_seconds": 0.3333333333333333,
+      "raw_data_bit_errors": 1782,
+      "data_bits": 25000,
+      "raw_data_error_probability": 0.07128,
+      "data_bit_errors_by_qubit": [
+        108,
+        13,
+        26,
+        26,
+        36,
+        423,
+        172,
+        151,
+        29,
+        76,
+        78,
+        59,
+        20,
+        58,
+        53,
+        55,
+        15,
+        35,
+        49,
+        51,
+        20,
+        105,
+        35,
+        33,
+        56
+      ]
+    },
+    {
+      "rounds": 6,
+      "shots": 750,
+      "interval_seconds": 0.2,
+      "raw_data_bit_errors": 1299,
+      "data_bits": 18750,
+      "raw_data_error_probability": 0.06928,
+      "data_bit_errors_by_qubit": [
+        107,
+        7,
+        13,
+        10,
+        26,
+        318,
+        130,
+        93,
+        25,
+        74,
+        41,
+        38,
+        13,
+        27,
+        39,
+        55,
+        25,
+        29,
+        35,
+        26,
+        14,
+        51,
+        55,
+        18,
+        30
+      ]
+    },
+    {
+      "rounds": 10,
+      "shots": 500,
+      "interval_seconds": 0.1111111111111111,
+      "raw_data_bit_errors": 1205,
+      "data_bits": 12500,
+      "raw_data_error_probability": 0.0964,
+      "data_bit_errors_by_qubit": [
+        65,
+        12,
+        6,
+        16,
+        24,
+        242,
+        130,
+        77,
+        45,
+        54,
+        68,
+        26,
+        12,
+        38,
+        21,
+        71,
+        17,
+        22,
+        31,
+        46,
+        28,
+        38,
+        31,
+        51,
+        34
+      ]
+    }
+  ]
+}

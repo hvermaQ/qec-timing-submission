@@ -1,0 +1,40 @@
+{
+  "distance": 5,
+  "basis": "X",
+  "artificial_faults": false,
+  "total_requested_sleep_seconds": 1,
+  "bitcode_sha256": {
+    "n3": "b65e23e7d6af3f28e45a494342131671667e2c79848765d7e11a76722d4bee21",
+    "n4": "4489b491b89af34c739126e1dfb34e822ee69c5fdf11f3a1f24740384d202948"
+  },
+  "data_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+  ],
+  "ancilla_index": 26,
+  "unused_index": 5,
+  "output_labels": "Original code positions preserved"
+}

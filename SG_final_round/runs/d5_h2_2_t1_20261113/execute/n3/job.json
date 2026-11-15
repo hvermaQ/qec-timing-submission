@@ -51,13 +51,21 @@
   "job_id": "AFByb3ZpZGVySm9iAaHUTROCfcK48eiP0_O8zw",
   "job": {
     "id": "AFByb3ZpZGVySm9iAaHUTROCfcK48eiP0_O8zw",
-    "status": "RUNNING",
+    "status": "COMPLETED",
     "error": null,
     "hqcCost": 363.95,
-    "resultCount": null,
+    "resultCount": 1,
     "platform": {
       "name": "H2-2",
       "provider": "NEXUS"
     }
-  }
+  },
+  "results": [
+    {
+      "index": 0,
+      "format": 1000,
+      "error": null,
+      "raw_sha256": "84fd38a0cf3dc670cd166bf5e660c978c842fba1e1dab5c8019dba9eabba5a80"
+    }
+  ]
 }

@@ -1,0 +1,92 @@
+{
+  "platform": "nexus:H2-2",
+  "as_entity": "q_sq",
+  "shots": 250,
+  "program": "/Users/harshank_s/qec-timing-submission/SG_final_round/programs/d5_h2_2_zero_sleep_n3_skip5/n3.bc",
+  "options": {
+    "no_opt": true
+  },
+  "distance": 5,
+  "rounds": 3,
+  "delta_t_seconds": 0.0,
+  "total_requested_sleep_seconds": 0.0,
+  "basis": "X",
+  "artificial_faults": false,
+  "estimated_hqc": 124.9,
+  "program_sha256": "76e6779f7d0dff489ab016ee84ddeba8311b3d82d8307ff9a8332ee97366c9d5",
+  "qubit_mapping": {
+    "data_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "ancilla_index": 26,
+    "unused_index": 5,
+    "output_labels": "Original code positions"
+  },
+  "decoder_policy": {
+    "policy_version": "h2_2_d5_p_ext_0_004_20261113",
+    "platform": "nexus:H2-2",
+    "type": "sleep-dependent MWPM",
+    "p_ext": 0.004,
+    "p_read": 0.001,
+    "linear_rate_per_second": 0.0028,
+    "frequency_hz": 0.043,
+    "frequency_multiplier": 2.0,
+    "selection": "User-selected rounded baseline from pooled 750-shot d=5 N=2 zero-sleep controls; includes preparation/readout contributions.",
+    "distance": 5,
+    "calibration_job_ids": [
+      "AFByb3ZpZGVySm9iAaHTkCk8cmCs3HYizx6LiQ",
+      "AFByb3ZpZGVySm9iAaHT7TgXfYOpdKlZsyUfeg"
+    ],
+    "calibration_result": "SG_final_round/results/d5_h2_2_zero_sleep_pooled_750.json"
+  },
+  "syntax_check_job_id": "AFByb3ZpZGVySm9iAaHZZv8weuCGUFhKCeiqEQ",
+  "job_id": "AFByb3ZpZGVySm9iAaHZaESAcwCVLDEccgwFew",
+  "job": {
+    "id": "AFByb3ZpZGVySm9iAaHZaESAcwCVLDEccgwFew",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 124.9,
+    "platform": {
+      "id": "AFByb3ZpZGVyUGxhdGZvcm0BoWN4O-50QJEUvZnZWOfa",
+      "name": "H2-2",
+      "provider": "NEXUS"
+    },
+    "__typename": "ProviderJob",
+    "provider": "nexus",
+    "duration": 1642,
+    "resultCount": 1,
+    "createdAt": "2026-11-14T09:34:11.584892+00:00"
+  },
+  "results": [
+    {
+      "index": 0,
+      "format": 1000,
+      "error": null,
+      "raw_sha256": "4fae967b2785e33ed56a190a8f8b0dd95bfa547c599f6c1082894cd0ca4731c5"
+    }
+  ]
+}

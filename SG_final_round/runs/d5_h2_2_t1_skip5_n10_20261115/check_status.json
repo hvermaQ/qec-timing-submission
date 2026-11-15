@@ -1,0 +1,15 @@
+[
+  {
+    "rounds": 10,
+    "shots": 1,
+    "id": "AFByb3ZpZGVySm9iAaHcntRFdxCLfihzgQTZNA",
+    "status": "COMPLETED",
+    "error": null,
+    "hqcCost": 6.454,
+    "resultCount": 1,
+    "platform": {
+      "name": "H2-2SC",
+      "provider": "NEXUS"
+    }
+  }
+]

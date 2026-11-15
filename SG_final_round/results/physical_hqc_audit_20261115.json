@@ -1,0 +1,5957 @@
+{
+  "budget": 8000,
+  "all_jobs": [
+    {
+      "id": "AFByb3ZpZGVySm9iAaHdf20iceGr8WB7ptlY7A",
+      "createdAt": "2026-11-15T04:37:58.178693+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHdaAAweGKDhCwwenvXLQ",
+      "createdAt": "2026-11-15T04:12:22.960699+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHdRfNWdEOiObAudDGzAA",
+      "createdAt": "2026-11-15T03:35:11.446973+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHdGpXLeVG3kICqu28KuQ",
+      "createdAt": "2026-11-15T02:47:49.451599+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHcntRFdxCLfihzgQTZNA",
+      "createdAt": "2026-11-15T00:32:38.981333+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.454,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHaHrnLciGksuSuRYKSIQ",
+      "createdAt": "2026-11-14T12:53:29.163747+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 453.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHaHrJFdSGVyItCrNYa1Q",
+      "createdAt": "2026-11-14T12:53:27.237599+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 175.2,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHaHZk-c8O9X5ogWyG3yQ",
+      "createdAt": "2026-11-14T12:52:15.294116+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.8972,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHaHZFzdqGQI-b_kXRm6Q",
+      "createdAt": "2026-11-14T12:52:13.299907+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.3404,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZojNudBKadSwOPUbSaA",
+      "createdAt": "2026-11-14T10:37:28.303002+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 314.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZoizmfhGQ-SDLribvtA",
+      "createdAt": "2026-11-14T10:37:26.630724+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 244.8,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZoPtLdPOeLqFPotrTzQ",
+      "createdAt": "2026-11-14T10:36:08.395404+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.6188,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZoPSYdcKjUe5x0mLKQA",
+      "createdAt": "2026-11-14T10:36:06.680403+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.4796,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZaESAcwCVLDEccgwFew",
+      "createdAt": "2026-11-14T09:34:11.584892+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 124.9,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZZv8weuCGUFhKCeiqEQ",
+      "createdAt": "2026-11-14T09:32:48.304920+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.4796,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZOpqEddO2XFOSuLeXNA",
+      "createdAt": "2026-11-14T08:44:18.948013+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 124.65,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZOh8_fbCCVMD4T5BqMg",
+      "createdAt": "2026-11-14T08:43:47.391961+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.4786,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUTStFcSCuXIxn3LlfWA",
+      "createdAt": "2026-11-13T09:46:29.573569+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 731.5,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUTSLLenG5kvm2SFFPMQ",
+      "createdAt": "2026-11-13T09:46:27.403983+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 677.15,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUTRpndcKAy2T8HalnHQ",
+      "createdAt": "2026-11-13T09:46:25.255415+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 622.8,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUTROCfcK48eiP0_O8zw",
+      "createdAt": "2026-11-13T09:46:23.490494+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 363.95,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUTQhGcgGO8fSCbisVAg",
+      "createdAt": "2026-11-13T09:46:20.614491+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 174.7,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUS9ZVemOXMACEF2QvVw",
+      "createdAt": "2026-11-13T09:45:02.293198+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.453,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUS86AdjGlm5hA-fMbWA",
+      "createdAt": "2026-11-13T09:45:00.288611+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.8962,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUS8brfcKP8gDDGFjY2Q",
+      "createdAt": "2026-11-13T09:44:58.347606+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.6178,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUS7vMd9GvkDMIFmJYPg",
+      "createdAt": "2026-11-13T09:44:55.500553+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.4786,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUS7TQd4KvUB0cyqxaPQ",
+      "createdAt": "2026-11-13T09:44:53.712140+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.3394,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHT7TgXfYOpdKlZsyUfeg",
+      "createdAt": "2026-11-13T08:01:41.399400+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 89.85,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHTkCk8cmCs3HYizx6LiQ",
+      "createdAt": "2026-11-13T06:20:02.748805+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 174.7,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHTjxhHdcCM0T-BGLeQ9w",
+      "createdAt": "2026-11-13T06:18:52.871050+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.3394,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHSzbhqcxK89zYMHqgYfQ",
+      "createdAt": "2026-11-13T02:47:39.882693+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 200.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHSzbKtfxCcJncm6gzE5g",
+      "createdAt": "2026-11-13T02:47:38.413634+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 81.1,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHSza0HdvKn7xU7YCXGDw",
+      "createdAt": "2026-11-13T02:47:36.967093+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 442.65,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHPkersf8OWvXtdEP8HyA",
+      "createdAt": "2026-11-12T11:43:29.004895+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 200.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHPkeQicLCcrXIkWk6hqg",
+      "createdAt": "2026-11-12T11:43:27.266526+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 32.25,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHPP4sff7OAv5OZhac2rA",
+      "createdAt": "2026-11-12T10:13:30.527841+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHPPnwafAGmonJSVitiwQ",
+      "createdAt": "2026-11-12T10:12:21.146782+00:00",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHN6q_BcsKajKpqB_q_ZQ",
+      "createdAt": "2026-11-12T04:01:12.129925+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 232.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHN6qiVdmOqv9mau6NINg",
+      "createdAt": "2026-11-12T04:01:10.293570+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 286.8,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHN6qJIfOKmFbROPf96sA",
+      "createdAt": "2026-11-12T04:01:08.680457+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 243.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHN6pwYeYODISHlB864qw",
+      "createdAt": "2026-11-12T04:01:07.096093+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 103.93,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBlcDeNCkhU4epmC2xw",
+      "createdAt": "2026-11-11T14:32:32.771244+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 448.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBk-6dnOuSaFqnUFPWA",
+      "createdAt": "2026-11-11T14:32:30.906570+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 232.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBklPf9Gw3n-zc8VCQw",
+      "createdAt": "2026-11-11T14:32:29.263878+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 286.8,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBkM_c8Oxu3BIQzoppA",
+      "createdAt": "2026-11-11T14:32:27.711994+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 243.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBj18caCjwaLTy_VNTg",
+      "createdAt": "2026-11-11T14:32:26.236852+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 58.27,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBjc6ewKW1rFRYvW9xA",
+      "createdAt": "2026-11-11T14:32:24.634652+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 32.25,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHGRK6VcOGeKMhJ9X7ZUg",
+      "createdAt": "2026-11-10T16:22:32.341174+00:00",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHGRKfTcrOLCSigHHxcIQ",
+      "createdAt": "2026-11-10T16:22:30.611798+00:00",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHGRKF4cNKF5o2ZIdV5WQ",
+      "createdAt": "2026-11-10T16:22:28.984622+00:00",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHGRJtectGQMvp30W3GGg",
+      "createdAt": "2026-11-10T16:22:27.422749+00:00",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHGRJU6frO5eaSQEDsNfw",
+      "createdAt": "2026-11-10T16:22:25.850088+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 58.27,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHFSvfOekGOcDeSfSprbg",
+      "createdAt": "2026-11-10T11:49:47.086844+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 32.25,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGxEjGnciGlRBDbhqTwvA",
+      "createdAt": "2026-11-06T13:35:22.023363+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 344.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGw-zLjd9G3EKZ7QW8t9A",
+      "createdAt": "2026-11-06T13:10:15.011794+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGw2szSeEOEn8VwSyFWAw",
+      "createdAt": "2026-11-06T12:34:51.730893+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 344.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGw2lcddgCE4X24x5QhXQ",
+      "createdAt": "2026-11-06T12:34:21.597245+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.3394,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGv6F0af1O0ml6Uj54GWg",
+      "createdAt": "2026-11-06T08:10:03.418644+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 522.7,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGv6FVnflOnZPZ72gOJkQ",
+      "createdAt": "2026-11-06T08:10:01.447257+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 453.1,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGv6E4ccRCljMC6g2enaA",
+      "createdAt": "2026-11-06T08:09:59.580845+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 383.5,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGv6EbJeTKvBA-Q9WkKbQ",
+      "createdAt": "2026-11-06T08:09:57.705582+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 313.9,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGryDOLfmCKlw7lMR61nA",
+      "createdAt": "2026-11-05T12:56:26.763650+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 383.5,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGryCzRdQOG8a2sG7U1Tw",
+      "createdAt": "2026-11-05T12:56:25.041076+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 313.9,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGryCY-dAKTG0COOdEjew",
+      "createdAt": "2026-11-05T12:56:23.359041+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 244.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGryB9geWGIbBY4dHZ1ww",
+      "createdAt": "2026-11-05T12:56:21.600347+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 174.7,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGraN-BeKK5t0wHR8-q-A",
+      "createdAt": "2026-11-05T11:12:19.329063+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 522.7,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGraNgndfKmvFzoRE9qSA",
+      "createdAt": "2026-11-05T11:12:17.447098+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 453.1,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGrMd0ne9GRdlyOgakfww",
+      "createdAt": "2026-11-05T10:12:14.247315+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 731.5,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGrMdU5dnGPvqZKW5OjFA",
+      "createdAt": "2026-11-05T10:12:12.217895+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 661.9,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGrMc27dICj6c3unJaTMA",
+      "createdAt": "2026-11-05T10:12:10.299381+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 592.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGrME4YcAOsrYEdogemeg",
+      "createdAt": "2026-11-05T10:10:32.088260+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 522.7,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGrBBykcRCUvPyJjdPP_A",
+      "createdAt": "2026-11-05T09:22:15.844237+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGrAP2_edKvWuXitEdbbw",
+      "createdAt": "2026-11-05T09:18:51.327679+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq5utieVCvWXhm0Zxr6w",
+      "createdAt": "2026-11-05T08:50:22.690353+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq5ug-cWGTuwELlgGKMg",
+      "createdAt": "2026-11-05T08:50:21.886559+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq5uT2fqCoWXdsylUhzQ",
+      "createdAt": "2026-11-05T08:50:21.046688+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq5tyrcVC0l6uy96ecmA",
+      "createdAt": "2026-11-05T08:50:18.923492+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq5JUPcZOAIFs65zPdRA",
+      "createdAt": "2026-11-05T08:47:49.519264+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.453,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq5EzDdJGmIfkWC4QKEg",
+      "createdAt": "2026-11-05T08:47:31.011566+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.3138000000000005,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq5ENtcaCoch6_pXpHBw",
+      "createdAt": "2026-11-05T08:47:28.621332+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.1746,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq5DleeYGtqdH7k4-DDQ",
+      "createdAt": "2026-11-05T08:47:26.046451+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.0354,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq39nKflO9amddS-lGKw",
+      "createdAt": "2026-11-05T08:42:39.434623+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq39HIfOOx8NHn3VxBcA",
+      "createdAt": "2026-11-05T08:42:37.384525+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq38piceGCgFM9sTHrHA",
+      "createdAt": "2026-11-05T08:42:35.490793+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGq38HYcwOsAfg6F5_7hg",
+      "createdAt": "2026-11-05T08:42:33.304455+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiJzNJfFOtCJb0tPfnCA",
+      "createdAt": "2026-11-03T16:04:00.457950+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiJymRdgCZZZjwNN-wdA",
+      "createdAt": "2026-11-03T16:03:57.969228+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiJyCKefGbdVOiWWhP5g",
+      "createdAt": "2026-11-03T16:03:55.658906+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiJxjQcFGyRWIw7DeXng",
+      "createdAt": "2026-11-03T16:03:53.680502+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 244.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiJipGesK9Zj4rvMgDZA",
+      "createdAt": "2026-11-03T16:02:52.614186+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.8962,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiJiNPd6KjEB0OGGKGLA",
+      "createdAt": "2026-11-03T16:02:50.831803+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.757,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiJhxAfFOSI6w0r1Y7CQ",
+      "createdAt": "2026-11-03T16:02:49.024018+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.6178,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiJhU8eeOihCmVUVyLwg",
+      "createdAt": "2026-11-03T16:02:47.228889+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.4786,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiERh-cvKELIPruFKKLw",
+      "createdAt": "2026-11-03T15:39:51.806902+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiERCscBKpTu8T8N3-sA",
+      "createdAt": "2026-11-03T15:39:49.804298+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiEQmjdLK8y4LgWD0mrw",
+      "createdAt": "2026-11-03T15:39:48.003807+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiEQJSeoCwwyrKt1W_3g",
+      "createdAt": "2026-11-03T15:39:46.130952+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiEPjfe2KTBq0KJMpIow",
+      "createdAt": "2026-11-03T15:39:43.711864+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiD-S_f8K7jQI__rVbcA",
+      "createdAt": "2026-11-03T15:38:33.023408+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.453,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiD9v_cYCcUDp8R3fhRw",
+      "createdAt": "2026-11-03T15:38:30.783476+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.1746,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiD9TAe1CjqANNn2YnEw",
+      "createdAt": "2026-11-03T15:38:28.928448+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.0354,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiD80HeFODLsW1Hi5cTg",
+      "createdAt": "2026-11-03T15:38:26.951611+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.8962,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGiD8WcceK1uU7dYp_NsQ",
+      "createdAt": "2026-11-03T15:38:25.052664+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.757,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh_eAme2K1z37mueIhtA",
+      "createdAt": "2026-11-03T15:18:52.198418+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh_dbTdWCnwYHAmMvzPg",
+      "createdAt": "2026-11-03T15:18:49.811559+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh_czneAKE7ptaWtC-tA",
+      "createdAt": "2026-11-03T15:18:47.271128+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh_cTddPCWfnpLGd-2ng",
+      "createdAt": "2026-11-03T15:18:45.213240+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh_btJc1OSp-sympp0wQ",
+      "createdAt": "2026-11-03T15:18:42.761973+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9mEwfZCiyHyVfkucJQ",
+      "createdAt": "2026-11-03T15:10:40.944603+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9lfucLKDjtIjg0HJHQ",
+      "createdAt": "2026-11-03T15:10:38.574483+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9k8yfOG_cSlARv8gOg",
+      "createdAt": "2026-11-03T15:10:36.338851+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9kYJf7ObRfJdgEOS_A",
+      "createdAt": "2026-11-03T15:10:33.993267+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9jwLcnCWLjhUkCT3Nw",
+      "createdAt": "2026-11-03T15:10:31.435025+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9jN4cGGXUP8knXS_kg",
+      "createdAt": "2026-11-03T15:10:29.240898+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9irrc5Oy6Rirz_lVnQ",
+      "createdAt": "2026-11-03T15:10:27.051111+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9iK3cuK59BWB1zUo0A",
+      "createdAt": "2026-11-03T15:10:24.951815+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9hjDfjCjVdpTCjVZ4g",
+      "createdAt": "2026-11-03T15:10:22.403799+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9hEafOCZNWgGwBLx-g",
+      "createdAt": "2026-11-03T15:10:20.442922+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9gl7ekKA1Vfv7HVUqA",
+      "createdAt": "2026-11-03T15:10:18.491797+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9gIcfIKvPnIZM-L69w",
+      "createdAt": "2026-11-03T15:10:16.604441+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9fq8cHGX6AAV1dZxiQ",
+      "createdAt": "2026-11-03T15:10:14.716073+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9fOPdIGcuM-BstWgbg",
+      "createdAt": "2026-11-03T15:10:12.879100+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9exbdyKKSB_WN4nDJw",
+      "createdAt": "2026-11-03T15:10:11.035323+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9ePMfyG474vJxxk8rw",
+      "createdAt": "2026-11-03T15:10:08.844543+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9dxOenOJWfSwJ581PA",
+      "createdAt": "2026-11-03T15:10:06.926424+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9c9hfSOTqmh-A025aA",
+      "createdAt": "2026-11-03T15:10:03.617392+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9ceocMOdDJp_8suX8Q",
+      "createdAt": "2026-11-03T15:10:01.640713+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9cCpc-KAS2IUCMhHpw",
+      "createdAt": "2026-11-03T15:09:59.849791+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9boXefKot0ydZs8b_g",
+      "createdAt": "2026-11-03T15:09:58.167417+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 602.7654,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9bNPfRKRYbLP8CHB1A",
+      "createdAt": "2026-11-03T15:09:56.431760+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 383.5,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9azpeLGTJGRxMyDT9g",
+      "createdAt": "2026-11-03T15:09:54.793803+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 313.9,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9aIpeOCwZYpJAaxv0A",
+      "createdAt": "2026-11-03T15:09:52.041925+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 244.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9ZhIdJKUHjfzj6faKQ",
+      "createdAt": "2026-11-03T15:09:49.512857+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 174.7,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9JZJerCq4moJ6zwWDA",
+      "createdAt": "2026-11-03T15:08:43.465716+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.845000000000001,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9I3qfnCwl4HOwp5jJw",
+      "createdAt": "2026-11-03T15:08:41.322206+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.149,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9IUff5GHoEy5DAmeiA",
+      "createdAt": "2026-11-03T15:08:39.071074+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.453,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9H2feaOQXIe5HfD8sw",
+      "createdAt": "2026-11-03T15:08:37.151191+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.3138000000000005,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9HX1daGkQlsHRLCLZg",
+      "createdAt": "2026-11-03T15:08:35.189195+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.1746,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9G4bcCCv8hB9z_mcQA",
+      "createdAt": "2026-11-03T15:08:33.179954+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.0354,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9Gb6fnOgdkk-jHN6vQ",
+      "createdAt": "2026-11-03T15:08:31.354948+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.8962,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9F-gczCvAqR4bkJ6_A",
+      "createdAt": "2026-11-03T15:08:29.472073+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.757,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9FiUdBGfm59cKvq_UA",
+      "createdAt": "2026-11-03T15:08:27.668087+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.6178,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9FGmfiCMISOkxkI_lw",
+      "createdAt": "2026-11-03T15:08:25.894903+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.4786,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGh9Eh5dlGu8vt3pq27iw",
+      "createdAt": "2026-11-03T15:08:23.545817+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.3394,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgw8wrfbOFa8qM8gBJnA",
+      "createdAt": "2026-11-03T09:35:48.779649+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 232.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgw8UXd8G3fk6Jonaf1Q",
+      "createdAt": "2026-11-03T09:35:46.967358+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 373.2,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgw71pc-GZUFGpKnw4iQ",
+      "createdAt": "2026-11-03T09:35:45.001418+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 330.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgw7dFeqOrXSckDYeb3Q",
+      "createdAt": "2026-11-03T09:35:43.429945+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 286.8,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgw7DneCOXDPSvrFo_hA",
+      "createdAt": "2026-11-03T09:35:41.799603+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 243.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgw6jxelOwJP1HqPSezg",
+      "createdAt": "2026-11-03T09:35:39.761829+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 200.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgw6Mmc_KLmuGYsQZmtg",
+      "createdAt": "2026-11-03T09:35:38.278313+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 81.1,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgwqxVcpOyovpK8h_o3w",
+      "createdAt": "2026-11-03T09:34:35.093721+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.4546,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgwqXWcMCLUw3HNLgG6g",
+      "createdAt": "2026-11-03T09:34:33.430033+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.3682,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgwp7fcFGdx598bgl6fg",
+      "createdAt": "2026-11-03T09:34:31.647115+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.325,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgwpW0f2GJ55u4OAe-gg",
+      "createdAt": "2026-11-03T09:34:29.300579+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.2818,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgwo9RfGCoZgJXqMz2VA",
+      "createdAt": "2026-11-03T09:34:27.665801+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.2386,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgwoXuc9OZZqWupBj6EA",
+      "createdAt": "2026-11-03T09:34:25.262811+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.1954,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGgwn_bfDChxcFDCVcpvg",
+      "createdAt": "2026-11-03T09:34:23.707580+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.1522,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfuacafiKPKzuAphfdlQ",
+      "createdAt": "2026-11-03T04:45:06.714598+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 373.2,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfuaBtenO1QFvYapJYBg",
+      "createdAt": "2026-11-03T04:45:05.005355+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 330.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfuZkNdiOR9-vNTanrqA",
+      "createdAt": "2026-11-03T04:45:03.117436+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 286.8,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfuZKwe6OQxL30PfT9XA",
+      "createdAt": "2026-11-03T04:45:01.488402+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 124.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfuYxbctGSIKmNl9b4sA",
+      "createdAt": "2026-11-03T04:44:59.867544+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 200.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfuOKgcYG_a9hhyGpxpQ",
+      "createdAt": "2026-11-03T04:44:16.416818+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.3682,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfuNxtfsGYUHyThDYwvA",
+      "createdAt": "2026-11-03T04:44:14.829063+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.325,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfuNTzcgODq19V6fShKA",
+      "createdAt": "2026-11-03T04:44:12.915329+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.2818,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfuMq4c_OovzNv_aza3g",
+      "createdAt": "2026-11-03T04:44:10.296837+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.2386,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfuMTVc8K7sWpIY66zTg",
+      "createdAt": "2026-11-03T04:44:08.789633+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.1954,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfGPuweuCUuqzCetMs0A",
+      "createdAt": "2026-11-03T01:49:37.072288+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 442.65,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfGPOzfwOSJxV2rN2C2w",
+      "createdAt": "2026-11-03T01:49:35.027496+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 442.65,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfGOvVfbGVQVM5-z0pSw",
+      "createdAt": "2026-11-03T01:49:33.013413+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 448.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfGOUZcYOgGWZ3gES-Xg",
+      "createdAt": "2026-11-03T01:49:31.289035+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 232.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfGN5PcLGFvG-7P5iz3Q",
+      "createdAt": "2026-11-03T01:49:29.551278+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 124.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfGNfVdiCKOmWPC5nZyA",
+      "createdAt": "2026-11-03T01:49:27.893395+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 59.5,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfF_g3fYGx6t1tM2bIKg",
+      "createdAt": "2026-11-03T01:48:30.647156+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 6.7506,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfF-9gepCyqx-kgKlvTw",
+      "createdAt": "2026-11-03T01:48:28.384925+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.8866,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfF-dHeRCvJiZpmQm-pA",
+      "createdAt": "2026-11-03T01:48:26.311580+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.4546,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfF-CIfrCXKxFLRrBa-A",
+      "createdAt": "2026-11-03T01:48:24.584286+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.2386,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGfF9p4frG_iB0ASP3jTA",
+      "createdAt": "2026-11-03T01:48:23.032315+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGb-GmmcFCF0koVMVevlQ",
+      "createdAt": "2026-11-02T11:15:10.886710+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGb-GOAehCbxwBeNWvUtg",
+      "createdAt": "2026-11-02T11:15:09.312735+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGb-FxAduOd4MTqj3l2dg",
+      "createdAt": "2026-11-02T11:15:07.456809+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGb-FYJeyKLv_ofmAmwTA",
+      "createdAt": "2026-11-02T11:15:05.865844+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGb-E_weuOiSP2Hj2Jdfg",
+      "createdAt": "2026-11-02T11:15:04.304720+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGb91g5dOKc4ejhwM87Kw",
+      "createdAt": "2026-11-02T11:14:00.889179+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGb91IvcLOrymxbruoU8Q",
+      "createdAt": "2026-11-02T11:13:59.343496+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGb90ojcUKGxzm060g7fA",
+      "createdAt": "2026-11-02T11:13:57.283197+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGb90ODevK5Hcw2nWS1KA",
+      "createdAt": "2026-11-02T11:13:55.587045+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGb9zztddKtyoEZYz8MiQ",
+      "createdAt": "2026-11-02T11:13:53.901880+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblW73dQO5VZtgnCYqGw",
+      "createdAt": "2026-11-02T09:27:04.183657+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblWkqeACQRUxEw1lT-A",
+      "createdAt": "2026-11-02T09:27:02.698716+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblWKecVGKJwIQ7Hq4Nw",
+      "createdAt": "2026-11-02T09:27:01.022372+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 26.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblVypfDKhyWLFQzi-PA",
+      "createdAt": "2026-11-02T09:26:59.497121+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 26.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblVLzfaG461Hs9BwH5Q",
+      "createdAt": "2026-11-02T09:26:57.011697+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 26.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblUz1daKfTkPMvAjgnQ",
+      "createdAt": "2026-11-02T09:26:55.477467+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 26.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblUbofgOA-OV38eQ5lQ",
+      "createdAt": "2026-11-02T09:26:53.928980+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblUCyePKwlk0ZR6vpqQ",
+      "createdAt": "2026-11-02T09:26:52.338923+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblTp_fXKJ98fodfORvA",
+      "createdAt": "2026-11-02T09:26:50.751140+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblS4pdaGWYNAWnKEwDQ",
+      "createdAt": "2026-11-02T09:26:47.593127+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblSfvdFCfo611qu-KnA",
+      "createdAt": "2026-11-02T09:26:45.999691+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblSCDcKGi1IM4No0HIw",
+      "createdAt": "2026-11-02T09:26:44.099481+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblRmhfICauzixZFdlkA",
+      "createdAt": "2026-11-02T09:26:42.337809+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblRIqd8GivmsVGGj5Ew",
+      "createdAt": "2026-11-02T09:26:40.426182+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblQrVc3G5iNOwppMqzw",
+      "createdAt": "2026-11-02T09:26:38.549126+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblQL3esOcZyBTFUMKzg",
+      "createdAt": "2026-11-02T09:26:36.535617+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGblPyPdFKsbE7Z8rFn4Q",
+      "createdAt": "2026-11-02T09:26:34.895823+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 29.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg_WkeXKo8PqFPOcqRg",
+      "createdAt": "2026-11-02T09:07:59.012726+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 228.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg-8mffKkGXk2v94gDw",
+      "createdAt": "2026-11-02T09:07:57.350702+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 228.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg-kAffCMKsn_Ratlvw",
+      "createdAt": "2026-11-02T09:07:55.776305+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 14.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg-JQfnOc9esIf6ljJQ",
+      "createdAt": "2026-11-02T09:07:54.064460+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 270.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg9tceXKVXaWcjFsGlg",
+      "createdAt": "2026-11-02T09:07:52.284223+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 270.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg9S5eNGgTKQ7k5AbeA",
+      "createdAt": "2026-11-02T09:07:50.585857+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 78.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg86cfPK7pNKQn8x-ew",
+      "createdAt": "2026-11-02T09:07:49.020367+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 14.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg8iacCCn5tH1iYH4Pw",
+      "createdAt": "2026-11-02T09:07:47.482527+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg8KYdbK1eb0rUq_74A",
+      "createdAt": "2026-11-02T09:07:45.944690+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg7yyd1G6ZD9GU9eUAA",
+      "createdAt": "2026-11-02T09:07:44.434053+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 9.8,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg7bafNCJpfN-7bN3Yw",
+      "createdAt": "2026-11-02T09:07:42.938906+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 19.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg7EgeWKfwxVGOGGrbQ",
+      "createdAt": "2026-11-02T09:07:41.472831+00:00",
+      "status": null,
+      "error": "Submission error: Count must be between 1 and 10,000 (code: 12)",
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg6tUe0CRZ5W8v7gyJg",
+      "createdAt": "2026-11-02T09:07:39.988465+00:00",
+      "status": null,
+      "error": "Submission error: Count must be between 1 and 10,000 (code: 12)",
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg6WNc9CnCtyPNxJ5og",
+      "createdAt": "2026-11-02T09:07:38.509865+00:00",
+      "status": null,
+      "error": "Submission error: Count must be between 1 and 10,000 (code: 12)",
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg55ufeGIAwQ7HFygew",
+      "createdAt": "2026-11-02T09:07:36.686180+00:00",
+      "status": null,
+      "error": "Submission error: Count must be between 1 and 10,000 (code: 12)",
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg5jCf1KTJTh9ZazSGw",
+      "createdAt": "2026-11-02T09:07:35.234583+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.0,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg5LkeROoFmrErSgcTA",
+      "createdAt": "2026-11-02T09:07:33.732245+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.0,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg4tcf8K63rvm5ewAzQ",
+      "createdAt": "2026-11-02T09:07:31.804938+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.0,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg4WOcXGI1JL66--8TQ",
+      "createdAt": "2026-11-02T09:07:30.318122+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.0,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg39xdiOwnEpRogpWfg",
+      "createdAt": "2026-11-02T09:07:28.754001+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.0,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbg3bVctOH6Qcu_Jk5WA",
+      "createdAt": "2026-11-02T09:07:26.549288+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.4,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgnRjduCXRF-YQuBn4w",
+      "createdAt": "2026-11-02T09:06:20.387869+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.223,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgm6YflCdYZ2howOuLw",
+      "createdAt": "2026-11-02T09:06:18.904899+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.223,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgmchc1CoO6AdcUoXWw",
+      "createdAt": "2026-11-02T09:06:16.993374+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0096,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgmFOdDGj0_GfT-EQAQ",
+      "createdAt": "2026-11-02T09:06:15.502920+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.2656,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgluAdfC3fBehiZSubw",
+      "createdAt": "2026-11-02T09:06:14.016141+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.2656,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbglP8d6GPUsdpC77mcg",
+      "createdAt": "2026-11-02T09:06:12.092775+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0736,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgk5DfLOcc5UlWWlF_g",
+      "createdAt": "2026-11-02T09:06:10.627503+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0096,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgke2cnOaajff9FzFuQ",
+      "createdAt": "2026-11-02T09:06:08.950132+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgkAtcwK4UW2C_Irkzg",
+      "createdAt": "2026-11-02T09:06:07.021245+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgjpedbKDfuLuhzGeaQ",
+      "createdAt": "2026-11-02T09:06:05.534107+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgjRmdxGUWfYX2UxeDw",
+      "createdAt": "2026-11-02T09:06:04.006421+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgi2afcKa_pTOTmqqJQ",
+      "createdAt": "2026-11-02T09:06:02.266846+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgieqd5KnHiALk4kFGg",
+      "createdAt": "2026-11-02T09:06:00.746712+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgiGTezKZThaLVKuzWw",
+      "createdAt": "2026-11-02T09:05:59.187145+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbghuUepKb8YuL7Md4Ig",
+      "createdAt": "2026-11-02T09:05:57.652432+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbghXHdYKY41b_8KkLLg",
+      "createdAt": "2026-11-02T09:05:56.167339+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.002,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgg44dXKru8eaQ1aRCQ",
+      "createdAt": "2026-11-02T09:05:54.232396+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.002,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbggfAeSG3E6CX7xm8TQ",
+      "createdAt": "2026-11-02T09:05:52.576011+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.002,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbggEoeICuD_cLvs-Ilw",
+      "createdAt": "2026-11-02T09:05:50.888939+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.002,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgfrbepC551M3SGFSGA",
+      "createdAt": "2026-11-02T09:05:49.275615+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.002,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgfShdUKTmwq97NIMXw",
+      "createdAt": "2026-11-02T09:05:47.681781+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgfLwcCGWbrwVjtHZ2A",
+      "createdAt": "2026-11-02T09:05:47.248783+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgezjc6KqvizAFNcATw",
+      "createdAt": "2026-11-02T09:05:45.699967+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgeXrchGQdJCI-RlGJA",
+      "createdAt": "2026-11-02T09:05:43.915268+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgd_0eTOZK28S-fax0w",
+      "createdAt": "2026-11-02T09:05:42.388780+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgdnsdkCMOqKxGIBYwA",
+      "createdAt": "2026-11-02T09:05:40.844369+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgO6HelKquIEoeFm5XQ",
+      "createdAt": "2026-11-02T09:04:40.583163+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgOgPc1GJ2LFIe1Gwww",
+      "createdAt": "2026-11-02T09:04:38.928003+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgNvIcZKoPUorIFPOMQ",
+      "createdAt": "2026-11-02T09:04:35.784300+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgNPCfeKijG-sKX62tQ",
+      "createdAt": "2026-11-02T09:04:33.730961+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbgMw2cRCiFCgeshR3ag",
+      "createdAt": "2026-11-02T09:04:31.798975+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbWhlCc4C5imMeU1O2dw",
+      "createdAt": "2026-11-02T08:22:15.618990+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbWhNre5C4DxAeR0Iu0w",
+      "createdAt": "2026-11-02T08:22:14.123997+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbWgzzd8KcJnrXT8rg7Q",
+      "createdAt": "2026-11-02T08:22:12.467030+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbVM1_dRKXixyNm-zCOw",
+      "createdAt": "2026-11-02T08:16:28.543339+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbVMdGdVCWlXAoEaRajg",
+      "createdAt": "2026-11-02T08:16:26.950196+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbVMGIceCfC_PXFOhkjg",
+      "createdAt": "2026-11-02T08:16:25.480624+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.109,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbNShpeOO9STiU_gfbIQ",
+      "createdAt": "2026-11-02T07:41:54.665354+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbNSKjdxG0osMLH2saVA",
+      "createdAt": "2026-11-02T07:41:53.187851+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbNRtcfhKxEiVUcerAVw",
+      "createdAt": "2026-11-02T07:41:51.324318+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbNRVicBCtYWaMgM-wkA",
+      "createdAt": "2026-11-02T07:41:49.794979+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbNQ75cSCMKm-_8Crm8g",
+      "createdAt": "2026-11-02T07:41:48.153185+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 7.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbNHSIebOAU13mSbXXFQ",
+      "createdAt": "2026-11-02T07:41:08.616715+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbNG6OfNKvgmTh5kZgGw",
+      "createdAt": "2026-11-02T07:41:07.086492+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbNGdWchK2IG5ruNitwA",
+      "createdAt": "2026-11-02T07:41:05.238569+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbNGDvcTOIwt5jjChgdQ",
+      "createdAt": "2026-11-02T07:41:03.599884+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbNFjbclKcVsR9JpotaQ",
+      "createdAt": "2026-11-02T07:41:01.531844+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbK4Vyf1GTwHQ3-J0wlg",
+      "createdAt": "2026-11-02T07:31:23.122453+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.48,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbKc1efjG9ec-mDV8xdw",
+      "createdAt": "2026-11-02T07:29:30.462327+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.48,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbKRV_fwG5lEKNR-M2yg",
+      "createdAt": "2026-11-02T07:28:43.391986+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.48,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbJuOMf7KKwNarTCILJQ",
+      "createdAt": "2026-11-02T07:26:19.532193+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbJqO0dfGAIwvWQokV1A",
+      "createdAt": "2026-11-02T07:26:03.188581+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaGbJmP3fNKmG5zd362JIQ",
+      "createdAt": "2026-11-02T07:25:46.871517+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 5.0024,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9oOMeenC1iB5q3n44TQ",
+      "createdAt": "2026-10-15T03:35:16.510251+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9oHCXfJKaOmL2LFwakg",
+      "createdAt": "2026-10-15T03:34:47.191195+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9oDG1cqKALmvNfSJ28g",
+      "createdAt": "2026-10-15T03:34:31.093809+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9n_AUftOrllfyK9tGMg",
+      "createdAt": "2026-10-15T03:34:14.292243+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9R7gfd4CRortAyE5rJw",
+      "createdAt": "2026-10-15T01:57:52.799348+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9R3aQdiCXhPQLe_-6yQ",
+      "createdAt": "2026-10-15T01:57:36.016408+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9Ry-iefG4CrdPwnp9Rg",
+      "createdAt": "2026-10-15T01:57:17.858745+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9Bi2TfxCdl9Lxl9YLSg",
+      "createdAt": "2026-10-15T00:46:17.491769+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9BeWfdsC9nOVUifjbBA",
+      "createdAt": "2026-10-15T00:45:59.071299+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9BZ_9dQOrPkEcsbyHIw",
+      "createdAt": "2026-10-15T00:45:41.245184+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9BWFoczKzfJRZa_TGWw",
+      "createdAt": "2026-10-15T00:45:25.224544+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9BSESewCZUjVR00OWnQ",
+      "createdAt": "2026-10-15T00:45:08.754379+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9BMQYc3O-WAsXik_Pow",
+      "createdAt": "2026-10-15T00:44:44.952516+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9BIPufPC-PIX-6H2Upw",
+      "createdAt": "2026-10-15T00:44:28.526366+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE9BEUGdROkh7nUDJZQgQ",
+      "createdAt": "2026-10-15T00:44:12.422797+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE88rppeMOtIyFy5Twi0w",
+      "createdAt": "2026-10-15T00:25:02.825587+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE88nxkdrKKaOkbp6W6RA",
+      "createdAt": "2026-10-15T00:24:46.948803+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE88j-CfUO1bXpLpD3-sA",
+      "createdAt": "2026-10-15T00:24:31.362035+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE88fzHdRKhEhRSHnl9Vg",
+      "createdAt": "2026-10-15T00:24:14.279592+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE88b9VceKZuyj--uiV1w",
+      "createdAt": "2026-10-15T00:23:58.549884+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE88YDwdrG7eFaqHn8p1A",
+      "createdAt": "2026-10-15T00:23:42.576478+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE88UOOcNKcf8WyX3ok_Q",
+      "createdAt": "2026-10-15T00:23:26.862465+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE88QETf5OYuncaMsTtTg",
+      "createdAt": "2026-10-15T00:23:09.843017+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE88MLpfOKUb4rSFIpN_Q",
+      "createdAt": "2026-10-15T00:22:53.929715+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE88ISUcoOyjloDjDelrQ",
+      "createdAt": "2026-10-15T00:22:37.972398+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE863Dsc7KBIdKv8t03qw",
+      "createdAt": "2026-10-15T00:17:05.260594+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      },
+      "entity": {
+        "username": "q_sq"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE86yqucNKrLB9NHG8cxg",
+      "createdAt": "2026-10-15T00:16:47.278145+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE86uMCdOGCvmhg6-HuMQ",
+      "createdAt": "2026-10-15T00:16:28.930182+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE86peweUOgVEdV1xQ0Hw",
+      "createdAt": "2026-10-15T00:16:09.648213+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE86lKPdPGlf7C_NvbFWg",
+      "createdAt": "2026-10-15T00:15:51.951521+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE86gzqftGxChKUjef9eg",
+      "createdAt": "2026-10-15T00:15:34.122744+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE86ckFeICJyxcUT8QVKQ",
+      "createdAt": "2026-10-15T00:15:16.741694+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE86YaFc6Kp62ebFUWU-w",
+      "createdAt": "2026-10-15T00:14:59.717571+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE86UgndGK_0ptPRVj5sQ",
+      "createdAt": "2026-10-15T00:14:43.751921+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE86QpWfLKtS6uIdx98MQ",
+      "createdAt": "2026-10-15T00:14:27.926310+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE7EmMwdPGQozYK7iWLKQ",
+      "createdAt": "2026-10-14T15:40:23.216886+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE7EiLkerCayzJvPR-lxA",
+      "createdAt": "2026-10-14T15:40:06.756197+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE7Ed1WeKCZJgcJutF6UA",
+      "createdAt": "2026-10-14T15:39:48.950278+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE7EZupetO9YvboT_4PpA",
+      "createdAt": "2026-10-14T15:39:32.137073+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 2850.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE7EVhne-OSt48jEyjpAg",
+      "createdAt": "2026-10-14T15:39:14.919435+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6rce4c6OszzUlXh4yiQ",
+      "createdAt": "2026-10-14T13:50:29.816557+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6mCLPfoGvTiTaSn_86A",
+      "createdAt": "2026-10-14T13:26:51.343908+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6l-RidyCr5LKOtNJ7vw",
+      "createdAt": "2026-10-14T13:26:35.362077+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6l5SDf3O_blQBfIlU_g",
+      "createdAt": "2026-10-14T13:26:14.915021+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6l1F-cvGgSOqNDLYwMA",
+      "createdAt": "2026-10-14T13:25:57.758784+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6lw80czG4dNcM_Lg0HA",
+      "createdAt": "2026-10-14T13:25:40.788252+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 9810.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6lwoVdFOrHjVxRiA65Q",
+      "createdAt": "2026-10-14T13:25:39.477845+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6gDWncWKR5Muc8qCaeg",
+      "createdAt": "2026-10-14T13:00:43.303420+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6aUVFdGKydKNZypCrQA",
+      "createdAt": "2026-10-14T12:35:39.973500+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6UnxTdlC3EgEfFiH4mA",
+      "createdAt": "2026-10-14T12:10:46.739422+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 9810.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6NRmOfuGme2YSUQYRjw",
+      "createdAt": "2026-10-14T11:38:40.910300+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6MlZIcWOH9OXKog5vuw",
+      "createdAt": "2026-10-14T11:35:39.848546+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6MCZKclKUi7Wzoth9Uw",
+      "createdAt": "2026-10-14T11:33:16.490664+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6LlKXc6CYuJRDFYkLgQ",
+      "createdAt": "2026-10-14T11:31:16.759672+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6LeWlfkK8nyYth4jejg",
+      "createdAt": "2026-10-14T11:30:48.869635+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6Kr6Nf0G1PLuBy4vKVg",
+      "createdAt": "2026-10-14T11:27:22.253883+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6J_rpeKCuOQUGP5FC8w",
+      "createdAt": "2026-10-14T11:24:21.097532+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6JhRrfmCNpl9KymrZPQ",
+      "createdAt": "2026-10-14T11:22:16.555224+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6JKyVd8Gc39BM3zn3Gw",
+      "createdAt": "2026-10-14T11:20:44.437866+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6JEBUcPKFR0OibIaSeg",
+      "createdAt": "2026-10-14T11:20:16.724036+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6ISV7f2OtKl0Jdv0ZHg",
+      "createdAt": "2026-10-14T11:16:53.243298+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6INwwf4KdNWP4fInl2Q",
+      "createdAt": "2026-10-14T11:16:34.480544+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6IJjScdKNM5MIAgIZGQ",
+      "createdAt": "2026-10-14T11:16:17.234974+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6IFEkf0CirkPqdbKs4A",
+      "createdAt": "2026-10-14T11:15:58.884420+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6IA2QfcCBqZz1muCdpQ",
+      "createdAt": "2026-10-14T11:15:41.584501+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6H8nMeoG1MOYvC43pEw",
+      "createdAt": "2026-10-14T11:15:24.236632+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6H4WxeEO8NnvKjy7llQ",
+      "createdAt": "2026-10-14T11:15:06.801673+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6Hz3ldGOQjaeqh3ES8g",
+      "createdAt": "2026-10-14T11:14:48.421930+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6Hvm-ckOhQm91qUU9WQ",
+      "createdAt": "2026-10-14T11:14:30.974646+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE6HrR0erCJB7UhtJIMRw",
+      "createdAt": "2026-10-14T11:14:13.236867+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE54-HAdKGs775Es2AshQ",
+      "createdAt": "2026-10-14T10:09:58.208177+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE543EzfGKh040xNxvtbA",
+      "createdAt": "2026-10-14T10:09:29.395661+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE54qx2eICgyaDlwiI73A",
+      "createdAt": "2026-10-14T10:08:39.030735+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE54jsCdUGST3e_VcSMtA",
+      "createdAt": "2026-10-14T10:08:09.986009+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE54aVMdDGq_i9W_CJd6g",
+      "createdAt": "2026-10-14T10:07:31.660501+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE54TV4ctGxeAs1QvxqSA",
+      "createdAt": "2026-10-14T10:07:03.032149+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE54MQ-eKGfpJ0KUor4XA",
+      "createdAt": "2026-10-14T10:06:34.046821+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE53ycqeqCR3lKPC1h5bw",
+      "createdAt": "2026-10-14T10:04:48.298344+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE53ofhecO-5K1xqfEm8g",
+      "createdAt": "2026-10-14T10:04:07.521830+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE53hs_dQCEZLks0xP7_g",
+      "createdAt": "2026-10-14T10:03:39.711817+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE53atjc0GWJtgcYmlfGQ",
+      "createdAt": "2026-10-14T10:03:11.075725+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE53T7ef1CQa36bMkmBjw",
+      "createdAt": "2026-10-14T10:02:43.294929+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE53NFrfVO5nsD3OeOC0g",
+      "createdAt": "2026-10-14T10:02:15.275851+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE53EcSclKCkPPrGJqAPA",
+      "createdAt": "2026-10-14T10:01:39.858426+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE529QidZKPJCU7pYTbWA",
+      "createdAt": "2026-10-14T10:01:10.434168+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5zgQxfcGeqM0mfz-Z7g",
+      "createdAt": "2026-10-14T09:46:05.233625+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5yX0PfDODfrum6upgHQ",
+      "createdAt": "2026-10-14T09:41:08.495984+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1E",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5yRtgfHOPea8Ntwvc1Q",
+      "createdAt": "2026-10-14T09:40:43.488007+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5x7hwcRKSBrORXmjEHg",
+      "createdAt": "2026-10-14T09:39:12.624374+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5liDwdYCN1zkmlslnfg",
+      "createdAt": "2026-10-14T08:45:02.576843+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5ldm3cwGN-uXRB3Rz2Q",
+      "createdAt": "2026-10-14T08:44:44.343525+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5lZTmcjCB7vuzJPkf4Q",
+      "createdAt": "2026-10-14T08:44:26.726461+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5lVB3fxG5GUoXUpsZCg",
+      "createdAt": "2026-10-14T08:44:09.207575+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5lQ12eKCn3ClKuO2I5w",
+      "createdAt": "2026-10-14T08:43:52.054689+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5lMbnf2GDqbu5v_z9cQ",
+      "createdAt": "2026-10-14T08:43:33.991647+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5lH7ad0Oui6Ga7AxVHQ",
+      "createdAt": "2026-10-14T08:43:15.546058+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5lDkXcFCOqFjrFM9jiw",
+      "createdAt": "2026-10-14T08:42:57.687468+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5kuc3fBOUxOBkXghNuw",
+      "createdAt": "2026-10-14T08:41:31.191949+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5kqI5f_KF91WxvQMtFA",
+      "createdAt": "2026-10-14T08:41:13.529080+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5kl9reICrINTQr5a5LA",
+      "createdAt": "2026-10-14T08:40:56.427398+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5khNrcaOLGIT2SkfnDA",
+      "createdAt": "2026-10-14T08:40:36.971436+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5kc86eQCEfIHFNpd6Uw",
+      "createdAt": "2026-10-14T08:40:19.514542+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5kYuzfqCRZC7c9Ir-_A",
+      "createdAt": "2026-10-14T08:40:02.227894+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5kUXvfFC3IecROuKY0Q",
+      "createdAt": "2026-10-14T08:39:44.367223+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaE5j2epfqOSWTk9CkY6Yg",
+      "createdAt": "2026-10-14T08:37:41.929944+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": null,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1SC",
+        "provider": "NEXUS"
+      }
+    }
+  ],
+  "physical_jobs": [
+    {
+      "id": "AFByb3ZpZGVySm9iAaHdf20iceGr8WB7ptlY7A",
+      "createdAt": "2026-11-15T04:37:58.178693+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHdaAAweGKDhCwwenvXLQ",
+      "createdAt": "2026-11-15T04:12:22.960699+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHdRfNWdEOiObAudDGzAA",
+      "createdAt": "2026-11-15T03:35:11.446973+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHdGpXLeVG3kICqu28KuQ",
+      "createdAt": "2026-11-15T02:47:49.451599+00:00",
+      "status": null,
+      "error": "Job cost exceeds allowed cost (code: 1002)",
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHaHrnLciGksuSuRYKSIQ",
+      "createdAt": "2026-11-14T12:53:29.163747+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 453.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHaHrJFdSGVyItCrNYa1Q",
+      "createdAt": "2026-11-14T12:53:27.237599+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 175.2,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZojNudBKadSwOPUbSaA",
+      "createdAt": "2026-11-14T10:37:28.303002+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 314.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZoizmfhGQ-SDLribvtA",
+      "createdAt": "2026-11-14T10:37:26.630724+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 244.8,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZaESAcwCVLDEccgwFew",
+      "createdAt": "2026-11-14T09:34:11.584892+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 124.9,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHZOpqEddO2XFOSuLeXNA",
+      "createdAt": "2026-11-14T08:44:18.948013+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 124.65,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUTStFcSCuXIxn3LlfWA",
+      "createdAt": "2026-11-13T09:46:29.573569+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 731.5,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUTSLLenG5kvm2SFFPMQ",
+      "createdAt": "2026-11-13T09:46:27.403983+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 677.15,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUTRpndcKAy2T8HalnHQ",
+      "createdAt": "2026-11-13T09:46:25.255415+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 622.8,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUTROCfcK48eiP0_O8zw",
+      "createdAt": "2026-11-13T09:46:23.490494+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 363.95,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHUTQhGcgGO8fSCbisVAg",
+      "createdAt": "2026-11-13T09:46:20.614491+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 174.7,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHT7TgXfYOpdKlZsyUfeg",
+      "createdAt": "2026-11-13T08:01:41.399400+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 89.85,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHTkCk8cmCs3HYizx6LiQ",
+      "createdAt": "2026-11-13T06:20:02.748805+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 174.7,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHSzbhqcxK89zYMHqgYfQ",
+      "createdAt": "2026-11-13T02:47:39.882693+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 200.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHSzbKtfxCcJncm6gzE5g",
+      "createdAt": "2026-11-13T02:47:38.413634+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 81.1,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHSza0HdvKn7xU7YCXGDw",
+      "createdAt": "2026-11-13T02:47:36.967093+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 442.65,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHPkersf8OWvXtdEP8HyA",
+      "createdAt": "2026-11-12T11:43:29.004895+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 200.4,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHPkeQicLCcrXIkWk6hqg",
+      "createdAt": "2026-11-12T11:43:27.266526+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 32.25,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHPP4sff7OAv5OZhac2rA",
+      "createdAt": "2026-11-12T10:13:30.527841+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 114.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHPPnwafAGmonJSVitiwQ",
+      "createdAt": "2026-11-12T10:12:21.146782+00:00",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHN6q_BcsKajKpqB_q_ZQ",
+      "createdAt": "2026-11-12T04:01:12.129925+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 232.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHN6qiVdmOqv9mau6NINg",
+      "createdAt": "2026-11-12T04:01:10.293570+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 286.8,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHN6qJIfOKmFbROPf96sA",
+      "createdAt": "2026-11-12T04:01:08.680457+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 243.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHN6pwYeYODISHlB864qw",
+      "createdAt": "2026-11-12T04:01:07.096093+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 103.93,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBlcDeNCkhU4epmC2xw",
+      "createdAt": "2026-11-11T14:32:32.771244+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 448.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBk-6dnOuSaFqnUFPWA",
+      "createdAt": "2026-11-11T14:32:30.906570+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 232.3,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBklPf9Gw3n-zc8VCQw",
+      "createdAt": "2026-11-11T14:32:29.263878+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 286.8,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBkM_c8Oxu3BIQzoppA",
+      "createdAt": "2026-11-11T14:32:27.711994+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 243.6,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBj18caCjwaLTy_VNTg",
+      "createdAt": "2026-11-11T14:32:26.236852+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 58.27,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHLBjc6ewKW1rFRYvW9xA",
+      "createdAt": "2026-11-11T14:32:24.634652+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 32.25,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-2",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHGRK6VcOGeKMhJ9X7ZUg",
+      "createdAt": "2026-11-10T16:22:32.341174+00:00",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHGRKfTcrOLCSigHHxcIQ",
+      "createdAt": "2026-11-10T16:22:30.611798+00:00",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHGRKF4cNKF5o2ZIdV5WQ",
+      "createdAt": "2026-11-10T16:22:28.984622+00:00",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHGRJtectGQMvp30W3GGg",
+      "createdAt": "2026-11-10T16:22:27.422749+00:00",
+      "status": "CANCELLED",
+      "error": null,
+      "hqcCost": 0.0,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHGRJU6frO5eaSQEDsNfw",
+      "createdAt": "2026-11-10T16:22:25.850088+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 58.27,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    },
+    {
+      "id": "AFByb3ZpZGVySm9iAaHFSvfOekGOcDeSfSprbg",
+      "createdAt": "2026-11-10T11:49:47.086844+00:00",
+      "status": "COMPLETED",
+      "error": null,
+      "hqcCost": 32.25,
+      "entity": {
+        "username": "q_sq"
+      },
+      "platform": {
+        "name": "H2-1",
+        "provider": "NEXUS"
+      }
+    }
+  ]
+}

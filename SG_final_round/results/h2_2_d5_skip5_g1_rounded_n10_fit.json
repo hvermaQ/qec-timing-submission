@@ -1,0 +1,96 @@
+{
+  "platform": "nexus:H2-2",
+  "distance": 5,
+  "g": 1,
+  "alpha": 3,
+  "p_ext": 0.005,
+  "p_read": 0.001,
+  "model": "P_L(u)=C/u*[1+((1-2*p_ext)/p_ext)*(a*u+b*u^2)]^3; u in seconds",
+  "method": "Nonnegative a,b; shot-weighted cross-entropy fit. N=10 adjusted to requested 1.3%, giving fractional effective count 2.08/160; observed count remains 2/160. Not an exact binomial count fit.",
+  "rounded_fit": {
+    "C": 0.0011880613222670418,
+    "a_per_second": 0.005502492332050804,
+    "b_per_second_squared": 0.003141492260582483,
+    "lambda_1": 1.089493481746059,
+    "lambda_2": 0.6220154675953317,
+    "delta_t_star_seconds": 0.31621235004857956,
+    "continuous_N_star": 4.162431827366548,
+    "minimum_fitted_probability": 0.010458532937188715,
+    "linear_at_boundary": false,
+    "weighted_deviance": 0.31660543506486144,
+    "fitted_probabilities": [
+      0.023684923372576355,
+      0.011679054080239512,
+      0.010472285181580509,
+      0.01140225922992046,
+      0.01537645524089635
+    ]
+  },
+  "exact_count_sensitivity_fit": {
+    "C": 0.0011447778115617814,
+    "a_per_second": 0.0058220104756937525,
+    "b_per_second_squared": 0.002989589725744066,
+    "lambda_1": 1.1527580741873629,
+    "lambda_2": 0.5919387656973251,
+    "delta_t_star_seconds": 0.31020849726772604,
+    "continuous_N_star": 4.223638323282125,
+    "minimum_fitted_probability": 0.010445495906360161,
+    "linear_at_boundary": false,
+    "weighted_deviance": 0.3454345214246076,
+    "fitted_probabilities": [
+      0.0236703320372587,
+      0.011739182003142784,
+      0.010470507416135358,
+      0.011293326757677361,
+      0.015079999802151783
+    ]
+  },
+  "rows": [
+    {
+      "rounds": 2,
+      "interval_seconds": 1.0,
+      "shots": 500,
+      "observed_failures": 12,
+      "fit_probability": 0.024
+    },
+    {
+      "rounds": 3,
+      "interval_seconds": 0.5,
+      "shots": 500,
+      "observed_failures": 5,
+      "fit_probability": 0.01
+    },
+    {
+      "rounds": 4,
+      "interval_seconds": 0.3333333333333333,
+      "shots": 500,
+      "observed_failures": 6,
+      "fit_probability": 0.012
+    },
+    {
+      "rounds": 6,
+      "interval_seconds": 0.2,
+      "shots": 500,
+      "observed_failures": 6,
+      "fit_probability": 0.012
+    },
+    {
+      "rounds": 10,
+      "interval_seconds": 0.1111111111111111,
+      "shots": 160,
+      "observed_failures": 2,
+      "fit_probability": 0.013000000000000001
+    }
+  ],
+  "sources": [
+    {
+      "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/results/d5_h2_2_skip5_t1_p_ext_0_005_2000_shots.json",
+      "sha256": "a7e342206d8a383a55ffc8485a85e7e924b4f375c8635e9bbdff301a746afbfb"
+    },
+    {
+      "path": "/Users/harshank_s/qec-timing-submission/SG_final_round/runs/d5_h2_2_t1_skip5_n10_20261115/shots160/n10/analysis_p_ext_0_005.json",
+      "sha256": "df4e0b71da5528ab1f5a534035e960536f57676ce7eb2997af5a13b8d90f11b3"
+    }
+  ],
+  "caveat": "Empirical curve fit; effective a,b are not calibrated microscopic idle rates. Sparse logical counts do not establish a resolved upturn or precise optimum."
+}
