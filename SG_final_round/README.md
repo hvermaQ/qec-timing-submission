@@ -227,6 +227,39 @@ print(record['job_id'], analysis['shots'], 'shots: raw and DEM hashes verified')
 PY
 ```
 
+## Simple end-to-end emulator example
+
+[`src/run_simple_emulator.py`](src/run_simple_emulator.py) builds, syntax-checks,
+executes, collects, and decodes one **T_sleep=1 s, N=2, d=3 X-memory** experiment
+on **H2-1E**, using the existing pinned circuit and noisy stabilizer options.
+The default is 100 shots. Run from the repository root in a Python environment
+with `aqora`, NumPy, Stim, and PyMatching installed, with `clang` on PATH and
+the Aqora CLI authenticated (`aqora login`):
+
+```sh
+python SG_final_round/src/run_simple_emulator.py --shots 100 --as-entity q_sq
+```
+
+This command submits a one-shot H2-1SC syntax check followed by the emulator job,
+which uses emulator credits. It polls until completion and writes the QIR,
+bitcode, manifest, job IDs, raw results, decoder DEM, and `analysis.json` under
+`SG_final_round/runs/simple_d3_t1_n2/`. Analysis reports logical failures,
+logical error probability, and a 95% Wilson interval with the historical fixed
+emulator decoder (`p_data=.002`, `p_read=.001`, `lam=0`).
+
+For a local build without submission:
+
+```sh
+python SG_final_round/src/run_simple_emulator.py --build-only
+```
+
+Rerun the same command to resume saved jobs after a timeout (default: one hour
+per job). Use `--output PATH` for a fresh experiment or different shot count;
+an existing output directory resumes its recorded jobs. A submission attempt
+without a saved job ID requires reconciliation before retrying. T_sleep=1 means
+one requested one-second wait per data qubit between the two rounds; extraction
+duration and physical sleep overlap have the same limitations described above.
+
 ## Local checks
 
 Run from `SG_final_round/` within the parent repository checkout:

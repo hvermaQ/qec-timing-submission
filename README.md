@@ -26,6 +26,16 @@ The final-phase submission documents are at the repository root:
 | Find code, configurations, programs, and saved results | [Final-round folder guide](SG_final_round/README.md#folder-guide) |
 | Run local structural checks | [Local checks](SG_final_round/README.md#local-checks) |
 
+## Simple emulator example
+
+[`run_simple_emulator.py`](SG_final_round/src/run_simple_emulator.py) runs an end-to-end **T_sleep=1 s, N=2, d=3 X-memory** experiment on H2-1E: build the circuit, syntax-check it, execute it, collect shots, and decode logical errors. It saves job records, raw results, and an analysis summary.
+
+```sh
+python3 SG_final_round/src/run_simple_emulator.py --shots 100
+```
+
+Requires authenticated Aqora, NumPy, Stim, PyMatching, and clang. Execution uses emulator credits; add `--build-only` for a local build without submission. See the [full instructions](SG_final_round/README.md#simple-end-to-end-emulator-example).
+
 ## Key final-phase reports
 
 - **Distance-3 emulator sweep:** [13,000-shot report](SG_final_round/results/d3_fixed_sleep_all_shots.md).
