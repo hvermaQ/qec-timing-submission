@@ -315,7 +315,33 @@ Baseline artifacts go to `..\sleep_baseline\` (outside the repo).
       - Fix the two `hardware_budget` script roots.
       - Check: `git status` shows only renames (R100), apart from the README, the AGENTS.md path edits and
         the two budget scripts; every other blob id matches the stage-1 inventory under its new path.
-- [ ] **3 Code into package.**
+- [ ] **3 Code into package.** Split into part A (infrastructure and builders) and part B (analyses,
+      fits, plots, reports).
+      - [x] **Part A (2026-11-16).** `src/qec_timing/sleep/`: `paths.py` (all paths, `resolve_recorded`,
+        LF/UTF-8 write helpers that refuse to overwrite under `programs/`, `runs/`, `config/sleep/`;
+        `update_job_record` is the one sanctioned in-place update, for in-flight `job.json` only),
+        `qir.py`, `mapping.py` (one skip-5 implementation), `decoder.py` (`git mv` of `h2_2_decoder.py`),
+        `jobs.py` (aqora only inside functions; submit/fetch/status refuse without `confirm=True`;
+        `h2_2_d5_plan` is pure), `builders/{probe,single_qubit,d3_sweep,d3,d5}.py` (`git mv` of
+        `build_sleep_probe`, `single_qubit_sweep`, `d3_sleep_sweep`, `fixed_sleep_d3`, `fixed_sleep_d5`;
+        `d3_sleep_sweep` got its own module `d3_sweep.py` so both d=3 files keep their history).
+        `single_qubit_pilot.py`, the six zero-sleep/repeat/skip-5 scripts and the 18 `submit_d5_*.py`
+        moved unchanged to `results/sleep/submission_scripts/` (+ README), with a byte-for-byte copy
+        of `build_sleep_probe.py` (sha256 `8f1775a2...`, hashed by `builders/probe.py`). The two
+        `hardware_budget` scripts use the repo root via `Path(__file__)`; `SG_final_round/results/.gitkeep`
+        removed. Verified without clang and without writing into `programs/`, `runs/`, `config/sleep/`:
+        all 80 `.ll` in 21 program folders regenerate exactly; all 11 hashed folder names reproduce
+        (`98ff…` excepted, text only); the 4 physical H2-2 d=5 `plan` steps give their committed
+        `plan.json` text (recorded paths via `resolve_recorded`); the committed `config/sleep/*.json`
+        equal the CONFIG (+ PLAN) dicts; the package imports without aqora.
+        **Left for part B:** `single_qubit_sweep.analyze` (take it from
+        `git show 4b4b92d:SG_final_round/src/single_qubit_sweep.py`), `wilson` → `stats.py`, the legacy
+        H2-1E constants into `decoder.py`, `unpack`, all analyses/fits/plots/reports, `AGENTS.md` → root and
+        `README.md` → `results/sleep/README.md`. The 41 scripts left in `SG_final_round/src/` and the 4 SG
+        unittests no longer import (their sibling modules moved); part B and stage 6 port them.
+        `resolve_recorded` raises for the one recorded `SG_final_round/src/...` path
+        (`redecode_d3_sleep_dependent.py`, recorded by `redecode_d5`); part B decides its mapping.
+      - [ ] **Part B.**
       - `git mv` builders/decoder/analyses into `src/qec_timing/sleep/` (history kept), then edit.
       - `paths.py` with `recorded()` and the writing rule; the copy of `unpack_hardware`.
       - One copy of each duplicate (unpack, skip-5 mapping, round_probabilities, zero-sleep builder, wilson).

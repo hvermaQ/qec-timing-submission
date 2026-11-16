@@ -1,9 +1,9 @@
 import json,math
 from pathlib import Path
 import numpy as np
-R=Path('/Users/harshank_s/qec-timing-submission')
-fits=json.loads((R/'SG_final_round/results/d3_d5_g1_stacked_fits.json').read_text())
-records=json.loads((R/'output/hardware_budget/job_costs.json').read_text())
+R=Path(__file__).resolve().parents[3]  # repo root (was /Users/harshank_s/qec-timing-submission)
+fits=json.loads((R/'results/sleep/d3_d5_g1_stacked_fits.json').read_text())
+records=json.loads((R/'results/sleep/hardware_budget/job_costs.json').read_text())
 res={'historical':{},'plan':[],'precision':[]}
 for d in [3,5]:
  rs=[r for r in records if r['distance']==d]
@@ -27,5 +27,5 @@ for f,shots in zip(fits,[[250,350,1000,1000,500,1000],[250,350,1000,1000,400,600
  star=f['delta_t_star'];grad=np.array([0,-(a-1)*star/(2*(2*a-1)*l*star),-star/(2*l)])
  res['precision'].append(dict(distance=d,star=star,se_quadratic=float(se),se_linear_quadratic_local=float(np.sqrt(grad@cov3@grad))))
 res['plan_hqc']=sum(r['hqc'] for r in res['plan']);res['plan_shots']=sum(r['shots'] for r in res['plan'])
-(R/'output/hardware_budget/analysis.json').write_text(json.dumps(res,indent=2))
+(R/'results/sleep/hardware_budget/analysis.json').write_text(json.dumps(res,indent=2),encoding='utf-8',newline='\n')
 print(json.dumps(res,indent=2))
