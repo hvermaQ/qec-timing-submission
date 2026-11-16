@@ -43,14 +43,24 @@ Requires authenticated Aqora, NumPy, Stim, PyMatching, and clang. Execution uses
 - **Physical H2-2 distance-3 sweep:** [updated-decoder report, including the zero-sleep control](SG_final_round/results/h2_2_hardware_p_ext_0_00117_10750_shots.md).
 - **Physical H2-2 distance-5 sweeps:** [original-mapping analysis](SG_final_round/results/d5_h2_2_t1_p_ext_0_004_3500_shots.json), [skip-index-5 summary for N=2,3,4,6](SG_final_round/results/d5_h2_2_skip5_t1_p_ext_0_005_2000_shots.json), and [later N=10 analysis](SG_final_round/runs/d5_h2_2_t1_skip5_n10_20261115/shots160/n10/analysis_p_ext_0_005.json). The final-round README explains the separate mappings and decoder policies.
 
-## Earlier-phase work
+## Previous experiments: simulation and injected-noise emulation
 
-The parent repository contains the simulation package, earlier notebooks, and supporting infrastructure reused by the final phase. The documentation below records that earlier phase; its status statements and planned experiments describe that stage. Use the [final-round README](SG_final_round/README.md) for final-phase results and hardware evidence.
+The final round did not start from hardware. Before real waits were available, the timing trade-off was tested with idle noise that we injected ourselves, in simulation and on the H2 emulators. That earlier work fixed the questions, the code and the analysis that the final round reuses, and its results remain reproducible from this repository.
 
-<details>
-<summary>Expand earlier-phase documentation: simulations, claims, setup, and architecture</summary>
+| Step | Question | What it showed | Where to start |
+| --- | --- | --- | --- |
+| 1. Why idling matters | How much of an algorithm do logical qubits spend idle? | Sequential workloads leave them idle for most of their time: 84–87% for a ripple-carry adder, 41–51% for a QFT, mostly in long stretches. | `./run_idle_importance.sh`, notebook 01 |
+| 2. The paper's model | Can the model of Haug, Bharti & Aolita be reproduced with noise injected inside a device program? | Guppy with injected noise agrees with Stim at 18 of 18 points, and 1/Δt* grows linearly with distance, with slope 0.385 ± 0.013 against the paper's 0.402. | `./run_approach_A.sh`, notebook 02 |
+| 3. Circuit-level noise | Does an optimal interval survive native gates, gate errors and linear or quadratic idle dephasing? | Yes, in all 18 simulated curves at d = 3, 5, 7. The model calibrated once predicts Δt* within 10–20%. The decoder and the memory basis both matter. | `./run_approach_B.sh`, notebooks 03–07 |
+| 4. Regime and payoff | When does waiting pay on H2-like rates, and can it replace code distance? | For short rounds the optimal interval at distance d beats back-to-back extraction at d + 2; the gain vanishes once idle error per round approaches the two-qubit error. | notebooks 08–09 |
+| 5. H2 emulators, injected noise | Does injection behave on H2-1E and H2-2E as in Stim, and can the device's idle noise be measured? | A d = 5 sweep on H2-2E follows a gate-level model of the program. Spectator-qubit tests could not resolve the idle parameters, which led to the QIR `sleep` instruction. | [`hardware/`](hardware/README.md), notebooks 11–18 |
+| 6. Final round | Does an optimal interval exist with real waits, on the emulator and on physical H2? | See the final-round folder. | [`SG_final_round/`](SG_final_round/README.md) |
 
-# Info:
+The [final report](Quantinuum_SG_challenge_final_report.pdf) presents these steps and the final round as one account. One command per earlier result is listed in [`REPRODUCE.md`](REPRODUCE.md).
+
+The rest of this page is the documentation of that earlier phase, kept in full. Its status statements and planned experiments describe that stage: for example, it says that no device was available, which was true then. For final-round results and hardware evidence, use the [final-round README](SG_final_round/README.md).
+
+## Earlier-phase documentation: team and repository
 
 #TEAM Q_SQUARED or Q_SQ for short. Members: Harshit Verma, Harshank Shrotriya and Ilesh Vora.
 
@@ -58,7 +68,7 @@ Full repo available on https://github.com/hvermaQ/qec-timing-submission
 
 Data available on request
 
-# qec-timing
+## The `qec-timing` package
 
 Optimal syndrome-measurement timing for QEC memories, after Haug, Bharti & Aolita (2026).
 A package built from interfaces: codes, noise models, backends, decoders and applications
@@ -193,19 +203,6 @@ Labels in the notebooks: *measured* (computed in this repo), *paper* (Haug, Bhar
 | E3 | Three pinned environments; tests pass in each (core, main, H2). | `envs/`; `REPRODUCE.md`; `results/test_runs/` | 4 |
 | E4 | Every run stored with manifest, versions, git commit, checksums; derived results name their inputs; atomic writes. | `qec_timing.store`; `tests/test_store.py` | 4 |
 | E5 | One command per result; notebooks are thin clients over stored results. | `REPRODUCE.md`; `notebooks/` | 4 |
-
-### Not claimed
-
-- Nothing has run on a device: this account sees only emulators (H2-1E, H2-2E) and syntax
-  checkers. Device numbers are emulator defaults, or a scan over the unknown round time t_R,
-  which aqora does not report. Published depth-one times (55–68 ms on H2 / Helios) suggest
-  current surface-code rounds of ~100–250 ms, at or past the back-to-back boundary of T3: an
-  estimate, not a measurement.
-- No leakage-heralded decoding: the QIR toolchain (hugr-qir 0.1.2, 0.3.0) cannot compile
-  leakage-aware measurement; the gate-level leakage gadget is designed, not built.
-- No adaptive controller (paper Appendix F) or burst λ(t) (Eq. 9).
-- Codes beyond CSS with one logical qubit; decoders beyond PyMatching. Both interfaces take
-  others, and the stored raw shots can be re-decoded (see *Where results and data live*).
 
 ## Next experiments on hardware
 
@@ -425,5 +422,3 @@ Device specifications (Quantinuum):
   per-machine benchmarks for H2-1, H2-2 and Helios-1, including memory (idle) error per depth-1
   circuit time, gate, SPAM, leakage and crosstalk errors.
 - [H2 product data sheet](https://docs.quantinuum.com/systems/_static/assets/data_sheets/Quantinuum%20H2%20Product%20Data%20Sheet.pdf).
-
-</details>
