@@ -1,3 +1,39 @@
+# QEC timing — Team Q_SQUARED
+
+**Judges: please go to [`SG_final_round/`](SG_final_round/) for the final phase of the challenge. Start with the [final-round README](SG_final_round/README.md), which guides you through the experiments, results, and execution records.**
+
+Team Q_SQUARED (Q_SQ): Harshit Verma, Harshank Shrotriya, and Ilesh Vora.
+
+We investigate **how often to extract error syndromes while storing a logical state**: longer waits accumulate memory errors, while more frequent extraction adds circuit errors. The final phase tests this tradeoff on Quantinuum emulators and physical H2 hardware using explicit QIR `sleep` instructions between extraction rounds.
+
+## Start here
+
+| What you want to review | Where to go |
+| --- | --- |
+| Final-phase overview and recommended reading | [Final-round README](SG_final_round/README.md) |
+| Experiment design, measured quantity, and timing interpretation | [What was measured](SG_final_round/README.md#what-was-measured) |
+| Emulator experiments and supporting reports | [Emulator experiments](SG_final_round/README.md#emulator-experiments) |
+| Physical H2-1 and H2-2 experiments | [Physical hardware experiments](SG_final_round/README.md#physical-hardware-experiments) |
+| Physical H2-2 distance-5 results, with per-setting job IDs and raw data | [Distance-5 hardware data](SG_final_round/README.md#distance-5-data-collected-on-the-physical-h2-2-device) |
+| Decoder policies and interpretation of results | [Decoding and interpretation](SG_final_round/README.md#decoding-and-interpretation) |
+| Verify execution IDs, platforms, raw payloads, and hashes | [How judges can verify job IDs](SG_final_round/README.md#how-judges-can-verify-job-ids) |
+| Find code, configurations, programs, and saved results | [Final-round folder guide](SG_final_round/README.md#folder-guide) |
+| Run local structural checks | [Local checks](SG_final_round/README.md#local-checks) |
+
+## Key final-phase reports
+
+- **Distance-3 emulator sweep:** [13,000-shot report](SG_final_round/results/d3_fixed_sleep_all_shots.md).
+- **Distance-5 emulator sweep:** [logical-error report and execution-job ledger](SG_final_round/results/d5_h2_1e_sleep_logical_probabilities.md).
+- **Physical H2-2 distance-3 sweep:** [updated-decoder report, including the zero-sleep control](SG_final_round/results/h2_2_hardware_p_ext_0_00117_10750_shots.md).
+- **Physical H2-2 distance-5 sweeps:** [original-mapping analysis](SG_final_round/results/d5_h2_2_t1_p_ext_0_004_3500_shots.json), [skip-index-5 summary for N=2,3,4,6](SG_final_round/results/d5_h2_2_skip5_t1_p_ext_0_005_2000_shots.json), and [later N=10 analysis](SG_final_round/runs/d5_h2_2_t1_skip5_n10_20261115/shots160/n10/analysis_p_ext_0_005.json). The final-round README explains the separate mappings and decoder policies.
+
+## Earlier-phase work
+
+The parent repository contains the simulation package, earlier notebooks, and supporting infrastructure reused by the final phase. The documentation below records that earlier phase; its status statements and planned experiments describe that stage. Use the [final-round README](SG_final_round/README.md) for final-phase results and hardware evidence.
+
+<details>
+<summary>Expand earlier-phase documentation: simulations, claims, setup, and architecture</summary>
+
 # Info:
 
 #TEAM Q_SQUARED or Q_SQ for short. Members: Harshit Verma, Harshank Shrotriya and Ilesh Vora.
@@ -373,3 +409,5 @@ Device specifications (Quantinuum):
   per-machine benchmarks for H2-1, H2-2 and Helios-1, including memory (idle) error per depth-1
   circuit time, gate, SPAM, leakage and crosstalk errors.
 - [H2 product data sheet](https://docs.quantinuum.com/systems/_static/assets/data_sheets/Quantinuum%20H2%20Product%20Data%20Sheet.pdf).
+
+</details>
