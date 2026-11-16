@@ -295,7 +295,14 @@ Baseline artifacts go to `..\sleep_baseline\` (outside the repo).
         `read_text()`. This covers the probes, including `98ff…`. Compute the 9 folder hashes.
       - Record the decoded counts the regression tests will pin.
       - Report what was skipped: clang, H2 env, aqora.
-- [ ] **2 Move data.**
+- [x] **2 Move data.**
+      - **Done (2026-11-16), data only:** 1,500 files `git mv`'d (all R100); `git rm` of
+        `SG_final_round/.gitignore` and the duplicate `outputs/d3_d5_g1_stacked_fits.pdf`. All 1,505 entries of
+        `..\sleep_baseline\checksums.txt` verified by sha256 at their new paths. `output/` is gone. Git's rename
+        detection pairs the kept `results/sleep/d3_d5_g1_stacked_fits.pdf` with the `outputs/` copy (identical
+        blobs); the bytes are the same either way. **Deferred to stage 3:** dated submit scripts →
+        `submission_scripts/` (+ README), `AGENTS.md` → root, `README.md` → `results/sleep/README.md`, the two
+        `hardware_budget` script roots, and `git rm SG_final_round/results/.gitkeep` (still in place).
       - `git mv`: `programs/`, `runs/`, `results/*`, `outputs/*` → `results/sleep/...`; `configs/` →
         `config/sleep/` (+ `decoders/`); `env/` → `results/sleep/env/`; `output/hardware_budget/` →
         `results/sleep/hardware_budget/`; `output/pdf/*.png` → `results/sleep/figures/`; dated submit scripts →
