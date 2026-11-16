@@ -42,7 +42,49 @@ _DECODER_JSONS = {'h2_2_decoder.json', 'h2_2_d5_decoder.json', 'h2_2_d5_skip5_de
 # outputs/d3_d5_g1_stacked_fits.pdf was a byte-identical duplicate of the results/ copy.
 _DROPPED_DUPLICATES = {'d3_d5_g1_stacked_fits.pdf': RESULTS / 'd3_d5_g1_stacked_fits.pdf'}
 _SG = re.compile(r'(?:^|/)SG_final_round/(programs|runs|results|outputs|configs|env)(?:/(.*))?$')
+_SG_SRC = re.compile(r'(?:^|/)SG_final_round/src/([\w.]+\.py)$')
 _SG_OTHER = re.compile(r'(?:^|/)SG_final_round(?:/|$)')
+_PACKAGE = REPO / 'src' / 'qec_timing' / 'sleep'
+# SG_final_round/src scripts whose code moved into this package (scripts moved unchanged are
+# found in ARCHIVE first). redecode_d3_sleep_dependent.py is recorded (by redecode_d5) as the
+# source of the legacy H2-1E decoder policy, which now lives in decoder.py.
+SOURCE_MOVES = {
+    'redecode_d3_sleep_dependent.py': _PACKAGE / 'decoder.py',
+    'h2_2_decoder.py': _PACKAGE / 'decoder.py',
+    'single_qubit_sweep.py': _PACKAGE / 'builders' / 'single_qubit.py',
+    'd3_sleep_sweep.py': _PACKAGE / 'builders' / 'd3_sweep.py',
+    'fixed_sleep_d3.py': _PACKAGE / 'builders' / 'd3.py',
+    'fixed_sleep_d5.py': _PACKAGE / 'builders' / 'd5.py',
+    'analyze_d3_sleep_sweep.py': _PACKAGE / 'analysis' / 'emulator_d3.py',
+    'analyze_fixed_sleep_d3.py': _PACKAGE / 'analysis' / 'emulator_d3.py',
+    'analyze_fixed_sleep_refinement.py': _PACKAGE / 'analysis' / 'emulator_d3.py',
+    'analyze_fixed_sleep_all.py': _PACKAGE / 'analysis' / 'emulator_d3.py',
+    'characterize_h2_2e_sleep.py': _PACKAGE / 'analysis' / 'emulator_d3.py',
+    'analyze_d5_sleep_results.py': _PACKAGE / 'analysis' / 'emulator_d5.py',
+    'redecode_d5_sleep_dependent.py': _PACKAGE / 'analysis' / 'emulator_d5.py',
+    'analyze_h2_2_hardware_pooled.py': _PACKAGE / 'analysis' / 'h2_2_d3.py',
+    'combine_h2_2_updated_decoder.py': _PACKAGE / 'analysis' / 'h2_2_d3.py',
+    'test_h2_2_decoder_sensitivity.py': _PACKAGE / 'analysis' / 'h2_2_d3.py',
+    'analyze_d5_h2_2_t1_20261113.py': _PACKAGE / 'analysis' / 'h2_2_d5.py',
+    'analyze_d5_h2_2_t1_skip5.py': _PACKAGE / 'analysis' / 'h2_2_d5.py',
+    'd5_h2_2_p_read_sensitivity.py': _PACKAGE / 'analysis' / 'h2_2_d5.py',
+    'analyze_single_qubit_pilot.py': _PACKAGE / 'analysis' / 'controls.py',
+    'analyze_d5_h2_2_zero_sleep_control.py': _PACKAGE / 'analysis' / 'controls.py',
+    'analyze_d5_h2_2_zero_sleep_n3.py': _PACKAGE / 'analysis' / 'controls.py',
+    'analyze_d5_h2_2_zero_sleep_n3_skip5.py': _PACKAGE / 'analysis' / 'controls.py',
+    'audit_native_memory.py': _PACKAGE / 'analysis' / 'audit.py',
+    'review_duration_scales.py': _PACKAGE / 'analysis' / 'audit.py',
+    **{name: _PACKAGE / 'fits.py' for name in [
+        'fit_d3_calibrated_g.py', 'fit_d3_free_idle.py', 'fit_d5_free_idle.py', 'fit_d5_sleep_dependent.py',
+        'fit_d5_transferred_idle.py', 'fit_h2_2_d5_skip5_g1.py', 'fit_h2_2_free_g.py', 'fit_h2_2_g1.py',
+        'fit_shared_g_calibrated.py', 'fit_shared_g_no_boundary.py']},
+    **{name: _PACKAGE / 'plots.py' for name in [
+        'plot_d5_h2_2_raw_qubit_errors.py', 'plot_d5_sleep_dependent.py', 'plot_d5_sleep_results.py',
+        'plot_free_idle_fits.py', 'plot_g1_stacked.py', 'plot_h2_2_d3_d5_skip5_g1.py', 'plot_h2_2_g1_pdf.py']},
+    **{name: _PACKAGE / 'reports.py' for name in [
+        'report_d3_all_shots.py', 'create_combined_sleep_pdf.py', 'create_h2_2e_summary_pdf.py',
+        'create_sleep_explanation_pdf.py']},
+}
 _OUTPUT = re.compile(r'(?:^|/)output/(hardware_budget|pdf)(?:/(.*))?$')
 # The machine the data were taken on; paths under it that did not move map to REPO.
 _RECORDED_REPO = '/Users/harshank_s/qec-timing-submission/'
@@ -64,6 +106,8 @@ def resolve_recorded(path: str | os.PathLike) -> Path:
       SG_final_round/env/X       -> results/sleep/env/X
       output/hardware_budget/X   -> results/sleep/hardware_budget/X
       output/pdf/X               -> results/sleep/figures/X
+      SG_final_round/src/X.py    -> results/sleep/submission_scripts/X.py if archived there,
+                                    else the package module that now holds its code (SOURCE_MOVES)
     Other paths under the recorded repo root (the pinned results/hardware baselines) map to
     the same place under REPO. Any other path is returned unchanged. A recorded path into a
     part of SG_final_round that has no new location (e.g. src/) raises ValueError.
@@ -88,6 +132,12 @@ def resolve_recorded(path: str | os.PathLike) -> Path:
         if rest in _DECODER_JSONS:
             return DECODERS / rest
         return _join(CONFIG, rest)
+    match = _SG_SRC.search(text)
+    if match:
+        if (ARCHIVE / match[1]).exists():
+            return ARCHIVE / match[1]
+        if match[1] in SOURCE_MOVES:
+            return SOURCE_MOVES[match[1]]
     if _SG_OTHER.search(text):
         raise ValueError(f'No new location for recorded path {path!r}')
     match = _OUTPUT.search(text)
@@ -172,3 +222,31 @@ def update_job_record(path: str | os.PathLike, data: dict) -> Path:
 def read_text(path: str | os.PathLike) -> str:
     """Read UTF-8 text (universal newlines, as `Path.read_text` does)."""
     return Path(path).read_text(encoding='utf-8')
+
+
+def store(path: str | os.PathLike) -> Path:
+    """Where a per-run file the original scripts wrote into PROGRAMS or RUNS is written now.
+
+    STORE mirrors the layout under results/sleep/, so `store(RUNS/'x'/'analysis.json')` is
+    `store/sleep/runs/x/analysis.json` and the committed copy is the argument itself.
+    """
+    path = Path(path)
+    if protected_root(path) not in (PROGRAMS, RUNS):
+        raise ValueError(f'Not under results/sleep/programs or results/sleep/runs: {path}')
+    return STORE / path.resolve().relative_to(RESULTS.resolve())
+
+
+def save_npz(path: str | os.PathLike, **arrays) -> Path:
+    """`np.savez_compressed`, refusing to overwrite protected files."""
+    import numpy as np
+    path = Path(path)
+    ensure_writable(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(path, **arrays)
+    return path
+
+
+def figure(name: str) -> Path:
+    """FIGURES/name (created if needed): every figure and PDF the package makes goes here."""
+    FIGURES.mkdir(parents=True, exist_ok=True)
+    return FIGURES / name

@@ -42,3 +42,43 @@ def round_probabilities(n, u, *, policy=None):
     idle = lin + quad - 2 * lin * quad
     p = p_ext + idle - 2 * p_ext * idle
     return [RoundNoise(p_ext, p_read)] + [RoundNoise(p, p_read) for _ in range(n-1)]
+
+
+# --------------------------------------------------------------------------- legacy H2-1E policy
+# The sleep-dependent phenomenological policy of SG_final_round/src/redecode_d3_sleep_dependent.py
+# (constants and functions verbatim). Used by the H2-1E emulator re-decodes (d=3 and d=5) and as
+# the "old decoder" baseline in the physical H2-2 analyses. Same arithmetic as
+# `round_probabilities` above with p_ext=.002, p_read=.001; kept separately so historical results
+# reproduce byte for byte. It is not an approved physical H2-2 policy (/AGENTS.md).
+
+LEGACY_P_EXT=.002
+LEGACY_P_READ=.001
+LINEAR_RATE=.0028
+QUADRATIC_FREQUENCY_HZ=.043
+INCOHERENT_FACTOR=2.0
+LEGACY_SOURCES=[
+ 'https://docs.quantinuum.com/systems/user_guide/emulator_user_guide/emulators/h2_emulators.html',
+ 'https://docs.quantinuum.com/systems/user_guide/emulator_user_guide/noise_model.html']
+
+
+def xor_probability(a,b):
+    return a+b-2*a*b
+
+
+def idle_probability(u):
+    """Independent stochastic Z channels, with frequency converted to rad/s.
+
+    Frequency parameter is in units of 2*pi rad/s; incoherence multiplies
+    frequency (not probability). Net Z is odd parity of the two channel faults.
+    """
+    if not 0<=LINEAR_RATE*u<=1:
+        raise ValueError('Duration outside linear-channel probability domain')
+    lin=LINEAR_RATE*u
+    quad=math.sin(math.pi*QUADRATIC_FREQUENCY_HZ*INCOHERENT_FACTOR*u)**2
+    return xor_probability(lin,quad)
+
+
+def legacy_round_probabilities(n,u):
+    # N extraction draws, but only N-1 waits; no wait before the first round.
+    p=xor_probability(LEGACY_P_EXT,idle_probability(u))
+    return [RoundNoise(LEGACY_P_EXT,LEGACY_P_READ)]+[RoundNoise(p,LEGACY_P_READ) for _ in range(n-1)]
