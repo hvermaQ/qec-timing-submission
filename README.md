@@ -8,6 +8,11 @@ We investigate **how often to extract error syndromes while storing a logical st
 
 ## Start here
 
+The final-phase submission documents are at the repository root:
+
+- **[Final-phase presentation (PowerPoint)](SG%20Grand%20Challenge%20-%20Presentation_16_Nov.pptx):** Slide deck presenting the QEC timing problem, our experimental approach, and final-phase results.
+- **[Final-phase one-pager (PDF)](SG_One_Pager_Revised_v6_16_Nov.pdf):** A concise overview of the project and its main findings for a quick judging review. The [editable Word version](SG_One_Pager_Revised_v6.docx) is also available.
+
 | What you want to review | Where to go |
 | --- | --- |
 | Final-phase overview and recommended reading | [Final-round README](SG_final_round/README.md) |
