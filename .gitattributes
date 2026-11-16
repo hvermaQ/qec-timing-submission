@@ -1,0 +1,13 @@
+# Hashed artifacts stay byte-exact on every OS (sha256 of these files is checked by us and by judges).
+results/** -text
+config/** -text
+output/** -text
+SG_final_round/** -text
+*.ll -text
+*.dem -text
+*.bc binary
+*.npz binary
+*.pdf binary
+*.png binary
+# Shell scripts must keep LF line endings to run in bash.
+*.sh text eol=lf
