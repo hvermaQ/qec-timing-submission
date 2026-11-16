@@ -18,6 +18,9 @@ Written from a full read of: `README.md`, `REPRODUCE.md`, `pyproject.toml`, `.gi
 - Keep the physical H2-2 decoder policies in SG_final_round/AGENTS.md exactly. Never pool the two d=5 mappings (original, skip-index-5).
 - This machine is Windows: no clang and no H2 env. Verify programs by regenerating the .ll text and comparing it with the committed .ll. Skip anything needing guppylang 0.21, hugr-qir or aqora and say so.
 - Run Python with .venv\Scripts\python.exe.
+- Every file the package writes is written with `newline='\n'` and `encoding='utf-8'` (Windows defaults are CRLF and cp1252; see S2).
+- Comparisons against committed results: integers (counts, shots) exact; decoded rates rel tol 1e-9; fitted parameters rel tol 1e-4; text compared after normalising line endings; figures and PDFs are not regression targets (S3).
+- Any reproduce run skips `.venv/` when snapshotting `git status`.
 - Stop at the end of each stage, summarise what changed, and do not commit.
 
 ## 2. Target layout
@@ -86,11 +89,13 @@ Proposed modules in `src/qec_timing/sleep/` (the brief's list, plus `qir.py`, `u
    `d3_fixed_sleep_resolution_c2380924e8c69578`, `d5_fixed_sleep_9fb82150bc37143a`; from QIR text only:
    `single_qubit_2c64d96fea4bbbac`, `single_qubit_sweep_73005efe45e835e4`. `OPTIONS` (from
    `single_qubit_sweep.py`) is part of the d3 CONFIGs, so it must stay the same dict. Fixed names (no hash):
-   the zero-sleep, half-second and skip5 folders. **Not reproducible at all:** the three probe folders
-   `98ff453353750ae5`, `5944c048c1dfdc80`, `8cca8353b3f06d18`. `build_sleep_probe.py` hashes the config plus
-   the *builder file's own bytes*; the committed folders came from two older builder versions
-   (`builder_sha256` `ecaf8610...` and `8f1775a2...`, current file `f65cf22b...`). For these, only the `.ll`
-   text is checked, and the reason goes in `results/sleep/README.md`.
+   the zero-sleep, half-second and skip5 folders. **Probe folders:** `build_sleep_probe.py` hashes the
+   folder's config plus the *builder file's own bytes*. The committed builder is `8f1775a2...` (LF bytes), the
+   `builder_sha256` recorded in `5944c048c1dfdc80` and `8cca8353b3f06d18`, so both names **reproduce**
+   (verified in stage 1, each from its own `config.json`). Only `98ff453353750ae5` can't be rebuilt: it came
+   from an older builder (`ecaf8610...`) and an older single-duration config format; its `.ll` text still
+   matches. (An earlier draft of this fact quoted `f65cf22b...` as the current builder: that was the hash of
+   the CRLF working copy before stage 1 restored it.) How stage 3 keeps the two names reproducible: S1.
 2. **Line endings.** `core.autocrlf=true`. Before `.gitattributes` existed, git converted the line endings
    of every file it took for text when checking them out. Now `.gitattributes` marks `results/**`,
    `config/**`, `output/**`, `SG_final_round/**`, `*.ll` and `*.dem` as `-text`.
@@ -167,7 +172,7 @@ the build code is ported into the package and the original file is archived for 
 | `src/analyze_h2_2_hardware_pooled.py` | `sleep/analysis/h2_2_d3.py` | Pools the first two H2-2 d=3 batches' run-local `analysis.json` (6,750 shots) → `h2_2_hardware_d3_all_shots.{json,png}` | **Historical** (decoder: legacy sleep-dependent MWPM p_ext=0.002, before policy `h2_2_p_ext_0_00117_20261112`). Its output feeds the decoder-sensitivity study |
 | `src/analyze_single_qubit_pilot.py` | `sleep/analysis/controls.py`; `wilson` → `sleep/stats.py` | 200-shot single-qubit pilot counts → `single_qubit_pilot_counts.json` | `wilson` is imported by about 20 files |
 | `src/audit_native_memory.py` | `sleep/analysis/audit.py` | Disassembles submitted `.bc` (clang), translates to Stim, ideal run + single-Z-fault checks → `circuit_audit/*.ll`, `*.stim`, `ideal_audit.json` | **Needs clang: cannot run here.** A top-level report: writes into `results/sleep/circuit_audit/` |
-| `src/build_sleep_probe.py` | `sleep/builders/probe.py`; helpers → `sleep/qir.py` | One `sleep` call inserted into the pinned d=3 baseline → `programs/<hash16>/`, `syntax_plan.json` | Folder hash includes the builder's own bytes: committed names can't be rebuilt (fact 1, Q8). Older builder versions are not recreated |
+| `src/build_sleep_probe.py` | `sleep/builders/probe.py`; helpers → `sleep/qir.py` | One `sleep` call inserted into the pinned d=3 baseline → `programs/<hash16>/`, `syntax_plan.json` | Folder hash includes the builder's own bytes. `5944…`/`8cca…` reproduce, `98ff…` doesn't (fact 1). Original file also archived byte for byte and hashed by the package (S1). Older builder versions are not recreated |
 | `src/characterize_h2_2e_sleep.py` | `sleep/analysis/emulator_d3.py` | Shot-bootstrap of mean data error for the 5-point sweeps → `d3_sleep_five_point_<plat>_noise_characterization.json` | |
 | `src/combine_h2_2_updated_decoder.py` | `sleep/analysis/h2_2_d3.py` | Re-decodes all 16 H2-2 d=3 jobs (10,750 shots) with policy p_ext .00117 and compares with legacy → `h2_2_hardware_p_ext_0_00117_10750_shots.{json,npz,md,png}`, `decoders/h2_2_p_ext_0_00117_20261112/` | Uses the package copy of `unpack_hardware` instead of `exec` (runs/ script untouched, equivalence tested); program paths via `paths.recorded()` |
 | `src/create_combined_sleep_pdf.py` | `sleep/reports.py` | Two-emulator d=3 PDF → `results/sleep/figures/h2_1e_h2_2e_d3_sleep_summary.pdf` | Not committed before. Used `exec` on the next file → import. macOS fonts. Numbers hard-coded in prose |
@@ -276,7 +281,7 @@ Not textual references, but they couple the two:
 
 Baseline artifacts go to `..\sleep_baseline\` (outside the repo).
 
-- [ ] **1 Baseline.**
+- [x] **1 Baseline.**
       - **Step 0 (needs approval):** restore the 1,417 `-text` files and the 9 `.sh` files from the index
         (`git checkout -- <those paths>`), so working copies equal the committed bytes. This also fixes the
         two corrupted PDFs. No `--renormalize`.
@@ -371,9 +376,9 @@ Baseline artifacts go to `..\sleep_baseline\` (outside the repo).
 - **Q7** No separate `DECODER_POLICY.md`. The policy goes in a root `AGENTS.md`: the text of
   `SG_final_round/AGENTS.md` word for word with only the paths updated, plus one line saying it moved there
   in the merge with paths updated. `results/sleep/README.md` links to it.
-- **Q8** Checking the `.ll` text is enough for the three probe folders; they test instruction support, not
-  timing. If `98ff…` doesn't match even in text, that is documented in `results/sleep/README.md`. Old
-  builder versions are not recreated.
+- **Q8** The probe folders test instruction support, not timing. `5944…` and `8cca…` must keep reproducing
+  by name (S1); for `98ff…`, checking the `.ll` text is enough (it matches, stage 1). Old builder versions
+  are not recreated.
 - **Q9** Superseded analyses move into the package, marked historical in the module docstring with the
   decoder policy they used.
 - **Q10** `jobs.py`, with aqora imported inside the functions (as the originals do) so the package imports
@@ -385,7 +390,42 @@ Baseline artifacts go to `..\sleep_baseline\` (outside the repo).
   test that both give the same result.
 - **Fixed inputs.** Committed results with no generating script are listed in `results/sleep/README.md`
   under "Fixed inputs (no generating script)".
-- **Probe folder names** that can't be rebuilt are documented in `results/sleep/README.md`.
+- **Probe folder names.** Only `98ff…` can't be rebuilt; that is documented in `results/sleep/README.md`.
+
+### Decisions from the stage-1 baseline (2026-11-16)
+
+Evidence is in `..\sleep_baseline\` (`reproduce_before.md`, `tests_before.txt`).
+
+- **S1 Probe builder.** Only `98ff453353750ae5` can't be rebuilt. `5944c048c1dfdc80` and `8cca8353b3f06d18`
+  reproduce, and their names hash the builder file's own bytes (`8f1775a2...`). Stage 3 must keep those names
+  reproducible: keep the original `build_sleep_probe.py` byte for byte (in `results/sleep/submission_scripts/`)
+  and have the packaged probe builder hash that file (read as bytes, not imported), asserting its sha256 is
+  `8f1775a2...`.
+- **S2 Writing.** Every file the package writes uses `newline='\n'` and `encoding='utf-8'` (ground rules).
+  Stage 1 found 77 rewritten files differing from HEAD only by CRLF, and a `.md` with a cp1252 en dash.
+- **S3 Comparisons.** Integers (counts, shots) exact; decoded rates rel tol 1e-9; fitted parameters rel tol
+  1e-4; text compared after normalising line endings; figures and PDFs are not regression targets
+  (matplotlib 3.11.2 here vs 3.7.3 for the committed figures; embedded dates).
+- **S4 Outputs made from older inputs.** `d3_fixed_sleep_500_partial.{json,md}`, the d5
+  `d5_sleep_dependent_linear_quadratic_fit_n3_plus.*` fit and `d5_h2_1e_t1_n2_to_n10.json` were made from
+  older inputs than those committed now. Label them historical in `results/sleep/README.md` (stage 7); they
+  are not regression targets.
+- **S5 Pre-existing test failures.** The 3 failing tests in `tests/test_circuit.py`
+  (`test_reproduces_original_failure_counts_exactly[data_interval-…]`, `[uniform-…]`,
+  `test_native_backend_reproduces_original_exactly`: seeded Stim counts off by about 1%) are pre-existing on
+  this machine. Stage 8 must show the same 3 failures and no others.
+- **S6 PDF tooling.** reportlab, pypdf, pypdfium2 and PyMuPDF are not installed; the PDF scripts
+  (`report_d3_all_shots pdf`, `create_*_pdf`) are not checked on Windows.
+- **S7 Overwrite guard.** `single_qubit_pilot.py build` overwrites the committed `.ll` files without a
+  guard (it has no manifest check). The package version must refuse to overwrite (writing rule, §2).
+- **S8 Path-blocked analyses.** The 15 analysis runs that failed on `/Users/harshank_s/...` paths are rerun
+  in stage 3 once `paths.py` translates them (`audit_native_memory` also hit such a path, but needs clang
+  anyway): `analyze_fixed_sleep_all`, `redecode_d3_sleep_dependent`,
+  `analyze_d5_sleep_results`, `redecode_d5_sleep_dependent`, `combine_h2_2_updated_decoder`,
+  `analyze_d5_h2_2_zero_sleep_control`, `analyze_d5_h2_2_zero_sleep_n3`, `analyze_d5_h2_2_zero_sleep_n3_skip5`,
+  `analyze_d5_h2_2_t1_20261113`, `d5_h2_2_p_read_sensitivity`, and `analyze_d5_h2_2_t1_skip5` for
+  `--rounds 2/3/4/6/10`. Their decoded counts, checked against the committed result JSONs, become the stage 6
+  regression targets.
 
 ## 7. Notes for the PR description
 
